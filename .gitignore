@@ -3,6 +3,8 @@
 /*/
 !/.config
 /.config/*
+!/.git
+!/.git/
 
 # but these:
 !/README.md

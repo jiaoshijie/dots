@@ -107,7 +107,7 @@ file_node_extensions = {
     'ml'       : 'λ',
     'mli'      : 'λ',
     'mov'      : '',
-    'mp3'      : '',
+    'mp3'      : 'ﱘ',
     'mp4'      : '',
     'mpeg'     : '',
     'mpg'      : '',
@@ -183,7 +183,7 @@ dir_node_exact_matches = {
     'Templates'                        : '',
     'Videos'                           : '',
     'Nutstore Files'                   : '',
-    'VirtualBox VMs'                   : ''
+    'VirtualBox VMs'                   : ''
 }
 
 file_node_exact_matches = {
@@ -254,11 +254,11 @@ file_node_exact_matches = {
     'node_modules'                     : '',
     'procfile'                         : '',
     'react.jsx'                        : '',
-    'README.rst'                       : '',
-    'README.md'                        : '',
-    'README.markdown'                  : '',
-    'README'                           : '',
-    'README.txt'                       : '',
+    'README.rst'                       : '',
+    'README.md'                        : '',
+    'README.markdown'                  : '',
+    'README'                           : '',
+    'README.txt'                       : '',
     'user-dirs.dirs'                   : '',
     'webpack.config.js'                : '',
 }

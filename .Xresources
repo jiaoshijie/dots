@@ -47,16 +47,12 @@ Xft.lcdfilter: lcddefault
 *color7:                          #d8d8d8
 *color15:                         #f8f8f8
 
-! 设置X server的光标主题
-! Xcursor.theme: xcursor-breeze
-! Xcursor.size: 0
-
 
 ! -------* urxvt配置 *--------!
 ! 实现背景透明需要安装xcompmgr
 URxvt.font:                       xft:Source Code Pro:size=16, xft:TerminessTTFNerdFontMono:size=16, xft:WenQuanYi Micro Hei Mono:size=16
 URxvt.depth:                      32
-URxvt.background:                 [60]black
+URxvt.background:                 [80]black
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                false
@@ -64,6 +60,8 @@ URxvt*cursorUnderline:            false
 URxvt*saveLines:                  5000
 URxvt*internalBorder:             5
 URxvt*geometry:                   85x30
+URxvt.urlLauncher:                firefox
+URxvt.matcher.button:             1
 ! 实现正常的复制粘贴
 URxvt.iso14755:                   false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
@@ -72,6 +70,31 @@ URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
 ! URxvt.keysym.M-C-c:               perl:clipboard:copy
 ! URxvt.keysym.M-v:                 perl:clipboard:paste
 ! URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
+!!颜色重定义
+!Black
+URxvt.color0:  #000000
+URxvt.color8:  #555753
+!Red
+URxvt.color1:  #CC0000
+URxvt.color9:  #EF2929
+!Green
+URxvt.color2:  #4E9A06
+URxvt.color10: #8AE234
+!Yellow
+URxvt.color3:  #C4A000
+URxvt.color11: #FCE94F
+!Blue
+URxvt.color4:  #3465A4
+URxvt.color12: #729FCF
+!Magenta
+URxvt.color5:  #75507B
+URxvt.color13: #AD7FA8
+!Cyan
+URxvt.color6:  #06989A
+URxvt.color14: #34E2E2
+!White
+URxvt.color7:  #D3D7CF
+URxvt.color15: #EEEEEC
 
 
 ! --------* xterm 配置(没有安装) *--------!
