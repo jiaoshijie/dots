@@ -174,5 +174,5 @@ nnoremap tt :NERDTree<cr>
 let g:ctrlp_map = '<c-p>'
 
 " airline
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='light'

@@ -60,16 +60,11 @@ URxvt*cursorUnderline:            false
 URxvt*saveLines:                  5000
 URxvt*internalBorder:             5
 URxvt*geometry:                   85x30
-URxvt.urlLauncher:                firefox
-URxvt.matcher.button:             1
 ! 实现正常的复制粘贴
 URxvt.iso14755:                   false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
-! Rxvt.perl-ext-common:             ...,clipboard
-! URxvt.keysym.M-C-c:               perl:clipboard:copy
-! URxvt.keysym.M-v:                 perl:clipboard:paste
-! URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
+
 !!颜色重定义
 !Black
 URxvt.color0:  #000000
