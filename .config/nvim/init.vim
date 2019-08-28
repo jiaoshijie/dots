@@ -101,12 +101,6 @@ nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
 " inster mode mapings
 " inoremap <leader>w <Esc>:w<cr>i
 inoremap jk <Esc>
-inoremap { {}<Esc>i
-inoremap [ []<Esc>i
-inoremap ( ()<Esc>i
-inoremap < <><Esc>i
-inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-n> <Down>
