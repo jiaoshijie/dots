@@ -99,7 +99,6 @@ nnoremap <leader><Right> :bnext<cr>
 nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
 
 " inster mode mapings
-" inoremap <leader>w <Esc>:w<cr>i
 inoremap jk <Esc>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
@@ -155,6 +154,9 @@ Plug 'sbdchd/neoformat'
 
 " 静态检查代码，显示错误(自动)
 Plug 'w0rp/ale'
+
+" 括号补全插件
+Plug 'Raimondi/delimitMate'
 
 call plug#end()
 
