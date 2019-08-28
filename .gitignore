@@ -1,0 +1,22 @@
+# ignore everything
+/*
+/*/
+
+# but these:
+!/README.md
+!/.gitignore
+!/.Xmodmap
+!/.xprofile
+!/.Xresources
+!/.zshrc
+!/.config/alacritty/
+!/.config/fish/
+!/.config/i3/
+!/.config/llpp.conf
+!/.config/neofetch/
+!/.config/nvim/init.vim
+!/.config/polybar/
+!/.config/ranger/
+/.config/ranger/plugins/__pycache__/*
+/.config/ranger/colorschemes/__pycache__/*
+
