@@ -1,6 +1,8 @@
 # ignore everything
 /*
 /*/
+!/.config
+/.config/*
 
 # but these:
 !/README.md
