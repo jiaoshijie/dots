@@ -60,6 +60,10 @@ URxvt*cursorUnderline:            false
 URxvt*saveLines:                  5000
 URxvt*internalBorder:             5
 URxvt*geometry:                   85x30
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
 ! 实现正常的复制粘贴
 URxvt.iso14755:                   false
 URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
