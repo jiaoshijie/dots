@@ -1,3 +1,4 @@
+export EDITOR=/usr/bin/nvim
 ########################
 #自己定义的设置
 alias SetProxy="export http_proxy=http://127.0.0.1:8118 export https_proxy=http://127.0.0.1:8118"
