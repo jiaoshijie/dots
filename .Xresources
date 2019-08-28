@@ -1,0 +1,92 @@
+! -------* Xft配置 *--------!
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.autohint:  false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+*background: #25252c
+*foreground: #ffffff
+*cursorColor: #ffffff
+*fading: 8
+*fadeColor: black
+*pointerColorBackground:          #2B2C2B
+*pointerColorForeground:          #16A085
+
+!! black dark/light
+*color0:                          #222D31
+*color8:                          #585858
+
+!! red dark/light
+*color1:                          #ab4642
+*color9:                          #ab4642
+
+!! green dark/light
+*color2:                          #7E807E
+*color10:                         #8D8F8D
+
+!! yellow dark/light
+*color3:                          #f7ca88
+*color11:                         #f7ca88
+
+!! blue dark/light
+*color4:                          #7cafc2
+*color12:                         #7cafc2
+
+!! magenta dark/light
+*color5:                          #ba8baf
+*color13:                         #ba8baf
+
+!! cyan dark/light
+*color6:                          #1ABB9B
+*color14:                         #1ABB9B
+
+!! white dark/light
+*color7:                          #d8d8d8
+*color15:                         #f8f8f8
+
+! 设置X server的光标主题
+! Xcursor.theme: xcursor-breeze
+! Xcursor.size: 0
+
+
+! -------* urxvt配置 *--------!
+! 实现背景透明需要安装xcompmgr
+URxvt.font:                       xft:Source Code Pro:size=16, xft:TerminessTTFNerdFontMono:size=16, xft:WenQuanYi Micro Hei Mono:size=16
+URxvt.depth:                      32
+URxvt.background:                 [60]black
+URxvt*scrollBar:                  false
+URxvt*mouseWheelScrollPage:       false
+URxvt*cursorBlink:                false
+URxvt*cursorUnderline:            false
+URxvt*saveLines:                  5000
+URxvt*internalBorder:             5
+URxvt*geometry:                   85x30
+! 实现正常的复制粘贴
+URxvt.iso14755:                   false
+URxvt.keysym.Shift-Control-V:     eval:paste_clipboard
+URxvt.keysym.Shift-Control-C:     eval:selection_to_clipboard
+! Rxvt.perl-ext-common:             ...,clipboard
+! URxvt.keysym.M-C-c:               perl:clipboard:copy
+! URxvt.keysym.M-v:                 perl:clipboard:paste
+! URxvt.keysym.M-C-v:               perl:clipboard:paste_escaped
+
+
+! --------* xterm 配置(没有安装) *--------!
+! XTerm*background:        #222D31
+! XTerm*foreground:        #d8d8d8
+! XTerm*pointerColor:      #1ABB9B
+! XTerm*faceName:          Fixed
+! XTerm*faceSize:          11
+! XTerm*reverseVideo:      on
+! XTerm*selectToClipboard: true
+
+
+! --------* ROFI Color theme 配置 *--------!
+ rofi.color-enabled: true
+ rofi.color-window: #393939, #393939, #268bd2
+ rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
+ rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+ rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
