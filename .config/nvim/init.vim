@@ -37,7 +37,7 @@ set tw=0
 set cursorline
 set ruler
 set list
-set listchars=trail:▫
+set listchars=trail:▫,tab:
 set scrolloff=6
 
 " search
@@ -50,6 +50,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set softtabstop=4
+" 代码格式化的一些选项
+set formatoptions-=tc
 
 " auto to dir
 set autochdir
@@ -61,9 +63,6 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 " split window behaviors
 set splitright
 set splitbelow
-
-" 代码格式化的一些选项
-set formatoptions-=tc
 
 " 打开自动定位到上次编辑的位置
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -166,7 +165,7 @@ call plug#end()
 let g:deoplete#enable_at_startup = 1
 
 " NERDTree
-nnoremap tt :NERDTree<cr>
+nnoremap tt :NERDTreeToggle<cr>
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'

@@ -162,7 +162,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # 这里没有使用i3bar和i3status，换成了polybar
-exec_always --no-startup-id polybar example
+exec --no-startup-id polybar example
 
 #设置自动锁屏
 exec --no-startup-id xautolock -time 10 -locker "i3lock -e -i /home/red/Pictures/emacs_learn.png"
@@ -218,6 +218,8 @@ bindsym $mod+u border none
 bindsym $mod+y border pixel 1
 bindsym $mod+n border normal
 
+# exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
+
 # 启动feh设置壁纸
 exec_always --no-startup-id feh --bg-fill /home/red/Pictures/stallman.png
 
@@ -228,16 +230,19 @@ exec_always --no-startup-id compton
 exec_always sleep 5; xmodmap ~/.Xmodmap
 
 # 开机启动坚果云
-exec_always --no-startup-id nutstore
+exec --no-startup-id nutstore
 
 # 开机启动fcitx
-exec_always --no-startup-id fcitx
+exec --no-startup-id fcitx
 
 # 开机启动utools
-# exec_always --no-startup-id /opt/uTools/utools
+# exec --no-startup-id /opt/uTools/utools
 
 # 快速启动chrome
 bindsym $mod+c exec --no-startup-id chromium
 
 # 快速启动firefox
 bindsym $mod+x exec --no-startup-id firefox
+
+# 快速打开emacs
+bindsym $mod+z exec --no-startup-id emacs
