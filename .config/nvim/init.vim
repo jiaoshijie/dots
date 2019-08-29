@@ -119,9 +119,9 @@ vnoremap <leader>p "+p
 call plug#begin('~/.config/nvim/plugged')
 
 " 代码补全插件(自动)
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete-clangx'
-Plug 'zchee/deoplete-jedi'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete-clangx'
+" Plug 'zchee/deoplete-jedi'
 
 " 缩进显示插件(自动)
 Plug 'nathanaelkane/vim-indent-guides'
@@ -162,7 +162,7 @@ Plug 'Raimondi/delimitMate'
 call plug#end()
 
 " deoplete.nvim
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " NERDTree
 nnoremap tt :NERDTreeToggle<cr>
@@ -171,7 +171,7 @@ nnoremap tt :NERDTreeToggle<cr>
 let g:ctrlp_map = '<c-p>'
 
 " airline
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
