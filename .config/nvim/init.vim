@@ -62,8 +62,10 @@ set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
 set splitright
 set splitbelow
 
-" unknow but useful
+" 代码格式化的一些选项
 set formatoptions-=tc
+
+" 打开自动定位到上次编辑的位置
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 
