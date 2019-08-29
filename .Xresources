@@ -50,7 +50,7 @@ Xft.lcdfilter: lcddefault
 
 ! -------* urxvt配置 *--------!
 ! 实现背景透明需要安装xcompmgr
-URxvt.font:                       xft:Source Code Pro:size=16, xft:TerminessTTFNerdFontMono:size=16, xft:WenQuanYi Micro Hei Mono:size=16
+URxvt.font:                       xft:Source Code Pro:size=16, xft:WenQuanYi Micro Hei Mono:size=16, xft:TerminessTTFNerdFontMono:size=16
 URxvt.depth:                      32
 URxvt.background:                 [80]black
 URxvt*scrollBar:                  false
