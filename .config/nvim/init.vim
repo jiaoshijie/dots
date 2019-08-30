@@ -1,13 +1,20 @@
-"                                                                           
-"      _ ___ _____ _ ____    _   _ _____ _____     _____ __  __ ____   ____ 
-"     | |_ _| ____( ) ___|  | \ | | ____/ _ \ \   / /_ _|  \/  |  _ \ / ___|
-"  _  | || ||  _| |/\___ \  |  \| |  _|| | | \ \ / / | || |\/| | |_) | |    
-" | |_| || || |___   ___) | | |\  | |__| |_| |\ V /  | || |  | |  _ <| |___ 
-"  \___/|___|_____| |____/  |_| \_|_____\___/  \_/  |___|_|  |_|_| \_\\____|
-"  git clone https://github.com/junegunn/vim-plug
-"  ~/.config/nvim/autoload
-"                                                                           
+" 
+"  __  __     __     _____ __  __ ____   ____ 
+" |  \/  |_   \ \   / /_ _|  \/  |  _ \ / ___|
+" | |\/| | | | \ \ / / | || |\/| | |_) | |    
+" | |  | | |_| |\ V /  | || |  | |  _ <| |___ 
+" |_|  |_|\__, | \_/  |___|_|  |_|_| \_\\____|
+"         |___/                               
 
+" auto load for first time uses
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+" Editor Setup
 filetype on
 filetype indent on
 filetype plugin on
@@ -80,7 +87,6 @@ nnoremap J 6j
 nnoremap K 6k
 nnoremap H 0
 nnoremap L $
-nnoremap <leader>p "+p
     " window mapings
 nnoremap <leader><Up> <C-w>v
 nnoremap <leader><down> <C-w>s
@@ -113,7 +119,6 @@ inoremap <C-d> <del>
 " visual mode mapings
 vnoremap H 0
 vnoremap L $
-vnoremap <leader>p "+p
 
 " vim 插件
 call plug#begin('~/.config/nvim/plugged')
@@ -122,6 +127,12 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/deoplete-clangx'
 " Plug 'zchee/deoplete-jedi'
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
+Plug 'ncm2/ncm2-pyclang'
 
 " 缩进显示插件(自动)
 Plug 'nathanaelkane/vim-indent-guides'
@@ -158,11 +169,23 @@ Plug 'w0rp/ale'
 
 " 括号补全插件
 Plug 'Raimondi/delimitMate'
-
 call plug#end()
 
-" deoplete.nvim
-" let g:deoplete#enable_at_startup = 1
+" ncm2补全插件设置
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+let ncm2#popup_delay = 2
+let g:ncm2#matcher = "substrfuzzy"
+let g:ncm2#match_highlight = 'bold'
+let g:ncm2_jedi#python_version=3
+set shortmess+=c
+set notimeout
+
 
 " NERDTree
 nnoremap tt :NERDTreeToggle<cr>
