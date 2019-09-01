@@ -8,7 +8,6 @@
 ;   安装以下字体
 ;   sudo pacman -S ttf-font-awesome
 ;   sudo pacman -S otf-font-awesome
-;   yaourt -S siji-git
 ;   Font Awesome 字体官网
 ;   https://fontawesome.com/icons?d=gallery
 ;==========================================================
@@ -49,9 +48,9 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
-font-1 = siji:pixelsize=10;1
-font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
-font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;1"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
+font-2 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;1"
+font-3 = TerminessTTFNerdFontMono:pixelsize=10;1
 font-4 = "WenQuanYi Micro Hei:style=Regular:pixelsize=10;1"
 modules-left = powermenu i3
 modules-center = xwindow
@@ -74,6 +73,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label =  %title:0:30:...%
+label-background = #77ADA8
 
 [module/i3]
 type = internal/i3
@@ -139,16 +139,15 @@ format-connected-underline = #9f78e1
 ;label-connected = %essid%
 label-connected =  %upspeed:5%  %downspeed:5% %local_ip% |
 
-format-disconnected =
+format-disconnected = 睊
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-;ramp-signal-1 = 
+ramp-signal-0 = 直
 ramp-signal-1 = 
-;ramp-signal-2 = 
+ramp-signal-2 = 
 ;ramp-signal-foreground = ${colors.foreground-alt}
 ramp-signal-foreground = #aaff77
 
