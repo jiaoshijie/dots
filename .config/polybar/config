@@ -52,7 +52,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = siji:pixelsize=10;1
 font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;1"
-
+font-4 = "WenQuanYi Micro Hei:style=Regular:pixelsize=10;1"
 modules-left = powermenu i3
 modules-center = xwindow
 modules-right = alsa cpu memory wlan temperature date battery 
