@@ -1,4 +1,3 @@
-;==========================================================
 ;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
 ;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
 ;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
@@ -8,20 +7,28 @@
 ;   安装以下字体
 ;   sudo pacman -S ttf-font-awesome
 ;   sudo pacman -S otf-font-awesome
+;   yaourt -S ttf-material-wifi-icons-git
 ;   Font Awesome 字体官网
 ;   https://fontawesome.com/icons?d=gallery
-;==========================================================
 
 [colors]
-;background = ${xrdb:color0:#222}
 background = #cc222222
 background-alt = #444
-;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+black = #000000
+red = #E06C75
+green = #98C379
+orange = #D19A66
+blue = #61AEEE
+magenta = #C678DD
+cyan = #56B6C2
+lightgray = #ABB2BF
+darkgray = #5C6370
+white = #FFFFFF
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -48,10 +55,12 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
-font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=12;1"
-font-2 = "Font Awesome 5 Brands:style=Regular:pixelsize=12;1"
-font-3 = TerminessTTFNerdFontMono:pixelsize=10;1
-font-4 = "WenQuanYi Micro Hei:style=Regular:pixelsize=10;1"
+font-1 = "WenQuanYi Micro Hei:style=Regular:pixelsize=10;1"
+font-2 = "Font Awesome 5 Brands:style=Regular:pixelsize=10;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
+font-4 = TerminessTTFNerdFontMono:pixelsize=10;1
+font-5 = "material\-wifi:style=Regular:pixelsize=10;1"
+
 modules-left = powermenu i3
 modules-center = xwindow
 modules-right = alsa cpu memory wlan temperature date battery 
@@ -73,7 +82,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label =  %title:0:30:...%
-label-background = #77ADA8
+label-background = #C678DD
 
 [module/i3]
 type = internal/i3
@@ -145,9 +154,13 @@ format-disconnected = 睊
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 直
-ramp-signal-1 = 
-ramp-signal-2 = 
+; ramp-signal-0 = 直
+; ramp-signal-1 = 
+; ramp-signal-2 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
 ;ramp-signal-foreground = ${colors.foreground-alt}
 ramp-signal-foreground = #aaff77
 
@@ -162,7 +175,7 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-prefix-foreground = #0000ff
+format-prefix-foreground = ${colors.blue}
 format-underline = #0a6cf5
 
 label = %date% %time%  |
@@ -215,12 +228,12 @@ format-full-underline = ${self.format-charging-underline}
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.green}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-;animation-charging-foreground = ${colors.foreground-alt}
+;animation-charging-foreground = ${colors.green}
 animation-charging-2-foreground = #aaff77
 animation-charging-1-foreground = #fba922
 animation-charging-0-foreground = #ff5555
@@ -229,7 +242,7 @@ animation-charging-framerate = 750
 animation-discharging-0 = 
 animation-discharging-1 = 
 animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-foreground = ${colors.green}
 animation-discharging-framerate = 750
 
 [module/temperature]
@@ -249,7 +262,7 @@ label-warn-foreground = ${colors.secondary}
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-foreground = #ff5555
+ramp-foreground = ${colors.red}
 
 [settings]
 screenchange-reload = true
