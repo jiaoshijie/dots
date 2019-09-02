@@ -56,10 +56,10 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = "WenQuanYi Micro Hei:style=Regular:pixelsize=10;1"
-font-2 = "Font Awesome 5 Brands:style=Regular:pixelsize=10;1"
-font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
-font-4 = TerminessTTFNerdFontMono:pixelsize=10;1
-font-5 = "material\-wifi:style=Regular:pixelsize=10;1"
+font-2 = "Font Awesome 5 Brands:style=Regular:pixelsize=14;1"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
+; font-4 = TerminessTTFNerdFontMono:pixelsize=14;1
+font-4 = "material\-wifi:style=Regular:pixelsize=14;1"
 
 modules-left = powermenu i3
 modules-center = xwindow
@@ -126,7 +126,7 @@ label-separator = |
 type = internal/cpu
 interval = 2
 format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.orange}
 format-underline = #f90000
 label = %percentage:2%%  |
 
@@ -134,7 +134,7 @@ label = %percentage:2%%  |
 type = internal/memory
 interval = 2
 format-prefix = ""
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.cyan}
 format-underline = #4bffdc
 label = %percentage_used%%  |
 
@@ -161,8 +161,8 @@ ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
-;ramp-signal-foreground = ${colors.foreground-alt}
-ramp-signal-foreground = #aaff77
+ramp-signal-foreground = ${colors.magenta}
+; ramp-signal-foreground = #aaff77
 
 [module/date]
 type = internal/date
