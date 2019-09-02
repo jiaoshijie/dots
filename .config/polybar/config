@@ -127,7 +127,7 @@ type = internal/cpu
 interval = 2
 format-prefix = ""
 format-prefix-foreground = ${colors.orange}
-format-underline = #f90000
+; format-underline = #f90000
 label = %percentage:2%%  |
 
 [module/memory]
@@ -135,7 +135,7 @@ type = internal/memory
 interval = 2
 format-prefix = ""
 format-prefix-foreground = ${colors.cyan}
-format-underline = #4bffdc
+; format-underline = #4bffdc
 label = %percentage_used%%  |
 
 [module/wlan]
@@ -144,7 +144,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+; format-connected-underline = #9f78e1
 ;label-connected = %essid%
 label-connected =  %upspeed:5%  %downspeed:5% %local_ip% |
 
@@ -176,7 +176,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.blue}
-format-underline = #0a6cf5
+; format-underline = #0a6cf5
 
 label = %date% %time%  |
 
@@ -216,14 +216,14 @@ adapter = ADP0
 full-at = 95
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+; format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+; format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = ""
 format-full-prefix-foreground = #bbffaa
-format-full-underline = ${self.format-charging-underline}
+; format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
@@ -251,9 +251,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+; format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+; format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%  |
 label-warn = %temperature-c%  |
