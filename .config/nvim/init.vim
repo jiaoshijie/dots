@@ -79,8 +79,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " SOS
 cnoremap w!! w !sudo tee %
 " normal mode mapings
-nnoremap s :w<cr>
-nnoremap S :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>s :w<cr>
+nnoremap <leader>S :source ~/.config/nvim/init.vim<cr>
 nnoremap Q :q<cr>
 nnoremap <leader><cr> :nohl<cr>
 nnoremap J 6j
@@ -88,8 +88,8 @@ nnoremap K 6k
 nnoremap H 0
 nnoremap L $
     " window mapings
-nnoremap <leader><Up> <C-w>v
-nnoremap <leader><down> <C-w>s
+nnoremap <leader>/ <C-w>v
+nnoremap <leader>- <C-w>s
 nnoremap <leader>h <C-w>h
 nnoremap <leader>j <C-w>j
 nnoremap <leader>k <C-w>k
@@ -101,8 +101,8 @@ nnoremap <Right> <C-w><
 " nnoremap <leader><Left> <C-w>t<C-w>H
 " nnoremap <leader><Right> <C-w>t<C-w>K
     " buffer mapings
-nnoremap <leader><Left> :bprevious<cr>
-nnoremap <leader><Right> :bnext<cr>
+" nnoremap <leader><Left> :bprevious<cr>
+" nnoremap <leader><Right> :bnext<cr>
 nnoremap <leader>f /<++><cr>:nohlsearch<cr>c4l
 
 " inster mode mapings
