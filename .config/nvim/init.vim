@@ -30,9 +30,7 @@ let maplocalleader='\\'
 
 " set themes
 set background=dark
-" colorscheme snazzy
 colorscheme gruvbox8
-" let g:SnazzyTransparent = 1
 let g:gruvbox_transp_bg = 1
 let &t_ut=''
 
@@ -53,10 +51,10 @@ set ignorecase
 set smartcase
 
 " tab
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
-set softtabstop=4
+set softtabstop=2
 " 代码格式化的一些选项
 set formatoptions-=tc
 
@@ -143,7 +141,6 @@ Plug 'yggdroot/indentline'
 " 下方的提示条美化插件(自动)
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'connorholyday/vim-snazzy'
 Plug 'lifepillar/vim-gruvbox8'
 
 " vim启动美化插件(自动)

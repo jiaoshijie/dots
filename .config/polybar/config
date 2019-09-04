@@ -82,7 +82,7 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label =  %title:0:30:...%
-label-background = #C678DD
+; label-background = #C678DD
 
 [module/i3]
 type = internal/i3
@@ -162,7 +162,6 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-foreground = ${colors.magenta}
-; ramp-signal-foreground = #aaff77
 
 [module/date]
 type = internal/date
