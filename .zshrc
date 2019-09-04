@@ -132,7 +132,7 @@ alias fm=ranger
 ########################
 
 # 以终端的形式运行emacs
-alias emacs="emacs -nw"
+alias EMACS="emacs -nw"
 
 # git alias
 alias gs="git status"
