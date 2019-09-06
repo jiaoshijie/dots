@@ -16,10 +16,6 @@
 !/.config/i3/
 !/.config/llpp.conf
 !/.config/neofetch/
-!/.config/nvim/
-/.config/nvim/autoload/
-/.config/nvim/colors/
-/.config/nvim/plugged/
 !/.config/polybar/
 !/.config/ranger/
 /.config/ranger/plugins/__pycache__/*
