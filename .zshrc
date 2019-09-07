@@ -2,9 +2,9 @@ export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
 
 # ZSH_THEME="agnoster"
-# ZSH_THEME="ys"
+ZSH_THEME="ys"
 # ZSH_THEME="candy"
-ZSH_THEME="rkj-repos"
+# ZSH_THEME="rkj-repos"
 
 DISABLE_AUTO_UPDATE="true"
 
@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 
 ########################
 #自己定义的设置
-alias SetProxy="export http_proxy=http://127.0.0.1:8118 export https_proxy=http://127.0.0.1:8118"
+alias SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118"
 alias UnSetProxy="unset http_proxy https_proxy"
 alias lsnvidia="lspci | egrep 'VGA|3D'"
 alias nvidiainfo="nvidia-smi"
