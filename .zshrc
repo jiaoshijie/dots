@@ -39,8 +39,7 @@ alias tbvimrc="cp ~/.vimrc ~/'Nutstore Files'/Nutstore/picture/bukeshiyong/vimrc
 alias hexedit="hexedit --color"
 alias ntmux="tmux new -s"
 alias atmux="tmux a -t"
-alias ntj="tmux new -s jie"
-alias atj="tmux a -t jie"
+alias tj="tmux new -s jie || tmux a -t jie"
 alias fm=ranger
 ########################
 
