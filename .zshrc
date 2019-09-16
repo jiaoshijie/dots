@@ -2,7 +2,8 @@ export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
 
 # ZSH_THEME="agnoster"
-ZSH_THEME="ys"
+# ZSH_THEME="ys"
+ZSH_THEME="simple"
 # ZSH_THEME="candy"
 # ZSH_THEME="rkj-repos"
 
