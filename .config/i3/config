@@ -211,8 +211,9 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# 使窗口以float-mode打开, 使用xprop获取窗口的class
-# for_window [class="(?i)VirtualBox Manager"] floating enable
+# 使窗口以float-mode打开, 使用xprop获取窗口的class fullscreen floating
+# for_window [class="(?i)VirtualBox Manager"] floating enable sticky enable
+# for_window [class="audacious"] floating enable sticky enable border normal
 
 # 取消框框(normal | 1pixel | pixel xx | none | pixel)
 new_window 1pixel
