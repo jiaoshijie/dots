@@ -28,6 +28,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec rofi -show run
 
 # i3-scrot i3截屏
+# pass
 
 # 改变当前选中的窗口
 bindsym $mod+h focus left
@@ -209,6 +210,9 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# 使窗口以float-mode打开, 使用xprop获取窗口的class
+# for_window [class="(?i)VirtualBox Manager"] floating enable
 
 # 取消框框(normal | 1pixel | pixel xx | none | pixel)
 new_window 1pixel
