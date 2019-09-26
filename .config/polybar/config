@@ -215,19 +215,17 @@ adapter = ADP0
 full-at = 95
 
 format-charging = <animation-charging> <label-charging>
-; format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
 ; format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = ""
-format-full-prefix-foreground = #bbffaa
-; format-full-underline = ${self.format-charging-underline}
+format-full-prefix-foreground = ${colors.white}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.green}
+ramp-capacity-foreground = ${colors.white}
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -238,10 +236,10 @@ animation-charging-1-foreground = #fba922
 animation-charging-0-foreground = #ff5555
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
+animation-discharging-2 = 
 animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.green}
+animation-discharging-0 = 
+animation-discharging-foreground = ${colors.red}
 animation-discharging-framerate = 750
 
 [module/temperature]
