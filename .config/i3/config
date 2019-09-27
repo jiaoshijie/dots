@@ -251,3 +251,6 @@ bindsym $mod+x exec --no-startup-id firefox
 
 # 快速打开emacs
 bindsym $mod+z exec --no-startup-id emacs
+
+# quick open gVim
+bindsym $mod+g exec --no-startup-id gvim
