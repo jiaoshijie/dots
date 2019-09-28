@@ -240,6 +240,9 @@ exec --no-startup-id nutstore
 # 开机启动fcitx
 exec --no-startup-id fcitx
 
+# run xfce4-power-manager
+exec --no-startup-id xfce4-power-manager
+
 # 开机启动utools
 # exec --no-startup-id /opt/uTools/utools
 
@@ -255,6 +258,3 @@ bindsym $mod+z exec --no-startup-id emacs
 
 # quick open gVim
 bindsym $mod+g exec --no-startup-id gvim
-
-# run xfce4-power-manager
-exec --no-restart-id xfce4-power-manager
