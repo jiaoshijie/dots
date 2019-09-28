@@ -256,5 +256,5 @@ bindsym $mod+z exec --no-startup-id emacs
 # quick open gVim
 bindsym $mod+g exec --no-startup-id gvim
 
-# run xfce-power-manager
-exec --no-restart-id xfce-power-manager
+# run xfce4-power-manager
+exec --no-restart-id xfce4-power-manager
