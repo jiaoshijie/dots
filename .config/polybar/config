@@ -63,7 +63,8 @@ font-4 = "material\-wifi:style=Regular:pixelsize=14;1"
 
 modules-left = powermenu i3
 modules-center = xwindow
-modules-right = alsa cpu memory wlan temperature date battery 
+modules-right = alsa cpu memory wlan date temperature
+; modules-right = alsa cpu memory wlan temperature date battery
 
 tray-position = center
 tray-padding = 2
@@ -252,9 +253,12 @@ format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 ; format-warn-underline = ${self.format-underline}
 
-label = %temperature-c%  |
-label-warn = %temperature-c%  |
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
+; label = %temperature-c%  |
+; label-warn = %temperature-c%  |
+; label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 
 ramp-1 = 

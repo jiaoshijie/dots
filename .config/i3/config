@@ -244,7 +244,8 @@ exec --no-startup-id fcitx
 # exec --no-startup-id /opt/uTools/utools
 
 # 快速启动chrome
-bindsym $mod+c exec --no-startup-id chromium
+bindsym $mod+c exec --no-startup-id google-chrome-stable
+# bindsym $mod+c exec --no-startup-id chromium
 
 # 快速启动firefox
 bindsym $mod+x exec --no-startup-id firefox
@@ -254,3 +255,6 @@ bindsym $mod+z exec --no-startup-id emacs
 
 # quick open gVim
 bindsym $mod+g exec --no-startup-id gvim
+
+# run xfce-power-manager
+exec --no-restart-id xfce-power-manager
