@@ -22,4 +22,4 @@
 /.config/ranger/plugins/__pycache__/*
 /.config/ranger/colorschemes/__pycache__/*
 !/.tmux.conf
-
+!/.xinitrc
