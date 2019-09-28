@@ -2,5 +2,10 @@
 ***
 
 ## .Xmodmap
-`CapsLock`->`Ctrl`
+> CapsLock -> Ctrl
+
+> ` -> Esc
+
+> Ctrl -> `
+
 
