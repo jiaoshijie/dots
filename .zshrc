@@ -37,7 +37,6 @@ alias s=neofetch
 alias p="ping www.baidu.com"
 alias c=clear
 alias x="xmodmap ~/.Xmodmap"
-alias tbvimrc="cp ~/.vimrc ~/'Nutstore Files'/Nutstore/picture/bukeshiyong/vimrc"
 # alias wgu="sudo wg-quick up wg0"
 # alias wgd="sudo wg-quick down wg0"
 alias hexedit="hexedit --color"

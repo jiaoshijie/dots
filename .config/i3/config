@@ -10,6 +10,7 @@
 set $mod Mod4
 
 # 字体
+# font pango:"Source Code pro" monospace 8
 font pango:monospace 8
 
 # 使用mod键+鼠标来拖拽窗口
@@ -258,3 +259,9 @@ bindsym $mod+z exec --no-startup-id emacs
 
 # quick open gVim
 bindsym $mod+g exec --no-startup-id gvim
+
+# quick open typora
+bindsym $mod+t exec --no-startup-id typora
+
+# 自动启动终端和tmux
+exec --no-startup-id alacritty -e tmux new -s jie
