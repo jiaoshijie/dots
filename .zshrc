@@ -3,6 +3,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
+export PATH=$PATH:.bin
 
 # ZSH_THEME="agnoster"
 # ZSH_THEME="ys"
