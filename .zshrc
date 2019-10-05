@@ -3,7 +3,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
-export PATH=$PATH:.bin
+export PATH=$PATH:~/.bin
 
 # ZSH_THEME="agnoster"
 # ZSH_THEME="ys"
@@ -56,5 +56,5 @@ alias ga="git add "
 alias gb="git branch "
 alias gc="git commit"
 alias gd="git diff"
-alias go="git checkout"
+alias goto="git checkout"
 alias gl="git log --graph"
