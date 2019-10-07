@@ -243,6 +243,7 @@ exec --no-startup-id fcitx
 
 # run xfce4-power-manager
 exec --no-startup-id xfce4-power-manager
+# exec --no-startup-id optimus-manager-qt
 
 # 开机启动utools
 # exec --no-startup-id /opt/uTools/utools
