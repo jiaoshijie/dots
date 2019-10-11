@@ -31,7 +31,7 @@ source $ZSH/oh-my-zsh.sh
 #自己定义的设置
 alias SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118"
 alias UnSetProxy="unset http_proxy https_proxy"
-alias lsnvidia="lspci | egrep 'VGA|3D'"
+alias lsvideo="lspci | egrep 'VGA|3D'"
 alias nvidiainfo="nvidia-smi"
 # alias nvidiaup="sudo tee /proc/acpi/bbswitch <<< 'ON'"
 alias s=neofetch
@@ -48,7 +48,7 @@ alias fm=ranger
 ########################
 
 # 以终端的形式运行emacs
-alias EMACS="emacs -nw"
+alias Emacs="emacs -nw"
 
 # git alias
 alias gs="git status "
