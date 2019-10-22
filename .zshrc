@@ -1,6 +1,7 @@
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
 export PATH=$PATH:~/.bin
@@ -59,3 +60,4 @@ alias gc="git commit"
 alias gd="git diff"
 alias goto="git checkout"
 alias gl="git log --graph"
+alias guntrack="git rm -r --cached "
