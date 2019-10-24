@@ -7,9 +7,8 @@ export EDITOR='nvim'
 export PATH=$PATH:~/.bin
 export NUT=/home/red/"Nutstore Files"/Nutstore/
 
-# ZSH_THEME="agnoster"
-# ZSH_THEME="ys"
-ZSH_THEME="simple"
+ZSH_THEME="ys"
+# ZSH_THEME="simple"
 # ZSH_THEME="candy"
 # ZSH_THEME="rkj-repos"
 
@@ -61,3 +60,6 @@ alias gd="git diff"
 alias goto="git checkout"
 alias gl="git log --graph"
 alias guntrack="git rm -r --cached "
+alias githist="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+alias gittype="git cat-file -t "
+alias gitdump="git cat-file -p "
