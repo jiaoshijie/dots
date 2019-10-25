@@ -34,7 +34,7 @@ alias SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0
 alias UnSetProxy="unset http_proxy https_proxy"
 alias lsvideo="lspci | egrep 'VGA|3D'"
 alias nvidiainfo="nvidia-smi"
-# alias nvidiaup="sudo tee /proc/acpi/bbswitch <<< 'ON'"
+alias nvidiaup="sudo tee /proc/acpi/bbswitch <<< 'ON'"
 alias s=neofetch
 alias p="ping www.baidu.com"
 alias c=clear
