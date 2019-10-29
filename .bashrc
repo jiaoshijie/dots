@@ -115,71 +115,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
 # for ipython
 alias ipy='ipython qtconsole --pylab=inline --colors=Linux'
-#for z3 clone, with newest git, if using z3 unstable branch, then the z3 is installed in /usr/bin/
-#export PATH=/home/chyyuu/tools/git/bin:$PATH:/home/chyyuu/tools/z3/bin
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/chyyuu/tools/z3/lib
-#export PYTHONPATH=/home/chyyuu/tools/z3/lib/python2.7/dist-packages:$PYTHONPATH
-# for pycharm
-export PATH=$PATH:/home/chyyuu/tools/pycharm-3.0.1/bin
-# for alarm clock: cuckoo
-#export PATH=$PATH:/opt/extras.ubuntu.com/cuckoo/bin/
-#for pomodoro
-#export PATH=$PATH:/home/chyyuu/tools/TeamViz
-#for mxcl-homebrew
-#export PATH=$PATH:/home/chyyuu/tools/mxcl-homebrew-7db9ef9/bin
-#for understand
-export PATH=$PATH:/home/chyyuu/tools/scitools/bin/linux64
-#for mendeley
-export PATH=$PATH:/home/chyyuu/tools/mendeleydesktop-1.11-linux-x86_64/bin
-#for python tomate :: pomodoro
-#export PATH=$PATH:/home/chyyuu/tools/tomate/bin
-#for android src download & development
-#export PATH=$PATH:/home/chyyuu/tools/android-related/bin
-#for ucore4arm dde4arm development
-#export PATH=$PATH:/home/chyyuu/tools/arm-eabi-4.6/bin
-#for android tools
-#export PATH=$PATH:/home/chyyuu/tools/android-sdk-linux/tools
-#for bionic libc 4 arm
-#export PATH=$PATH:/home/chyyuu/tools/arm-linux-androideabi-4.6/bin
-#for my useful scripts
-#export PATH=$PATH:/home/chyyuu/researchmit/usefulscripts
-#for linux checker: sparse
-#export PATH=$PATH:/home/chyyuu/tools/sparse/bin
-#for buglady
-#export PATH=$PATH:/home/chyyuu/tools/buglady/bin
-#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/chyyuu/tools/buglady/lib
-#export PYTHONPATH=$PYTHONPATH:/home/chyyuu/tools/buglady/share/coccinelle/python
-#for acrobat reader
-export PATH=$PATH:/home/chyyuu/tools/Adobe/Reader9/bin
-#for ldv tools, such as blast, etc.
-#export PATH=$PATH:/home/chyyuu/tools/ldv-run/bin:/home/chyyuu/tools/ldv-run/dscv/rcv/backends/blast/bin
-#for sudo ldv-manager can find res-manager
-#alias sudo='sudo env PATH=$PATH'
-#for ldv mysql
-#export LDVDB=ldv
-#export LDVUSER=root
-#export LDVDBPASSWD=root
-#export LDVDBHOST=localhost
-#for doxygen
-#export PATH=$PATH:/home/chyyuu/tools/doxygen/install-dir/bin
-#for common cd path
-export CDPATH=.:~/:~/develop:~/works/life-related:~/works/researchmit
-#for verifast
-#export PATH=$PATH:/home/chyyuu/develop/verifast-13.11.14/bin
-#for todo.txt
-#export PATH=$PATH:/home/chyyuu/tools/todo.txt-cli
-. ~/.todo/todo_completion
-#for z: a easy CD navigator
-source ~/tools/z/z.sh
-#for kvm spice
-#export VIRSH_DEFAULT_CONNECT_URI="qemu:///session"
-#dor XMind
-#export PATH=$PATH:/home/chyyuu/tools/
-
-# for ~/local/bin
-export PATH=$PATH:/home/chyyuu/local/bin
 
 #for fcitx
 export  GTK_IM_MODULE=fcitx
@@ -194,25 +132,20 @@ alias gl='git log '
 alias gh='git hist --all'
 alias gc='git commit'
 alias gd='git diff'
-alias go='git checkout '
+alias goto='git checkout '
 
 #set bash vi mode
-set -o vi
+# set -o vi
+
 #set bash prompt
 PS1="[\[\033[32m\]\w]\[\033[0m\]\n\[\033[1;36m\]\u\[\033[1;33m\]-> \[\033[0m\]"
 
-#setup llvm-clang 3.4.2 path
-#export PATH=/home/chyyuu/tools/clang+llvm-3.4.2-x86_64-linux-gnu-ubuntu-14.04/bin:$PATH
-#setup llvm devel path
-#export PATH=/ubuntu/chyyuu/develop/llvm-git/install/bin:$PATH
 
 #for colorful less
 PAGER='less -X -M' export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh  %s"
 export LESS=' -R -N '
 #echo    include \"sh.lang\"  >>/usr/share/source-highlight/default.lang
 
-#add WPS path
-#export PATH=/opt/kingsoft/wps-office:$PATH
-
 #change ctrl caps key
-setxkbmap -option ctrl:swapcaps
+# setxkbmap -option ctrl:swapcaps
+alias c=clear
