@@ -1,4 +1,4 @@
-# My ArchLinux some config
+# My ArchLinux config
 ***
 
 ## .Xmodmap
