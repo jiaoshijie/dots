@@ -134,7 +134,8 @@ bindsym $mod+Shift+c reload
 # 退出i3到X session的登入界面
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # i3锁屏
-bindsym $mod+p exec "i3lock -e -i /home/red/Pictures/emacs_learn.png"
+# bindsym $mod+p exec "i3lock -e -i /home/red/Pictures/emacs_learn.png"
+bindsym $mod+p exec "i3lock-fancy -t ''"
 
 # 重新调整窗口的大小
 mode "resize" {
@@ -167,7 +168,8 @@ bindsym $mod+r mode "resize"
 exec --no-startup-id polybar example
 
 #设置自动锁屏
-exec --no-startup-id xautolock -time 10 -locker "i3lock -e -i /home/red/Pictures/emacs_learn.png"
+# exec --no-startup-id xautolock -time 10 -locker "i3lock -e -i /home/red/Pictures/emacs_learn.png"
+exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy -t ''"
 
 # 设置窗口有间隙, 需要安装i3gaps, 而不是i3wm
 gaps inner 10
@@ -212,9 +214,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# 使窗口以float-mode打开, 使用xprop获取窗口的class fullscreen floating
-# for_window [class="(?i)VirtualBox Manager"] floating enable sticky enable
-# for_window [class="audacious"] floating enable sticky enable border normal
 
 # 取消框框(normal | 1pixel | pixel xx | none | pixel)
 new_window 1pixel
@@ -265,4 +264,37 @@ bindsym $mod+g exec --no-startup-id gvim
 bindsym $mod+t exec --no-startup-id typora
 
 # 自动启动终端和tmux
-exec --no-startup-id alacritty -e tmux new -s jie
+exec --no-startup-id alacritty --title jiaoshijie -e tmux new -s jie
+for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
+
+# 使窗口以float-mode打开, 使用xprop获取窗口的class fullscreen floating
+# ---- * VirtualBox * ------
+for_window [class="VirtualBox Manager"] floating enable
+for_window [class="VirtualBox Manager"] resize set 1000 600
+for_window [class="VirtualBox Manager"] move position center
+for_window [class="VirtualBox Machine"] floating enable
+
+# ---- * audacious * -------
+for_window [class="Audacious"] floating enable
+for_window [class="Audacious"] resize set 800 400
+for_window [class="Audacious"] move position center
+
+# ---- * Gcolor2 *------
+# for_window [class="Gcolor2"] sticky enable
+for_window [class="Gcolor2"] border pixel 1
+
+# ---- * Flameshot *------
+for_window [class="flameshot"] floating enable
+
+# ---- * GIMP Startup *------
+for_window [title="GIMP Startup"] border pixel 0
+
+# ---- * mitalk *------
+for_window [class="mitalk"] floating enable
+for_window [class="Qq"] floating enable
+
+# ----- * Nutstore *-----
+for_window [title="Nutstore"] border pixel 0
+
+# ----- * Qemu-system-i386 *----
+for_window [class="Qemu-system-i386"] floating enable
