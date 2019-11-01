@@ -272,6 +272,7 @@ for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Manager"] resize set 1000 600
 for_window [class="VirtualBox Manager"] move position center
+<<<<<<< HEAD
 for_window [class="VirtualBox Machine"] floating enable
 
 # ---- * audacious * -------
