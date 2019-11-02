@@ -272,13 +272,15 @@ for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Manager"] resize set 1000 600
 for_window [class="VirtualBox Manager"] move position center
-<<<<<<< HEAD
 for_window [class="VirtualBox Machine"] floating enable
+for_window [class="VirtualBox Manager"] move container to workspace $ws10
+for_window [class="VirtualBox"] floating enable
 
 # ---- * audacious * -------
 for_window [class="Audacious"] floating enable
 for_window [class="Audacious"] resize set 800 400
 for_window [class="Audacious"] move position center
+for_window [class="Audacious"] move container to workspace $ws10
 
 # ---- * Gcolor2 *------
 # for_window [class="Gcolor2"] sticky enable
