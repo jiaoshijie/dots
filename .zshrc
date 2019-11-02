@@ -1,16 +1,14 @@
-# export XMODIFIERS=@im=fcitx
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
 export PATH=$PATH:~/.bin
 export NUT=/home/red/"Nutstore Files"/Nutstore/
 
-ZSH_THEME="ys"
-# ZSH_THEME="simple"
-# ZSH_THEME="candy"
-# ZSH_THEME="rkj-repos"
+
+# ZSH_THEME="ys"
+ZSH_THEME="simple"
 
 DISABLE_AUTO_UPDATE="true"
 
