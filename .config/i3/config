@@ -226,7 +226,7 @@ bindsym $mod+n border normal
 # exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
 
 # 启动feh设置壁纸
-exec_always --no-startup-id feh --bg-fill /home/red/Pictures/1379186114972.jpg
+exec_always --no-startup-id feh --bg-fill /home/red/Pictures/wallpaper.jpg
 
 # 设置compton
 exec_always --no-startup-id compton
@@ -301,3 +301,9 @@ for_window [title="Nutstore"] border pixel 0
 
 # ----- * Qemu-system-i386 *----
 for_window [class="Qemu-system-i386"] floating enable
+
+# -----* other *-----
+for_window [class="Bnd"] floating enable
+for_window [class="Bnd"] move container to workspace $ws10
+for_window [class="baidunetdisk"] floating enable
+for_window [class="baidunetdisk"] move container to workspace $ws10

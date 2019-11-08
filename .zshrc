@@ -61,3 +61,7 @@ alias guntrack="git rm -r --cached "
 alias githist="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias gittype="git cat-file -t "
 alias gitdump="git cat-file -p "
+
+if [ -f ~/.ssh/ssh_connection ]; then
+  source ~/.ssh/ssh_connection
+fi
