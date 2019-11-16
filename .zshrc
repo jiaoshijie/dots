@@ -3,12 +3,13 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
-export PATH=$PATH:~/.bin
+export PATH=$PATH:~/.bin:/home/red/.gem/ruby/2.6.0/bin
 export NUT=/home/red/"Nutstore Files"/Nutstore/
 
 
 # ZSH_THEME="ys"
 ZSH_THEME="simple"
+
 
 DISABLE_AUTO_UPDATE="true"
 
@@ -28,6 +29,10 @@ source $ZSH/oh-my-zsh.sh
 
 ########################
 #自己定义的设置
+
+# git clone https://github.com/kaelzhang/shell-safe-rm.git
+alias rm="~/.bin/shell-safe-rm/bin/rm.sh"
+
 alias SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118"
 alias UnSetProxy="unset http_proxy https_proxy"
 alias lsvideo="lspci | egrep 'VGA|3D'"
@@ -65,3 +70,7 @@ alias gitdump="git cat-file -p "
 if [ -f ~/.ssh/ssh_connection ]; then
   source ~/.ssh/ssh_connection
 fi
+
+alias ls="colorls --gs --group-directories-first"
+alias l="colorls -laA --sd --gs --group-directories-first"
+alias ll="colorls -lA --sd --gs --group-directories-first"

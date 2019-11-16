@@ -57,7 +57,7 @@ URxvt*color15:#fdf6e3
 XTerm*background:        #222D31
 XTerm*foreground:        #d8d8d8
 XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          DejaVu Sans Mono:pixelsize=16, WenQuanYi Zen Hei Mono:pixelsize=16
+XTerm*faceName:          DejaVu Sans Mono:pixelsize=16, WenQuanYi Zen Hei Mono:pixelsize=16, xft:TerminessTTFNerdFontMono:size=16
 XTerm*faceSize:          10
 XTerm*reverseVideo:      on
 XTerm*selectToClipboard: true
