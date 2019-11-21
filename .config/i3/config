@@ -226,7 +226,7 @@ bindsym $mod+n border normal
 # exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
 
 # 启动feh设置壁纸
-exec_always --no-startup-id feh --bg-fill /home/red/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-fill /home/red/Pictures/SC01C25.jpg
 
 # 设置compton
 exec_always --no-startup-id compton

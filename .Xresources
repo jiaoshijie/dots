@@ -1,23 +1,23 @@
 ! -------* Xft配置 *--------!
-Xft.dpi:       96
-Xft.antialias: true
-Xft.hinting:   true
-Xft.rgba:      rgb
-Xft.autohint:  false
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
+Xft.dpi:                          96
+Xft.antialias:                    true
+Xft.hinting:                      true
+Xft.rgba:                         rgb
+Xft.autohint:                     false
+Xft.hintstyle:                    hintslight
+Xft.lcdfilter:                    lcddefault
 
-*background: #25252c
-*foreground: #ffffff
-*cursorColor: #ffffff
-*fading: 8
-*fadeColor: black
+*background:                      #25252c
+*foreground:                      #ffffff
+*cursorColor:                     #ffffff
+*fading:                          8
+*fadeColor:                       black
 *pointerColorBackground:          #2B2C2B
 *pointerColorForeground:          #16A085
 
 ! -------* urxvt配置 *--------!
 ! 实现背景透明需要安装xcompmgr
-URxvt*font:                       xft:Source Code Pro:size=16, xft:WenQuanYi Micro Hei Mono:size=16, xft:TerminessTTFNerdFontMono:size=16
+URxvt*font:                       xft:Source Code Pro:size=12, xft:WenQuanYi Micro Hei Mono:size=12, xft:TerminessTTFNerdFontMono:size=12
 URxvt*depth:                      32
 URxvt*background:                 [80]black
 URxvt*scrollBar:                  false
@@ -27,44 +27,47 @@ URxvt*cursorUnderline:            false
 URxvt*saveLines:                  5000
 URxvt*internalBorder:             5
 URxvt*geometry:                   85x30
-URxvt*perl-ext-common: default,matcher
-URxvt*url-launcher: /usr/bin/xdg-open
-URxvt*matcher.button: 1
-URxvt*matcher.rend.0: Uline Bold fg5
+URxvt*perl-ext-common:            default,matcher
+URxvt*url-launcher:               /usr/bin/xdg-open
+URxvt*matcher.button:             1
+URxvt*matcher.rend.0:             Uline Bold fg5
 ! 实现正常的复制粘贴
 URxvt*iso14755:                   false
 URxvt*keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt*keysym.Shift-Control-C:     eval:selection_to_clipboard
 
-URxvt*color0:#073642
-URxvt*color1:#dc322f
-URxvt*color2:#859900
-URxvt*color3:#b58900
-URxvt*color4:#268bd2
-URxvt*color5:#d33682
-URxvt*color6:#2aa198
-URxvt*color7:#eee8d5
-URxvt*color9:#cb4b16
-URxvt*color8:#fdf6e3
-URxvt*color10:#586e75
-URxvt*color11:#657b83
-URxvt*color12:#839496
-URxvt*color13:#6c71c4
-URxvt*color14:#93a1a1
-URxvt*color15:#fdf6e3
+URxvt*color0:                     #073642
+URxvt*color1:                     #dc322f
+URxvt*color2:                     #859900
+URxvt*color3:                     #b58900
+URxvt*color4:                     #268bd2
+URxvt*color5:                     #d33682
+URxvt*color6:                     #2aa198
+URxvt*color7:                     #eee8d5
+URxvt*color9:                     #cb4b16
+URxvt*color8:                     #fdf6e3
+URxvt*color10:                    #586e75
+URxvt*color11:                    #657b83
+URxvt*color12:                    #839496
+URxvt*color13:                    #6c71c4
+URxvt*color14:                    #93a1a1
+URxvt*color15:                    #fdf6e3
 
 ! --------* xterm 配置 *--------!
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
-XTerm*pointerColor:      #1ABB9B
-XTerm*faceName:          DejaVu Sans Mono:pixelsize=16, WenQuanYi Zen Hei Mono:pixelsize=16, xft:TerminessTTFNerdFontMono:size=16
-XTerm*faceSize:          10
-XTerm*reverseVideo:      on
-XTerm*selectToClipboard: true
+XTerm*background:                 #AD349A
+XTerm*foreground:                 #3E3E3E
+XTerm*pointerColor:               #1ABB9B
+XTerm*faceName:                   DejaVu Sans Mono
+XTerm*faceSize:                   12
+xterm*allowBoldFonts:             true
+xterm*ScrollBar:                  false
+XTerm*reverseVideo:               on
+XTerm*selectToClipboard:          true
+xterm*termName:                   xterm-color
 
 ! --------* ROFI Color theme 配置 *--------!
- rofi.color-enabled: true
- rofi.color-window: #393939, #393939, #268bd2
- rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
- rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
- rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
+ rofi.color-enabled:              true
+ rofi.color-window:               #393939, #393939, #268bd2
+ rofi.color-normal:               #393939, #ffffff, #393939, #268bd2, #ffffff
+ rofi.color-active:               #393939, #268bd2, #393939, #268bd2, #205171
+ rofi.color-urgent:               #393939, #f3843d, #393939, #268bd2, #ffc39c
