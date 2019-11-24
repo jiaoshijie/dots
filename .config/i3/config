@@ -301,6 +301,7 @@ for_window [title="Nutstore"] border pixel 0
 
 # ----- * Qemu-system-i386 *----
 for_window [class="Qemu-system-i386"] floating enable
+for_window [class="Qemu-system-i386"] move position 1265 100
 
 # -----* other *-----
 for_window [class="Bnd"] floating enable
