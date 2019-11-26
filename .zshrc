@@ -5,6 +5,7 @@ export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
 export PATH=$PATH:~/.bin:/home/red/.gem/ruby/2.6.0/bin
 export NUT=/home/red/"Nutstore Files"/Nutstore/
+export TERM_ITALICS=true
 
 
 # ZSH_THEME="ys"
