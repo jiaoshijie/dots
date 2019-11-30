@@ -175,7 +175,6 @@ exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy -t ''"
 gaps inner 10
 gaps outer -2
 smart_gaps on
-smart_borders on
 
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
@@ -216,12 +215,15 @@ mode "$mode_gaps_outer" {
 
 
 # 取消框框(normal | 1pixel | pixel xx | none | pixel)
-new_window 1pixel
-new_float normal
+# new_window 1pixel
+new_window pixel 3
+# new_float normal
+new_float pixel 3
 hide_edge_borders none
 bindsym $mod+u border none
-bindsym $mod+y border pixel 1
+bindsym $mod+y border pixel 3
 bindsym $mod+n border normal
+smart_borders on
 
 # exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
 
@@ -273,6 +275,7 @@ for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Manager"] resize set 1000 600
 for_window [class="VirtualBox Manager"] move position center
 for_window [class="VirtualBox Machine"] floating enable
+for_window [class="VirtualBox Machine"] resize set 1000 600
 for_window [class="VirtualBox Manager"] move container to workspace $ws10
 for_window [class="VirtualBox"] floating enable
 
