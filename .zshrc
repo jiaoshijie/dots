@@ -3,7 +3,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
-export PATH=$PATH:~/.bin:/home/red/.gem/ruby/2.6.0/bin
+export PATH=$PATH:~/.bin:/home/red/.gem/ruby/2.6.0/bin:~/.local/bin
 export NUT=/home/red/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 
@@ -33,6 +33,11 @@ source $ZSH/oh-my-zsh.sh
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
 alias rm="~/.bin/shell-safe-rm/bin/rm.sh"
+# alias update="sudo pacman -Syu"
+# alias cclean="sudo pacman -Scc"
+# alias install="sudo pacman -S"
+# alias remove="sudo pacman -Rcn"
+# alias removeloop="sudo pacman -R $(pacman -Qdtq) 2> /dev/null"
 
 alias SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118"
 alias UnSetProxy="unset http_proxy https_proxy"
@@ -50,7 +55,7 @@ alias ntmux="tmux new -s"
 alias atmux="tmux a -t"
 alias tj="tmux new -s jie || tmux a -t jie -d"
 alias fm=ranger
-########################
+alias ipy=ipython
 
 # 以终端的形式运行emacs
 alias Emacs="emacs -nw"
@@ -72,6 +77,6 @@ if [ -f ~/.ssh/ssh_connection ]; then
   source ~/.ssh/ssh_connection
 fi
 
-alias ls="colorls --gs --group-directories-first"
-alias l="colorls -laA --sd --gs --group-directories-first"
-alias ll="colorls -lA --sd --gs --group-directories-first"
+# alias ls="colorls --gs --group-directories-first"
+# alias l="colorls -laA --sd --gs --group-directories-first"
+# alias ll="colorls -l --sd --gs --group-directories-first"

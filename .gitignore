@@ -15,7 +15,7 @@
 !/.config/alacritty/
 !/.config/fish/
 !/.config/i3/
-!/.config/llpp.conf
+# !/.config/llpp.conf
 !/.config/neofetch/
 !/.config/polybar/
 !/.config/ranger/

@@ -19,7 +19,7 @@ Xft.lcdfilter:                    lcddefault
 ! 实现背景透明需要安装xcompmgr
 URxvt*font:                       xft:Source Code Pro:size=12, xft:WenQuanYi Micro Hei Mono:size=12, xft:TerminessTTFNerdFontMono:size=12
 URxvt*depth:                      32
-URxvt*background:                 [80]black
+URxvt*background:                 [50]black
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                false
@@ -36,22 +36,22 @@ URxvt*iso14755:                   false
 URxvt*keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt*keysym.Shift-Control-C:     eval:selection_to_clipboard
 
-URxvt*color0:                     #073642
-URxvt*color1:                     #dc322f
-URxvt*color2:                     #859900
-URxvt*color3:                     #b58900
-URxvt*color4:                     #268bd2
-URxvt*color5:                     #d33682
-URxvt*color6:                     #2aa198
-URxvt*color7:                     #eee8d5
-URxvt*color9:                     #cb4b16
-URxvt*color8:                     #fdf6e3
-URxvt*color10:                    #586e75
-URxvt*color11:                    #657b83
-URxvt*color12:                    #839496
-URxvt*color13:                    #6c71c4
-URxvt*color14:                    #93a1a1
-URxvt*color15:                    #fdf6e3
+! URxvt*color0:                     #1d2021
+! URxvt*color1:                     #cc241d
+! URxvt*color2:                     #98971a
+! URxvt*color3:                     #d79921
+! URxvt*color4:                     #458588
+! URxvt*color5:                     #b16286
+! URxvt*color6:                     #689d6a
+! URxvt*color7:                     #a89984
+! URxvt*color9:                     #928374
+! URxvt*color8:                     #fb4934
+! URxvt*color10:                    #b8bb26
+! URxvt*color11:                    #fabd2f
+! URxvt*color12:                    #83a598
+! URxvt*color13:                    #d3869b
+! URxvt*color14:                    #8ec07c
+! URxvt*color15:                    #ebdbb2
 
 ! --------* xterm 配置 *--------!
 XTerm*background:                 #AD349A

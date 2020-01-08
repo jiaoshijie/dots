@@ -33,9 +33,11 @@ bindsym $mod+Shift+Return exec alacritty -e ranger
 bindsym $mod+Shift+q kill
 
 # 使用rofi取代dmenu
-# bindsym $mod+d exec --no-startup-id dmenu_recency
-# bindsym $mod+z exec --no-startup-id morc_menu
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec rofi -show run
+
+# 应用程序菜单
+bindsym $mod+x exec --no-startup-id morc_menu
 
 # i3-scrot i3截屏
 # pass
@@ -237,7 +239,7 @@ smart_borders on
 # exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
 
 # 启动feh设置壁纸
-exec_always --no-startup-id feh --bg-fill /home/red/Pictures/SC01C25.jpg
+exec_always --no-startup-id feh --bg-fill /home/red/Pictures/Sierra.jpg
 
 # 设置compton
 exec_always --no-startup-id compton
@@ -257,22 +259,31 @@ exec --no-startup-id xfce4-power-manager
 
 # 开机启动utools
 # exec --no-startup-id /opt/uTools/utools
+exec --no-startup-id utools
+
+# 开机启动截图
+exec --no-startup-id flameshot
 
 # 快速启动chrome
 bindsym $mod+c exec --no-startup-id google-chrome-stable
 # bindsym $mod+c exec --no-startup-id chromium
 
 # 快速启动firefox
-bindsym $mod+x exec --no-startup-id firefox
+# bindsym $mod+x exec --no-startup-id firefox
 
 # 快速打开emacs
 bindsym $mod+z exec --no-startup-id emacs
 
 # quick open gVim
-bindsym $mod+g exec --no-startup-id gvim
+# bindsym $mod+g exec --no-startup-id gvim
+# bindsym $mod+g exec --no-startup-id pcmanfm
+bindsym $mod+g exec --no-startup-id nautilus
 
 # quick open typora
 bindsym $mod+t exec --no-startup-id typora
+
+# 截屏
+bindsym Ctrl+Shift+A exec --no-startup-id flameshot gui
 
 # 自动启动终端和tmux
 exec --no-startup-id alacritty --title jiaoshijie -e tmux new -s jie
@@ -315,8 +326,15 @@ for_window [title="Nutstore"] border pixel 0
 for_window [class="Qemu-system-i386"] floating enable
 for_window [class="Qemu-system-i386"] move position 1265 100
 
+# ----- * Free Download Manager * -----
+for_window [class="Free Download Manager"] floating enable
+for_window [class="Free Download Manager"] resize set 800 400
+for_window [class="Free Download Manager"] move position center
+for_window [class="Free Download Manager"] move container to workspace $ws10
+
 # -----* other *-----
 for_window [class="Bnd"] floating enable
 for_window [class="Bnd"] move container to workspace $ws10
 for_window [class="baidunetdisk"] floating enable
 for_window [class="baidunetdisk"] move container to workspace $ws10
+for_window [class="uTools"] move position 550 200

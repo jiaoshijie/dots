@@ -66,7 +66,8 @@ modules-center = xwindow
 ; modules-right = alsa cpu memory wlan date temperature
 modules-right = alsa cpu memory wlan temperature date battery
 
-tray-position = center
+; tray-position = center
+tray-position = right
 tray-padding = 2
 tray-background = #cc222222
 
