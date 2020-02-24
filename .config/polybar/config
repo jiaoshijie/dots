@@ -7,7 +7,7 @@
 ;   安装以下字体
 ;   sudo pacman -S ttf-font-awesome
 ;   sudo pacman -S otf-font-awesome
-;   yaourt -S ttf-material-wifi-icons-git
+;   yay -S ttf-material-wifi-icons-git
 ;   Font Awesome 字体官网
 ;   https://fontawesome.com/icons?d=gallery
 

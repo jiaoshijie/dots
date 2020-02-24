@@ -3,7 +3,7 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
-export PATH=$PATH:~/.bin:/home/red/.gem/ruby/2.6.0/bin:~/.local/bin
+export PATH=$PATH:~/.local/bin:/home/red/.gem/ruby/2.6.0/bin
 export NUT=/home/red/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 
@@ -32,7 +32,7 @@ source $ZSH/oh-my-zsh.sh
 #自己定义的设置
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
-alias rm="~/.bin/shell-safe-rm/bin/rm.sh"
+alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
 # alias update="sudo pacman -Syu"
 # alias cclean="sudo pacman -Scc"
 # alias install="sudo pacman -S"
