@@ -38,7 +38,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym $mod+d exec rofi -show run
 
 # 应用程序菜单
-# bindsym $mod+x exec --no-startup-id morc_menu
+bindsym $mod+x exec --no-startup-id morc_menu
 
 # i3-scrot i3截屏
 # pass
@@ -270,7 +270,7 @@ bindsym $mod+c exec --no-startup-id google-chrome-stable
 # bindsym $mod+c exec --no-startup-id chromium
 
 # 快速启动firefox
-bindsym $mod+x exec --no-startup-id firefox
+# bindsym $mod+x exec --no-startup-id firefox
 
 # 快速打开emacs
 bindsym $mod+z exec --no-startup-id emacs
