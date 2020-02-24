@@ -34,3 +34,7 @@ alias gd='git diff'
 alias goto='git checkout '
 
 alias c=clear
+export http_proxy=''
+export https_proxy=''
+export ftp_proxy=''
+export socks_proxy=''

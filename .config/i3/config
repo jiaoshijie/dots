@@ -26,8 +26,9 @@ client.background       #ffffff
 floating_modifier $mod
 
 # 设置默认终端
-bindsym $mod+Return exec alacritty
-bindsym $mod+Shift+Return exec alacritty -e ranger
+# bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec urxvt
+bindsym $mod+Shift+Return exec alacritty --title ranger -e ranger
 
 # 关闭选中的window窗口
 bindsym $mod+Shift+q kill
@@ -180,7 +181,7 @@ exec --no-startup-id polybar example
 
 #设置自动锁屏
 # exec --no-startup-id xautolock -time 10 -locker "i3lock -e -i /home/red/Pictures/emacs_learn.png"
-exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy -t ''"
+# exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy -t ''"
 
 # 设置窗口有间隙, 需要安装i3gaps, 而不是i3wm
 gaps inner 10
@@ -239,7 +240,7 @@ smart_borders on
 # exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
 
 # 启动feh设置壁纸
-exec_always --no-startup-id feh --bg-fill /home/red/Pictures/Sierra.jpg
+exec_always --no-startup-id feh --bg-fill /home/red/Pictures/1461502042149.jpg
 
 # 设置compton
 exec_always --no-startup-id compton
@@ -338,3 +339,6 @@ for_window [class="Bnd"] move container to workspace $ws10
 for_window [class="baidunetdisk"] floating enable
 for_window [class="baidunetdisk"] move container to workspace $ws10
 for_window [class="uTools"] move position 550 200
+for_window [class="Lxappearance"] floating enable
+for_window [class="Lxappearance"] resize set 800 400
+for_window [class="Lxappearance"] move position center

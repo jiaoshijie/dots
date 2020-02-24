@@ -19,7 +19,7 @@ Xft.lcdfilter:                    lcddefault
 ! 实现背景透明需要安装xcompmgr
 URxvt*font:                       xft:Source Code Pro:size=12, xft:WenQuanYi Micro Hei Mono:size=12, xft:TerminessTTFNerdFontMono:size=12
 URxvt*depth:                      32
-URxvt*background:                 [50]black
+URxvt*background:                 [80]black
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                false
@@ -36,38 +36,38 @@ URxvt*iso14755:                   false
 URxvt*keysym.Shift-Control-V:     eval:paste_clipboard
 URxvt*keysym.Shift-Control-C:     eval:selection_to_clipboard
 
-! URxvt*color0:                     #1d2021
-! URxvt*color1:                     #cc241d
-! URxvt*color2:                     #98971a
-! URxvt*color3:                     #d79921
-! URxvt*color4:                     #458588
-! URxvt*color5:                     #b16286
-! URxvt*color6:                     #689d6a
-! URxvt*color7:                     #a89984
-! URxvt*color9:                     #928374
-! URxvt*color8:                     #fb4934
-! URxvt*color10:                    #b8bb26
-! URxvt*color11:                    #fabd2f
-! URxvt*color12:                    #83a598
-! URxvt*color13:                    #d3869b
-! URxvt*color14:                    #8ec07c
-! URxvt*color15:                    #ebdbb2
+URxvt*color0:                     #181818
+URxvt*color1:                     #ab4642
+URxvt*color2:                     #a1b56c
+URxvt*color3:                     #f7ca88
+URxvt*color4:                     #7cafc2
+URxvt*color5:                     #ba8baf
+URxvt*color6:                     #86c1b9
+URxvt*color7:                     #d8d8d8
+URxvt*color8:                     #585858
+URxvt*color9:                     #ab4642
+URxvt*color10:                    #a1b56c
+URxvt*color11:                    #f7ca88
+URxvt*color12:                    #7cafc2
+URxvt*color13:                    #ba8baf
+URxvt*color14:                    #86c1b9
+URxvt*color15:                    #f8f8f8
 
 ! --------* xterm 配置 *--------!
-XTerm*background:                 #AD349A
-XTerm*foreground:                 #3E3E3E
-XTerm*pointerColor:               #1ABB9B
-XTerm*faceName:                   DejaVu Sans Mono
-XTerm*faceSize:                   12
-xterm*allowBoldFonts:             true
-xterm*ScrollBar:                  false
-XTerm*reverseVideo:               on
-XTerm*selectToClipboard:          true
-xterm*termName:                   xterm-color
+! XTerm*background:                 #AD349A
+! XTerm*foreground:                 #3E3E3E
+! XTerm*pointerColor:               #1ABB9B
+! XTerm*faceName:                   DejaVu Sans Mono
+! XTerm*faceSize:                   12
+! xterm*allowBoldFonts:             true
+! xterm*ScrollBar:                  false
+! XTerm*reverseVideo:               on
+! XTerm*selectToClipboard:          true
+! xterm*termName:                   xterm-color
 
 ! --------* ROFI Color theme 配置 *--------!
- rofi.color-enabled:              true
- rofi.color-window:               #393939, #393939, #268bd2
- rofi.color-normal:               #393939, #ffffff, #393939, #268bd2, #ffffff
- rofi.color-active:               #393939, #268bd2, #393939, #268bd2, #205171
- rofi.color-urgent:               #393939, #f3843d, #393939, #268bd2, #ffc39c
+! rofi.color-enabled:              true
+! rofi.color-window:               #393939, #393939, #268bd2
+! rofi.color-normal:               #393939, #ffffff, #393939, #268bd2, #ffffff
+! rofi.color-active:               #393939, #268bd2, #393939, #268bd2, #205171
+! rofi.color-urgent:               #393939, #f3843d, #393939, #268bd2, #ffc39c
