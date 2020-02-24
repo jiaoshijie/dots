@@ -240,7 +240,7 @@ smart_borders on
 # exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
 
 # 启动feh设置壁纸
-exec_always --no-startup-id feh --bg-fill /home/red/Pictures/1461502042149.jpg
+exec_always --no-startup-id feh --bg-fill /home/red/Pictures/SC01C25.jpg
 
 # 设置compton
 exec_always --no-startup-id compton
@@ -278,7 +278,6 @@ bindsym $mod+z exec --no-startup-id emacs
 # quick open gVim
 # bindsym $mod+g exec --no-startup-id gvim
 bindsym $mod+g exec --no-startup-id pcmanfm
-# bindsym $mod+g exec --no-startup-id nautilus
 
 # quick open typora
 bindsym $mod+t exec --no-startup-id typora
