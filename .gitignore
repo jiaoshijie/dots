@@ -3,6 +3,8 @@
 /*/
 !/.config
 /.config/*
+.config/ranger/plugins/compress.py
+.config/ranger/plugins/extract.py
 
 # but these:
 !/README.md
