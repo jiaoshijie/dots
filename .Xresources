@@ -19,7 +19,7 @@ Xft.lcdfilter:                    lcddefault
 ! 实现背景透明需要安装xcompmgr
 URxvt*font:                       xft:Source Code Pro:size=12, xft:Source Han Sans CN Medium:size=12, xft:TerminessTTFNerdFontMono:size=12
 URxvt*depth:                      32
-URxvt*background:                 [80]black
+URxvt*background:                 [60]black
 URxvt*scrollBar:                  false
 URxvt*mouseWheelScrollPage:       false
 URxvt*cursorBlink:                false
