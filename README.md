@@ -3,9 +3,3 @@
 
 ## .Xmodmap
 > CapsLock -> Ctrl
-
-> ` -> Esc
-
-> Ctrl -> `
-
-

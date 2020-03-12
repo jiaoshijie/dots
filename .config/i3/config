@@ -241,7 +241,7 @@ smart_borders on
 
 # 启动feh设置壁纸
 # exec_always --no-startup-id feh --bg-fill /home/red/Pictures/SC01C25.jpg
-exec_always --no-startup-id feh --bg-fill /home/red/Pictures/月光沙丘/Exodus/exodus_v02_5120x2880.png
+exec_always --no-startup-id feh --bg-fill /home/red/Pictures/月光沙丘/Moon/moon_walkers_night_v3_5120x2880.png
 # 设置compton
 exec_always --no-startup-id compton
 
