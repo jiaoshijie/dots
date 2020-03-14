@@ -26,8 +26,9 @@ client.background       #ffffff
 floating_modifier $mod
 
 # 设置默认终端
+# alacritty st urxvt gnoma-terminal deepin-terminal
 # bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec st
 bindsym $mod+Shift+Return exec alacritty --title ranger -e ranger
 
 # 关闭选中的window窗口
@@ -146,8 +147,8 @@ bindsym $mod+Shift+c reload
 # 退出i3到X session的登入界面
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 # i3锁屏
-# bindsym $mod+p exec "i3lock -e -i /home/red/Pictures/emacs_learn.png"
-bindsym $mod+p exec "i3lock-fancy -t ''"
+bindsym $mod+p exec "i3lock -e -u -c 0000aa"
+# bindsym $mod+p exec "i3lock-fancy -t ''"
 
 # 重新调整窗口的大小
 mode "resize" {
