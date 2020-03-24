@@ -57,8 +57,9 @@ alias tJ="tmux new -s jie || tmux a -t jie -d"
 alias te="tmux new -s SUN || tmux a -t SUN -d"
 alias fm=ranger
 alias ipy=ipython
-alias supiplocal="sudo pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ "
+alias supTiplocal="sudo peip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ "
 alias piplocal="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ "
+alias sunpm="sudo npm --registry https://registry.npm.taobao.org install -g"
 
 # 以终端的形式运行emacs
 alias Emacs="emacs -nw"
