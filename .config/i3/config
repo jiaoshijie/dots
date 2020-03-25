@@ -267,9 +267,8 @@ exec --no-startup-id utools
 # 开机启动截图
 exec --no-startup-id flameshot
 
-# 快速启动chrome
-bindsym $mod+c exec --no-startup-id google-chrome-stable
-# bindsym $mod+c exec --no-startup-id chromium
+# 快速启动brave
+bindsym $mod+c exec --no-startup-id brave
 
 # 快速启动firefox
 bindsym $mod+x exec --no-startup-id firefox
