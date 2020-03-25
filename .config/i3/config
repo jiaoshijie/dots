@@ -29,7 +29,7 @@ floating_modifier $mod
 # alacritty st urxvt gnoma-terminal deepin-terminal
 # bindsym $mod+Return exec alacritty
 bindsym $mod+Return exec st
-bindsym $mod+Shift+Return exec st -t ranger -e ranger
+bindsym $mod+Shift+Return exec alacritty --title ranger -e ranger
 
 # 关闭选中的window窗口
 bindsym $mod+Shift+q kill
@@ -255,8 +255,9 @@ exec --no-startup-id nutstore
 # 开机启动fcitx
 exec --no-startup-id fcitx
 
-# run xfce4-power-manager
-exec --no-startup-id xfce4-power-manager
+# run power-manager
+exec --no-startup-id mate-power-manager
+# exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id optimus-manager-qt
 
 # 开机启动utools
