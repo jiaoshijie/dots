@@ -84,3 +84,12 @@ fi
 # alias ls="colorls --gs --group-directories-first"
 # alias l="colorls -laA --sd --gs --group-directories-first"
 # alias ll="colorls -l --sd --gs --group-directories-first"
+
+# FZF
+# git clone --depth 1 https://github.com/junegunn/fzf.git
+# sudo pacman -S fd the_silver_searcher(ag)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+# export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
