@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# 预览脚本, 预览文件, 图片的实现
 set -o noclobber -o noglob -o nounset -o pipefail
 IFS=$'\n'
 
