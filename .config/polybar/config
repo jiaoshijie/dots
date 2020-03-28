@@ -169,7 +169,7 @@ ramp-signal-foreground = ${colors.magenta}
 type = internal/date
 interval = 5
 
-date = 
+date =
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
@@ -184,9 +184,9 @@ label = %date% %time%  |
 [module/alsa]
 type = internal/alsa
 
-format-volume = <label-volume> <bar-volume>
-;label-volume = VOL %percentage%%
-label-volume =  %percentage%%
+; format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume>
+label-volume =  %percentage%% |
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = ""
@@ -308,4 +308,3 @@ menu-2-0 = power off
 menu-2-0-exec = poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
-
