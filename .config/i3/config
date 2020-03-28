@@ -242,7 +242,8 @@ smart_borders on
 
 # 启动feh设置壁纸
 # exec_always --no-startup-id feh --bg-fill /home/red/Pictures/SC01C25.jpg
-exec_always --no-startup-id feh --bg-fill /home/red/Pictures/06_Minimal_Landscapes/Ash_Heap.png
+exec_always --no-startup-id feh --bg-fill /home/red/Pictures/01_月光沙丘/exodus_v02_5120x2880.png
+
 # 设置compton
 exec_always --no-startup-id compton
 
@@ -282,6 +283,7 @@ bindsym $mod+g exec --no-startup-id pcmanfm
 
 # quick open typora
 bindsym $mod+t exec --no-startup-id typora
+bindsym $mod+p exec --no-startup-id vnote
 
 # 截屏
 bindsym Ctrl+Shift+A exec --no-startup-id flameshot gui
