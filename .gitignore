@@ -28,3 +28,6 @@
 !/.zprofile
 !/.bashrc
 !/.dwm/
+!/.config/mpv/
+!/.config/mpd/
+!/.config/ncmpcpp/

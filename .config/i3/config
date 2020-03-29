@@ -345,4 +345,3 @@ for_window [class="uTools"] move position 550 200
 for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] resize set 800 400
 for_window [class="Lxappearance"] move position center
-for_window [class="GameConqueror.py"] floating enable
