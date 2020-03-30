@@ -3,13 +3,14 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
 export EDITOR='nvim'
-export PATH=$PATH:~/.local/bin:/home/red/.gem/ruby/2.6.0/bin
+export PATH=$PATH:~/.local/bin
 export NUT=/home/red/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 
 
+ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
-ZSH_THEME="simple"
+# ZSH_THEME="simple"
 
 
 DISABLE_AUTO_UPDATE="true"
