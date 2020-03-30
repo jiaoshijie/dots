@@ -5,6 +5,12 @@
 /.config/*
 .config/ranger/plugins/compress.py
 .config/ranger/plugins/extract.py
+.config/mpd/database
+.config/mpd/log
+.config/mpd/pid
+.config/mpd/state
+.config/mpd/sticker.sql
+.config/ncmpcpp/error.log
 
 # but these:
 !/README.md

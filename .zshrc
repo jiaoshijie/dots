@@ -19,7 +19,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)  # vi-mode
 
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
@@ -31,6 +31,36 @@ source $ZSH/oh-my-zsh.sh
 ########################
 #自己定义的设置
 
+# vi-mode
+# export KEYTIMEOUT=1
+
+# # Change cursor shape for different vi modes.
+# function zle-keymap-select {
+#   if [[ ${KEYMAP} == vicmd ]] ||
+#      [[ $1 = 'block' ]]; then
+#     echo -ne '\e[1 q'
+
+#   elif [[ ${KEYMAP} == main ]] ||
+#        [[ ${KEYMAP} == viins ]] ||
+#        [[ ${KEYMAP} = '' ]] ||
+#        [[ $1 = 'beam' ]]; then
+#     echo -ne '\e[5 q'
+#   fi
+# }
+# zle -N zle-keymap-select
+
+# zle-line-init() {
+#     zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+#     echo -ne "\e[5 q"
+# }
+# zle -N zle-line-init
+
+# # Use beam shape cursor on startup.
+# echo -ne '\e[5 q'
+# # Use beam shape cursor for each new prompt.
+# preexec() { echo -ne '\e[5 q' ;}
+
+# alias-keys
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
 alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
 # alias update="sudo pacman -Syu"
