@@ -11,6 +11,7 @@
 .config/mpd/state
 .config/mpd/sticker.sql
 .config/ncmpcpp/error.log
+.config/calcurse/hooks/
 
 # but these:
 !/README.md
@@ -40,3 +41,4 @@
 !/.config/sxhkd/
 !/.config/dunst/
 !/.config/newsboat/
+!/.config/calcurse/
