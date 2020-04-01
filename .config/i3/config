@@ -5,100 +5,19 @@
 #|_|____/   \___\___/|_| |_|_| |_|\__, |
 #                                 |___/
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
-# 设置mod键 把Super键设为mod键(Mod1=<Alt>, Mod4=<Super>)
+# (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
-
-# 字体
-# font pango:"Source Code pro" monospace 8
 font pango:monospace 8
-
 # class                 border  backgr  text    indicator child_border
 client.focused          #FFF500 #285577 #ffffff #2e9ef4   #FFF500
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-
 client.background       #ffffff
-
 # 使用mod键+鼠标来拖拽窗口
 floating_modifier $mod
-
-# 设置默认终端
-# alacritty st urxvt gnoma-terminal deepin-terminal
-# bindsym $mod+Return exec alacritty
-bindsym $mod+Return exec st
-bindsym $mod+Shift+Return exec alacritty --title ranger -e ranger
-
-# 关闭选中的window窗口
-bindsym $mod+Shift+q kill
-
-# 使用rofi取代dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+d exec rofi -show run
-
-# 应用程序菜单
-# bindsym $mod+x exec --no-startup-id morc_menu
-
-# i3-scrot i3截屏
-# pass
-
-# 改变当前选中的窗口
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# 移动选中的窗口
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# 竖直分屏
-bindsym $mod+v split v
-
-# 水平分屏
-bindsym $mod+b split h
-
-# 选中窗口进入全屏模式
-bindsym $mod+f fullscreen toggle
-
-# 使窗口分屏显示
-bindsym $mod+e layout toggle split
-# 使窗口标签显示
-bindsym $mod+w layout tabbed
-# 使窗口层叠显示
-bindsym $mod+s layout stacking
-
-# 使窗口以小屏方式突出居中显示
-bindsym $mod+Shift+space floating toggle
-# 改变集中的窗口为小屏的还是后面的，和上面的功能一起使用
-bindsym $mod+space focus mode_toggle
-
-# 选中全部窗口(选中父窗口)
-bindsym $mod+a focus parent
-# 选中子窗口
-# bindsym $mod+d focus child
-
-# 把当前窗口设为便笺本(minus键为减号<->键)
-bindsym $mod+Shift+minus move scratchpad
-# 呼出第一个便笺本
-bindsym $mod+minus scratchpad show
-
 # 定义默认工作空间的数字
-# 使用数字来避免重复的名字
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -109,91 +28,39 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-
-# 改变工作空间的快捷键
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
-
-# 把当前选中的窗口移动到其他工作空间
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
-
-# 前后移动窗口
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
-
-# 重新加载i3的配置文件
-bindsym $mod+Shift+c reload
-# 重新启动i3
-# bindsym $mod+Shift+r restart
-# 退出i3到X session的登入界面
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-# i3锁屏
-bindsym $mod+Shift+p exec "i3lock -e -u -c 0000aa"
-# bindsym $mod+p exec "i3lock-fancy -t ''"
-
 # 重新调整窗口的大小
 mode "resize" {
-       # These bindings trigger as soon as you enter the resize mode
-
-       # Pressing left will shrink the window’s width.
-       # Pressing right will grow the window’s width.
-       # Pressing up will shrink the window’s height.
-       # Pressing down will grow the window’s height.
        bindsym h resize shrink width 10 px or 10 ppt
        bindsym j resize grow height 10 px or 10 ppt
        bindsym k resize shrink height 10 px or 10 ppt
        bindsym l resize grow width 10 px or 10 ppt
-
        # same bindings, but for the arrow keys
        bindsym Left resize shrink width 10 px or 10 ppt
        bindsym Down resize grow height 10 px or 10 ppt
        bindsym Up resize shrink height 10 px or 10 ppt
        bindsym Right resize grow width 10 px or 10 ppt
-
        # 返回正常模式
        bindsym Return mode "default"
        bindsym Escape mode "default"
        bindsym $mod+r mode "default"
 }
+# 取消框框(normal | 1pixel | pixel xx | none | pixel)
+# new_window 1pixel
+new_window pixel 2
+# new_float normal
+new_float pixel 2
+hide_edge_borders none
+smart_borders on
 
-bindsym $mod+r mode "resize"
-
-# 这里没有使用i3bar和i3status，换成了polybar
-exec --no-startup-id polybar example
-
-#设置自动锁屏
-# exec --no-startup-id xautolock -time 10 -locker "i3lock -e -i /home/red/Pictures/emacs_learn.png"
-# exec --no-startup-id xautolock -time 10 -locker "i3lock-fancy -t ''"
-
+# i3-gas
 # 设置窗口有间隙, 需要安装i3gaps, 而不是i3wm
 gaps inner 10
 gaps outer -2
 smart_gaps on
-
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
 
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
@@ -226,74 +93,6 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-
-# 取消框框(normal | 1pixel | pixel xx | none | pixel)
-# new_window 1pixel
-new_window pixel 2
-# new_float normal
-new_float pixel 2
-hide_edge_borders none
-bindsym $mod+u border none
-bindsym $mod+y border pixel 2
-bindsym $mod+n border normal
-smart_borders on
-
-# exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
-
-# 启动feh设置壁纸
-# exec_always --no-startup-id feh --bg-fill /home/red/Pictures/SC01C25.jpg
-exec_always --no-startup-id xwallpaper --zoom /home/red/Pictures/01_月光沙丘/exodus_v02_5120x2880.png
-
-# 设置compton
-exec_always --no-startup-id picom
-
-# 加载键盘布局
-exec_always sleep 5; xmodmap ~/.Xmodmap
-
-# 开机启动坚果云
-exec --no-startup-id nutstore
-
-# 开机启动fcitx
-exec --no-startup-id fcitx
-
-exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
-
-# run power-manager
-exec --no-startup-id mate-power-manager
-# exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id optimus-manager-qt
-
-# 开机启动utools
-# exec --no-startup-id /opt/uTools/utools
-exec --no-startup-id utools
-
-# 开机启动截图
-exec --no-startup-id flameshot
-
-# 快速启动brave
-bindsym $mod+c exec --no-startup-id brave
-
-# 快速启动firefox
-bindsym $mod+x exec --no-startup-id firefox
-
-# 快速打开emacs
-bindsym $mod+z exec --no-startup-id emacs
-
-# quick open gVim
-# bindsym $mod+g exec --no-startup-id gvim
-bindsym $mod+g exec --no-startup-id pcmanfm
-
-# quick open typora
-bindsym $mod+t exec --no-startup-id typora
-bindsym $mod+p exec --no-startup-id vnote
-
-# 截屏
-bindsym Ctrl+Shift+A exec --no-startup-id flameshot gui
-
-# 自动启动终端和tmux
-exec --no-startup-id st -t jiaoshijie -e tmux new -s jie
-for_window [class="st-256color" title="jiaoshijie"] move scratchpad
 
 # 使窗口以float-mode打开, 使用xprop获取窗口的class fullscreen floating
 # ---- * VirtualBox * ------
@@ -345,3 +144,83 @@ for_window [class="uTools"] move position 550 200
 for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] resize set 800 400
 for_window [class="Lxappearance"] move position center
+
+# ******************* 开机启动项 ******************* #
+# exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
+# exec_always sleep 5; xmodmap ~/.Xmodmap
+exec --no-startup-id st -t jiaoshijie -e tmux new -s jie
+for_window [class="st-256color" title="jiaoshijie"] move scratchpad
+exec --no-startup-id polybar example
+
+# ********************** wm快捷键 *********************** #
+bindsym $mod+Shift+q kill
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+# 竖直分屏
+bindsym $mod+v split v
+# 水平分屏
+bindsym $mod+b split h
+bindsym $mod+f fullscreen toggle
+bindsym $mod+e layout toggle split
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+# bindsym $mod+d focus child
+# 把当前窗口设为便笺本(minus键为减号<->键)
+bindsym $mod+Shift+minus move scratchpad
+# 呼出第一个便笺本
+bindsym $mod+minus scratchpad show
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Ctrl+h workspace prev
+# 重新加载i3的配置文件
+bindsym $mod+Shift+c reload
+# 重新启动i3
+# bindsym $mod+Shift+r restart
+# 退出i3到X session的登入界面
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+p exec "i3lock -e -u -c 0000aa"
+bindsym $mod+r mode "resize"
+bindsym $mod+u border none
+bindsym $mod+y border pixel 2
+bindsym $mod+n border normal
+
+# i3-gas
+bindsym $mod+Shift+g mode "$mode_gaps"

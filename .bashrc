@@ -6,12 +6,22 @@ PS1="\[\033[32m\]\w\[\033[1;33m\]$ \[\033[0m\]"
 export  GTK_IM_MODULE=fcitx
 export  QT_IM_MODULE=fcitx
 export  XMODIFIERS=@im=fcitx
+export EDITOR='nvim'
+export PATH=$PATH:~/.local/bin
+export NUT=/home/red/"Nutstore Files"/Nutstore/
+export TERM_ITALICS=true
+
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 #change ctrl caps key
 # setxkbmap -option ctrl:swapcaps
-
-#set bash vi mode
-# set -o vi
 
 alias ls='ls --color=auto'
 alias ll='ls -alF'
@@ -21,7 +31,7 @@ alias l='ls -CF'
 alias grep='grep --color=auto'
 
 # for ipython
-alias ipy='ipython qtconsole --pylab=inline --colors=Linux'
+alias ipy='ipython --colors=Linux'
 
 #for alias of git
 alias gs='git status '
@@ -40,3 +50,5 @@ export ftp_proxy=''
 export socks_proxy=''
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'

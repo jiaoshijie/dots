@@ -1,0 +1,33 @@
+super + Return
+	$TERMINAL
+super + shift + Return
+	alacritty --title ranger -e ranger
+super + d
+	dmenu_run
+	# rofi -show run
+super + c
+	$BROWSER
+super + x
+	firefox
+super + z
+	emacs
+super + g
+	pcmanfm
+super + t
+	typora
+super + p
+	vnote
+ctrl + shift + a
+	flameshot gui
+Print
+	maim ~/Pictures/pic-full-$(date '+%y%m%d-%H%M-%S').png
+
+# Function keys
+XF86AudioMute
+	bash ~/.usefulscript/vol-toggle.sh
+XF86AudioRaiseVolume
+	bash ~/.usefulscript/vol-up.sh
+XF86AudioLowerVolume
+	bash ~/.usefulscript/vol-down.sh
+shift + Print
+	maimpick

@@ -33,7 +33,10 @@
 !/.xinitrc
 !/.zprofile
 !/.bashrc
-!/.dwm/
+!/.usefulscript/
 !/.config/mpv/
 !/.config/mpd/
 !/.config/ncmpcpp/
+!/.config/sxhkd/
+!/.config/dunst/
+!/.config/newsboat/

@@ -1,37 +1,19 @@
-export XMODIFIERS=@im=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
 export ZSH=/usr/share/oh-my-zsh
-export EDITOR='nvim'
-export PATH=$PATH:~/.local/bin
-export NUT=/home/red/"Nutstore Files"/Nutstore/
-export TERM_ITALICS=true
-
-
+export ZSH_CUSTOM=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 # ZSH_THEME="simple"
-
-
 DISABLE_AUTO_UPDATE="true"
-
 HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
-
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
-
 source $ZSH/oh-my-zsh.sh
 
 ########################
 #自己定义的设置
-
 # alias-keys
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
 alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
@@ -85,5 +67,5 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 # export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
