@@ -58,7 +58,6 @@ font-0 = fixed:pixelsize=10;1
 font-1 = "Source Han Sans CN:style=Regular:pixelsize=10;1"
 font-2 = "Font Awesome 5 Brands:style=Regular:pixelsize=14;1"
 font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=14;1"
-; font-4 = TerminessTTFNerdFontMono:pixelsize=14;1
 font-4 = "material\-wifi:style=Regular:pixelsize=14;1"
 
 modules-left = powermenu i3
@@ -84,7 +83,6 @@ cursor-scroll = ns-resize
 [module/xwindow]
 type = internal/xwindow
 label =  %title:0:30:...%
-; label-background = #C678DD
 
 [module/i3]
 type = internal/i3
@@ -102,7 +100,6 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused =  %index%
 label-focused-background = #567434
-;label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
@@ -129,7 +126,6 @@ type = internal/cpu
 interval = 2
 format-prefix = ""
 format-prefix-foreground = ${colors.orange}
-; format-underline = #f90000
 label = %percentage:2%%  |
 
 [module/memory]
@@ -137,7 +133,6 @@ type = internal/memory
 interval = 2
 format-prefix = ""
 format-prefix-foreground = ${colors.cyan}
-; format-underline = #4bffdc
 label = %percentage_used%%  |
 
 [module/wlan]
@@ -146,19 +141,9 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-; format-connected-underline = #9f78e1
-;label-connected = %essid%
 label-connected =  %upspeed:5%  %downspeed:5% %local_ip% |
 
 format-disconnected = 睊
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-; ramp-signal-0 = 直
-; ramp-signal-1 = 
-; ramp-signal-2 = 
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
@@ -177,14 +162,12 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.blue}
-; format-underline = #0a6cf5
 
 label = %date% %time%  |
 
 [module/alsa]
 type = internal/alsa
 
-; format-volume = <label-volume> <bar-volume>
 format-volume = <label-volume>
 label-volume =  %percentage%% |
 label-volume-foreground = ${root.foreground}
@@ -219,7 +202,6 @@ full-at = 95
 format-charging = <animation-charging> <label-charging>
 
 format-discharging = <animation-discharging> <label-discharging>
-; format-discharging-underline = ${self.format-charging-underline}
 
 format-full-prefix = ""
 format-full-prefix-foreground = ${colors.white}
@@ -232,7 +214,6 @@ ramp-capacity-foreground = ${colors.white}
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-;animation-charging-foreground = ${colors.green}
 animation-charging-2-foreground = #aaff77
 animation-charging-1-foreground = #fba922
 animation-charging-0-foreground = #ff5555
@@ -250,13 +231,8 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-; format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-; format-warn-underline = ${self.format-underline}
 
-; label = %temperature-c%
-; label-warn = %temperature-c%
-; label-warn-foreground = ${colors.secondary}
 label = %temperature-c%  |
 label-warn = %temperature-c%  |
 label-warn-foreground = ${colors.secondary}
@@ -268,17 +244,10 @@ ramp-foreground = ${colors.red}
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
 
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-; vim:ft=dosini
 
 [module/powermenu]
 type = custom/menu

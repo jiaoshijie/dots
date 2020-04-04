@@ -4,12 +4,15 @@
 # Joe Standring <git@joestandring.com>
 # GNU GPLv3
 
+print_mem(){
+ memfree=$(($(grep -m1 'MemAvailable:' /proc/meminfo | awk '{print $2}') / 1024))
+ echo -e "$memfree"
+}
+
 dwm_resources () {
     # Used and total memory
     MEMUSED=$(free -h | awk '(NR == 2) {print $3}')
     MEMTOT=$(free -h |awk '(NR == 2) {print $2}')
-    # CPU temperature
-    CPU=$(sysctl -n hw.sensors.cpu0.temp0 | cut -d. -f1)
     # Used and total storage in /home (rounded to 1024B)
     STOUSED=$(df -h | grep '/home$' | awk '{print $3}')
     STOTOT=$(df -h | grep '/home$' | awk '{print $2}')
@@ -17,9 +20,9 @@ dwm_resources () {
 
     printf "%s" "$SEP1"
     if [ "$IDENTIFIER" = "unicode" ]; then
-        printf "💻 MEM %s/%s CPU %s STO %s/%s: %s" "$MEMUSED" "$MEMTOT" "$CPU" "$STOUSED" "$STOTOT" "$STOPER"
+        printf " %s/%s" "$MEMUSED" "$MEMTOT"
     else
-        printf "STA | MEM %s/%s CPU %s STO %s/%s: %s" "$MEMUSED" "$MEMTOT" "$CPU" "$STOUSED" "$STOTOT" "$STOPER"
+        printf "MEM %s/%s" "$MEMUSED" "$MEMTOT"
     fi
     printf "%s\n" "$SEP2"
 }

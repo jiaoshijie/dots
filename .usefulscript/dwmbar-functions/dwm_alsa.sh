@@ -11,13 +11,13 @@ dwm_alsa () {
     printf "%s" "$SEP1"
     if [ "$IDENTIFIER" = "unicode" ]; then
         if [ "$VOL" -eq 0 ]; then
-            printf "🔇"
+            printf "ﱝ"
         elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
-            printf "🔈 %s%%" "$VOL"
+            printf " %s%%" "$VOL"
         elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
-            printf "🔉 %s%%" "$VOL"
+            printf "墳 %s%%" "$VOL"
         else
-            printf "🔊 %s%%" "$VOL"
+            printf " %s%%" "$VOL"
         fi
     else
         if [ "$VOL" -eq 0 ]; then
@@ -32,4 +32,3 @@ dwm_alsa () {
     fi
     printf "%s\n" "$SEP2"
 }
-

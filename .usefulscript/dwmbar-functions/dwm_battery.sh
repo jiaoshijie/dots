@@ -1,26 +1,21 @@
-#!/bin/sh
-
-# A dwm_bar function to read the battery level and status
-# Joe Standring <git@joestandring.com>
-# GNU GPLv3
-
-dwm_battery () {
-    # Change BAT1 to whatever your battery is identified as. Typically BAT0 or BAT1
-    CHARGE=$(cat /sys/class/power_supply/BAT1/capacity)
-    STATUS=$(cat /sys/class/power_supply/BAT1/status)
-
-    printf "%s" "$SEP1"
-    if [ "$IDENTIFIER" = "unicode" ]; then
-        if [ "$STATUS" = "Charging" ]; then
-            printf "🔌 %s%% %s" "$CHARGE" "$STATUS"
-        else
-            printf "🔋 %s%% %s" "$CHARGE" "$STATUS"
-        fi
-    else
-        printf "BAT %s%% %s" "$CHARGE" "$STATUS"
-    fi
-    printf "%s\n" "$SEP2"
+get_battery_combined_percent() {
+  total_charge=$(expr $(acpi -b | awk '{print $4}' | grep -Eo "[0-9]+" | paste -sd+ | bc));
+  # get amount of batteries in the device
+  battery_number=$(acpi -b | wc -l);
+  percent=$(expr $total_charge / $battery_number);
+  echo $percent;
 }
 
-dwm_battery
+get_battery_charging_status() {
+  if $(acpi -b | grep --quiet Discharging)
+  then
+    echo "";
+  else
+    echo "";
+  fi
+}
 
+
+dwm_battery(){
+  echo "$(get_battery_charging_status) $(get_battery_combined_percent)%";
+}
