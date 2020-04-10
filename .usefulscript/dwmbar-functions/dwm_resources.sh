@@ -20,7 +20,7 @@ dwm_resources () {
 
     printf "%s" "$SEP1"
     if [ "$IDENTIFIER" = "unicode" ]; then
-        printf " %s/%s" "$MEMUSED" "$MEMTOT"
+        printf "🖥%s/%s" "$MEMUSED" "$MEMTOT"
     else
         printf "MEM %s/%s" "$MEMUSED" "$MEMTOT"
     fi

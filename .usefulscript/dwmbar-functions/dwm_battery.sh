@@ -9,9 +9,9 @@ get_battery_combined_percent() {
 get_battery_charging_status() {
   if $(acpi -b | grep --quiet Discharging)
   then
-    echo "";
+    echo "🔋";
   else
-    echo "";
+    echo "🔌";
   fi
 }
 

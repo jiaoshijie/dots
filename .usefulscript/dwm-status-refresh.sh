@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# emojis font search https://emojipedia.org/   or   https://getemoji.com/
+
 export IDENTIFIER="unicode"
 LOC=$(readlink -f "$0")
 DIR=$(dirname "$LOC")
@@ -55,7 +57,7 @@ get_bytes
 vel_recv=$(get_velocity $received_bytes $old_received_bytes $now)
 vel_trans=$(get_velocity $transmitted_bytes $old_transmitted_bytes $now)
 
-xsetroot -name " $(dwm_alsa) $(dwm_resources) $(dwm_network) $vel_trans $vel_recv $(dwm_date) $(dwm_backlight) $(dwm_battery) "
+xsetroot -name " $(dwm_alsa) $(dwm_resources) $(dwm_network) 👆$vel_trans 👇$vel_recv $(dwm_date) $(dwm_backlight) $(dwm_battery) "
 
 # Update old values to perform new calculations
 old_received_bytes=$received_bytes
