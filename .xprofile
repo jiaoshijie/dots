@@ -9,7 +9,7 @@ dwm-status.sh &
 picom &
 mate-power-manager &
 # feh --bg-fill /home/red/Pictures/SC01C25.jpg
-xwallpaper --zoom /home/red/Pictures/07_玫瑰花/zhutix-roses-flowers-120.jpg &
+xwallpaper --zoom /home/red/Pictures/06_玫瑰花/zhutix-roses-flowers-1.jpg &
 fcitx &
 utools &
 nm-applet &

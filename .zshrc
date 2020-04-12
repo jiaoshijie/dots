@@ -1,11 +1,13 @@
 export ZSH=/usr/share/oh-my-zsh
 export ZSH_CUSTOM=$HOME/.oh-my-zsh
-ZSH_THEME="robbyrussell"
-# ZSH_THEME="ys"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="ys"
 # ZSH_THEME="simple"
 DISABLE_AUTO_UPDATE="true"
 HIST_STAMPS="mm/dd/yyyy"
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+# zsh-completions
+# autoload -U compinit && compinit
 ZSH_CACHE_DIR=$HOME/.oh-my-zsh-cache
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
@@ -30,6 +32,7 @@ alias nvidiaup="sudo tee /proc/acpi/bbswitch <<< 'ON'"
 alias nvidiadown="sudo rmmod nvidia && sudo tee /proc/acpi/bbswitch <<< OFF"
 
 alias s=neofetch
+alias Semojis="cat Nutstore\ Files/Nutstore/MARKDOWN_NOTE/.usefulfile/emoji | dmenu -i -l 20"
 alias p="ping www.baidu.com"
 alias c=clear
 alias x="xmodmap ~/.Xmodmap"
