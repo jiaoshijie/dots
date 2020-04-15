@@ -9,7 +9,7 @@
 set $mod Mod4
 font pango:monospace 8
 # class                 border  backgr  text    indicator child_border
-client.focused          #FFF500 #285577 #ffffff #2e9ef4   #FFF500
+client.focused          #FFF500 #285577 #ffffff #2e9ef4   #005577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -48,7 +48,7 @@ mode "resize" {
 # new_window 1pixel
 new_window pixel 2
 # new_float normal
-new_float pixel 2
+new_float pixel 1
 hide_edge_borders none
 smart_borders on
 
@@ -112,7 +112,7 @@ for_window [class="Audacious"] move container to workspace $ws10
 
 # ---- * Gcolor2 *------
 # for_window [class="Gcolor2"] sticky enable
-for_window [class="Gcolor2"] border pixel 2
+for_window [class="Gcolor2"] border pixel 1
 
 # ---- * Flameshot *------
 for_window [class="flameshot"] floating enable
@@ -144,6 +144,7 @@ for_window [class="uTools"] move position 550 200
 for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] resize set 800 400
 for_window [class="Lxappearance"] move position center
+for_window [class="Alacritty" title="ranger"] floating enable
 
 # ******************* 开机启动项 ******************* #
 # exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
