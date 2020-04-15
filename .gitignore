@@ -12,6 +12,7 @@
 .config/mpd/sticker.sql
 .config/ncmpcpp/error.log
 .config/calcurse/hooks/
+.config/zsh/.zcompdump
 
 # but these:
 !/README.md
@@ -20,7 +21,7 @@
 !/.Xmodmap
 !/.xprofile
 !/.Xresources
-!/.zshrc
+!/.config/zsh/
 !/.config/alacritty/
 !/.config/fish/
 !/.config/i3/
