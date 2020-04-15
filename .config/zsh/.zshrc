@@ -1,4 +1,6 @@
-export ZSH_CUSTOM=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.my-zsh
+# autoload -U promptinit
+# promptinit
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
@@ -9,7 +11,6 @@ stty stop undef # Disable ctrl-s to freeze terminal.
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/zsh_history
-HIST_STAMPS="mm/dd/yyyy"
 
 [ -f ~/.aliasrc ] && source ~/.aliasrc
 
@@ -22,15 +23,12 @@ setopt completealiases
 compinit
 _comp_options+=(globdots) # Include hidden files
 
-autoload -U promptinit
-promptinit
-
 bindkey -e
 export KEYTIMEOUT=1
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
+# Edit line in vim with ctrl-i:
+# autoload edit-command-line; zle -N edit-command-line
+# bindkey '^i' edit-command-line
 
 if [ -f ~/.ssh/ssh_connection ]; then
   source ~/.ssh/ssh_connection

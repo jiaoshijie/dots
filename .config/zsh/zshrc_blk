@@ -1,5 +1,5 @@
 export ZSH=/usr/share/oh-my-zsh
-export ZSH_CUSTOM=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$HOME/.my-zsh
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 ZSH_THEME="simple"
