@@ -29,5 +29,17 @@ XF86AudioRaiseVolume
 	bash ~/.usefulscript/vol-up.sh
 XF86AudioLowerVolume
 	bash ~/.usefulscript/vol-down.sh
+XF86AudioPlay
+	mpc toggle
+XF86AudioPrev
+	mpc prev
+XF86AudioNext
+	mpc next
+XF86AudioStop
+	mpc stop
+XF86Tools
+	alacritty --title ncmpcpp -e ncmpcpp
+XF86HomePage
+	alacritty --title ranger -e ranger
 shift + Print
 	maimpick
