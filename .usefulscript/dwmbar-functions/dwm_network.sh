@@ -12,7 +12,7 @@ dwm_network () {
         CONNAME=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -c 5-)
     fi
 
-    PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}')
+    PRIVATE=$(nmcli -a | grep 'inet4 ' | awk '{print $2}')
 
     printf "%s" "$SEP1"
     if [ "$IDENTIFIER" = "unicode" ]; then

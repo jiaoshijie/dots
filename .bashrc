@@ -1,6 +1,7 @@
 #set bash prompt
 # color \[\033[1;34m\]
 PS1="\[\033[1;31m\][\[\033[1;33m\]\u\[\033[1;32m\]@\[\033[1;34m\]\h \[\033[35m\]\w\[\033[1;31m\]]\[\033[0m\]$ \[\033[0m\]"
+HISTTIMEFORMAT="%y-%m-%d %H:%M:%S "
 HISTFILE=~/.cache/bash_history
 # export http_proxy=''
 # export https_proxy=''
