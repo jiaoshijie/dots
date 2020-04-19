@@ -1,51 +1,60 @@
-########################
-#自己定义的设置
-# alias-keys
+# base alias
+alias \
+  grep='grep --color=auto' \
+  ls='ls --color=auto' \
+  ll='ls -lh' \
+  la='ls -lAh' \
+  l='ls -lah' \
+  s=neofetch \
+  p="ping www.baidu.com" \
+  c=clear \
+  hexedit="hexedit --color" \
+  fm=ranger \
+  ipy=ipython \
+  x="xmodmap ~/.Xmodmap && xset r rate 300 50" \
+  Semojis="cat ~/Nutstore\ Files/Nutstore/MARKDOWN_NOTE/.usefulfile/emoji | dmenu -i -l 20"
+
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
-alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
+[ -f ~/.local/bin/shell-safe-rm/bin/rm.sh ] && alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
 
-alias grep='grep --color=auto'
-alias ls='ls --color=auto'
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias l='ls -lah'
+# proxy alias
+alias \
+  SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118" \
+  UnSetProxy="unset http_proxy https_proxy"
+  # wgu="sudo wg-quick up wg0" \
+  # wgd="sudo wg-quick down wg0"
 
-alias SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118"
-alias UnSetProxy="unset http_proxy https_proxy"
-# alias wgu="sudo wg-quick up wg0"
-# alias wgd="sudo wg-quick down wg0"
-
-alias lsvideo="lspci | egrep 'VGA|3D'"
-alias catvideo='glxinfo | grep "OpenGL renderer"'
-alias infonvidia="nvidia-smi"
-alias nvidiaup="sudo tee /proc/acpi/bbswitch <<< 'ON'"
-alias nvidiadown="sudo rmmod nvidia && sudo tee /proc/acpi/bbswitch <<< OFF"
-
-alias s=neofetch
-alias Semojis="cat Nutstore\ Files/Nutstore/MARKDOWN_NOTE/.usefulfile/emoji | dmenu -i -l 20"
-alias p="ping www.baidu.com"
-alias c=clear
-alias x="xmodmap ~/.Xmodmap && xset r rate 300 50"
-alias hexedit="hexedit --color"
-alias ntmux="tmux new -s"
-alias atmux="tmux a -t"
-alias tJ="tmux new -s jie || tmux a -t jie -d"
-alias te="tmux new -s SUN || tmux a -t SUN -d"
-alias fm=ranger
-alias ipy=ipython
-alias supiplocal="sudo pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ "
-alias piplocal="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ "
-alias sunpm="sudo npm --registry https://registry.npm.taobao.org install -g"
+# video alias
+alias \
+  lsvideo="lspci | egrep 'VGA|3D'" \
+  catvideo='glxinfo | grep "OpenGL renderer"' \
+  infonvidia="nvidia-smi" \
+  nvidiaup="sudo tee /proc/acpi/bbswitch <<< 'ON'" \
+  nvidiadown="sudo rmmod nvidia && sudo tee /proc/acpi/bbswitch <<< OFF"
 
 # git alias
-alias gs="git status "
-alias ga="git add "
-alias gb="git branch "
-alias gc="git commit"
-alias gd="git diff"
-alias goto="git checkout"
-alias gl="git log --graph"
-alias guntrack="git rm -r --cached "
-alias githist="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
-alias gittype="git cat-file -t "
-alias gitdump="git cat-file -p "
+alias \
+  gs="git status " \
+  ga="git add " \
+  gb="git branch " \
+  gc="git commit" \
+  gd="git diff" \
+  goto="git checkout" \
+  gl="git log --graph" \
+  guntrack="git rm -r --cached " \
+  githist="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" \
+  gittype="git cat-file -t " \
+  gitdump="git cat-file -p "
+
+# tmux alias
+alias \
+  ntmux="tmux new -s" \
+  atmux="tmux a -t" \
+  tJ="tmux new -s jie || tmux a -t jie -d" \
+  te="tmux new -s SUN || tmux a -t SUN -d"
+
+# package-manager alias
+alias \
+  supiplocal="sudo pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
+  piplocal="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
+  sunpm="sudo npm --registry https://registry.npm.taobao.org install -g"

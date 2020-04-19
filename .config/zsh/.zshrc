@@ -25,11 +25,6 @@ if [ -f ~/.ssh/ssh_connection ]; then
 fi
 
 
-# Edit the current command line in $EDITOR
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line
-
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -42,6 +37,11 @@ _comp_options+=(globdots) # Include hidden files
 # Emacs-mode
 bindkey -e
 export KEYTIMEOUT=1
+
+# Edit the current command line in $EDITOR
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 
 # FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git

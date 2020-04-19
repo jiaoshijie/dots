@@ -3,6 +3,10 @@
 /*/
 !/.config
 /.config/*
+!/.local
+/.local/*
+!/.local/share
+/.local/share/*
 .config/ranger/plugins/compress.py
 .config/ranger/plugins/extract.py
 .config/mpd/database
@@ -44,3 +48,5 @@
 !/.config/newsboat/
 !/.config/calcurse/
 !.aliasrc
+!/.config/mimeapps.list
+!/.local/share/applications/
