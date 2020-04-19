@@ -3,9 +3,11 @@ all:
 	@echo "将一些脚本链接到~/.local/bin/"
 
 install:
-	@ln -s ~/.usefulscript/dwm-status.sh ~/.local/bin/dwm-status.sh
-	@ln -s ~/.usefulscript/maimpick ~/.local/bin/maimpick
-	@ln -s ~/.usefulscript/ext ~/.local/bin/ext
-	@ln -s ~/.usefulscript/linkhandler ~/.local/bin/linkhandler
-	@ln -s ~/.usefulscript/texclear ~/.local/bin/texclear
-	@ln -s ~/.usefulscript/ifinstalled ~/.local/bin/ifinstalled
+	@ln -sf ~/.usefulscript/dwm-status.sh ~/.local/bin/dwm-status.sh
+	@ln -sf ~/.usefulscript/maimpick ~/.local/bin/maimpick
+	@ln -sf ~/.usefulscript/ext ~/.local/bin/ext
+	@ln -sf ~/.usefulscript/linkhandler ~/.local/bin/linkhandler
+	@ln -sf ~/.usefulscript/texclear ~/.local/bin/texclear
+	@ln -sf ~/.usefulscript/ifinstalled ~/.local/bin/ifinstalled
+	@ln -sf ~/.usefulscript/lmc ~/.local/bin/lmc
+	@echo "执行成功"

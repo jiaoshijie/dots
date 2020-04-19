@@ -24,11 +24,11 @@ Print
 
 # Function keys
 XF86AudioMute
-	bash ~/.usefulscript/vol-toggle.sh
+	lmc toggle
 XF86AudioRaiseVolume
-	bash ~/.usefulscript/vol-up.sh
+	lmc up
 XF86AudioLowerVolume
-	bash ~/.usefulscript/vol-down.sh
+	lmc down
 XF86AudioPlay
 	mpc toggle
 XF86AudioPrev
