@@ -58,3 +58,8 @@ alias \
   supiplocal="sudo pip install -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
   piplocal="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
   sunpm="sudo npm --registry https://registry.npm.taobao.org install -g"
+
+# c-index alias
+alias \
+  setctags="ctags -R -f .tags" \
+  setcscope="cscope -Rbq"

@@ -37,7 +37,7 @@ _comp_options+=(globdots) # Include hidden files
 # Emacs-mode
 bindkey -e
 export KEYTIMEOUT=1
-
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 # Edit the current command line in $EDITOR
 autoload edit-command-line
 zle -N edit-command-line
