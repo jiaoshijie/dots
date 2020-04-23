@@ -55,9 +55,9 @@ p_music() {
   music_num="$(mpc status | wc -l)"
   music_mpc="$(mpc status | sed '2,$d')"
   if [ "$music_num" == "3" ]; then
-    printf "🎹$music_mpc"
+    printf "🎤$music_mpc"
   else
-    printf "🎹mpc_stop"
+    printf "🎤mpc_stop"
   fi
 }
 
