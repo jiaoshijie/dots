@@ -4,8 +4,6 @@
 ;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
 ;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;   安装以下字体
-;   yay -S ttf-material-wifi-icons-git
 
 [colors]
 background = #cc222222
@@ -57,8 +55,7 @@ font-3 = "material\-wifi:style=Regular:pixelsize=14;1"
 
 modules-left = powermenu i3
 modules-center = xwindow
-; modules-right = alsa cpu memory wlan date temperature
-modules-right = alsa cpu memory wlan temperature date battery
+modules-right = alsa memory wlan temperature date battery
 
 ; tray-position = center
 tray-position = right
@@ -115,13 +112,6 @@ label-urgent-padding = 2
 
 ; Separator in between workspaces
 label-separator = |
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = ""
-format-prefix-foreground = ${colors.orange}
-label = %percentage:2%%  |
 
 [module/memory]
 type = internal/memory
@@ -194,29 +184,29 @@ battery = BAT0
 adapter = ADP0
 full-at = 95
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <animation-charging>  <label-charging>
 
-format-discharging = <animation-discharging> <label-discharging>
+format-discharging = <animation-discharging>  <label-discharging>
 
-format-full-prefix = ""
+format-full-prefix = 
 format-full-prefix-foreground = ${colors.white}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.white}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
 animation-charging-2-foreground = #aaff77
 animation-charging-1-foreground = #fba922
 animation-charging-0-foreground = #ff5555
 animation-charging-framerate = 750
 
-animation-discharging-2 = 
-animation-discharging-1 = 
-animation-discharging-0 = 
+animation-discharging-2 = 
+animation-discharging-1 = 
+animation-discharging-0 = 
 animation-discharging-foreground = ${colors.red}
 animation-discharging-framerate = 750
 
