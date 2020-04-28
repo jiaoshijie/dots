@@ -20,7 +20,7 @@ super + p
 ctrl + shift + a
 	flameshot gui
 Print
-	maim ~/Pictures/pic-full-$(date '+%y%m%d-%H%M-%S').png
+	maim ~/Pictures/pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send -u low "截取屏幕成功"
 
 # Function keys
 XF86AudioMute
