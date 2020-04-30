@@ -9,6 +9,7 @@ image/gif=img.desktop;
 application/rss+xml=rss.desktop
 video/x-matroska=video.desktop
 inode/directory=file.desktop
+x-scheme-handler/fdm=freedownloadmanager_fdm_up.desktop
 
 [Added Associations]
 image/jpeg=sxiv.desktop;

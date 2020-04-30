@@ -49,9 +49,9 @@ alias \
 # tmux alias
 alias \
   ntmux="tmux new -s" \
-  atmux="tmux a -t" \
-  tJ="tmux new -s jie || tmux a -t jie -d" \
-  te="tmux new -s SUN || tmux a -t SUN -d"
+  atmux="tmux a -d -t " \
+  tJ="tmux new -s jie || tmux a -d -t jie" \
+  te="tmux new -s SUN || tmux a -d -t SUN"
 
 # package-manager alias
 alias \

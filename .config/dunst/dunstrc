@@ -79,7 +79,7 @@
 [urgency_low]
     background = "#285477"
     foreground = "#A6C2D5"
-    frame_color = "#aaaaaa"
+    frame_color = "#4455EE"
     timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
