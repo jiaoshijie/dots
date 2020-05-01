@@ -8,7 +8,7 @@ stty stop undef # Disable ctrl-s to freeze terminal.
 # Enable colors and change prompt:
 autoload -U colors && colors
 setopt prompt_subst
-ZSH_THEME_GIT_PROMPT_PREFIX=":("
+ZSH_THEME_GIT_PROMPT_PREFIX="(:"
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
@@ -30,15 +30,12 @@ if [ -f ~/.ssh/ssh_connection ]; then
   source ~/.ssh/ssh_connection
 fi
 
+# zsh-complete
+[ -f $ZSH/complete.zsh ] && source $ZSH/complete.zsh
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zstyle ':completion:*' rehash true
-zmodload zsh/complist
-setopt completealiases
-compinit
-_comp_options+=(globdots) # Include hidden files
+#路径别名 进入相应的路径时只要 cd ~xxx
+hash -d NUT="$HOME/Nutstore Files/Nutstore/MARKDOWN_NOTE"
+hash -d PKG="/var/cache/pacman/pkg"
 
 # Emacs-mode
 bindkey -e
