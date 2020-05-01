@@ -1,13 +1,19 @@
 export ZSH=$HOME/.config/zsh
 export ZSH_CUSTOM=$HOME/.my-zsh
 
+setopt autocd # Automatically cd into typed directory.
+stty stop undef # Disable ctrl-s to freeze terminal.
+
 # Color-theme
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
-
-setopt autocd # Automatically cd into typed directory.
-stty stop undef # Disable ctrl-s to freeze terminal.
+setopt prompt_subst
+ZSH_THEME_GIT_PROMPT_PREFIX=":("
+ZSH_THEME_GIT_PROMPT_SUFFIX=")"
+ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
+ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
+[ -f $ZSH/git.zsh ] && source $ZSH/git.zsh
+PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}:%~%{$fg[red]%}]%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%}$%b '
 
 # History:
 HIST_STAMPS="yyyy-mm-dd"
@@ -17,7 +23,7 @@ SAVEHIST=10000
 HISTFILE=~/.cache/zsh_history
 
 # COM-alias
-[ -f ~/.aliasrc ] && source ~/.aliasrc
+[ -f $ZSH/aliasrc ] && source $ZSH/aliasrc
 
 # SSH-alias
 if [ -f ~/.ssh/ssh_connection ]; then
@@ -50,5 +56,5 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 # Plugins
-source $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $ZSH_CUSTOM/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $ZSH_CUSTOM/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

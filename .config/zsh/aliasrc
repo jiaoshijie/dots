@@ -36,14 +36,15 @@ alias \
 alias \
   gs="git status " \
   ga="git add " \
+  gaa="git add -A" \
   gb="git branch " \
   gc="git commit" \
   gd="git diff" \
   goto="git checkout" \
+  gbm="git checkout master" \
   gl="git log --graph" \
   guntrack="git rm -r --cached " \
   githist="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" \
-  gittype="git cat-file -t " \
   gitdump="git cat-file -p "
 
 # tmux alias

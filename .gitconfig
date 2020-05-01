@@ -2,8 +2,14 @@
 	email = jiao1751959040@gmail.com
 	name = jiaoshijie
 [core]
+  editor=nvim
 	autocrlf = input
 	safecrlf = true
 [credential]
 	helper = store
 [alias]
+  ignored = !git ls-files -v | grep "^[[:lower:]]"
+[merge]
+  tool = vimdiff
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
