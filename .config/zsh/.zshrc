@@ -1,11 +1,7 @@
 export ZSH=$HOME/.config/zsh
 export ZSH_CUSTOM=$HOME/.my-zsh
 
-setopt autocd # Automatically cd into typed directory.
-stty stop undef # Disable ctrl-s to freeze terminal.
-
-# Color-theme
-# Enable colors and change prompt:
+# 样式设置
 autoload -U colors && colors
 setopt prompt_subst
 ZSH_THEME_GIT_PROMPT_PREFIX="(:"
@@ -13,7 +9,11 @@ ZSH_THEME_GIT_PROMPT_SUFFIX=")"
 ZSH_THEME_GIT_PROMPT_DIRTY=" ✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
 [ -f $ZSH/git.zsh ] && source $ZSH/git.zsh
-PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}:%~%{$fg[red]%}]%{$fg_bold[blue]%}$(git_prompt_info)%{$reset_color%}$%b '
+local git_info='$(git_prompt_info)'
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}:%~%{$fg[red]%}]%{$fg_bold[blue]%}${git_info}%{$reset_color%}$%b "
+
+setopt autocd # Automatically cd into typed directory.
+stty stop undef # Disable ctrl-s to freeze terminal.
 
 # History:
 HIST_STAMPS="yyyy-mm-dd"
@@ -48,6 +48,7 @@ bindkey '\C-x\C-e' edit-command-line
 
 # FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git
+# sudo pacman -S the_silver_searcher
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
