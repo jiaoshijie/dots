@@ -1,0 +1,6 @@
+*.org
+.tags
+*.out
+*.orig
+*.rej
+*.o

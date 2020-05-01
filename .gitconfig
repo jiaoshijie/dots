@@ -5,8 +5,13 @@
   editor=nvim
 	autocrlf = input
 	safecrlf = true
+  excludesfile = ~/.config/gitignore_global
 [credential]
 	helper = store
+; [includeIf "gitdir:~/work/"]
+;   path = ~/work/.gitconfig
+[commit]
+  template = ~/.config/gitmessage
 [alias]
   ignored = !git ls-files -v | grep "^[[:lower:]]"
 [merge]
