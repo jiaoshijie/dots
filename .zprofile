@@ -1,11 +1,12 @@
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
-export PATH=$PATH:~/.local/bin
-export NUT=/home/red/"Nutstore Files"/Nutstore/
+export GOPATH=$HOME/go
+export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
+export ZDOTDIR="$HOME/.config/zsh"
+export NUT=$HOME/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 export LC_TIME="zh_CN.UTF-8"
-export ZDOTDIR="$HOME/.config/zsh"
 
 export EDITOR='nvim'
 export TERMINAL="st"
