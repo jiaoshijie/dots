@@ -17,6 +17,7 @@
 .config/ncmpcpp/error.log
 .config/calcurse/hooks/
 .config/zsh/.zcompdump
+.config/zsh/plugins
 
 # but these:
 !/README.md

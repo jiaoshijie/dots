@@ -16,6 +16,7 @@ function omz_history {
   fi
 }
 
+HIST_STAMPS="yyyy-mm-dd"
 # Timestamp format
 case ${HIST_STAMPS-} in
   "mm/dd/yyyy") alias history='omz_history -f' ;;
@@ -26,7 +27,7 @@ case ${HIST_STAMPS-} in
 esac
 
 ## History file configuration
-[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.cache/zsh_history"
 HISTSIZE=50000
 SAVEHIST=10000
 
