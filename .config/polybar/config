@@ -48,10 +48,9 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = "Source Han Sans CN:style=Regular:pixelsize=10;1"
+font-0 = fixed:pixelsize=12;1
+font-1 = "Source Han Sans CN:style=Regular:pixelsize=12;1"
 font-2 = "SauceCodePro Nerd Font:style=Regular:pixelsize=10;1"
-font-3 = "material\-wifi:style=Regular:pixelsize=14;1"
 
 modules-left = powermenu i3
 modules-center = xwindow
@@ -118,7 +117,7 @@ type = internal/memory
 interval = 2
 format-prefix = ""
 format-prefix-foreground = ${colors.cyan}
-label = %percentage_used%%  |
+label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
@@ -126,13 +125,10 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected =  %upspeed:5%  %downspeed:5% %local_ip% |
+label-connected =  %upspeed:5%  %downspeed:5% %local_ip%
 
 format-disconnected = 睊
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
+ramp-signal-0 = 
 ramp-signal-foreground = ${colors.magenta}
 
 [module/date]
@@ -148,13 +144,13 @@ time-alt = %H:%M:%S
 format-prefix = 
 format-prefix-foreground = ${colors.blue}
 
-label = %date% %time%  |
+label = %date% %time%
 
 [module/alsa]
 type = internal/alsa
 
 format-volume = <label-volume>
-label-volume =  %percentage%% |
+label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 format-muted-prefix = ""
@@ -218,8 +214,8 @@ warn-temperature = 60
 format = <ramp> <label>
 format-warn = <ramp> <label-warn>
 
-label = %temperature-c%  |
-label-warn = %temperature-c%  |
+label = %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
 ramp-0 = 

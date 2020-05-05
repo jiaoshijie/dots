@@ -5,6 +5,10 @@ super + shift + Return
 super + d
 	dmenu_run
 	# rofi -show run
+super + shift + d
+	rofi -show drun -show-icons -modi drun
+super + i
+	dmenuunicode
 super + c
 	$BROWSER
 super + x

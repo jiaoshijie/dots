@@ -2,7 +2,7 @@ export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export GOPATH=$HOME/go
-export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin:$HOME/.gem/ruby/2.7.0/bin
 export ZDOTDIR="$HOME/.config/zsh"
 export NUT=$HOME/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true

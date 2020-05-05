@@ -10,4 +10,5 @@ install:
 	@ln -sf ~/.usefulscript/texclear ~/.local/bin/texclear
 	@ln -sf ~/.usefulscript/ifinstalled ~/.local/bin/ifinstalled
 	@ln -sf ~/.usefulscript/lmc ~/.local/bin/lmc
+	@ln -sf ~/.usefulscript/dmenuunicode ~/.local/bin/dmenuunicode
 	@echo "执行成功"
