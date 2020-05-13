@@ -1,5 +1,4 @@
 # My ArchLinux config
-***
 
 ## .Xmodmap
-> CapsLock -> Ctrl
+- `CapsLock -> Ctrl`
