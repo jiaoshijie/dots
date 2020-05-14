@@ -43,6 +43,8 @@ alias \
   gaa="git add -A" \
   gb="git branch " \
   gc="git commit" \
+  gca="gc --amend --edit" \
+  gcan="gc --amend --no-edit" \
   gd="git diff" \
   goto="git checkout" \
   gbm="git checkout master" \

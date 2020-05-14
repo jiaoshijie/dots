@@ -1,10 +1,3 @@
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-
 [colors]
 background = #cc222222
 background-alt = #444
@@ -50,11 +43,11 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=12;1
 font-1 = "Source Han Sans CN:style=Regular:pixelsize=12;1"
-font-2 = "SauceCodePro Nerd Font:style=Regular:pixelsize=10;1"
+font-2 = "Noto Color Emoji:scale=10:style=Regular;2"
 
-modules-left = powermenu i3
+modules-left = i3
 modules-center = xwindow
-modules-right = alsa memory wlan temperature date battery
+modules-right = alsa memory wlan date battery
 
 ; tray-position = center
 tray-position = right
@@ -73,7 +66,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label =  %title:0:30:...%
+label = 🌟 %title:0:30:...%
 
 [module/i3]
 type = internal/i3
@@ -89,13 +82,13 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused =  %index%
+label-focused = 💗 %index%
 label-focused-background = #567434
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused =  %index%
+label-unfocused = 🔐 %index%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
@@ -115,7 +108,7 @@ label-separator = |
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = ""
+format-prefix = "🧠"
 format-prefix-foreground = ${colors.cyan}
 label = %percentage_used%%
 
@@ -125,23 +118,23 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-label-connected =  %upspeed:5%  %downspeed:5% %local_ip%
+label-connected = 👆 %upspeed:5% 👇 %downspeed:5% %local_ip%
 
-format-disconnected = 睊
-ramp-signal-0 = 
+format-disconnected = 📡
+ramp-signal-0 = 🌐
 ramp-signal-foreground = ${colors.magenta}
 
 [module/date]
 type = internal/date
 interval = 5
 
-date =
-date-alt = " %Y-%m-%d"
+date = " %Y-%m-%d"
+; date-alt =
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %H:%M:%S
+; time-alt =
 
-format-prefix = 
+format-prefix = 📅
 format-prefix-foreground = ${colors.blue}
 
 label = %date% %time%
@@ -150,29 +143,8 @@ label = %date% %time%
 type = internal/alsa
 
 format-volume = <label-volume>
-label-volume =  %percentage%%
+label-volume = 🔊 %percentage%%
 label-volume-foreground = ${root.foreground}
-
-format-muted-prefix = ""
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
-
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -184,44 +156,19 @@ format-charging = <animation-charging>  <label-charging>
 
 format-discharging = <animation-discharging>  <label-discharging>
 
-format-full-prefix = 
+format-full-prefix = 🔋
 format-full-prefix-foreground = ${colors.white}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
+ramp-capacity-0 = 🔋
 ramp-capacity-foreground = ${colors.white}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-2-foreground = #aaff77
-animation-charging-1-foreground = #fba922
+animation-charging-0 = 🔌
 animation-charging-0-foreground = #ff5555
 animation-charging-framerate = 750
 
-animation-discharging-2 = 
-animation-discharging-1 = 
-animation-discharging-0 = 
+animation-discharging-0 = 👽
 animation-discharging-foreground = ${colors.red}
 animation-discharging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.red}
 
 [settings]
 screenchange-reload = true
@@ -229,32 +176,3 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
-
-[module/powermenu]
-type = custom/menu
-
-expand-right = true
-
-format-spacing = 1
-
-label-open = |    |
-label-open-foreground = #ffffff
-label-close = |    cancel
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = power off
-menu-0-1-exec = menu-open-2
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
-
-menu-2-0 = power off
-menu-2-0-exec = poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
