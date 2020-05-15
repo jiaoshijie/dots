@@ -4,16 +4,31 @@ separator=true
 separator_block_width=15
 
 [documentation]
-full_text=Documentation
+full_text=Hello
 website=https://github.com
 command=xdg-open "$website"
 color=#f12711
 
-[greetings]
-color=#f5af19
-command=echo "Hello, $USER!"
-interval=once
+# [greetings]
+# color=#f5af19
+# command=echo "Hello, $USER!"
+# interval=once
+
+[resources]
+command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_resources.sh
+interval=1
+color=#ee8551
+
+[network]
+command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_network.sh
+interval=1
 
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+# command=date '+%Y-%m-%d %H:%M:%S'
+command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_date.sh
+interval=1
+color=#f5af19
+
+[backlight]
+command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_backlight.sh
 interval=1

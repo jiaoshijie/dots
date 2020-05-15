@@ -40,7 +40,7 @@
 !/.xinitrc
 !/.zprofile
 !/.bashrc
-!/.usefulscript/
+!/.config/my_script/
 !/.config/mpv/
 !/.config/mpd/
 !/.config/ncmpcpp/
