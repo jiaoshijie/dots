@@ -164,10 +164,6 @@ bar {
     }
 }
 
-# polybar
-# exec --no-startup-id polybar example
-
-# exec_always 不管什么情况总是启动该程序，exec 重新启动i3不启动该程序
 # exec_always sleep 5; xmodmap ~/.Xmodmap
 exec --no-startup-id st -t jiaoshijie -e tmux new -s jie
 for_window [class="st-256color" title="jiaoshijie"] move scratchpad
