@@ -24,6 +24,7 @@
 !/.gitignore
 !/.gitconfig
 !/.Xmodmap
+!/.Xmodmap_normal
 !/.xprofile
 !/.Xresources
 !/.config/zsh/
