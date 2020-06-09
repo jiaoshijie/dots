@@ -1,0 +1,28 @@
+# This is an example PKGBUILD file. Use this as a start to creating your own,
+# and remove these comments. For more information, see 'man PKGBUILD'.
+# NOTE: Please fill out the license field for your package! If it is unknown,
+# then please put 'unknown'.
+
+# Maintainer: JiaoShiJie <jiao1751959040@gmail.com>
+pkgname=utools
+pkgver=1.0.7
+pkgrel=1
+pkgdesc="你的生产力工具集"
+arch=('x86_64')
+url="./"
+license=('custom')
+depends=('gtk3' 'nss' 'libxss')
+source=("./utools_1.0.7-beta_amd64.deb")
+noextract=("${pkgname}_${pkgver}-beta_amd64.deb")
+md5sums=("SKIP")
+
+prepare() {
+  ar -x ${pkgname}_${pkgver}-beta_amd64.deb
+  mkdir ${pkgname}_${pkgver}
+  tar -xf data.tar.xz --directory="${pkgname}_${pkgver}"
+}
+
+package() {
+	cd "${pkgname}_${pkgver}"
+	cp -r ./ ${pkgdir}/
+}
