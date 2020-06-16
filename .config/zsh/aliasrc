@@ -7,6 +7,8 @@ alias \
   ll='ls -lh' \
   la='ls -lAh' \
   l='ls -lah' \
+  cp='cp -iv' \
+  mv='mv -iv' \
   s=neofetch \
   p="ping www.baidu.com" \
   c=clear \
@@ -73,3 +75,7 @@ alias \
 alias \
   setctags="ctags -R -f .tags" \
   setcscope="cscope -Rbq"
+
+# misc alias
+alias \
+  Sweather="curl wttr.in"
