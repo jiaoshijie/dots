@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+result=$(ps ax|grep -v grep|grep screenkey)
+if [ "$result" == "" ]; then
+  eval "screenkey -t 0.5 -p bottom -s small --opacity 0.5 --no-systray"
+else
+  eval "killall screenkey"
+fi

@@ -3,11 +3,11 @@
 separator=true
 separator_block_width=15
 
-[documentation]
-full_text=Hello
-website=https://github.com
-command=xdg-open "$website"
-color=#f12711
+# [documentation]
+# full_text=Hello
+# website=https://github.com
+# command=xdg-open "$website"
+# color=#f12711
 
 # [greetings]
 # color=#f5af19

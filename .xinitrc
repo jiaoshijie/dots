@@ -50,5 +50,5 @@ fi
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 # prime-offload
-# exec i3
-exec dwm
+exec i3
+# exec dwm

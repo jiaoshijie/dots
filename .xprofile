@@ -15,6 +15,7 @@ nm-applet &
 volumeicon &
 flameshot &
 nutstore &
+blueman-applet &
 sxhkd &
 dunst &       # dunst for notifications
 mpd &

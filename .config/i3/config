@@ -9,7 +9,7 @@
 set $mod Mod4
 font pango:monospace 8
 # class                 border  backgr  text    indicator child_border
-client.focused          #FFF500 #285577 #ffffff #2e9ef4   #005577
+client.focused          #FFF500 #285577 #ffffff #2e9ef4   #eeeeee
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -46,9 +46,9 @@ mode "resize" {
 }
 # 取消框框(normal | 1pixel | pixel xx | none | pixel)
 # new_window 1pixel
-new_window pixel 2
+new_window pixel 3
 # new_float normal
-new_float pixel 1
+new_float pixel 3
 hide_edge_borders none
 smart_borders on
 
@@ -56,7 +56,7 @@ smart_borders on
 # 设置窗口有间隙, 需要安装i3gaps, 而不是i3wm
 gaps inner 10
 gaps outer -2
-smart_gaps on
+# smart_gaps on
 # Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)

@@ -11,4 +11,5 @@ install:
 	@ln -sf $(HOME)/.config/my_script/ifinstalled ~/.local/bin/ifinstalled
 	@ln -sf $(HOME)/.config/my_script/lmc ~/.local/bin/lmc
 	@ln -sf $(HOME)/.config/my_script/dmenuunicode ~/.local/bin/dmenuunicode
+	@ln -sf $(HOME)/.config/my_script/Screenkey ~/.local/bin/Screenkey
 	@echo "执行成功"
