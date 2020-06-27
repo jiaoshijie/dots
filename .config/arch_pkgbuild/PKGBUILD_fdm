@@ -23,6 +23,6 @@ prepare() {
 }
 
 package() {
-	cd "$pkgname-$pkgver"
+	cd "${pkgname}-${pkgver}"
 	cp -r ./ ${pkgdir}/
 }

@@ -10,6 +10,7 @@ alias \
   cp='cp -iv' \
   mv='mv -iv' \
   s=neofetch \
+  S="mpv ~/Nutstore\ Files/Nutstore/others/alarm.oga" \
   p="ping www.baidu.com" \
   c=clear \
   hexedit="hexedit --color" \
