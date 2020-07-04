@@ -9,7 +9,8 @@ export TERM_ITALICS=true
 export LC_TIME="zh_CN.UTF-8"
 
 export EDITOR='nvim'
-export TERMINAL="st"
+# export TERMINAL="st"
+export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 

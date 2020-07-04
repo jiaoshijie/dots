@@ -3,8 +3,8 @@ super + Return
 super + shift + Return
 	alacritty --title ranger -e ranger
 super + d
-	dmenu_run
-	# rofi -show run
+	rofi -show run
+	# dmenu_run
 super + shift + d
 	rofi -show drun -show-icons -modi drun
 super + i
@@ -19,6 +19,8 @@ super + g
 	pcmanfm
 super + t
 	zeal
+super + shift + t
+	goldendict
 super + p
 	vnote
 ctrl + shift + a
