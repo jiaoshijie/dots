@@ -79,4 +79,7 @@ alias \
 
 # misc alias
 alias \
-  Sweather="curl wttr.in"
+  Sweather="curl wttr.in" \
+  nv="nvim" \
+  vi="vim" \
+  em="emacs -nw"
