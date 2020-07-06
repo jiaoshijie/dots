@@ -12,17 +12,17 @@ super + i
 super + c
 	$BROWSER
 super + x
-	firefox
+	code
 super + z
-	emacs
+	gcolor2
 super + g
 	pcmanfm
 super + t
 	zeal
-super + shift + t
-	goldendict
 super + p
 	vnote
+super + m
+	goldendict
 ctrl + shift + a
 	flameshot gui
 Print
