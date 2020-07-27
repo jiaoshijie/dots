@@ -35,6 +35,7 @@
 !/.config/neofetch/
 !/.config/polybar/
 !/.config/ranger/
+/.config/ranger/__pycache__/*
 /.config/ranger/plugins/__pycache__/*
 /.config/ranger/colorschemes/__pycache__/*
 !/.tmux.conf
