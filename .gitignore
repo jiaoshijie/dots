@@ -57,4 +57,4 @@
 !/.config/gitignore_global
 !/.fonts.conf
 !/.config/i3blocks
-!/.config/arch_pkgbuild
+!/.config/rofi
