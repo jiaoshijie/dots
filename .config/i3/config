@@ -157,9 +157,9 @@ bar {
     modifier None
     # i3bar_command i3bar --transparency #282828
     colors {
-      background #282828
+      background #484848
       separator #ebdbb2
-# <colorclass> <border> <background> <text>
+      # <colorclass> <border> <background> <text>
       focused_workspace #83a598 #458588 #ebdbb2
       inactive_workspace #504945 #282828 #928374
       urgent_workspace #cc241d #900000 #fb4934
@@ -168,6 +168,7 @@ bar {
 
 # exec_always sleep 5; xmodmap ~/.Xmodmap
 exec --no-startup-id alacritty -t jiaoshijie -e tmux new -s jie
+# exec --no-startup-id polybar example
 # for_window [class="st-256color" title="jiaoshijie"] move scratchpad
 for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
 

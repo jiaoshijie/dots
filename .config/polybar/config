@@ -47,7 +47,7 @@ font-2 = "Noto Color Emoji:scale=10:style=Regular;2"
 
 modules-left = i3
 modules-center = xwindow
-modules-right = alsa memory wlan date battery
+modules-right = alsa memory wlan date
 
 ; tray-position = center
 tray-position = right
