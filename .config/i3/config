@@ -95,6 +95,9 @@ mode "$mode_gaps_outer" {
 
 
 # 使窗口以float-mode打开, 使用xprop获取窗口的class fullscreen floating
+# xprop:
+#  WM_CLASS(STRING) = instance, class
+#  WM_NAME(STRING) = title
 # ---- * VirtualBox * ------
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Manager"] resize set 1000 600
@@ -103,6 +106,11 @@ for_window [class="VirtualBox Machine"] floating enable
 for_window [class="VirtualBox Machine"] resize set 1000 600
 for_window [class="VirtualBox Manager"] move container to workspace $ws10
 for_window [class="VirtualBox"] floating enable
+
+# ---- * Bluetooth * ----
+for_window [class="Blueman-manager" title="Bluetooth Devices"] floating enable
+for_window [class="Blueman-manager" title="Bluetooth Devices"] move position center
+for_window [class="Blueman-manager" title="Bluetooth Devices"] move set 600 600
 
 # ---- * audacious * -------
 for_window [class="Audacious"] floating enable
