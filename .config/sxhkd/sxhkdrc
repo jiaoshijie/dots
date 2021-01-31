@@ -11,6 +11,8 @@ super + i
 	dmenuunicode
 super + c
 	$BROWSER
+super + shift + x
+	emacs
 super + x
 	code
 super + z
