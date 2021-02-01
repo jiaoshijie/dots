@@ -11,7 +11,7 @@ xcompmgr &
 mate-power-manager &
 xwallpaper --zoom $HOME/.config/red_wallpaper &
 fcitx &
-utools &
+copyq &
 nm-applet &
 volumeicon &
 flameshot &

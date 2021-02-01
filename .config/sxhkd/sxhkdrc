@@ -5,6 +5,8 @@ super + shift + Return
 super + d
 	rofi -show run
 	# dmenu_run
+super + w
+	rofi -show window -show-icons
 super + shift + d
 	rofi -show drun -show-icons -modi drun
 super + i
@@ -23,6 +25,8 @@ super + t
 	zeal
 super + p
 	vnote
+super + shift + m
+	rofi -show calc -modi calc -no-show-match -no-sort
 super + m
 	goldendict
 ctrl + shift + a

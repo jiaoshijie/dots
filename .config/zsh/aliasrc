@@ -18,7 +18,8 @@ alias \
   ipy=ipython \
   x="xmodmap ~/.Xmodmap && xset r rate 300 50" \
   XNORMAL="xmodmap ~/.Xmodmap_normal && xset r rate 300 50" \
-  Semojis="cat ~/Nutstore\ Files/Nutstore/MARKDOWN_NOTE/.usefulfile/emoji | dmenu -i -l 20"
+  Semojis="cat ~/Nutstore\ Files/Nutstore/MARKDOWN_NOTE/.usefulfile/emoji | dmenu -i -l 20" \
+  trm=trash
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
 [ -f ~/.local/bin/shell-safe-rm/bin/rm.sh ] && alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"

@@ -148,13 +148,19 @@ for_window [class="Free Download Manager"] move container to workspace $ws10
 # -----* other *-----
 for_window [class="baidunetdisk"] floating enable
 for_window [class="baidunetdisk"] move container to workspace $ws10
-for_window [class="uTools"] move position 550 200
+# for_window [class="uTools"] move position 550 200
 for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] resize set 800 400
 for_window [class="Lxappearance"] move position center
 for_window [class="Alacritty" title="ranger"] floating enable
 for_window [class="Alacritty" title="ncmpcpp"] floating enable
 for_window [class="GoldenDict"] floating enable
+for_window [class="Ulauncher"] floating enable
+for_window [class="Fsearch"] floating enable
+for_window [class="stacer"] floating enable
+for_window [class="copyq"] floating enable
+for_window [class="copyq"] move position center
+for_window [class="Qalculate-gtk"] floating enable
 
 # i3-bar
 bar {
@@ -204,7 +210,7 @@ bindsym $mod+v split v
 bindsym $mod+b split h
 bindsym $mod+f fullscreen toggle
 bindsym $mod+e layout toggle split
-bindsym $mod+w layout tabbed
+bindsym $mod+Shift+w layout tabbed
 # bindsym $mod+s layout stacking
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
