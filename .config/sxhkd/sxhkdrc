@@ -8,9 +8,12 @@ super + d
 super + w
 	rofi -show window -show-icons
 super + shift + d
-	rofi -show drun -show-icons -modi drun
+	rofi -show drun -show-icons
 super + i
-	dmenuunicode
+	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji -matching normal
+	# dmenuunicode
+super + shift + i
+	rofi -show combi -show-icons
 super + c
 	$BROWSER
 super + shift + x
@@ -26,7 +29,7 @@ super + t
 super + p
 	vnote
 super + shift + m
-	rofi -show calc -modi calc -no-show-match -no-sort
+	rofi -show calc -no-show-match -no-sort
 super + m
 	goldendict
 ctrl + shift + a
