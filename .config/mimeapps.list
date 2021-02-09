@@ -98,6 +98,7 @@ application/wps-office.wps=wps-office-prometheus.desktop
 application/wps-office.wpt=wps-office-prometheus.desktop
 application/wps-office.wpss=wps-office-prometheus.desktop
 application/wps-office.wpso=wps-office-prometheus.desktop
+x-scheme-handler/kite=kite-copilot.desktop
 
 [Added Associations]
 image/jpeg=sxiv.desktop;

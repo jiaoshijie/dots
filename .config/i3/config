@@ -102,8 +102,9 @@ mode "$mode_gaps_outer" {
 for_window [class="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Manager"] resize set 1000 600
 for_window [class="VirtualBox Manager"] move position center
-for_window [class="VirtualBox Machine"] floating enable
-for_window [class="VirtualBox Machine"] resize set 1000 600
+# for_window [class="VirtualBox Machine"] floating enable
+# for_window [class="VirtualBox Machine"] resize set 1000 600
+for_window [class="VirtualBox Machine"] move container to workspace $ws9
 for_window [class="VirtualBox Manager"] move container to workspace $ws10
 for_window [class="VirtualBox"] floating enable
 
@@ -161,6 +162,8 @@ for_window [class="stacer"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="copyq"] move position center
 for_window [class="Qalculate-gtk"] floating enable
+for_window [class="Kite"] floating enable
+for_window [class="fcitx5-config-qt"] floating enable
 
 # i3-bar
 bar {
@@ -181,10 +184,12 @@ bar {
 }
 
 # exec_always sleep 5; xmodmap ~/.Xmodmap
-exec --no-startup-id alacritty -t jiaoshijie -e tmux new -s jie
+# exec --no-startup-id alacritty -t jiaoshijie -e tmux new -s jie
+exec --no-startup-id kitty --title jiaoshijie -e tmux new -s jie
 # exec --no-startup-id polybar example
 # for_window [class="st-256color" title="jiaoshijie"] move scratchpad
-for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
+# for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
+for_window [class="kitty" title="jiaoshijie"] move scratchpad
 
 # ********************** wm快捷键 *********************** #
 bindsym $mod+Shift+q kill

@@ -1,11 +1,13 @@
 configuration {
     columns: 1;
+    lines: 10;
+    width: 40;
     font: "Source Code Pro 16";
     sidebar-mode: true;
     show-icons: true;
     terminal: "alacritty";
     drun-match-fields: "name,generic,exec,categories";
-    matching: "fuzzy";
+    matching: "normal";
     modi: "window,run,drun,calc,combi";
 }
 

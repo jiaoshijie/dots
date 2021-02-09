@@ -3,14 +3,14 @@ super + Return
 super + shift + Return
 	alacritty --title ranger -e ranger
 super + d
-	rofi -show run
+	rofi -show run -matching fuzzy
 	# dmenu_run
 super + w
 	rofi -show window -show-icons
 super + shift + d
 	rofi -show drun -show-icons
 super + i
-	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji -matching normal
+	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
 	# dmenuunicode
 super + shift + i
 	rofi -show combi -show-icons

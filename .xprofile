@@ -10,7 +10,8 @@ dwm-status.sh &
 xcompmgr &
 mate-power-manager &
 xwallpaper --zoom $HOME/.config/red_wallpaper &
-fcitx &
+# feh --bg-fill $HOME/.config/red_wallpaper &
+fcitx5 &
 copyq &
 nm-applet &
 volumeicon &
