@@ -156,7 +156,7 @@ for_window [class="Lxappearance"] move position center
 for_window [class="Alacritty" title="ranger"] floating enable
 for_window [class="Alacritty" title="ncmpcpp"] floating enable
 for_window [class="GoldenDict"] floating enable
-for_window [class="Ulauncher"] floating enable
+for_window [class="eudic"] floating enable
 for_window [class="Fsearch"] floating enable
 for_window [class="stacer"] floating enable
 for_window [class="copyq"] floating enable

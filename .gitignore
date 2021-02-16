@@ -52,7 +52,6 @@
 !/.config/calcurse/
 !.aliasrc
 !/.config/mimeapps.list
-!/.local/share/applications/
 !/.config/gitmessage
 !/.config/gitignore_global
 !/.fonts.conf

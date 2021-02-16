@@ -10,10 +10,10 @@ super + w
 super + shift + d
 	rofi -show drun -show-icons
 super + i
-	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
+	rofi -show calc -no-show-match -no-sort
 	# dmenuunicode
 super + shift + i
-	rofi -show combi -show-icons
+	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
 super + c
 	$BROWSER
 super + shift + x
@@ -27,15 +27,15 @@ super + g
 super + t
 	zeal
 super + p
-	vnote
+	typora
 super + shift + m
-	rofi -show calc -no-show-match -no-sort
+	eudic
 super + m
 	goldendict
 ctrl + shift + a
 	flameshot gui
 Print
-	maim ~/Pictures/pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send -u low "截取屏幕成功"
+	maim ~/Downloads/wallpaper/pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send -u low "截取屏幕成功"
 
 # Function keys
 XF86AudioMute

@@ -11,7 +11,7 @@ alias \
   mv='mv -iv' \
   s=neofetch \
   S="mpv ~/Nutstore\ Files/Nutstore/others/alarm.oga" \
-  p="ping www.baidu.com" \
+  p="ping archlinux.org" \
   c=clear \
   hexedit="hexedit --color" \
   fm=ranger \
@@ -21,7 +21,11 @@ alias \
   Semojis="cat ~/Nutstore\ Files/Nutstore/MARKDOWN_NOTE/.usefulfile/emoji | dmenu -i -l 20" \
   rm=trash \
   rml=trash-list \
-  rme=trash-empty
+  rme=trash-empty \
+  du="ncdu --color dark" \
+  cat=bat \
+  sc=sc-im \
+  df="df -hl"
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
 [ -f ~/.local/bin/shell-safe-rm/bin/rm.sh ] && alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"

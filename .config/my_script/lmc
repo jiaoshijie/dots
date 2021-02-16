@@ -3,7 +3,7 @@
 NUM="${2:-5}"
 
 # Uncomment the following line to use Pulseaudio.
-# PULSE=true
+PULSE=true
 
 if [ "$PULSE" ]; then
 	toggle() { pulsemixer --toggle-mute ;}
