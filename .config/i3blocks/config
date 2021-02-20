@@ -3,16 +3,28 @@
 separator=true
 separator_block_width=15
 
-# [documentation]
-# full_text=Hello
-# website=https://github.com
-# command=xdg-open "$website"
-# color=#f12711
+[windowtitle]
+command=xtitle -s
+interval=-3
+align=center
+color=#1C1BBF
 
-# [greetings]
-# color=#f5af19
-# command=echo "Hello, $USER!"
-# interval=once
+[mpd]
+command=$HOME/.config/my_script/i3bar-functions/mediaplayer/mediaplayer
+instance=mpd
+interval=5
+signal=10
+
+[dhcpcd_service]
+command=$HOME/.config/my_script/i3bar-functions/systemd_unit/systemd_unit
+markup=pango
+label=sshd:
+interval=30
+UNIT_NAME=sshd.service
+USER_UNIT=false
+ACTIVE_COLOR=#66ff66
+INACTIVE_COLOR=orange
+FAILED_COLOR=red
 
 [resources]
 command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_resources.sh
@@ -24,7 +36,6 @@ command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/
 interval=1
 
 [time]
-# command=date '+%Y-%m-%d %H:%M:%S'
 command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_date.sh
 interval=1
 color=#f5af19
@@ -32,3 +43,12 @@ color=#f5af19
 [backlight]
 command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_backlight.sh
 interval=1
+
+[dunst]
+command=$HOME/.config/my_script/i3bar-functions/dunst/dunst
+markup=pango
+interval=once
+format=json
+#min_width=50
+#align=center
+#DUNST_MUTE=off

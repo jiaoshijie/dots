@@ -101,6 +101,7 @@ application/wps-office.wpso=wps-office-wps.desktop
 x-scheme-handler/kite=kite-copilot.desktop
 x-scheme-handler/magnet=freedownloadmanager_magnet_up.desktop
 application/x-bittorrent=freedownloadmanager_torrent.desktop
+x-scheme-handler/mailto=brave-browser.desktop
 
 [Added Associations]
 image/jpeg=sxiv.desktop;

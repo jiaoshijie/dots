@@ -149,7 +149,7 @@ for_window [class="Free Download Manager"] move container to workspace $ws10
 # -----* other *-----
 for_window [class="baidunetdisk"] floating enable
 for_window [class="baidunetdisk"] move container to workspace $ws10
-# for_window [class="uTools"] move position 550 200
+for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] resize set 800 400
 for_window [class="Lxappearance"] move position center
@@ -171,15 +171,18 @@ bar {
     status_command i3blocks
     position top
     mode dock
-    modifier None
-    # i3bar_command i3bar --transparency #282828
+    # mode hide
+    # hidden_state hide
+    # modifier Mod4
+    tray_output primary
+    i3bar_command i3bar --transparency
     colors {
-      background #484848
+      background #48484855
       separator #ebdbb2
       # <colorclass> <border> <background> <text>
-      focused_workspace #83a598 #458588 #ebdbb2
-      inactive_workspace #504945 #282828 #928374
-      urgent_workspace #cc241d #900000 #fb4934
+      focused_workspace #83a598 #458588AA #ebdbb2
+      inactive_workspace #504945 #282828AA #928374
+      urgent_workspace #cc241d #900000AA #fb4934
     }
 }
 
@@ -187,6 +190,8 @@ bar {
 # exec --no-startup-id alacritty -t jiaoshijie -e tmux new -s jie
 exec --no-startup-id kitty --title jiaoshijie -e tmux new -s jie
 # exec --no-startup-id polybar example
+# install xautolock
+exec --no-startup-id xautolock -time 10 -locker "i3lock -e -i ~/.config/lock.png"
 # for_window [class="st-256color" title="jiaoshijie"] move scratchpad
 # for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
 for_window [class="kitty" title="jiaoshijie"] move scratchpad
@@ -255,7 +260,7 @@ bindsym $mod+Shift+c reload
 # bindsym $mod+Shift+r restart
 # 退出i3到X session的登入界面
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+p exec "i3lock -e -u -c 0000aa"
+bindsym $mod+Shift+p exec "i3lock -e -i ~/.config/lock.png"
 bindsym $mod+r mode "resize"
 bindsym $mod+u border none
 bindsym $mod+y border pixel 2
