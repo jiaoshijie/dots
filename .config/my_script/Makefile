@@ -12,4 +12,6 @@ install:
 	@ln -sf $(HOME)/.config/my_script/lmc ~/.local/bin/lmc
 	@ln -sf $(HOME)/.config/my_script/dmenuunicode ~/.local/bin/dmenuunicode
 	@ln -sf $(HOME)/.config/my_script/Screenkey ~/.local/bin/Screenkey
+	@ln -sf $(HOME)/.config/my_script/lf-select ~/.local/bin/lf-select
+	@ln -sf $(HOME)/.config/my_script/rotdir ~/.local/bin/rotdir
 	@echo "执行成功"

@@ -4,7 +4,7 @@ separator=true
 separator_block_width=15
 
 [windowtitle]
-command=xtitle -s
+command=$HOME/.config/my_script/dwmbar-functions/dwm_activewindowtitle.sh
 interval=-3
 align=center
 color=#1C1BBF
@@ -43,6 +43,13 @@ color=#f5af19
 [backlight]
 command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_backlight.sh
 interval=1
+
+# Display any packages to install
+[packages]
+command=echo "📦 $(sudo pacman -Qu | wc -l)"
+separator=true
+interval=1800
+signal=3
 
 [dunst]
 command=$HOME/.config/my_script/i3bar-functions/dunst/dunst

@@ -1,0 +1,114 @@
+# lf settings
+
+set shell bash
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set icons
+set period 1
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+# set hidden true
+set ignorecase true
+set drawbox true
+set previewer ~/.config/lf/preview
+set preview true
+
+# cmds/functions
+cmd open ${{
+    case $(file --mime-type $f -b) in
+  image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        text/*) $EDITOR $fx;;
+  image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+  image/svg+xml) display -- $f ;;
+  image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | sxiv -aio 2>/dev/null | lf-select ;;
+  audio/*) mpv --audio-display=no $f ;;
+  video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+  application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
+    esac
+}}
+
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+
+cmd mkfile ${{
+  printf "File Name: "
+  read ans
+  $EDITOR $ans
+}}
+
+cmd sudomkfile ${{
+  printf "File Name: "
+  read ans
+  sudo $EDITOR $ans
+}}
+
+cmd delete ${{
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "%s\n\t" "$fx"
+  printf "delete?[y/N]"
+  read ans
+  [ $ans = "y" ] && rm -rf -- $fx
+}}
+
+cmd fzf_jump ${{
+  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+# Trash cli bindings
+cmd trash ${{
+  files=$(printf "$fx" | tr '\n' ';')
+  while [ "$files" ]; do
+    # extract the substring from start of string up to delimiter.
+    # this is the first "element" of the string.
+    file=${files%%;*}
+
+    trash-put "$(basename "$file")"
+    # if there's only one element left, set `files` to an empty string.
+    # this causes us to exit this `while` loop.
+    # else, we delete the first "element" of the string from files, and move onto the next.
+    if [ "$files" = "$file" ]; then
+      files=''
+    else
+      files="${files#*;}"
+    fi
+  done
+}}
+
+cmd clear_trash %trash-empty
+
+cmd restore_trash ${{
+  trash-restore
+}}
+
+
+
+map d
+map y
+map p
+
+# Bindings
+map <c-f> $lf -remote "send $id select '$(fzf)'"
+
+map dd cut
+map dD trash
+map D delete
+map yy copy
+map pp paste
+map <c-r> reload
+map <enter> shell
+map o $mimeopen $f
+map O $mimeopen --ask $f
+
+map R rename
+map r push R<a-b><a-b><a-f> # before extention
+
+map <c-e> down
+map <c-y> up
+map V push :!nvim<space>
