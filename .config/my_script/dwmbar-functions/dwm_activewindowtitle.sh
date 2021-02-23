@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dwm_gettitle() {
-  printf "%s\n" "$(xdotool getactivewindow getwindowname)"
+  printf "🌟%s\n" "$(xdotool getactivewindow getwindowname)"
 }
 
 while true

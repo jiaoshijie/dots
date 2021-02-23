@@ -9,6 +9,27 @@ interval=-3
 align=center
 color=#1C1BBF
 
+[pacman-updates]
+command=$HOME/.config/my_script/i3bar-functions/arch-update/arch-update
+markup=pango
+interval= 3600
+QUIET=true
+WATCH=^linux.* ^pacman.*
+BASE_COLOR=#5fff5f
+UPDATE_COLOR=#FFFF85
+AUR=false
+LABEL=⏬
+
+[aur-update]
+command=$HOME/.config/my_script/i3bar-functions/aur-update/aur-update
+markup=pango
+format=json
+interval=43200
+UPDATE_COLOR=red
+QUIET=1
+IGNORE=root vidyodesktop ting_en
+#CACHE_UPDATES=0
+
 [mpd]
 command=$HOME/.config/my_script/i3bar-functions/mediaplayer/mediaplayer
 instance=mpd
@@ -18,7 +39,7 @@ signal=10
 [dhcpcd_service]
 command=$HOME/.config/my_script/i3bar-functions/systemd_unit/systemd_unit
 markup=pango
-label=sshd:
+label=🤖sshd:
 interval=30
 UNIT_NAME=sshd.service
 USER_UNIT=false
@@ -43,13 +64,6 @@ color=#f5af19
 [backlight]
 command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_backlight.sh
 interval=1
-
-# Display any packages to install
-[packages]
-command=echo "📦 $(sudo pacman -Qu | wc -l)"
-separator=true
-interval=1800
-signal=3
 
 [dunst]
 command=$HOME/.config/my_script/i3bar-functions/dunst/dunst
