@@ -48,3 +48,5 @@ export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,bu
 # Plugins
 [ -f $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /home/red/.config/broot/launcher/bash/br

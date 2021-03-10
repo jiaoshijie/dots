@@ -3,12 +3,11 @@
 # base alias
 alias \
   grep='grep --color=auto' \
-  ls='ls --color=auto' \
-  ll='ls -lh' \
-  la='ls -lAh' \
-  l='ls -lah' \
+  egrep='egrep --color=auto' \
+  fgrep='fgrep --color=auto' \
   cp='cp -iv' \
   mv='mv -iv' \
+  free='free -m' \
   s=neofetch \
   S="mpv ~/Nutstore\ Files/Nutstore/others/alarm.oga" \
   p="ping -c 4 archlinux.org" \
@@ -25,7 +24,23 @@ alias \
   du="ncdu --color dark" \
   cat="bat --number" \
   sc=sc-im \
-  df="duf"  # df="df -hl"
+  ls='exa --color=always --group-directories-first' \
+  l1='exa -1 --color=always --group-directories-first' \
+  ll='exa -l --color=always --group-directories-first' \
+  la='exa -a --color=always --group-directories-first' \
+  l='exa -la --color=always --group-directories-first' \
+  lt='exa -T --color=always --group-directories-first' \
+  lat='exa -aT --color=always --group-directories-first'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+# df="duf"  # df="df -hl"
+# ls='ls --color=auto' \
+# ll='ls -lh' \
+# la='ls -lAh' \
+# l='ls -lah' \
 
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
@@ -90,4 +105,36 @@ alias \
   Sweather="curl wttr.in" \
   nv="nvim" \
   vi="vim" \
-  em="emacs -nw"
+  em="emacs -nw" \
+  emacs="emacsclient -n " \
+  doomsync="~/.emacs.d/bin/doom sync" \
+  doomdoctor="~/.emacs.d/bin/doom doctor" \
+  doomupgrade="~/.emacs.d/bin/doom upgrade" \
+  doompurge="~/.emacs.d/bin/doom purge" \
+  doomclean="~/.emacs.d/bin/doom clean"
+
+# navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# broot
+alias br='broot -dhp'
+alias bs='broot --sizes'
+
+# pacman and yay
+alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
+alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
+alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
+alias parsua='paru -Sua --noconfirm'             # update only AUR pkgs (paru)
+alias parsyu='paru -Syu --noconfirm'             # update standard pkgs and AUR pkgs (paru)
+alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
+
+# get fastest mirrors
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"

@@ -9,7 +9,7 @@
 set $mod Mod4
 font pango:monospace 8
 # class                 border  backgr  text    indicator child_border
-client.focused          #FFF500 #285577 #ffffff #2e9ef4   #eeeeee
+client.focused          #FFF500 #285577 #ffffff #2e9ef4   #71DA1B
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000

@@ -35,6 +35,7 @@ command=$HOME/.config/my_script/i3bar-functions/mediaplayer/mediaplayer
 instance=mpd
 interval=5
 signal=10
+# label=🎵
 
 [dhcpcd_service]
 command=$HOME/.config/my_script/i3bar-functions/systemd_unit/systemd_unit
