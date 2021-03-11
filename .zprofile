@@ -7,6 +7,7 @@ export ZDOTDIR="$HOME/.config/zsh"
 export NUT=$HOME/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 export LC_TIME="zh_CN.UTF-8"
+export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
 export EDITOR='nvim'
 # export TERMINAL="st"
