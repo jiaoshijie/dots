@@ -14,4 +14,5 @@ install:
 	@ln -sf $(HOME)/.config/my_script/Screenkey ~/.local/bin/Screenkey
 	@ln -sf $(HOME)/.config/my_script/lf-select ~/.local/bin/lf-select
 	@ln -sf $(HOME)/.config/my_script/rotdir ~/.local/bin/rotdir
+	@ln -sf $(HOME)/.config/my_script/setrtags ~/.local/bin/setrtags
 	@echo "执行成功"

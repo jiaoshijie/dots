@@ -106,7 +106,7 @@ alias \
   nv="nvim" \
   vi="vim" \
   em="emacs -nw" \
-  emacs="emacsclient -n " \
+  Emacs="emacsclient -n " \
   doomsync="~/.emacs.d/bin/doom sync" \
   doomdoctor="~/.emacs.d/bin/doom doctor" \
   doomupgrade="~/.emacs.d/bin/doom upgrade" \
