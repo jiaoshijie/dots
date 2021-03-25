@@ -5,9 +5,9 @@
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
 
 case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 6 -i -p "Screenshot which area?")" in
-	"a selected area") maim -s ~/Pictures/pic-selected-"$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取区域成功" ;;
-	"current window") maim -i "$(xdotool getactivewindow)" ~/Pictures/pic-window-"$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取窗口成功" ;;
-	"full screen") maim ~/Pictures/pic-full-"$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取屏幕成功" ;;
+	"a selected area") maim -s ~/Downloads/wallpaper/pic-selected-"$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取区域成功" ;;
+	"current window") maim -i "$(xdotool getactivewindow)" ~/Downloads/wallpaper/pic-window-"$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取窗口成功" ;;
+	"full screen") maim ~/Downloads/wallpaper/pic-full-"$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取屏幕成功" ;;
 	"a selected area (copy)") maim -s | xclip -selection clipboard -t image/png && notify-send -u low "复制区域到剪切板" ;;
 	"current window (copy)") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png && notify-send -u low "复制窗口到剪切板" ;;
 	"full screen (copy)") maim | xclip -selection clipboard -t image/png && notify-send -u low "复制屏幕到剪切板" ;;

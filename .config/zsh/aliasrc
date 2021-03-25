@@ -30,13 +30,13 @@ alias \
   la='exa -a --color=always --group-directories-first' \
   l='exa -la --color=always --group-directories-first' \
   lt='exa -T --color=always --group-directories-first' \
-  lat='exa -aT --color=always --group-directories-first'
+  lat='exa -aT --color=always --group-directories-first' \
+  df="duf"
 
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-
-# df="duf"  # df="df -hl"
+# df="df -hl"
 # ls='ls --color=auto' \
 # ll='ls -lh' \
 # la='ls -lAh' \

@@ -168,6 +168,8 @@ for_window [class="copyq"] move position center
 for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Kite"] floating enable
 for_window [class="fcitx5-config-qt"] floating enable
+for_window [class="Webcamoid" instance="webcamoid"] floating enable
+for_window [class="Webcamoid" instance="webcamoid"] move position center
 
 # i3-bar
 bar {
