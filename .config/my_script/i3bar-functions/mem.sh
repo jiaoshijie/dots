@@ -19,11 +19,7 @@ dwm_resources () {
     STOPER=$(df -h | grep '/home$' | awk '{print $5}')
 
     printf "%s" "$SEP1"
-    if [ "$IDENTIFIER" = "unicode" ]; then
-        printf "🖥%s/%s" "$MEMUSED" "$MEMTOT"
-    else
-        printf "MEM %s/%s" "$MEMUSED" "$MEMTOT"
-    fi
+    printf "🖥%s/%s" "$MEMUSED" "$MEMTOT"
     printf "%s\n" "$SEP2"
 }
 

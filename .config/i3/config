@@ -109,6 +109,10 @@ for_window [class="Kite"] floating enable
 for_window [class="fcitx5-config-qt"] floating enable
 for_window [class="Webcamoid" instance="webcamoid"] floating enable
 for_window [class="Webcamoid" instance="webcamoid"] move position center
+for_window [class="qv2ray" instance="qv2ray"] floating enable
+for_window [class="qv2ray" instance="qv2ray"] move position center
+for_window [class="shadowsocks-qt5" instance="ss-qt5"] floating enable
+for_window [class="shadowsocks-qt5" instance="ss-qt5"] move position center
 
 # i3-bar
 bar {

@@ -4,31 +4,10 @@ separator=true
 separator_block_width=15
 
 [windowtitle]
-command=$HOME/.config/my_script/dwmbar-functions/dwm_activewindowtitle.sh
+command=$HOME/.config/my_script/i3bar-functions/activewindowtitle.sh
 interval=-3
 align=center
 color=#1C1BBF
-
-# [pacman-updates]
-# command=$HOME/.config/my_script/i3bar-functions/arch-update/arch-update
-# markup=pango
-# interval= 3600
-# QUIET=true
-# WATCH=^linux.* ^pacman.*
-# BASE_COLOR=#5fff5f
-# UPDATE_COLOR=#FFFF85
-# AUR=false
-# LABEL=⏬
-
-# [aur-update]
-# command=$HOME/.config/my_script/i3bar-functions/aur-update/aur-update
-# markup=pango
-# format=json
-# interval=43200
-# UPDATE_COLOR=red
-# QUIET=1
-# IGNORE=root vidyodesktop ting_en
-# #CACHE_UPDATES=0
 
 [mpd]
 command=$HOME/.config/my_script/i3bar-functions/mediaplayer/mediaplayer
@@ -49,21 +28,21 @@ INACTIVE_COLOR=orange
 FAILED_COLOR=red
 
 [resources]
-command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_resources.sh
+command=$HOME/.config/my_script/i3bar-functions/resources.sh
 interval=1
 color=#ee8551
 
 [network]
-command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_network.sh
+command=$HOME/.config/my_script/i3bar-functions/network.sh
 interval=1
 
 [time]
-command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_date.sh
+command=$HOME/.config/my_script/i3bar-functions/date.sh
 interval=1
 color=#f5af19
 
 [backlight]
-command=export IDENTIFIER="unicode" && $HOME/.config/my_script/dwmbar-functions/dwm_backlight.sh
+command=$HOME/.config/my_script/i3bar-functions/backlight.sh
 interval=1
 
 [dunst]

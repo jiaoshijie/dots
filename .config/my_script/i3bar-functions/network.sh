@@ -15,12 +15,7 @@ dwm_network () {
     PRIVATE=$(nmcli -a | grep 'inet4 ' | awk '{print $2}')
 
     printf "%s" "$SEP1"
-    if [ "$IDENTIFIER" = "unicode" ]; then
-        # printf " %s %s" "$CONNAME" "$PRIVATE"
-        printf "🌐%s" "$PRIVATE"
-    else
-        printf "NET %s %s" "$CONNAME" "$PRIVATE"
-    fi
+    printf "🌐%s" "$PRIVATE"
     printf "%s\n" "$SEP2"
 }
 

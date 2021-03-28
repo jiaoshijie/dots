@@ -3,7 +3,6 @@ all:
 	@echo "install: 将当前目录下的脚本链接到~/.local/bin/"
 
 install:
-	@ln -sf $(HOME)/.config/my_script/dwm-status.sh ~/.local/bin/dwm-status.sh
 	@ln -sf $(HOME)/.config/my_script/maimpick ~/.local/bin/maimpick
 	@ln -sf $(HOME)/.config/my_script/ext ~/.local/bin/ext
 	@ln -sf $(HOME)/.config/my_script/linkhandler ~/.local/bin/linkhandler
