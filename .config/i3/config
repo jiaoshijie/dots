@@ -9,7 +9,7 @@
 set $mod Mod4
 font pango:monospace 8
 # class                 border  backgr  text    indicator child_border
-client.focused          #FFF500 #285577 #ffffff #2e9ef4   #71DA1B
+client.focused          #FFF500 #285577 #ffffff #2e9ef4   #ffffff
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -28,71 +28,18 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
-# 重新调整窗口的大小
-mode "resize" {
-       bindsym h resize shrink width 10 px or 10 ppt
-       bindsym j resize grow height 10 px or 10 ppt
-       bindsym k resize shrink height 10 px or 10 ppt
-       bindsym l resize grow width 10 px or 10 ppt
-       # same bindings, but for the arrow keys
-       bindsym Left resize shrink width 10 px or 10 ppt
-       bindsym Down resize grow height 10 px or 10 ppt
-       bindsym Up resize shrink height 10 px or 10 ppt
-       bindsym Right resize grow width 10 px or 10 ppt
-       # 返回正常模式
-       bindsym Return mode "default"
-       bindsym Escape mode "default"
-       bindsym $mod+r mode "default"
-}
 # 取消框框(normal | 1pixel | pixel xx | none | pixel)
-# new_window 1pixel
-new_window pixel 3
+new_window 1pixel
 # new_float normal
-new_float pixel 3
+new_float 1pixel
 hide_edge_borders none
 smart_borders on
 
 # i3-gas
 # 设置窗口有间隙, 需要安装i3gaps, 而不是i3wm
-gaps inner 10
-gaps outer -2
-# smart_gaps on
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
-
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
-
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
+gaps inner 5
+# gaps outer -2
+smart_gaps on
 
 # 使窗口以float-mode打开, 使用xprop获取窗口的class fullscreen floating
 # xprop:
@@ -113,12 +60,6 @@ for_window [class="Blueman-manager" title="Bluetooth Devices"] floating enable
 for_window [class="Blueman-manager" title="Bluetooth Devices"] move position center
 for_window [class="Blueman-manager" title="Bluetooth Devices"] move set 600 600
 
-# ---- * audacious * -------
-for_window [class="Audacious"] floating enable
-for_window [class="Audacious"] resize set 800 400
-for_window [class="Audacious"] move position center
-for_window [class="Audacious"] move container to workspace $ws10
-
 # ---- * Gcolor2 *------
 # for_window [class="Gcolor2"] sticky enable
 for_window [class="Gcolor2"] border pixel 1
@@ -130,8 +71,8 @@ for_window [class="flameshot"] floating enable
 for_window [title="GIMP Startup"] border pixel 0
 
 # ---- * mitalk *------
-for_window [class="mitalk"] floating enable
-for_window [class="Qq"] floating enable
+for_window [class="微信"] floating enable
+for_window [class="微信"] move container to workspace $ws10
 
 # ----- * Nutstore *-----
 for_window [title="Nutstore"] border pixel 0
@@ -151,8 +92,6 @@ for_window [class="firefox" instance="Places" title="Library"] floating enable
 for_window [class="firefox" instance="Places" title="Library"] move position center
 
 # -----* other *-----
-# for_window [class="baidunetdisk"] floating enable
-# for_window [class="baidunetdisk"] move container to workspace $ws10
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] resize set 800 400
@@ -194,13 +133,9 @@ bar {
 
 # exec_always sleep 5; xmodmap ~/.Xmodmap
 exec --no-startup-id alacritty -t jiaoshijie -e tmux new -s jie
-# exec --no-startup-id kitty --title jiaoshijie -e tmux new -s jie
-# exec --no-startup-id polybar example
-# install xautolock
+# NOTICE: sudo pacman -S xautolock
 exec --no-startup-id xautolock -time 30 -locker "i3lock -e -i ~/.config/lock.png"
-# for_window [class="st-256color" title="jiaoshijie"] move scratchpad
 for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
-# for_window [class="kitty" title="jiaoshijie"] move scratchpad
 
 # ********************** wm快捷键 *********************** #
 bindsym $mod+Shift+q kill
@@ -208,18 +143,10 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 # 竖直分屏
 bindsym $mod+v split v
 # 水平分屏
@@ -256,8 +183,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
 # 重新加载i3的配置文件
@@ -267,10 +192,19 @@ bindsym $mod+Shift+c reload
 # 退出i3到X session的登入界面
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+Shift+p exec "i3lock -e -i ~/.config/lock.png"
-bindsym $mod+r mode "resize"
 bindsym $mod+u border none
-bindsym $mod+y border pixel 2
+bindsym $mod+y border 1pixel
 bindsym $mod+n border normal
 
-# i3-gas
-bindsym $mod+Shift+g mode "$mode_gaps"
+# 重新调整窗口的大小
+mode "resize" {
+       bindsym h resize shrink width 10 px or 10 ppt
+       bindsym j resize grow height 10 px or 10 ppt
+       bindsym k resize shrink height 10 px or 10 ppt
+       bindsym l resize grow width 10 px or 10 ppt
+       # 返回正常模式
+       bindsym Return mode "default"
+       bindsym Escape mode "default"
+       bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
