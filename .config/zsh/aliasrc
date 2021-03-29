@@ -13,7 +13,8 @@ alias \
   p="ping -c 4 archlinux.org" \
   c=clear \
   hexedit="hexedit --color" \
-  fm=ranger \
+  fm=lf \
+  ra=ranger \
   ipy=ipython \
   x="xmodmap ~/.Xmodmap && xset r rate 300 50" \
   XNORMAL="xmodmap ~/.Xmodmap_normal && xset r rate 300 50" \

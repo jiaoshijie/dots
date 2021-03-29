@@ -28,20 +28,6 @@ cmd open ${{
     esac
 }}
 
-cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
-
-cmd mkfile ${{
-  printf "File Name: "
-  read ans
-  $EDITOR $ans
-}}
-
-cmd sudomkfile ${{
-  printf "File Name: "
-  read ans
-  sudo $EDITOR $ans
-}}
-
 cmd delete ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
@@ -98,17 +84,16 @@ map <c-f> $lf -remote "send $id select '$(fzf)'"
 
 map dd cut
 map dD trash
-map D delete
+map DD delete
 map yy copy
 map pp paste
 map <c-r> reload
-map <enter> shell
+map s shell
+map S $$SHELL
 map o $mimeopen $f
-map O $mimeopen --ask $f
+map r $mimeopen --ask $f
 
-map R rename
-map r push R<a-b><a-b><a-f> # before extention
+map A rename
+map a push A<a-b><a-b><a-f> # before extention
 
-map <c-e> down
-map <c-y> up
-map V push :!nvim<space>
+map <enter> $nvim $f

@@ -10,8 +10,8 @@ export LC_TIME="zh_CN.UTF-8"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
 export EDITOR='nvim'
-# export TERMINAL="st"
-export TERMINAL="alacritty"
+export TERMINAL="st"
+# export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 

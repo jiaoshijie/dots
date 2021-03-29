@@ -1,19 +1,19 @@
 super + Return
 	$TERMINAL
 super + shift + Return
-	alacritty --title ranger -e ranger
+	alacritty --title filemanager -e lf
 super + d
-	rofi -show run -matching fuzzy
-	# dmenu_run
+	dmenu_run
+	# rofi -show run -matching fuzzy
 super + w
 	rofi -show window -show-icons
 super + shift + d
 	rofi -show drun -show-icons
 super + i
 	rofi -show calc -no-show-match -no-sort
-	# dmenuunicode
 super + shift + i
-	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
+	dmenuunicode
+	# rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
 super + c
 	$BROWSER
 super + shift + x
