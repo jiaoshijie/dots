@@ -28,6 +28,8 @@ super + t
 	zeal
 super + p
 	typora
+super + shift + p
+	i3lock -e -i ~/.config/lock.png
 super + shift + m
 	eudic
 super + m

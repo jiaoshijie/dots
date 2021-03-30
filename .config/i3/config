@@ -138,7 +138,6 @@ bar {
 # exec_always sleep 5; xmodmap ~/.Xmodmap
 exec --no-startup-id alacritty -t jiaoshijie -e tmux new -s jie
 # NOTICE: sudo pacman -S xautolock
-exec --no-startup-id xautolock -time 30 -locker "i3lock -e -i ~/.config/lock.png"
 for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
 
 # ********************** wm快捷键 *********************** #
@@ -195,7 +194,6 @@ bindsym $mod+Shift+c reload
 # bindsym $mod+Shift+r restart
 # 退出i3到X session的登入界面
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+p exec "i3lock -e -i ~/.config/lock.png"
 bindsym $mod+u border none
 bindsym $mod+y border 1pixel
 bindsym $mod+n border normal

@@ -10,19 +10,19 @@ align=center
 color=#1C1BBF
 
 [mpd]
-command=$HOME/.config/my_script/i3bar-functions/mediaplayer/mediaplayer
+command=$HOME/.config/my_script/i3bar-functions/mediaplayer
 instance=mpd
 interval=5
 signal=10
 # label=🎵
 
 [dhcpcd_service]
-command=$HOME/.config/my_script/i3bar-functions/systemd_unit/systemd_unit
+command=$HOME/.config/my_script/i3bar-functions/systemd_unit
 markup=pango
 label=🤖sshd:
 interval=30
 UNIT_NAME=sshd.service
-USER_UNIT=false
+USER_UNIT=false   # For user units set `USER_UNIT=true`
 ACTIVE_COLOR=#66ff66
 INACTIVE_COLOR=orange
 FAILED_COLOR=red
@@ -46,7 +46,7 @@ command=$HOME/.config/my_script/i3bar-functions/backlight.sh
 interval=1
 
 [dunst]
-command=$HOME/.config/my_script/i3bar-functions/dunst/dunst
+command=$HOME/.config/my_script/i3bar-functions/dunst
 markup=pango
 interval=once
 format=json
