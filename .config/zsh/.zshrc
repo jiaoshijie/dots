@@ -37,6 +37,8 @@ hash -d PKG="/var/cache/pacman/pkg"
 # zsh-complete
 [ -f $ZSH/complete.zsh ] && source $ZSH/complete.zsh
 
+[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+
 # FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git
 # sudo pacman -S (the_silver_searcher)fd

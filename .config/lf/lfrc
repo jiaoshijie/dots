@@ -73,7 +73,17 @@ cmd restore_trash ${{
   trash-restore
 }}
 
+cmd copy_path ${{
+  echo "$f" | awk '{printf $1}' | xsel -ib
+}}
 
+cmd copy_name ${{
+  echo "$f" | awk -F '/' '{printf $NF}' | xsel -ib
+}}
+
+cmd copy_name_nonSuffix ${{
+  echo "$f" | awk -F '/' '{printf $NF}' | sed "s/\.[^\.]*$//g" | xsel -ib
+}}
 
 map d
 map y
@@ -86,6 +96,9 @@ map dd cut
 map dD trash
 map DD delete
 map yy copy
+map yp copy_path
+map yn copy_name
+map y. copy_name_nonSuffix
 map pp paste
 map <c-r> reload
 map s shell
