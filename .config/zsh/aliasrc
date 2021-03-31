@@ -13,6 +13,7 @@ alias \
   p="ping -c 4 archlinux.org" \
   c=clear \
   hexedit="hexedit --color" \
+  open="xdg-open" \
   fm=lf \
   ra=ranger \
   ipy=ipython \
