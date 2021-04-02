@@ -16,18 +16,18 @@ super + shift + i
 	# rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
 super + c
 	$BROWSER
-super + shift + x
-	emacs
-super + x
-	code
+# super + shift + x
+# 	emacs
+# super + x
+# 	code
 super + z
 	gcolor2
 super + g
 	pcmanfm
 super + t
 	zeal
-super + p
-	typora
+# super + p
+# 	typora
 super + shift + p
 	i3lock -e -i ~/.config/lock.png
 super + shift + m
