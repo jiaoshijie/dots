@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=2.20210310.0
-Name=Kite
-Comment=Kite - ML powered code completions
-Exec=/home/red/.local/share/kite/kited
-Icon=/home/red/.local/share/icons/hicolor/128x128/apps/kite.png
-Categories=Development;IDE;

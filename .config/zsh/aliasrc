@@ -105,7 +105,7 @@ alias \
 # misc alias
 alias \
   Sweather="curl wttr.in" \
-  nv="nvim" \
+  nv="neovim" \
   vi="vim" \
   em="emacs -nw" \
   Emacs="emacsclient -n " \

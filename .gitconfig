@@ -2,7 +2,7 @@
 	email = jiao1751959040@gmail.com
 	name = jiaoshijie
 [core]
-  editor=nvim
+  editor=vim
 	autocrlf = input
 	safecrlf = true
   excludesfile = ~/.config/gitignore_global

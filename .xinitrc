@@ -52,3 +52,4 @@ fi
 # prime-offload
 # exec i3
 exec dwm
+# exec /home/red/Downloads/wm/sswm/sswm

@@ -8,21 +8,25 @@ export NUT=$HOME/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 export LC_TIME="zh_CN.UTF-8"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
+export PERL5LIB=/home/red/perl5/lib/perl5
+export PERL_LOCAL_LIB_ROOT=/home/red/perl5
+export PERL_MB_OPT='--install_base "/home/red/perl5"'
+export PERL_MM_OPT=INSTALL_BASE=/home/red/perl5
 
-export EDITOR='nvim'
+export EDITOR='vim'
 export TERMINAL="st"
 # export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"
 
-export LESS=-R
-export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
-export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
-export LESS_TERMCAP_me="$(printf '%b' '[0m')"
-export LESS_TERMCAP_so="$(printf '%b' '[01;40;42m')"
-export LESS_TERMCAP_se="$(printf '%b' '[0m')"
-export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
-export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+# export LESS=-R
+# export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+# export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+# export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+# export LESS_TERMCAP_so="$(printf '%b' '[01;40;42m')"
+# export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+# export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+# export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
