@@ -5,8 +5,10 @@ super + shift + Return
 super + d
 	dmenu_run
 	# rofi -show run -matching fuzzy
-super + w
+alt + w
 	rofi -show window -show-icons
+super + shift + w
+	skippy-xd
 super + shift + d
 	rofi -show drun -show-icons
 super + i
@@ -29,7 +31,7 @@ super + t
 # super + p
 # 	typora
 super + shift + p
-	i3lock -e -i ~/.config/lock.png
+	slock
 super + shift + m
 	eudic
 super + m
