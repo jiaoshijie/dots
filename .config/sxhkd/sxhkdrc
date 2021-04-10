@@ -5,7 +5,7 @@ super + shift + Return
 super + d
 	dmenu_run
 	# rofi -show run -matching fuzzy
-alt + w
+super + w
 	rofi -show window -show-icons
 super + shift + w
 	skippy-xd
@@ -14,14 +14,12 @@ super + shift + d
 super + i
 	rofi -show calc -no-show-match -no-sort
 super + shift + i
-	dmenuunicode
-	# rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
+	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
+	# dmenuunicode
 super + c
 	$BROWSER
-# super + shift + x
-# 	emacs
-# super + x
-# 	code
+super + x
+	emacs
 super + z
 	gcolor2
 super + g

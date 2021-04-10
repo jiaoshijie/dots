@@ -12,6 +12,7 @@ export PERL5LIB=/home/red/perl5/lib/perl5
 export PERL_LOCAL_LIB_ROOT=/home/red/perl5
 export PERL_MB_OPT='--install_base "/home/red/perl5"'
 export PERL_MM_OPT=INSTALL_BASE=/home/red/perl5
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 export EDITOR='vim'
 export TERMINAL="st"
