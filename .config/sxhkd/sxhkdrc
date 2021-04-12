@@ -27,7 +27,7 @@ super + g
 super + t
 	zeal
 # super + p
-# 	typora
+# 	marktext
 super + shift + p
 	slock
 super + shift + m
