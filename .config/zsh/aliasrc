@@ -43,7 +43,7 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 # ll='ls -lh' \
 # la='ls -lAh' \
 # l='ls -lah' \
-
+alias kittykeys="grep -E '^(# )?map' .config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
 [ -f ~/.local/bin/shell-safe-rm/bin/rm.sh ] && alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
