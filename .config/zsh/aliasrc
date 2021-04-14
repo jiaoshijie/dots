@@ -44,6 +44,7 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 # la='ls -lAh' \
 # l='ls -lah' \
 alias kittykeys="grep -E '^(# )?map' .config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
+alias ydl="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
 [ -f ~/.local/bin/shell-safe-rm/bin/rm.sh ] && alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"

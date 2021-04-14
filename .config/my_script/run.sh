@@ -5,5 +5,6 @@
 while true; do
   for i in "$@"; do
     mpv "$i"
+    sleep 1
   done
 done

@@ -17,6 +17,6 @@
 [merge]
   tool = vimdiff
 [mergetool "vimdiff"]
-  cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  cmd = vimdiff -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [init]
 	defaultBranch = main
