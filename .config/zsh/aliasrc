@@ -98,7 +98,6 @@ alias \
 
 # c-index alias
 alias \
-  setctags="ctags -R -f .tags" \
   setcscope="cscope -Rbq"
 
 # misc alias

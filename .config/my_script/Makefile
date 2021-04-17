@@ -15,7 +15,6 @@ install:
 	$(V)ln -sf $(HOME)/.config/my_script/Screenkey ~/.local/bin/Screenkey
 	$(V)ln -sf $(HOME)/.config/my_script/lf-select ~/.local/bin/lf-select
 	$(V)ln -sf $(HOME)/.config/my_script/rotdir ~/.local/bin/rotdir
-	$(V)ln -sf $(HOME)/.config/my_script/setrtags ~/.local/bin/setrtags
 	$(V)ln -sf $(HOME)/.config/my_script/set-bg ~/.local/bin/set-bg
 	$(V)ln -sf $(HOME)/.config/my_script/setctags_c ~/.local/bin/setctags_c
 	$(V)ln -sf $(HOME)/.config/my_script/run.sh ~/.local/bin/run.sh

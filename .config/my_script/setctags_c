@@ -7,4 +7,4 @@ fi
 
 gcc -M "$@" | sed -e 's/[\\ ]/\n/g' | \
   sed -e '/^$/d' -e '/\.o:[ \t]*$/d' | \
-  ctags -R -L - --c-kinds=+p --fields=+S --extras=+q -f .rtags
+  ctags -R -L - --c-kinds=+p --fields=+S --extras=+q
