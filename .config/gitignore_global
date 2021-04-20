@@ -1,5 +1,4 @@
-.tags
-.rtags
+tags
 *.out
 *.orig
 *.rej

@@ -47,7 +47,7 @@ alias kittykeys="grep -E '^(# )?map' .config/kitty/kitty.conf | sed -e 's/^# //g
 alias ydl="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
-[ -f ~/.local/bin/shell-safe-rm/bin/rm.sh ] && alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
+# [ -f ~/.local/bin/shell-safe-rm/bin/rm.sh ] && alias rm="~/.local/bin/shell-safe-rm/bin/rm.sh"
 
 # proxy alias
 alias \
@@ -86,8 +86,8 @@ alias \
 alias \
   ntmux="tmux new -s" \
   atmux="tmux a -d -t " \
-  tJ="tmux new -s jie || tmux a -d -t jie" \
-  te="tmux new -s SUN || tmux a -d -t SUN"
+  tJ="tmux new -s JIE || tmux a -d -t JIE" \
+  ta="tmux new -s Arch || tmux a -d -t Arch"
 
 # package-manager alias
 alias \
@@ -104,14 +104,6 @@ alias \
 alias \
   Sweather="curl wttr.in" \
   nv="neovim" \
-  vi="vim" \
-  em="emacs -nw" \
-  Emacs="emacsclient -n " \
-  doomsync="~/.emacs.d/bin/doom sync" \
-  doomdoctor="~/.emacs.d/bin/doom doctor" \
-  doomupgrade="~/.emacs.d/bin/doom upgrade" \
-  doompurge="~/.emacs.d/bin/doom purge" \
-  doomclean="~/.emacs.d/bin/doom clean"
 
 # navigation
 alias ..='cd ..'
