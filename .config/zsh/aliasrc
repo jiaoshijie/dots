@@ -11,21 +11,17 @@ alias \
   s=neofetch \
   S="mpv ~/Nutstore\ Files/Nutstore/others/alarm.oga" \
   p="ping -c 4 archlinux.org" \
-  c=clear \
   hexedit="hexedit --color" \
   open="xdg-open" \
   fm=lf \
-  ra=ranger \
   ipy=ipython \
   x="xmodmap ~/.Xmodmap && xset r rate 300 50" \
   XNORMAL="xmodmap ~/.Xmodmap_normal && xset r rate 300 50" \
-  Semojis="cat ~/Nutstore\ Files/Nutstore/MARKDOWN_NOTE/.usefulfile/emoji | dmenu -i -l 20" \
   rm=trash \
   rml=trash-list \
   rme=trash-empty \
   du="ncdu --color dark" \
   cat="bat --number" \
-  sc=sc-im \
   ls='exa --color=always --group-directories-first' \
   l1='exa -1 --color=always --group-directories-first' \
   ll='exa -l --color=always --group-directories-first' \
@@ -43,7 +39,7 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 # ll='ls -lh' \
 # la='ls -lAh' \
 # l='ls -lah' \
-alias kittykeys="grep -E '^(# )?map' .config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
+alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
 alias ydl="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
 
 # git clone https://github.com/kaelzhang/shell-safe-rm.git
@@ -116,17 +112,5 @@ alias .5='cd ../../../../..'
 alias br='broot -dhp'
 alias bs='broot --sizes'
 
-# pacman and yay
-alias pacsyu='sudo pacman -Syyu'                 # update only standard pkgs
-alias yaysua='yay -Sua --noconfirm'              # update only AUR pkgs (yay)
-alias yaysyu='yay -Syu --noconfirm'              # update standard pkgs and AUR pkgs (yay)
-alias parsua='paru -Sua --noconfirm'             # update only AUR pkgs (paru)
-alias parsyu='paru -Syu --noconfirm'             # update standard pkgs and AUR pkgs (paru)
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
-
-# get fastest mirrors
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
