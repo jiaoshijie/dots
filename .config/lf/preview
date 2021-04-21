@@ -1,48 +1,58 @@
-#!/bin/sh
+#!/bin/bash
 
-# Clear the last preview (if any)
-$HOME/.config/lf/image clear
+set -C -f -u
+#IFS=$'\n'
+IFS="$(printf '%b_' '\n')"; IFS="${IFS%_}"
 
-# Calculate where the image should be placed on the screen.
-num=$(printf "%0.f\n" "`echo "$(tput cols) / 2" | bc`")
-numb=$(printf "%0.f\n" "`echo "$(tput cols) - $num - 1" | bc`")
-numc=$(printf "%0.f\n" "`echo "$(tput lines) - 2" | bc`")
+# ANSI color codes are supported.
+# STDIN is disabled, so interactive scripts won't work properly
 
-case "$1" in
-	*.tgz|*.tar.gz) tar tzf "$1";;
-	*.tar.bz2|*.tbz2) tar tjf "$1";;
-	*.tar.txz|*.txz) xz --list "$1";;
-	*.tar) tar tf "$1";;
-	*.zip|*.jar|*.war|*.ear|*.oxt) unzip -l "$1";;
-	*.rar) unrar l "$1";;
-	*.7z) 7z l "$1";;
-	*.[1-8]) man "$1" | col -b ;;
-	*.o) nm "$1" | less ;;
-	*.torrent) transmission-show "$1";;
-	*.iso) iso-info --no-header -l "$1";;
-	*odt,*.ods,*.odp,*.sxw) odt2txt "$1";;
-	*.doc) catdoc "$1" ;;
-	*.docx) docx2txt "$1" - ;;
-	*.csv) cat "$1" | sed s/,/\\n/g ;;
-	*.pdf)
-		CACHE=$(mktemp /tmp/thumbcache.XXXXX)
-		pdftoppm -png -f 1 -singlefile "$1" "$CACHE"
-		$HOME/.config/lf/image draw "$CACHE.png" $num 1 $numb $numc
-		;;
-	*.epub)
-		CACHE=$(mktemp /tmp/thumbcache.XXXXX)
-		epub-thumbnailer "$1" "$CACHE" 1024
-		$HOME/.config/lf/image draw "$CACHE" $num 1 $numb $numc
-		;;
-	*.bmp|*.jpg|*.jpeg|*.png|*.xpm)
-		$HOME/.config/lf/image draw "$1" $num 1 $numb $numc
-		;;
-	*.wav|*.mp3|*.flac|*.m4a|*.wma|*.ape|*.ac3|*.og[agx]|*.spx|*.opus|*.as[fx]|*.flac) exiftool "$1";;
-	*.avi|*.mp4|*.wmv|*.dat|*.3gp|*.ogv|*.mkv|*.mpg|*.mpeg|*.vob|*.fl[icv]|*.m2v|*.mov|*.webm|*.ts|*.mts|*.m4v|*.r[am]|*.qt|*.divx)
-		CACHE=$(mktemp /tmp/thumbcache.XXXXX)
-		ffmpegthumbnailer -i "$1" -o "$CACHE" -s 0
-		$HOME/.config/lf/image draw "$CACHE" $num 1 $numb $numc
-		;;
-	*) highlight --out-format ansi "$1" || cat "$1";;
-esac
+# This script is considered a configuration file and must be updated manually.
 
+# Meanings of exit codes:
+# code | meaning    | action of ranger
+# -----+------------+-------------------------------------------
+# 0    | success    | Display stdout as preview
+# 1    | no preview | Display no preview at all
+# 2    | plain text | Display the plain content of the file
+
+# Script arguments
+FILE_PATH="${1}"         # Full path of the highlighted file
+HEIGHT="${2}"
+
+#FILE_EXTENSION="${FILE_PATH##*.}"
+#FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
+
+# Settings
+HIGHLIGHT_SIZE_MAX=262143  # 256KiB
+HIGHLIGHT_TABWIDTH=8
+HIGHLIGHT_STYLE='pablo'
+
+
+handle_mime() {
+  local mimetype="${1}"
+  case "${mimetype}" in
+    text/html) w3m -dump "${FILE_PATH}" ;;
+    text/troff) man ./ "${FILE_PATH}" | col -b ;;
+    text/* | */xml)
+      if [ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]; then
+          exit 2
+      fi
+      if [ "$( tput colors )" -ge 256 ]; then
+          local highlight_format='xterm256'
+      else
+          local highlight_format='ansi'
+      fi
+      highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
+          --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}" ;;
+    application/zip | application/x-rar) atool --list -- "${FILE_PATH}" ;;
+    image/*) chafa --fill=all --symbols=all -c full -s 80x"${HEIGHT}" "${FILE_PATH}" || exit 1;;
+    video/* | audio/*|application/octet-stream) mediainfo "${FILE_PATH}" || exit 1;;
+    */pdf) pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - ;;
+    *opendocument*) odt2txt "${FILE_PATH}" ;;
+  esac
+}
+
+MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
+handle_mime "${MIMETYPE}"
+exit 1
