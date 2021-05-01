@@ -30,6 +30,7 @@ alias \
   l='exa -la --color=always --group-directories-first' \
   lt='exa -T --color=always --group-directories-first' \
   lat='exa -aT --color=always --group-directories-first' \
+  ldf="duf --only local" \
   df="duf"
 
 ## get top process eating memory
@@ -74,7 +75,7 @@ alias \
   gd="git diff" \
   goto="git checkout" \
   gbm="git checkout master" \
-  gl="git log --graph" \
+  gl="git log --graph --all" \
   guntrack="git rm -r --cached " \
   githist="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" \
   gitdump="git cat-file -p "
@@ -87,6 +88,7 @@ alias \
   ta="tmux new -s Arch || tmux a -d -t Arch"
 
 # package-manager alias
+# https://www.activestate.com/resources/quick-reads/how-to-update-all-python-packages/
 alias \
   piplocal="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
   pipupdate="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade " \

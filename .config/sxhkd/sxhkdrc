@@ -1,7 +1,7 @@
 super + Return
 	$TERMINAL
 super + shift + Return
-	alacritty --title filemanager -e lf
+	alacritty --title filemanager -e ~/.config/lf/lfrun
 super + d
 	dmenu_run
 	# rofi -show run -matching fuzzy
@@ -24,8 +24,6 @@ super + g
 	pcmanfm
 super + t
 	zeal
-# super + p
-# 	marktext
 super + shift + p
 	slock
 super + shift + m

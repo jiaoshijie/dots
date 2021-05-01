@@ -11,7 +11,7 @@ dwmblocks &
 xcompmgr &
 # xwallpaper --zoom $HOME/.config/red_wallpaper &
 # feh --bg-fill $HOME/.config/red_wallpaper &
-set-bg &
+set-bg /home/red/Downloads/wallpaper/05_鬼刀/8.jpg &
 sxhkd &
 dunst &
 mpd &
