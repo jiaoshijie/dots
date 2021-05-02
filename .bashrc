@@ -1,4 +1,4 @@
-export SHALIASCONFIG="$HOME/.config/zsh/aliasrc"
+export SHALIASCONFIG="$HOME/.config/shell/aliasrc"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # export MANPAGER="nvim -c 'set ft=man' -"
 #set bash prompt
@@ -15,6 +15,6 @@ HISTFILE=~/.cache/bash_history
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 
 source /home/red/.config/broot/launcher/bash/br

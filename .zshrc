@@ -20,22 +20,22 @@ hash -d NUT="$HOME/Nutstore Files/Nutstore/MARKDOWN_NOTE"
 hash -d PKG="/var/cache/pacman/pkg"
 
 # git
-[ -f $ZSH/git.zsh ] && source $ZSH/git.zsh
+[ -f ~/.config/shell/git.zsh ] && source ~/.config/shell/git.zsh
 
 # theme
-[ -f $ZSH/theme.zsh ] && source $ZSH/theme.zsh
+[ -f ~/.config/shell/theme.zsh ] && source ~/.config/shell/theme.zsh
 
 # History:
-[ -f $ZSH/history.zsh ] && source $ZSH/history.zsh
+[ -f ~/.config/shell/history.zsh ] && source ~/.config/shell/history.zsh
 
 # COM-alias
-[ -f $ZSH/aliasrc ] && source $ZSH/aliasrc
+[ -f ~/.config/shell/aliasrc ] && source ~/.config/shell/aliasrc
 
 # SSH-alias
 [ -f $HOME/.ssh/ssh_connection ] && source $HOME/.ssh/ssh_connection
 
 # zsh-complete
-[ -f $ZSH/complete.zsh ] && source $ZSH/complete.zsh
+[ -f ~/.config/shell/complete.zsh ] && source ~/.config/shell/complete.zsh
 
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
@@ -44,11 +44,11 @@ hash -d PKG="/var/cache/pacman/pkg"
 # sudo pacman -S (the_silver_searcher)fd
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse"
-# export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+# export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -l -g ""'
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 
 # Plugins
-[ -f $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -f $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source $ZSH/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f ~/.config/shell/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.config/shell/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.config/shell/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.config/shell/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source /home/red/.config/broot/launcher/bash/br
