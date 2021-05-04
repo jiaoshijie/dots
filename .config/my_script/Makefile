@@ -18,4 +18,5 @@ install:
 	$(V)ln -sf $(HOME)/.config/my_script/set-bg ~/.local/bin/set-bg
 	$(V)ln -sf $(HOME)/.config/my_script/setctags_c ~/.local/bin/setctags_c
 	$(V)ln -sf $(HOME)/.config/my_script/run.sh ~/.local/bin/run.sh
+	$(V)ln -sf $(HOME)/.config/my_script/remaps ~/.local/bin/remaps
 	$(V)echo "执行成功"
