@@ -76,7 +76,7 @@ cmd restore_trash ${{
 }}
 
 cmd copy_path ${{
-  echo "$f" | awk '{printf $1}' | xsel -ib
+  echo "$f" | awk -F '\n' '{printf $1}' | xsel -ib
 }}
 
 cmd copy_name ${{

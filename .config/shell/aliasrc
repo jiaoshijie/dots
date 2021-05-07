@@ -42,7 +42,8 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 # la='ls -lAh' \
 # l='ls -lah' \
 alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
-alias ydl="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
+alias ydlproxy="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
+alias ydl="youtube-dl --add-metadata -i"
 
 # proxy alias
 alias \
@@ -79,16 +80,19 @@ alias \
 
 # tmux alias
 alias \
-  ntmux="tmux new -s" \
-  atmux="tmux a -d -t " \
-  tJ="tmux new -s JIE || tmux a -d -t JIE" \
-  ta="tmux new -s Arch || tmux a -d -t Arch"
+  tJ="tmux new -s JIE || tmux a -d -t Jie" \
+  tA="tmux new -s Arch || tmux a -d -t Arch" \
+  tL="tmux new -s Arch || tmux a -d -t Linux"
+  # ntmux="tmux new -s" \
+  # atmux="tmux a -d -t " \
 
 # package-manager alias
 # https://www.activestate.com/resources/quick-reads/how-to-update-all-python-packages/
 alias \
-  piplocal="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
-  pipupdate="pip install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade " \
+  piplocal="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
+  pipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade " \
+  pipautoupdate="pip3 list --outdated --format=freeze --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U -i https://pypi.tuna.tsinghua.edu.cn/simple/ --user" \
+  pipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/  --outdated" \
   sunpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
   sunpmupdate="sudo npm --registry https://registry.npm.taobao.org update -g"
 

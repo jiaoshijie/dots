@@ -49,7 +49,9 @@ function regularly_change_background() {
 # running
 if [ "$#" -gt 0 ]; then
   if [ -e $1 ] && [ -f $1 ]; then
-    change_background $1 || echo "文件必需是图片"
+    # change_background $1 || echo "文件必需是图片"
+    [ "$(basename $1)" == "red_wallpaper" ] || ln -sf $1 $HOME/.config/red_wallpaper
+    xwallpaper --zoom $HOME/.config/red_wallpaper > /dev/null 2>&1 || echo "文件必需是图片"
   else
     echo "文件不存在"
   fi

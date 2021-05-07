@@ -11,7 +11,7 @@ dwmblocks &
 xcompmgr &
 # xwallpaper --zoom $HOME/.config/red_wallpaper &
 # feh --bg-fill $HOME/.config/red_wallpaper &
-set-bg /home/red/Downloads/wallpaper/05_鬼刀/8.jpg &
+set-bg $HOME/.config/red_wallpaper &
 sxhkd &
 dunst &
 mpd &
@@ -19,12 +19,12 @@ unclutter &
 
 mate-power-manager &
 copyq &
-nm-applet &
+# nm-applet &
 # volumeicon &
-pasystray &
+# pasystray &
 flameshot &
 nutstore &
-blueman-applet &
+# blueman-applet &
 goldendict &
 fcitx5 &
 remaps &

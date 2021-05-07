@@ -117,3 +117,4 @@ application/wps-office.dotx=wps-office-wps.desktop;
 application/wps-office.wpss=wps-office-wps.desktop;
 application/wps-office.wpso=wps-office-wps.desktop;
 audio/mpeg=mpv.desktop;
+video/x-flv=mpv.desktop;
