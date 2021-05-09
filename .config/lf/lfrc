@@ -107,6 +107,7 @@ map s shell
 map S $$SHELL
 map o $mimeopen $f
 map r $mimeopen --ask $f
+map bg $set-bg $f
 
 map A rename
 map a push A<a-b><a-b><a-f> # before extention

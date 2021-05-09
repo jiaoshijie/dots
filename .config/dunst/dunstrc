@@ -7,7 +7,7 @@
     notification_height = 0
 
     # Window Transparency
-    transparency = 50
+    transparency = 40
     # Height of separator between notifications
     separator_height = 2
     # Vertical padding
@@ -15,7 +15,7 @@
     # Horizontal padding
     horizontal_padding = 8
     # Border width.  Set to 0 to disable
-    frame_width = 3
+    frame_width = 1
     # Border color
     frame_color = "#aaaaaa"
 
@@ -85,10 +85,10 @@
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#000000"
+    background = "#282c34"
     foreground = "#118811"
     # frame_color = "#11aa11"
-    frame_color = "#000000"
+    frame_color = "#282c34"
     timeout = 3
 
 [urgency_critical]

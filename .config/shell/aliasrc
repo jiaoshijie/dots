@@ -80,11 +80,8 @@ alias \
 
 # tmux alias
 alias \
-  tJ="tmux new -s JIE || tmux a -d -t Jie" \
-  tA="tmux new -s Arch || tmux a -d -t Arch" \
-  tL="tmux new -s Arch || tmux a -d -t Linux"
-  # ntmux="tmux new -s" \
-  # atmux="tmux a -d -t " \
+  tJ="tmux new -s Jie || tmux a -d -t Jie" \
+  tA="tmux new -s Arch || tmux a -d -t Arch"
 
 # package-manager alias
 # https://www.activestate.com/resources/quick-reads/how-to-update-all-python-packages/
