@@ -17,14 +17,14 @@ dunst &
 mpd &
 unclutter &
 
-mate-power-manager &
-copyq &
+# mate-power-manager &
 # nm-applet &
 # volumeicon &
 # pasystray &
+# blueman-applet &
+copyq &
 flameshot &
 nutstore &
-# blueman-applet &
 goldendict &
 fcitx5 &
 remaps &

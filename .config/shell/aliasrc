@@ -114,6 +114,6 @@ alias br='broot -dhp'
 alias bs='broot --sizes'
 
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
-alias cleanup='sudo pacman -Rns (pacman -Qtdq)'  # remove orphaned packages
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq) 2> /dev/null'  # remove orphaned packages
 
 alias luamake=/home/red/.cache/nvim/lua-language-server/3rd/luamake/luamake
