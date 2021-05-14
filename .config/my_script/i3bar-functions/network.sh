@@ -15,7 +15,7 @@ dwm_network () {
     PRIVATE=$(nmcli -a | grep 'inet4 ' | awk '{print $2}')
 
     printf "%s" "$SEP1"
-    printf "🌐%s" "$PRIVATE"
+    printf "🌐%s:%s" "$CONNAME" "$PRIVATE"
     printf "%s\n" "$SEP2"
 }
 

@@ -4,54 +4,19 @@ ifinstalled "xwallpaper" || exit
 
 # function
 function change_background() {
-  ln -sf $1 $HOME/.config/red_wallpaper
+  [ "$(basename $1)" == "red_wallpaper" ] || ln -sf $1 $HOME/.config/red_wallpaper
   xwallpaper --zoom $HOME/.config/red_wallpaper > /dev/null 2>&1
 }
 
 function regularly_change_background() {
-  HOUR="$(date '+%_H')"
-  if [ "$HOUR" -ge 0 ] && [ "$HOUR" -lt 6 ]; then
-    num=1
-  elif [ "$HOUR" -ge 6 ] && [ "$HOUR" -lt 8 ]; then
-    num=2
-  elif [ "$HOUR" -ge 8 ] && [ "$HOUR" -lt 9 ]; then
-    num=3
-  elif [ "$HOUR" -ge 9 ] && [ "$HOUR" -lt 10 ]; then
-    num=4
-  elif [ "$HOUR" -ge 10 ] && [ "$HOUR" -lt 11 ]; then
-    num=5
-  elif [ "$HOUR" -ge 11 ] && [ "$HOUR" -lt 12 ]; then
-    num=6
-  elif [ "$HOUR" -ge 12 ] && [ "$HOUR" -lt 13 ]; then
-    num=7
-  elif [ "$HOUR" -ge 13 ] && [ "$HOUR" -lt 14 ]; then
-    num=8
-  elif [ "$HOUR" -ge 14 ] && [ "$HOUR" -lt 15 ]; then
-    num=9
-  elif [ "$HOUR" -ge 15 ] && [ "$HOUR" -lt 16 ]; then
-    num=10
-  elif [ "$HOUR" -ge 16 ] && [ "$HOUR" -lt 17 ]; then
-    num=11
-  elif [ "$HOUR" -ge 17 ] && [ "$HOUR" -lt 18 ]; then
-    num=12
-  elif [ "$HOUR" -ge 18 ] && [ "$HOUR" -lt 19 ]; then
-    num=13
-  elif [ "$HOUR" -ge 19 ] && [ "$HOUR" -lt 20 ]; then
-    num=14
-  elif [ "$HOUR" -ge 20 ] && [ "$HOUR" -lt 22 ]; then
-    num=15
-  elif [ "$HOUR" -ge 22 ] && [ "$HOUR" -lt 24 ]; then
-    num=16
-  fi
-  change_background $HOME/Downloads/wallpaper/03_Mojave/mojave_dynamic_$num.jpeg
+  Index=(1 1 1 1 1 1 2 2 3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16)
+  change_background $HOME/Downloads/wallpaper/03_Mojave/mojave_dynamic_${Index[$(date '+%_H')]}.jpeg
 }
 
 # running
 if [ "$#" -gt 0 ]; then
   if [ -e $1 ] && [ -f $1 ]; then
-    # change_background $1 || echo "文件必需是图片"
-    [ "$(basename $1)" == "red_wallpaper" ] || ln -sf $1 $HOME/.config/red_wallpaper
-    xwallpaper --zoom $HOME/.config/red_wallpaper > /dev/null 2>&1 || echo "文件必需是图片"
+    change_background $1 || echo "文件必需是图片"
   else
     echo "文件不存在"
   fi

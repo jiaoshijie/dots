@@ -19,6 +19,7 @@ alias \
   rm=trash \
   rml=trash-list \
   rme=trash-empty \
+  rmr=trash-restore \
   du="ncdu --color dark" \
   cat="bat --number" \
   ls='exa --color=always --group-directories-first' \
@@ -36,11 +37,11 @@ alias \
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-# df="df -hl"
-# ls='ls --color=auto' \
-# ll='ls -lh' \
-# la='ls -lAh' \
-# l='ls -lah' \
+# alias df="df -hl"
+# alias ls='ls --color=auto'
+# alias ll='ls -lh'
+# alias la='ls -lAh'
+# alias l='ls -lah'
 alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
 alias ydlproxy="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
 alias ydl="youtube-dl --add-metadata -i"
@@ -86,12 +87,16 @@ alias \
 # package-manager alias
 # https://www.activestate.com/resources/quick-reads/how-to-update-all-python-packages/
 alias \
-  piplocal="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ " \
-  pipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade " \
-  pipautoupdate="pip3 list --outdated --format=freeze --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U -i https://pypi.tuna.tsinghua.edu.cn/simple/ --user" \
-  pipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/  --outdated" \
-  sunpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
-  sunpmupdate="sudo npm --registry https://registry.npm.taobao.org update -g"
+  lpip="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/" \
+  lpiplist="pip3 list --user" \
+  lpipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
+  lpipautoupdate="pip3 list --outdated --format=freeze --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U -i https://pypi.tuna.tsinghua.edu.cn/simple/ --user" \
+  lpipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated"
+alias \
+  gnpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
+  gnpmlist="npm list -g" \
+  gnpmupdate="sudo npm --registry https://registry.npm.taobao.org update -g" \
+  gnpmoutofdate="npm --registry https://registry.npm.taobao.org outdated -g"
 
 # c-index alias
 alias \
@@ -115,5 +120,15 @@ alias bs='broot --sizes'
 
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq) 2> /dev/null'  # remove orphaned packages
+
+# network-wifi
+alias \
+  nshow="nmcli device show | grep CONNECTION | grep -v '\-\-' | awk -F ' ' '{print \$NF}'" \
+  nlist="nmcli device wifi list" \
+  nconn="nmcli device wifi connect" \
+  publicip="curl https://ipinfo.io/ip; echo"
+
+alias alacritty0="sed -i -e 's/\(^background_opacity:\) 1.0/\1 0.7/' ~/.config/alacritty/alacritty.yml"
+alias alacritty1="sed -i -e 's/\(^background_opacity:\) 0.7/\1 1.0/' ~/.config/alacritty/alacritty.yml"
 
 alias luamake=/home/red/.cache/nvim/lua-language-server/3rd/luamake/luamake
