@@ -31,7 +31,8 @@ super + shift + m
 super + m
 	goldendict
 ctrl + shift + a
-	flameshot gui
+	maimpick
+	# flameshot gui
 Print
 	maim ~/Screenshot/pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send -u low "截取屏幕成功"
 alt + space
@@ -55,6 +56,6 @@ XF86AudioStop
 XF86Tools
 	alacritty --title ncmpcpp -e ncmpcpp
 XF86HomePage
-	alacritty --title ranger -e ranger
+	alacritty --title filemanager -e ~/.config/lf/lfrun
 shift + Print
 	maimpick

@@ -115,8 +115,8 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
 # broot
-alias br='broot -dhp'
-alias bs='broot --sizes'
+# alias br='broot -dhp'
+# alias bs='broot --sizes'
 
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq) 2> /dev/null'  # remove orphaned packages
