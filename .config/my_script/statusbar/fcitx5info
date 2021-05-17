@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+# ⌨️
+case $(fcitx5-remote) in
+  0) echo "NONE" ;;
+  1) echo "EN" ;;
+  2) echo "中" ;;
+esac

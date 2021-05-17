@@ -15,7 +15,8 @@ alias \
   open="xdg-open" \
   fm="~/.config/lf/lfrun" \
   lf="~/.config/lf/lfrun" \
-  ipy=ipython \
+  ipy="ipython --colors Linux" \
+  jlab="jupyter lab --no-browser" \
   rm=trash \
   rml=trash-list \
   rme=trash-empty \
@@ -45,6 +46,7 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
 alias ydlproxy="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
 alias ydl="youtube-dl --add-metadata -i"
+alias s1="sxiv -b -N 'DingImage' $(ls -1 --color=never ~/Screenshot/pic-DingImage-* | tail -n 1)"
 
 # proxy alias
 alias \
