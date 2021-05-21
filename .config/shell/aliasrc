@@ -15,7 +15,7 @@ alias \
   open="xdg-open" \
   fm="~/.config/lf/lfrun" \
   lf="~/.config/lf/lfrun" \
-  ipy="ipython --colors Linux" \
+  ipy="ipython --colors Linux --no-banner" \
   jlab="jupyter lab --no-browser" \
   rm=trash \
   rml=trash-list \
