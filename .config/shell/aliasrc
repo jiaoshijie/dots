@@ -46,7 +46,7 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
 alias ydlproxy="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
 alias ydl="youtube-dl --add-metadata -i"
-alias s1="sxiv -b -N 'DingImage' $(ls -1 --color=never ~/Screenshot/pic-DingImage-* | tail -n 1)"
+# alias s1="sxiv -b -N 'DingImage' $(ls -1 --color=never ~/Screenshot/pic-DingImage-* | tail -n 1)"
 
 # proxy alias
 alias \
@@ -125,7 +125,7 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq) 2> /dev/null'  # remove orphaned
 
 # network-wifi
 alias \
-  nshow="nmcli device show | grep CONNECTION | grep -v '\-\-' | awk -F ' ' '{print \$NF}'" \
+  nshow="nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -c 5-" \
   nlist="nmcli device wifi list" \
   nconn="nmcli device wifi connect" \
   publicip="curl https://ipinfo.io/ip; echo"

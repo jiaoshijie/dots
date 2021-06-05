@@ -7,8 +7,8 @@ super + d
 	# rofi -show run -matching fuzzy
 super + w
 	rofi -show window -show-icons
-super + shift + w
-	skippy-xd
+# super + shift + w
+	# skippy-xd
 super + shift + d
 	rofi -show drun -show-icons
 super + i
