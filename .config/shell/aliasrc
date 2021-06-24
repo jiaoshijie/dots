@@ -43,14 +43,18 @@ alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 # alias ll='ls -lh'
 # alias la='ls -lAh'
 # alias l='ls -lah'
-alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
-alias ydlproxy="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i"
-alias ydl="youtube-dl --add-metadata -i"
 # alias s1="sxiv -b -N 'DingImage' $(ls -1 --color=never ~/Screenshot/pic-DingImage-* | tail -n 1)"
+alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
+
+alias \
+  ydlproxy="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i -f bestvideo+bestaudio" \
+  ydl="youtube-dl --add-metadata -i -f bestvideo+bestaudio" \
+  ydla8="youtube-dl --add-metadata -i -f bestvideo+bestaudio --external-downloader aria2c --external-downloader-args '-x 8'" \
+  ydlist="youtube-dl --add-metadata -i -F"
 
 # proxy alias
 alias \
-  SetProxy="export http_proxy=http://127.0.0.1:8118 https_proxy=http://127.0.0.1:8118" \
+  SetProxy="export http_proxy=http://127.0.0.1:10809 https_proxy=http://127.0.0.1:10809" \
   UnSetProxy="unset http_proxy https_proxy"
   # wgu="sudo wg-quick up wg0" \
   # wgd="sudo wg-quick down wg0"
@@ -92,13 +96,16 @@ alias \
   lpip="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/" \
   lpiplist="pip3 list --user" \
   lpipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
-  lpipautoupdate="pip3 list --outdated --format=freeze --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U -i https://pypi.tuna.tsinghua.edu.cn/simple/ --user" \
   lpipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated"
 alias \
   gnpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
   gnpmlist="npm list -g" \
   gnpmupdate="sudo npm --registry https://registry.npm.taobao.org update -g" \
   gnpmoutofdate="npm --registry https://registry.npm.taobao.org outdated -g"
+
+alias \
+  stodo="glow ~/Nutstore\ Files/Nutstore/todo.md" \
+  etodo="$EDITOR ~/Nutstore\ Files/Nutstore/todo.md"
 
 # c-index alias
 alias \
