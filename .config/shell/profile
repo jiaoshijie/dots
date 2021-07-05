@@ -14,7 +14,7 @@ export PERL_MB_OPT='--install_base "/home/red/perl5"'
 export PERL_MM_OPT=INSTALL_BASE=/home/red/perl5
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-export EDITOR='neovim'
+export EDITOR='nvim'
 export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"

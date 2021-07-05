@@ -114,7 +114,7 @@ alias \
 # misc alias
 alias \
   Sweather="curl wttr.in" \
-  nv="neovim" \
+  nv="nvim" \
 
 # navigation
 alias ..='cd ..'

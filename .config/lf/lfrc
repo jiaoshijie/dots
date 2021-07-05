@@ -89,7 +89,7 @@ cmd copy_name_nonSuffix ${{
 }}
 
 cmd changefilename ${{
-  lf_tmp_file=/tmp/nvim_lf_ChangeAllFileName.tmp
+  lf_tmp_file=$(mktemp /tmp/lf_nvim_changefilename.XXXXXXXXXX)
   rm -rf $lf_tmp_file
   $EDITOR $lf_tmp_file -s ~/.config/lf/lf.vim
 
@@ -99,7 +99,7 @@ cmd changefilename ${{
 
   if [ ${#lf_sco_file_con[@]} -eq $lf_file_number ]; then
     for ((i = 0; i < $lf_file_number; i++)); do
-      mv ${lf_sco_file_con[$i]} ${lf_tmp_file_con[$i]}
+      mv -n ${lf_sco_file_con[$i]} ${lf_tmp_file_con[$i]}
     done
   fi
   # delete this temp file
