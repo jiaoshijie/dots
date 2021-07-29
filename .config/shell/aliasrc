@@ -11,6 +11,7 @@ alias \
   s=neofetch \
   S="mpv ~/Nutstore\ Files/Nutstore/others/alarm.oga" \
   p="ping -c 4 archlinux.org" \
+  cg="curl -v google.com" \
   hexedit="hexedit --color" \
   open="xdg-open" \
   fm="~/.config/lf/lfrun" \

@@ -43,7 +43,7 @@ hash -d PKG="/var/cache/pacman/pkg"
 # git clone --depth 1 https://github.com/junegunn/fzf.git
 # sudo pacman -S (the_silver_searcher)fd
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--height 40% --layout=reverse"
+export FZF_DEFAULT_OPTS="--height 60% --border --preview 'bat --style=numbers --color=always --line-range :500 {}' --preview-window up"
 # export FZF_DEFAULT_COMMAND='rg --hidden --ignore .git -l -g ""'
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 
