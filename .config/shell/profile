@@ -8,10 +8,6 @@ export NUT=$HOME/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 export LC_TIME="zh_CN.UTF-8"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
-export PERL5LIB=/home/red/perl5/lib/perl5
-export PERL_LOCAL_LIB_ROOT=/home/red/perl5
-export PERL_MB_OPT='--install_base "/home/red/perl5"'
-export PERL_MM_OPT=INSTALL_BASE=/home/red/perl5
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 export EDITOR='nvim'
