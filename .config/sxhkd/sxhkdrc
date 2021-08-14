@@ -2,6 +2,8 @@ super + Return
 	$TERMINAL
 super + shift + Return
 	alacritty --title filemanager -e ~/.config/lf/lfrun
+super + x
+	kitty
 super + d
 	dmenu_run
 	# rofi -show run -matching fuzzy

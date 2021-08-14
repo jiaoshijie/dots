@@ -19,4 +19,5 @@ install:
 	$(V)ln -sf $(HOME)/.config/my_script/setctags_c ~/.local/bin/setctags_c
 	$(V)ln -sf $(HOME)/.config/my_script/fcitx5info ~/.local/bin/fcitx5info
 	$(V)ln -sf $(HOME)/.config/my_script/remaps ~/.local/bin/remaps
+	$(V)ln -sf $(HOME)/.config/my_script/bluetooth_battery ~/.local/bin/bluetooth_battery
 	$(V)echo "执行成功"

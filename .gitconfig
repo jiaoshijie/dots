@@ -6,8 +6,6 @@
 	autocrlf = input
 	safecrlf = true
   excludesfile = ~/.config/gitignore_global
-[credential]
-	helper = store
 ; [includeIf "gitdir:~/work/"]
 ;   path = ~/work/.gitconfig
 [commit]

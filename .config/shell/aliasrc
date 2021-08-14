@@ -14,6 +14,7 @@ alias \
   cg="curl -v google.com" \
   hexedit="hexedit --color" \
   open="xdg-open" \
+  sudo="sudo -E" \
   fm="~/.config/lf/lfrun" \
   lf="~/.config/lf/lfrun" \
   ipy="ipython --colors Linux --no-banner" \
@@ -140,5 +141,3 @@ alias \
 
 alias alacritty0="sed -i -e 's/\(^background_opacity:\) 1.0/\1 0.7/' ~/.config/alacritty/alacritty.yml"
 alias alacritty1="sed -i -e 's/\(^background_opacity:\) 0.7/\1 1.0/' ~/.config/alacritty/alacritty.yml"
-
-alias luamake=/home/red/.cache/nvim/lua-language-server/3rd/luamake/luamake
