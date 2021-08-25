@@ -1,0 +1,5 @@
+is_ok=true
+while $is_ok; do
+  copyq remove ROWS=1 > /dev/null 2>&1 && is_ok=true || is_ok=false
+done
+xsel -cb

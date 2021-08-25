@@ -139,5 +139,15 @@ alias \
   nconn="nmcli device wifi connect" \
   publicip="curl https://ipinfo.io/ip; echo"
 
+# bluetooth
+alias \
+  btl=bluetoothctl \
+  btlpn="bluetoothctl power on" \
+  btlpf="bluetoothctl power off" \
+  btlc="bluetoothctl connect"
+
 alias alacritty0="sed -i -e 's/\(^background_opacity:\) 1.0/\1 0.7/' ~/.config/alacritty/alacritty.yml"
 alias alacritty1="sed -i -e 's/\(^background_opacity:\) 0.7/\1 1.0/' ~/.config/alacritty/alacritty.yml"
+
+alias gbtoken="head ~/Nutstore\ Files/Nutstore/github/token -n 1 | awk -F '\n' '{printf \$1}' | xsel -ib"
+alias gbclear="xsel -cb; copyq remove ROWS=1"
