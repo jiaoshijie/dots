@@ -17,7 +17,6 @@ install:
 	$(V)ln -sf $(HOME)/.config/my_script/rotdir ~/.local/bin/rotdir
 	$(V)ln -sf $(HOME)/.config/my_script/set-bg ~/.local/bin/set-bg
 	$(V)ln -sf $(HOME)/.config/my_script/setctags_c ~/.local/bin/setctags_c
-	$(V)ln -sf $(HOME)/.config/my_script/fcitx5info ~/.local/bin/fcitx5info
 	$(V)ln -sf $(HOME)/.config/my_script/remaps ~/.local/bin/remaps
 	$(V)ln -sf $(HOME)/.config/my_script/bluetooth_battery ~/.local/bin/bluetooth_battery
 	$(V)ln -sf $(HOME)/.config/my_script/copyq_clear_history ~/.local/bin/copyq_clear_history
