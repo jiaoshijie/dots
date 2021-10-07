@@ -11,8 +11,8 @@ dwmblocks &
 xcompmgr &
 # xwallpaper --zoom $HOME/.config/red_wallpaper &
 # feh --bg-fill $HOME/.config/red_wallpaper &
-# set-bg $HOME/.config/red_wallpaper &
-set-bg &
+set-bg $HOME/.config/red_wallpaper &
+# set-bg &
 sxhkd &
 dunst &
 mpd &

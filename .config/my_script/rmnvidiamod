@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+sudo rmmod nvidia_uvm 2> /dev/null
+sudo rmmod nvidia_modeset 2> /dev/null
+sudo rmmod nvidia_drm 2> /dev/null
+# sudo rmmod nvidia_backlight 2> /dev/null
+sudo rmmod nvidia 2> /dev/null

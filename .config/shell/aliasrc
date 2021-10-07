@@ -67,7 +67,7 @@ alias \
   catvideo='glxinfo | grep "OpenGL renderer"' \
   infonvidia="nvidia-smi" \
   nvidiaup="sudo tee /proc/acpi/bbswitch <<< 'ON'" \
-  nvidiadown="sudo rmmod nvidia && sudo tee /proc/acpi/bbswitch <<< OFF"
+  nvidiadown="sudo tee /proc/acpi/bbswitch <<< OFF"
 
 # git alias
 alias \
@@ -99,6 +99,7 @@ alias \
   lpiplist="pip3 list --user" \
   lpipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
   lpipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated"
+  # pip-autoremove `lpip pip-autoremove`
 alias \
   gnpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
   gnpmlist="npm list -g" \
