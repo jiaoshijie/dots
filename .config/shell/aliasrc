@@ -19,6 +19,7 @@ alias \
   lf="~/.config/lf/lfrun" \
   ipy="ipython --colors Linux --no-banner" \
   jlab="jupyter lab --no-browser" \
+  jlabbuild="jupyter lab build" \
   rm=trash \
   rml=trash-list \
   rme=trash-empty \
@@ -98,7 +99,8 @@ alias \
   lpip="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/" \
   lpiplist="pip3 list --user" \
   lpipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
-  lpipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated"
+  lpipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated" \
+  pyctags="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./"
   # pip-autoremove `lpip pip-autoremove`
 alias \
   gnpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
@@ -108,7 +110,9 @@ alias \
 
 alias \
   stodo="glow ~/Nutstore\ Files/Nutstore/todo.md" \
-  etodo="$EDITOR ~/Nutstore\ Files/Nutstore/todo.md"
+  etodo="$EDITOR ~/Nutstore\ Files/Nutstore/todo.md" \
+  etran="$EDITOR ~/Nutstore\ Files/Nutstore/tran_info.md" \
+  stran="glow ~/Nutstore\ Files/Nutstore/tran_info.md"
 
 # c-index alias
 alias \

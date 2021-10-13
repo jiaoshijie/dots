@@ -33,8 +33,8 @@ super + shift + m
 super + m
 	goldendict
 ctrl + shift + a
-	maimpick
-	# flameshot gui
+	flameshot gui
+	# maimpick
 Print
 	maim ~/Screenshot/pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send -u low "截取屏幕成功"
 alt + space
