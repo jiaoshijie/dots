@@ -15,7 +15,7 @@
     # Horizontal padding
     horizontal_padding = 8
     # Border width.  Set to 0 to disable
-    frame_width = 1
+    frame_width = 3
     # Border color
     frame_color = "#aaaaaa"
 
@@ -67,33 +67,30 @@
     class = Dunst
     startup_notification = false
     force_xinerama = false
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
 [experimental]
     per_monitor_dpi = false
 
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
-    context = ctrl+shift+period
-
 [urgency_low]
-    background = "#4445EE"
-    foreground = "#A6C2D5"
-    frame_color = "#4445EE"
+    background = "#000000"
+    foreground = "#A9FF68"
+    frame_color = "#4F6752"
     timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#282c34"
-    foreground = "#118811"
-    # frame_color = "#11aa11"
-    frame_color = "#282c34"
+    background = "#000000"
+    foreground = "#F79000"
+    frame_color = "#79491D"
     timeout = 3
 
 [urgency_critical]
-    background = "#cc2421"
-    foreground = "#ebdbb2"
-    # frame_color = "#fabd2f"
-    frame_color = "#cc2421"
+    background = "#000000"
+    foreground = "#F70067"
+    frame_color = "#8A1F1F"
     timeout = 0
