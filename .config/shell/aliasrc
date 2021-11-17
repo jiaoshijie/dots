@@ -22,7 +22,7 @@ alias \
   jlabbuild="jupyter lab build" \
   rm=trash \
   rml=trash-list \
-  rme=trash-empty \
+  rme='trash-empty -f'\
   rmr=trash-restore \
   du="ncdu --color dark" \
   cat="bat --number" \
@@ -41,6 +41,7 @@ alias \
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+alias sm="smem --pie name -c pss"
 # alias df="df -hl"
 # alias ls='ls --color=auto'
 # alias ll='ls -lh'
@@ -77,6 +78,7 @@ alias \
   ga="git add " \
   gaa="git add -A" \
   gb="git branch " \
+  gbl="git branch -l" \
   gc="git commit" \
   gca="gc --amend --edit" \
   gcan="gc --amend --no-edit" \

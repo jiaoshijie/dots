@@ -1,20 +1,22 @@
 [user]
-	email = jiao1751959040@gmail.com
-	name = jiaoshijie
+  email = jiao1751959040@gmail.com
+  name = jiaoshijie
 [core]
   editor=vim
-	autocrlf = input
-	safecrlf = true
+  autocrlf = input
+  safecrlf = true
   excludesfile = ~/.config/gitignore_global
 ; [includeIf "gitdir:~/work/"]
 ;   path = ~/work/.gitconfig
 [commit]
   template = ~/.config/gitmessage
 [alias]
-  ignored = !git ls-files -v | grep "^[[:lower:]]"
+  ; ignored = !git ls-files -v | grep "^[[:lower:]]"
 [merge]
   tool = vimdiff
 [mergetool "vimdiff"]
   cmd = vimdiff -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [init]
-	defaultBranch = main
+  defaultBranch = main
+[help]
+  autocorrect = 1

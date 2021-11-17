@@ -52,4 +52,5 @@ export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,bu
 [ -f ~/.config/shell/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.config/shell/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f ~/.config/shell/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.config/shell/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+eval "$(zoxide init zsh --cmd j)"
 alias luamake=/home/red/.cache/nvim/lua-language-server/3rd/luamake/luamake
