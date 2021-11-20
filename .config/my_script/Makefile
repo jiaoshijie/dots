@@ -21,4 +21,5 @@ install:
 	$(V)ln -sf $(HOME)/.config/my_script/bluetooth_battery ~/.local/bin/bluetooth_battery
 	$(V)ln -sf $(HOME)/.config/my_script/copyq_clear_history ~/.local/bin/copyq_clear_history
 	$(V)ln -sf $(HOME)/.config/my_script/rmnvidiamod ~/.local/bin/rmnvidiamod
+	$(V)ln -sf $(HOME)/.config/my_script/pickfull ~/.local/bin/pickfull
 	$(V)echo "执行成功"

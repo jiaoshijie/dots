@@ -85,10 +85,11 @@ alias \
   gd="git diff" \
   goto="git checkout" \
   gbm="git checkout master" \
-  gl="git log --graph --all" \
   guntrack="git rm -r --cached " \
   githist="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" \
-  gitdump="git cat-file -p "
+  gitdump="git cat-file -p " \
+  gl=tig
+  # gl="git log --graph --all" \
 
 # tmux alias
 alias \

@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+time_name="$(date '+%y%m%d-%H%M-%S')"
+maim "${HOME}/Screenshot/pic-full-${time_name}.png" && notify-send -u low "截取屏幕成功" "saved in ~/Screenshot/pic-full-${time_name}.png"

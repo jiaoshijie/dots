@@ -4,11 +4,12 @@
 # choose the kind of screenshot to take, including copying the image or even
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
 imagepath=~/Screenshot
+name_time="$(date '+%y%m%d-%H%M-%S')"
 case "$(printf "DingImage\\na selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 7 -i -p "Screenshot which area?")" in
-  "DingImage") maim -s "${imagepath}/pic-DingImage-$(date '+%y%m%d-%H%M-%S').png" && sxiv -b -N "DingImage" "$(ls -1 --color=never ${imagepath}/pic-DingImage-* | tail -n 1)" ;;
-  "a selected area") maim -s "${imagepath}/pic-selected-$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取区域成功" ;;
-  "current window") maim -i "$(xdotool getactivewindow)" "${imagepath}/pic-window-$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取窗口成功" ;;
-  "full screen") maim "${imagepath}/wallpaper/pic-full-$(date '+%y%m%d-%H%M-%S').png" && notify-send -u low "截取屏幕成功" ;;
+  "DingImage") maim -s "${imagepath}/pic-DingImage-${name_time}.png" && sxiv -b -N "DingImage" "${imagepath}/pic-DingImage-${name_time}.png" ;; #"$(ls -1 --color=never ${imagepath}/pic-DingImage-* | tail -n 1)" ;;
+  "a selected area") maim -s "${imagepath}/pic-selected-${name_time}.png" && notify-send -u low "截取区域成功" "saved in ${imagepath}/pic-selected-${name_time}.png" ;;
+  "current window") maim -i "$(xdotool getactivewindow)" "${imagepath}/pic-window-${name_time}.png" && notify-send -u low "截取窗口成功" "saved in ${imagepath}/pic-window-${name_time}.png" ;;
+  "full screen") maim "${imagepath}/pic-full-${name_time}.png" && notify-send -u low "截取屏幕成功" "saved in ${imagepath}/pic-full-${name_time}.png" ;;
   "a selected area (copy)") maim -s | xclip -selection clipboard -t image/png && notify-send -u low "复制区域到剪切板" ;;
   "current window (copy)") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png && notify-send -u low "复制窗口到剪切板" ;;
   "full screen (copy)") maim | xclip -selection clipboard -t image/png && notify-send -u low "复制屏幕到剪切板" ;;

@@ -36,7 +36,7 @@ ctrl + shift + a
 	flameshot gui
 	# maimpick
 Print
-	maim ~/Screenshot/pic-full-$(date '+%y%m%d-%H%M-%S').png && notify-send -u low "截取屏幕成功"
+	pickfull
 alt + space
 	copyq menu
 
