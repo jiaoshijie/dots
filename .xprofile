@@ -15,7 +15,7 @@ set-bg $HOME/.config/red_wallpaper &
 # set-bg &
 sxhkd &
 dunst &
-mpd &
+# mpd &
 unclutter &
 
 # mate-power-manager &
