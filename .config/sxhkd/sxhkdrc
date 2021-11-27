@@ -22,6 +22,8 @@ super + c
 	$BROWSER
 super + z
 	gcolor2
+super + shift + z
+	zotero
 super + g
 	pcmanfm
 super + t
