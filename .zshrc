@@ -54,3 +54,4 @@ export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,bu
 
 eval "$(zoxide init zsh --cmd j)"
 alias luamake=/home/red/.cache/nvim/lua-language-server/3rd/luamake/luamake
+eval "fortune | cowsay | lolcat"
