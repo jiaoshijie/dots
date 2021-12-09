@@ -36,7 +36,6 @@ hash -d PKG="/var/cache/pacman/pkg"
 
 # zsh-complete
 [ -f ~/.config/shell/complete.zsh ] && source ~/.config/shell/complete.zsh
-
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # FZF
