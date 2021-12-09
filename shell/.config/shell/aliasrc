@@ -28,9 +28,9 @@ alias \
   cat="bat --number" \
   ls='exa --color=always --group-directories-first' \
   l1='exa -1 --color=always --group-directories-first' \
-  ll='exa -l --color=always --group-directories-first' \
+  ll='exa -lhg --color=always --group-directories-first' \
   la='exa -a --color=always --group-directories-first' \
-  l='exa -la --color=always --group-directories-first' \
+  l='exa -lhga --color=always --group-directories-first' \
   lt='exa -T --color=always --group-directories-first' \
   tree='exa --color=always --tree' \
   lat='exa -aT --color=always --group-directories-first' \
