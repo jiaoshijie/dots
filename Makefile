@@ -1,8 +1,7 @@
 V := @
 
-all:
-	$(V)echo "使用--always-make强制make执行"
-	$(V)echo "install: 将当前目录下的脚本链接到~/.local/bin/"
+help:
+	$(V)vim ~/dotfiles/Makefile
 
 my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/maimpick ~/.local/bin/maimpick
@@ -25,12 +24,12 @@ my-script:
 	# $(V)ln -sf $(HOME)/dotfiles/my_script/bluetooth_battery ~/.local/bin/bluetooth_battery
 
 zsh:
-	$(V)ln -sf $(HOME)/dotfiles/shell/.config/shell/profile ~/.zprofile
+	$(V)echo "source $(HOME)/dotfiles/shell/.config/shell/profile" > ~/.zprofile
 
 bash:
-	$(V)ln -sf $(HOME)/dotfiles/shell/.config/shell/profile ~/.bash_profile
+	$(V)echo "source $(HOME)/dotfiles/shell/.config/shell/profile" > ~/.bash_profile
 
 programs:
-	$(V)pacman -Qqn > ./programs/.pacman.list
-	$(V)pacman -Qqm > ./programs/.aur.list
-	$(V)ls ~/AppImage/ > ./programs/.appimage.list
+	$(V)pacman -Qqen > ./programs/pacman.list
+	$(V)pacman -Qqem > ./programs/aur.list
+	$(V)ls ~/AppImage/ > ./programs/appimage.list
