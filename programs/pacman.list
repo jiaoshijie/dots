@@ -34,7 +34,6 @@ ccls
 chafa
 clash
 clipgrab
-cmake
 copyq
 cowsay
 cpanminus
@@ -43,6 +42,7 @@ cscope
 ctags
 curlie
 deno
+dnsmasq
 docker
 docx2txt
 dos2unix
@@ -51,6 +51,7 @@ dstat
 duf
 dunst
 dust
+ebtables
 ed
 edk2-ovmf
 efibootmgr
@@ -77,10 +78,10 @@ fzy
 gcolor2
 gdb
 gdb-dashboard
-geogebra
 geoip
 git
 git-lfs
+github-cli
 gnome-keyring
 go
 goldendict
@@ -103,10 +104,12 @@ i3status
 imagemagick
 imv
 intel-ucode
-iptables-nft
+inxi
+iptables
 ipython
 jedi-language-server
 jq
+jsoncpp
 jupyterlab
 kitty
 kvantum-qt5
@@ -117,6 +120,7 @@ lib32-glibc
 libressl
 libsvm
 libtorrent
+libvirt
 libvoikko
 linux
 linux-firmware
@@ -124,6 +128,7 @@ llvm
 lolcat
 lua-language-server
 lxappearance
+lxsession
 m4
 maim
 make
@@ -135,6 +140,7 @@ mesa-demos
 mpv
 mysql-clients
 ncdu
+nemo
 neofetch
 neovim
 nerd-fonts-cascadia-code
@@ -147,7 +153,6 @@ ninja
 nomacs
 noto-fonts-emoji
 npm
-ntfs-3g
 nuspell
 nutstore
 nvidia
@@ -175,8 +180,6 @@ pulseaudio-bluetooth
 pulsemixer
 python-certifi
 python-d2to1
-python-lsp-black
-python-lsp-server
 python-matplotlib
 python-pandas
 python-pip
@@ -253,7 +256,7 @@ unzip-natspec
 v2ray
 v2raya
 valgrind
-virtualbox
+virt-manager
 vscodium-bin
 vsftpd
 webcamoid
@@ -325,6 +328,7 @@ xorg-xwud
 xournalpp
 xsel
 xwallpaper
+yarn
 yay
 you-get
 youtube-dl
