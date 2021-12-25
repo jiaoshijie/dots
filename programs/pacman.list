@@ -42,8 +42,6 @@ cscope
 ctags
 curlie
 deno
-dnsmasq
-docker
 docx2txt
 dos2unix
 drawio-desktop-bin
@@ -51,9 +49,7 @@ dstat
 duf
 dunst
 dust
-ebtables
 ed
-edk2-ovmf
 efibootmgr
 entr
 exa
@@ -120,7 +116,6 @@ lib32-glibc
 libressl
 libsvm
 libtorrent
-libvirt
 libvoikko
 linux
 linux-firmware
@@ -189,7 +184,6 @@ python-pynvim
 python-pytorch-cuda
 python-rich
 python-torchvision
-qemu
 qt5-multimedia
 qt5-speech
 qt5ct
@@ -256,7 +250,7 @@ unzip-natspec
 v2ray
 v2raya
 valgrind
-virt-manager
+virtualbox
 vscodium-bin
 vsftpd
 webcamoid
