@@ -104,39 +104,31 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Gruvbox dark)
+# Colors (Gruvbox Material Dark Medium)
 colors:
-  # Default colors
   primary:
-    background: "0x000b1e"
-    foreground: "0x0abdc6"
+    background: '#32302f'
+    foreground: '#dfbf8e'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text:   "0x000b1e"
-    cursor: "0x0abdc6"
-
-  # Normal colors
   normal:
-    black:   "0x123e7c"
-    red:     "0xff0000"
-    green:   "0xd300c4"
-    yellow:  "0xf57800"
-    blue:    "0x123e7c"
-    magenta: "0x711c91"
-    cyan:    "0x0abdc6"
-    white:   "0xd7d7d5"
+    black:   '#665c54'
+    red:     '#ea6962'
+    green:   '#a9b665'
+    yellow:  '#e78a4e'
+    blue:    '#7daea3'
+    magenta: '#d3869b'
+    cyan:    '#89b482'
+    white:   '#dfbf8e'
 
-  # Bright colors
   bright:
-    black:   "0x1c61c2"
-    red:     "0xff0000"
-    green:   "0xd300c4"
-    yellow:  "0xf57800"
-    blue:    "0x00ff00"
-    magenta: "0x711c91"
-    cyan:    "0x0abdc6"
-    white:   "0xd7d7d5"
+    black:   '#928374'
+    red:     '#ea6962'
+    green:   '#a9b665'
+    yellow:  '#e3a84e'
+    blue:    '#7daea3'
+    magenta: '#d3869b'
+    cyan:    '#89b482'
+    white:   '#dfbf8e'
 
   dim_foreground: '#eff0f1'
   bright_foreground: '#ffffff'

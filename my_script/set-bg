@@ -16,9 +16,9 @@ function regularly_change_background() {
 # running
 if [ "$#" -gt 0 ]; then
   if [ -e $1 ] && [ -f $1 ]; then
-    change_background $1 || echo "文件必需是图片"
+    change_background $1 || echo "The file must be a img file."
   else
-    echo "文件不存在"
+    echo "The file isn't exist."
   fi
 else
   while true; do

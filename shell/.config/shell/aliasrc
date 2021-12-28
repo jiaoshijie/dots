@@ -153,7 +153,9 @@ alias \
   btl=bluetoothctl \
   btlpn="bluetoothctl power on" \
   btlpf="bluetoothctl power off" \
-  btlc="bluetoothctl connect"
+  btlsn="bluetoothctl scan on" \
+  btlc="bluetoothctl connect" \
+  btldc="bluetoothctl disconnect"
 
 alias alacritty0="sed -i -e 's/\(^background_opacity:\) 1.0/\1 0.7/' ~/.config/alacritty/alacritty.yml"
 alias alacritty1="sed -i -e 's/\(^background_opacity:\) 0.7/\1 1.0/' ~/.config/alacritty/alacritty.yml"
