@@ -49,7 +49,7 @@ alias sm="smem --pie name -c pss"
 # alias la='ls -lAh'
 # alias l='ls -lah'
 # alias s1="sxiv -b -N 'DingImage' $(ls -1 --color=never ~/Screenshot/pic-DingImage-* | tail -n 1)"
-alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
+# alias kittykeys="grep -E '^(# )?map' ~/.config/kitty/kitty.conf | sed -e 's/^# //g' -e 's/ /@/' -e 's/ /@/' -e 's/ //g' | awk -F '@' '{printf \"%-22s%-s\n\", \$2, \$3}'"
 
 alias \
   ydlproxy="youtube-dl --proxy socks5://127.0.0.1:1080/ --add-metadata -i -f bestvideo+bestaudio" \

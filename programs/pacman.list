@@ -108,6 +108,7 @@ jq
 jsoncpp
 jupyterlab
 kitty
+kvantum
 lf
 lftp
 lib32-gcc-libs
@@ -184,6 +185,8 @@ python-rich
 python-torchvision
 qt5-multimedia
 qt5-speech
+qt5ct
+qt6ct
 qtkeychain-qt5
 reflector
 ripgrep
@@ -196,8 +199,6 @@ sbcl
 sc
 screenkey
 sd
-shadowsocks
-shadowsocks-qt5
 shellcheck
 smartmontools
 smem
