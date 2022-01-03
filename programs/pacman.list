@@ -33,7 +33,6 @@ catdoc
 ccls
 chafa
 clash
-clipgrab
 copyq
 cowsay
 cpanminus
@@ -102,11 +101,8 @@ imv
 intel-ucode
 inxi
 iptables
-ipython
-jedi-language-server
 jq
 jsoncpp
-jupyterlab
 kitty
 kvantum
 lf
@@ -178,10 +174,8 @@ python-matplotlib
 python-pandas
 python-pip
 python-pipx
-python-pybluez
 python-pynvim
 python-pytorch-cuda
-python-rich
 python-torchvision
 qt5-multimedia
 qt5-speech
@@ -197,7 +191,6 @@ ruby
 rust
 sbcl
 sc
-screenkey
 sd
 shellcheck
 smartmontools
@@ -230,7 +223,6 @@ texlive-science
 tig
 tmux
 tokei
-trash-cli
 trayer
 tree-sitter
 ttf-cascadia-code
@@ -241,7 +233,6 @@ ttf-joypixels
 ttf-linux-libertine
 ttf-ubuntu-font-family
 uboot-tools
-ueberzug
 unclutter
 unrar
 unzip-natspec
@@ -320,10 +311,7 @@ xorg-xwud
 xournalpp
 xsel
 xwallpaper
-yarn
 yay
-you-get
-youtube-dl
 zathura-djvu
 zathura-pdf-mupdf
 zathura-ps

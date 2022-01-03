@@ -33,3 +33,5 @@ programs:
 	$(V)pacman -Qqen > ./programs/pacman.list
 	$(V)pacman -Qqem > ./programs/aur.list
 	$(V)ls ~/AppImage/ > ./programs/appimage.list
+	$(V)npm list -g > ./programs/npm.list
+	$(V)pipx list > ./programs/python.list
