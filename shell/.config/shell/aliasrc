@@ -100,11 +100,15 @@ alias \
 # package-manager alias
 # https://www.activestate.com/resources/quick-reads/how-to-update-all-python-packages/
 alias \
-  lpip="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/" \
-  lpiplist="pip3 list --user" \
-  lpipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
-  lpipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated" \
+  gpip="pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple/" \
+  gpiplist="pip3 list" \
+  gpipupdate="pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
+  gpipoutofdate="pip3 list -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated" \
   pyctags="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./"
+  # lpip="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/" \
+  # lpiplist="pip3 list --user" \
+  # lpipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
+  # lpipoutofdate="pip3 list --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated" \
   # pip-autoremove `lpip pip-autoremove`
 alias \
   gnpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
@@ -113,10 +117,10 @@ alias \
   gnpmoutofdate="npm --registry https://registry.npm.taobao.org outdated -g"
 
 alias \
-  stodo="glow ~/Nutstore\ Files/Nutstore/todo.md" \
+  stodo="bat --number ~/Nutstore\ Files/Nutstore/todo.md" \
   etodo="$EDITOR ~/Nutstore\ Files/Nutstore/todo.md" \
   etran="$EDITOR ~/Nutstore\ Files/Nutstore/tran_info.md" \
-  stran="glow ~/Nutstore\ Files/Nutstore/tran_info.md"
+  stran="bat --number ~/Nutstore\ Files/Nutstore/tran_info.md"
 
 # c-index alias
 alias \

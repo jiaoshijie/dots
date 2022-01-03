@@ -32,6 +32,6 @@ bash:
 programs:
 	$(V)pacman -Qqen > ./programs/pacman.list
 	$(V)pacman -Qqem > ./programs/aur.list
-	$(V)ls ~/AppImage/ > ./programs/appimage.list
-	$(V)npm list -g > ./programs/npm.list
-	$(V)pipx list > ./programs/python.list
+	$(V)ls -1 ~/AppImage/*.AppImage | awk -F '/' '{print $$NF}' > ./programs/appimage.list
+	$(V)npm list -g | grep --extended-regexp '^[^/]' | awk -F ' ' '{print $$2}' | awk -F '@' '{print $$1}' > ./programs/npm.list
+	$(V)pipx list | grep --extended-regexp '^\W+package' | awk -F ' ' '{print $$2}' > ./programs/python.list

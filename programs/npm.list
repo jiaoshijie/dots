@@ -1,13 +1,11 @@
-/usr/lib
-├── acorn@8.7.0
-├── corepack@0.10.0
-├── neovim@4.10.1
-├── node-gyp@8.4.1
-├── nopt@5.0.0
-├── npm@8.3.0
-├── semver@7.3.5
-├── typescript-language-server@0.8.1
-├── typescript@4.5.4
-├── vim-language-server@2.2.5
-└── vscode-langservers-extracted@4.0.0
-
+acorn
+corepack
+neovim
+node-gyp
+nopt
+npm
+semver
+typescript-language-server
+typescript
+vim-language-server
+vscode-langservers-extracted
