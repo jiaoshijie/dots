@@ -17,11 +17,12 @@ my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/set-bg ~/.local/bin/set-bg
 	$(V)ln -sf $(HOME)/dotfiles/my_script/setctags_c ~/.local/bin/setctags_c
 	$(V)ln -sf $(HOME)/dotfiles/my_script/remaps ~/.local/bin/remaps
-	$(V)ln -sf $(HOME)/dotfiles/my_script/copyq_clear_history ~/.local/bin/copyq_clear_history
+	$(V)ln -sf $(HOME)/dotfiles/my_script/copyq_clear_history ~/.local/bin/cch
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rmnvidiamod ~/.local/bin/rmnvidiamod
 	$(V)ln -sf $(HOME)/dotfiles/my_script/pickfull ~/.local/bin/pickfull
 	$(V)echo "执行成功"
-	# $(V)ln -sf $(HOME)/dotfiles/my_script/bluetooth_battery ~/.local/bin/bluetooth_battery
+
+# $(V)ln -sf $(HOME)/dotfiles/my_script/bluetooth_battery ~/.local/bin/bluetooth_battery
 
 zsh:
 	$(V)echo "source $(HOME)/dotfiles/shell/.config/shell/profile" > ~/.zprofile
@@ -32,6 +33,7 @@ bash:
 programs:
 	$(V)pacman -Qqen > ./programs/pacman.list
 	$(V)pacman -Qqem > ./programs/aur.list
-	$(V)ls -1 ~/AppImage/*.AppImage | awk -F '/' '{print $$NF}' > ./programs/appimage.list
 	$(V)npm list -g | grep --extended-regexp '^[^/]' | awk -F ' ' '{print $$2}' | awk -F '@' '{print $$1}' > ./programs/npm.list
 	$(V)pipx list | grep --extended-regexp '^\W+package' | awk -F ' ' '{print $$2}' > ./programs/python.list
+
+# $(V)ls -1 ~/AppImage/*.AppImage | awk -F '/' '{print $$NF}' > ./programs/appimage.list

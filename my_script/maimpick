@@ -3,7 +3,7 @@
 # This is bound to Shift+PrintScreen by default, requires maim. It lets you
 # choose the kind of screenshot to take, including copying the image or even
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
-imagepath=~/Screenshot
+imagepath=~/Downloads/Screenshot
 name_time="$(date '+%y%m%d-%H%M-%S')"
 case "$(printf "DingImage\\na selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 7 -i -p "Screenshot which area?")" in
   "DingImage") maim -s "${imagepath}/pic-DingImage-${name_time}.png" && sxiv -b -N "DingImage" "${imagepath}/pic-DingImage-${name_time}.png" ;; #"$(ls -1 --color=never ${imagepath}/pic-DingImage-* | tail -n 1)" ;;

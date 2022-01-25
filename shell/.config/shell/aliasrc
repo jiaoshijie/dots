@@ -18,8 +18,8 @@ alias \
   fm="~/.config/lf/lfrun" \
   lf="~/.config/lf/lfrun" \
   ipy="ipython --colors Linux --no-banner" \
-  jlab="jupyter lab --no-browser" \
-  jlabbuild="jupyter lab build" \
+  jlab="jupyter-lab --no-browser" \
+  jlabbuild="jupyter-lab build" \
   rm=trash \
   rml=trash-list \
   rme='trash-empty -f'\
@@ -104,7 +104,9 @@ alias \
   gpiplist="pip3 list" \
   gpipupdate="pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
   gpipoutofdate="pip3 list -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated" \
-  pyctags="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./"
+  pyctags="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./" \
+  mkpyenv="python -m venv ./venv" \
+  pyenv="source ./venv/bin/activate"
   # lpip="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/" \
   # lpiplist="pip3 list --user" \
   # lpipupdate="pip3 install --user -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
@@ -117,10 +119,8 @@ alias \
   gnpmoutofdate="npm --registry https://registry.npm.taobao.org outdated -g"
 
 alias \
-  stodo="bat --number ~/Nutstore\ Files/Nutstore/todo.md" \
+  stodo="glow ~/Nutstore\ Files/Nutstore/todo.md" \
   etodo="$EDITOR ~/Nutstore\ Files/Nutstore/todo.md" \
-  etran="$EDITOR ~/Nutstore\ Files/Nutstore/tran_info.md" \
-  stran="bat --number ~/Nutstore\ Files/Nutstore/tran_info.md"
 
 # c-index alias
 alias \
@@ -130,6 +130,7 @@ alias \
 alias \
   Sweather="curl wttr.in" \
   nv="nvim" \
+  code="vscodium"
 
 # navigation
 alias ..='cd ..'
@@ -161,8 +162,8 @@ alias \
   btlc="bluetoothctl connect" \
   btldc="bluetoothctl disconnect"
 
-alias alacritty0="sed -i -e 's/\(^background_opacity:\) 1.0/\1 0.7/' ~/.config/alacritty/alacritty.yml"
-alias alacritty1="sed -i -e 's/\(^background_opacity:\) 0.7/\1 1.0/' ~/.config/alacritty/alacritty.yml"
+alias alacritty0="sed -i -e 's/\(^\W*opacity:\) 1.0/\1 0.7/' ~/.config/alacritty/alacritty.yml"
+alias alacritty1="sed -i -e 's/\(^\W*opacity:\) 0.7/\1 1.0/' ~/.config/alacritty/alacritty.yml"
 
 alias gbtoken="head ~/Nutstore\ Files/Nutstore/github/token -n 1 | awk -F '\n' '{printf \$1}' | xsel -ib"
 alias gbclear="xsel -cb; copyq remove ROWS=1"
