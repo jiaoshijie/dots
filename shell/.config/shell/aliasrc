@@ -130,7 +130,6 @@ alias \
 alias \
   Sweather="curl wttr.in" \
   nv="nvim" \
-  code="vscodium"
 
 # navigation
 alias ..='cd ..'

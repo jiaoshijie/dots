@@ -1,15 +1,21 @@
 #! /usr/bin/env sh
 
+# for 'fcitx5`
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
+# fo 'go`
 export GOPATH=$HOME/.local/go
-export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin:$HOME/.local/share/gem/ruby/3.0.0/bin
+export GO111MODULE=on
+export GOPROXY=https://mirrors.aliyun.com/goproxy/
+# export GOPROXY=https://goproxy.cn
+
+export PATH=$PATH:$HOME/.local/bin:$GOPATH/bin:$HOME/.cargo/bin
 # export ZDOTDIR="$HOME/.config/zsh"
-export NUT=$HOME/"Nutstore Files"/Nutstore/
 export TERM_ITALICS=true
 export LC_TIME="zh_CN.UTF-8"
 export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
+# for 'qt theme`
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 export EDITOR='nvim'
