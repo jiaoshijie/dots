@@ -52,4 +52,5 @@ fi
 # prime-offload
 # exec i3
 exec dwm
+# exec xmonad
 # exec /home/red/Downloads/wm/sswm/sswm

@@ -1,65 +1,65 @@
 super + Return
-	$TERMINAL
+  $TERMINAL
 super + shift + Return
-	alacritty --title filemanager -e ~/.config/lf/lfrun
+  alacritty --title filemanager -e ~/.config/lf/lfrun
 super + x
-	kitty
+  kitty
 super + d
-	dmenu_run
-	# rofi -show run -matching fuzzy
+  dmenu_run
+  # rofi -show run -matching fuzzy
 super + w
-	rofi -show window -show-icons
+  rofi -show window -show-icons
 # super + shift + w
-	# skippy-xd
+  # skippy-xd
 super + shift + d
-	rofi -show drun -show-icons
+  rofi -show drun -show-icons
 super + i
-	rofi -show calc -no-show-match -no-sort
+  rofi -show calc -no-show-match -no-sort
 super + shift + i
-	rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
-	# dmenuunicode
+  rofi -modi 'emoji:~/.local/bin/rofiemoji/rofiemoji.sh' -show emoji
+  # dmenuunicode
 super + c
-	$BROWSER
+  $BROWSER
 super + z
-	gcolor2
+  gcolor2
 super + shift + z
-	zotero
+  zotero
 super + g
-	pcmanfm
+  pcmanfm
 super + t
-	zeal
+  zeal
 super + shift + p
-	slock
+  slock
 super + shift + m
-	eudic
+  eudic
 super + m
-	goldendict
+  goldendict
 ctrl + shift + a
-	flameshot gui
-	# maimpick
+  flameshot gui
+  # maimpick
 Print
-	pickfull
+  pickfull
 alt + space
-	copyq menu
+  copyq menu
 
 # Function keys
 XF86AudioMute
-	lmc toggle
+  lmc toggle
 XF86AudioRaiseVolume
-	lmc up
+  lmc up
 XF86AudioLowerVolume
-	lmc down
+  lmc down
 XF86AudioPlay
-	mpc toggle
+  mpc toggle
 XF86AudioPrev
-	mpc prev
+  mpc prev
 XF86AudioNext
-	mpc next
+  mpc next
 XF86AudioStop
-	mpc stop
+  mpc stop
 XF86Tools
-	alacritty --title ncmpcpp -e ncmpcpp
+  alacritty --title ncmpcpp -e ncmpcpp
 XF86HomePage
-	alacritty --title filemanager -e ~/.config/lf/lfrun
+  alacritty --title filemanager -e ~/.config/lf/lfrun
 shift + Print
-	maimpick
+  maimpick
