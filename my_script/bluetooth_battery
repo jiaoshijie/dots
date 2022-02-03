@@ -1,6 +1,0 @@
-mac_addr=$(bluetoothctl info | awk '/^Device/ {print $2}')
-# echo $mac_addr
-bluetoothctl disconnect $mac_addr > /dev/null 2>&1
-# https://github.com/TheWeirdDev/Bluetooth_Headset_Battery_Level.git
-$HOME/sourceCode/Bluetooth_Headset_Battery_Level/bluetooth_battery.py $mac_addr
-bluetoothctl connect $mac_addr > /dev/null 2>&1

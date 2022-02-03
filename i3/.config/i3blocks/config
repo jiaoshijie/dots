@@ -3,53 +3,28 @@
 separator=true
 separator_block_width=15
 
-[windowtitle]
-command=$HOME/.config/my_script/i3bar-functions/activewindowtitle.sh
-interval=-3
-align=center
-color=#1C1BBF
-
-[mpd]
-command=$HOME/.config/my_script/i3bar-functions/mediaplayer
-instance=mpd
-interval=5
-signal=10
-# label=🎵
-
-[dhcpcd_service]
-command=$HOME/.config/my_script/i3bar-functions/systemd_unit
-markup=pango
-label=🤖sshd:
-interval=30
-UNIT_NAME=sshd.service
-USER_UNIT=false   # For user units set `USER_UNIT=true`
-ACTIVE_COLOR=#66ff66
-INACTIVE_COLOR=orange
-FAILED_COLOR=red
-
-[resources]
-command=$HOME/.config/my_script/i3bar-functions/resources.sh
-interval=1
+[mem]
+command=$HOME/dotfiles/my_script/statusbar/sb-memory
+interval=2
 color=#ee8551
 
+[nettraf]
+command=$HOME/dotfiles/my_script/statusbar/sb-nettraf
+interval=2
+
 [network]
-command=$HOME/.config/my_script/i3bar-functions/network.sh
-interval=1
+command=$HOME/dotfiles/my_script/statusbar/sb-internet
+interval=60
 
 [time]
-command=$HOME/.config/my_script/i3bar-functions/date.sh
-interval=1
+command=$HOME/dotfiles/my_script/statusbar/sb-clock
+interval=60
 color=#f5af19
 
-[backlight]
-command=$HOME/.config/my_script/i3bar-functions/backlight.sh
-interval=1
+[volume]
+command=$HOME/dotfiles/my_script/statusbar/sb-volume
+interval=5
 
-[dunst]
-command=$HOME/.config/my_script/i3bar-functions/dunst
-markup=pango
-interval=once
-format=json
-#min_width=50
-#align=center
-#DUNST_MUTE=off
+[battery]
+command=$HOME/dotfiles/my_script/statusbar/sb-battery
+interval=5

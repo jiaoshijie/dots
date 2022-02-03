@@ -11,7 +11,6 @@ my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/ifinstalled ~/.local/bin/ifinstalled
 	$(V)ln -sf $(HOME)/dotfiles/my_script/lmc ~/.local/bin/lmc
 	$(V)ln -sf $(HOME)/dotfiles/my_script/dmenuunicode ~/.local/bin/dmenuunicode
-	$(V)ln -sf $(HOME)/dotfiles/my_script/Screenkey ~/.local/bin/Screenkey
 	$(V)ln -sf $(HOME)/dotfiles/my_script/lf-select ~/.local/bin/lf-select
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rotdir ~/.local/bin/rotdir
 	$(V)ln -sf $(HOME)/dotfiles/my_script/set-bg ~/.local/bin/set-bg
@@ -21,8 +20,6 @@ my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rmnvidiamod ~/.local/bin/rmnvidiamod
 	$(V)ln -sf $(HOME)/dotfiles/my_script/pickfull ~/.local/bin/pickfull
 	$(V)echo "执行成功"
-
-# $(V)ln -sf $(HOME)/dotfiles/my_script/bluetooth_battery ~/.local/bin/bluetooth_battery
 
 zsh:
 	$(V)echo "source $(HOME)/dotfiles/shell/.config/shell/profile" > ~/.zprofile
@@ -35,5 +32,3 @@ programs:
 	$(V)pacman -Qqem > ./programs/aur.list
 	$(V)npm list -g | grep --extended-regexp '^[^/]' | awk -F ' ' '{print $$2}' | awk -F '@' '{print $$1}' > ./programs/npm.list
 	$(V)pipx list | grep --extended-regexp '^\W+package' | awk -F ' ' '{print $$2}' > ./programs/python.list
-
-# $(V)ls -1 ~/AppImage/*.AppImage | awk -F '/' '{print $$NF}' > ./programs/appimage.list
