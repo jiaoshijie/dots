@@ -147,6 +147,7 @@ alias cleanup='sudo pacman -Rns $(pacman -Qtdq) 2> /dev/null'  # remove orphaned
 
 # network-wifi
 alias \
+  nshow="nmcli device show" \
   nlist="nmcli device wifi list" \
   nconn="nmcli device wifi connect" \
   publicip="curl https://ipinfo.io/ip; echo"
