@@ -3,6 +3,11 @@
 separator=true
 separator_block_width=15
 
+[win]
+command=$HOME/dotfiles/my_script/statusbar/i3-window
+interval=-2
+label=🪟
+
 [mem]
 command=$HOME/dotfiles/my_script/statusbar/sb-memory
 interval=2
@@ -11,10 +16,12 @@ color=#ee8551
 [nettraf]
 command=$HOME/dotfiles/my_script/statusbar/sb-nettraf
 interval=2
+color=#2063B0
 
 [network]
 command=$HOME/dotfiles/my_script/statusbar/sb-internet
 interval=60
+color=#FFFFFF
 
 [time]
 command=$HOME/dotfiles/my_script/statusbar/sb-clock
@@ -25,6 +32,7 @@ color=#f5af19
 command=$HOME/dotfiles/my_script/statusbar/sb-volume
 interval=5
 
-[battery]
-command=$HOME/dotfiles/my_script/statusbar/sb-battery
-interval=5
+# [battery]
+# command=$HOME/dotfiles/my_script/statusbar/sb-battery
+# interval=5
+# using mate-power-manager instead
