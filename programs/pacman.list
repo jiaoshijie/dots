@@ -4,7 +4,6 @@ adobe-source-han-sans-cn-fonts
 adobe-source-han-serif-cn-fonts
 alacritty
 android-file-transfer
-annie
 archlinuxcn-keyring
 aria2
 aspell
@@ -49,7 +48,6 @@ dunst
 dust
 ed
 efibootmgr
-emacs
 entr
 exa
 fakeroot
@@ -64,7 +62,6 @@ fd
 ffmpegthumbnailer
 figlet
 filezilla
-firefox
 flameshot
 flex
 fortune-mod
@@ -118,6 +115,7 @@ linux-firmware
 llvm
 lolcat
 lua-language-server
+lux-dl
 lxappearance
 lxsession
 m4
@@ -125,6 +123,7 @@ maim
 make
 man-db
 man-pages
+marktext-git
 mediainfo
 meld
 mesa-demos
@@ -133,7 +132,6 @@ mysql-clients
 ncdu
 neofetch
 neovim
-nerd-fonts-cascadia-code
 nerd-fonts-source-code-pro
 networkmanager
 newsboat
@@ -151,7 +149,6 @@ p7zip
 pacman-contrib
 pamixer
 pandoc
-papirus-icon-theme
 paru
 patch
 pavucontrol

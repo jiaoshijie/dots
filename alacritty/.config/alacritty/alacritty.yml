@@ -21,7 +21,7 @@ window:
     instance: Alacritty
     general: Alacritty
 
-  opacity: 0.7
+  opacity: 1.0
 
 font:
   # Normal (roman) font face
@@ -85,8 +85,8 @@ colors:
     white:   '#ffffff'
 
   cursor:
-    text: '#2d4f67'
-    cursor: '#c8c093'
+    text: '#000000'
+    cursor: '#5588FF'
 
   vi_mode_cursor:
     text: '#44475a'
