@@ -17,9 +17,6 @@ alias \
   sudo="sudo -E" \
   fm="~/.config/lf/lfrun" \
   lf="~/.config/lf/lfrun" \
-  ipy="ipython --colors Linux --no-banner" \
-  jlab="jupyter-lab --no-browser" \
-  jlabbuild="jupyter-lab build" \
   rm=trash \
   rml=trash-list \
   rme='trash-empty -f'\
@@ -95,7 +92,8 @@ alias \
 # tmux alias
 alias \
   tJ="tmux new -s Jie || tmux a -d -t Jie" \
-  tA="tmux new -s Arch || tmux a -d -t Arch"
+  tA="tmux new -s Arch || tmux a -d -t Arch" \
+  tj="tmux new -s jsj || tmux a -d -t jsj"
 
 # package-manager alias
 # https://www.activestate.com/resources/quick-reads/how-to-update-all-python-packages/
