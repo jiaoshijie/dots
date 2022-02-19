@@ -28,9 +28,10 @@ command=$HOME/dotfiles/my_script/statusbar/sb-clock
 interval=60
 color=#f5af19
 
-[volume]
-command=$HOME/dotfiles/my_script/statusbar/sb-volume
-interval=5
+# [volume]
+# command=$HOME/dotfiles/my_script/statusbar/sb-volume
+# interval=5
+# using pasystray instead
 
 # [battery]
 # command=$HOME/dotfiles/my_script/statusbar/sb-battery

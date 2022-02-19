@@ -27,11 +27,10 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
 # 取消框框(normal | 1pixel | pixel xx | none | pixel)
-new_window 1pixel
+new_window pixel 2
 # new_float normal
-new_float 1pixel
+new_float pixel 2
 hide_edge_borders none
 smart_borders on
 
@@ -51,14 +50,7 @@ for_window [class="VirtualBox Manager"] resize set 1000 600
 for_window [class="VirtualBox Manager"] move position center
 # for_window [class="VirtualBox Machine"] floating enable
 # for_window [class="VirtualBox Machine"] resize set 1000 600
-for_window [class="VirtualBox Machine"] move container to workspace $ws9
-for_window [class="VirtualBox Manager"] move container to workspace $ws10
 for_window [class="VirtualBox"] floating enable
-
-# ---- * Bluetooth * ----
-for_window [class="Blueman-manager" title="Bluetooth Devices"] floating enable
-for_window [class="Blueman-manager" title="Bluetooth Devices"] move position center
-for_window [class="Blueman-manager" title="Bluetooth Devices"] move set 600 600
 
 # ---- * Gcolor2 *------
 # for_window [class="Gcolor2"] sticky enable
@@ -70,10 +62,6 @@ for_window [class="flameshot"] floating enable
 # ---- * GIMP Startup *------
 for_window [title="GIMP Startup"] border pixel 0
 
-# ---- * mitalk *------
-for_window [class="微信"] floating enable
-for_window [class="微信"] move container to workspace $ws10
-
 # ----- * Nutstore *-----
 for_window [title="Nutstore"] border pixel 0
 
@@ -81,38 +69,23 @@ for_window [title="Nutstore"] border pixel 0
 for_window [class="Qemu-system-i386"] floating enable
 for_window [class="Qemu-system-i386"] move position 1265 100
 
-# ----- * Free Download Manager * -----
-for_window [class="Free Download Manager"] floating enable
-for_window [class="Free Download Manager"] resize set 800 400
-for_window [class="Free Download Manager"] move position center
-for_window [class="Free Download Manager"] move container to workspace $ws10
-
-# ----- * firefox * -----
-for_window [class="firefox" instance="Places" title="Library"] floating enable
-for_window [class="firefox" instance="Places" title="Library"] move position center
-
 # -----* other *-----
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Lxappearance"] floating enable
 for_window [class="Lxappearance"] resize set 800 400
 for_window [class="Lxappearance"] move position center
 for_window [class="Alacritty" title="ranger"] floating enable
-for_window [class="Alacritty" title="ncmpcpp"] floating enable
 for_window [class="GoldenDict"] floating enable
-for_window [class="eudic"] floating enable
 for_window [class="Fsearch"] floating enable
 for_window [class="stacer"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="copyq"] move position center
-for_window [class="Qalculate-gtk"] floating enable
 for_window [class="Kite"] floating enable
 for_window [class="fcitx5-config-qt"] floating enable
 for_window [class="Webcamoid" instance="webcamoid"] floating enable
 for_window [class="Webcamoid" instance="webcamoid"] move position center
 for_window [class="qv2ray" instance="qv2ray"] floating enable
 for_window [class="qv2ray" instance="qv2ray"] move position center
-for_window [class="shadowsocks-qt5" instance="ss-qt5"] floating enable
-for_window [class="shadowsocks-qt5" instance="ss-qt5"] move position center
 
 # i3-bar
 bar {
@@ -136,9 +109,9 @@ bar {
 }
 
 # exec_always sleep 5; xmodmap ~/.Xmodmap
-exec --no-startup-id alacritty -t jiaoshijie -e tmux new -s jie
+exec --no-startup-id st -t jiaoshijie
 # NOTICE: sudo pacman -S xautolock
-for_window [class="Alacritty" title="jiaoshijie"] move scratchpad
+for_window [class="st-256color" title="jiaoshijie"] move scratchpad
 
 # ********************** wm快捷键 *********************** #
 bindsym $mod+Shift+q kill
@@ -151,21 +124,23 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 # 竖直分屏
-bindsym $mod+v split v
+bindsym $mod+slash split h
 # 水平分屏
-bindsym $mod+b split h
+bindsym $mod+equal split v
 bindsym $mod+f fullscreen toggle
-bindsym $mod+e layout toggle split
-bindsym $mod+Shift+w layout tabbed
+bindsym $mod+0 layout toggle split
+bindsym $mod+Shift+0 layout tabbed
 # bindsym $mod+s layout stacking
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 # bindsym $mod+d focus child
+
 # 把当前窗口设为便笺本(minus键为减号<->键)
 bindsym $mod+Shift+minus move scratchpad
 # 呼出第一个便笺本
 bindsym $mod+minus scratchpad show
+
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -175,7 +150,6 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -185,25 +159,19 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
 # 重新加载i3的配置文件
 bindsym $mod+Shift+c reload
-# 重新启动i3
-# bindsym $mod+Shift+r restart
 # 退出i3到X session的登入界面
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+u border none
-bindsym $mod+y border 1pixel
-bindsym $mod+n border normal
 
 # 重新调整窗口的大小
 mode "resize" {
-       bindsym h resize shrink width 10 px or 10 ppt
-       bindsym j resize grow height 10 px or 10 ppt
-       bindsym k resize shrink height 10 px or 10 ppt
-       bindsym l resize grow width 10 px or 10 ppt
+       bindsym h resize shrink width 5 px or 5 ppt
+       bindsym j resize grow height 5 px or 5 ppt
+       bindsym k resize shrink height 5 px or 5 ppt
+       bindsym l resize grow width 5 px or 5 ppt
        # 返回正常模式
        bindsym Return mode "default"
        bindsym Escape mode "default"

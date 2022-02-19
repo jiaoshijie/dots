@@ -24,7 +24,7 @@ super + g
 super + t
   zeal
 super + shift + p
-  slock
+ i3lock -e -f -c 005577
 super + m
   goldendict
 ctrl + shift + a

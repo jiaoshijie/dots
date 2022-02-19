@@ -24,7 +24,6 @@ bluez-utils
 bmon
 bottom
 brave-bin
-breeze-gtk
 bumblebee
 capitaine-cursors
 catdoc
@@ -123,7 +122,6 @@ maim
 make
 man-db
 man-pages
-marktext-git
 mediainfo
 meld
 mesa-demos
@@ -216,6 +214,7 @@ trayer
 tree-sitter
 ttf-cascadia-code
 ttf-dejavu
+ttf-fira-code
 ttf-joypixels
 ttf-linux-libertine
 ttf-ubuntu-font-family
