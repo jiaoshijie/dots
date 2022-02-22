@@ -50,6 +50,5 @@ fi
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-# exec i3
 exec dwm
 # exec /home/red/Downloads/wm/sswm/sswm

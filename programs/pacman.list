@@ -73,6 +73,7 @@ geoip
 git
 git-lfs
 github-cli
+global
 glow
 gnome-keyring
 go
