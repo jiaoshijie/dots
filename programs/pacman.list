@@ -25,11 +25,13 @@ bmon
 bottom
 brave-bin
 bumblebee
+calibre
 capitaine-cursors
 catdoc
 ccls
 chafa
 clash
+cmake
 copyq
 cowsay
 cpanminus
@@ -127,7 +129,6 @@ mpv
 mysql-clients
 ncdu
 neofetch
-neovim
 nerd-fonts-source-code-pro
 networkmanager
 newsboat
@@ -218,7 +219,6 @@ ttf-linux-libertine
 ttf-ubuntu-font-family
 uboot-tools
 unclutter
-unicode-emoji
 unrar
 unzip-natspec
 v2ray

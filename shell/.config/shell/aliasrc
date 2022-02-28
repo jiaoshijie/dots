@@ -22,7 +22,7 @@ alias \
   rme='trash-empty -f'\
   rmr=trash-restore \
   du="ncdu --color dark" \
-  cat="bat --number" \
+  cat="bat --style=plain" \
   ls='exa --color=always --group-directories-first' \
   l1='exa -1 --color=always --group-directories-first' \
   ll='exa -lhg --color=always --group-directories-first' \
