@@ -166,6 +166,6 @@ alias gbtoken="head ~/Nutstore\ Files/Nutstore/github/token -n 1 | awk -F '\n' '
 alias gbclear="xsel -cb; copyq remove ROWS=1"
 
 
-if [[ "$TERM" == "xterm-kitty" ]]; then
-  alias icat="kitty icat"
-fi
+# if [[ "$TERM" == "xterm-kitty" ]]; then
+#   alias icat="kitty icat"
+# fi

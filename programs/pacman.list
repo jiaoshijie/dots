@@ -40,6 +40,7 @@ cscope
 ctags
 curlie
 deno
+docker
 docx2txt
 dos2unix
 drawio-desktop-bin
@@ -100,7 +101,6 @@ inxi
 iptables
 jq
 jsoncpp
-kitty
 kvantum
 lf
 lib32-gcc-libs
@@ -140,6 +140,7 @@ nuspell
 nutstore
 nvidia
 odt2txt
+onefetch
 opengl-man-pages
 os-prober
 p7zip
