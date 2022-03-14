@@ -74,6 +74,7 @@ gdb
 gdb-dashboard
 geoip
 git
+git-delta
 git-lfs
 github-cli
 global
@@ -210,11 +211,11 @@ texlive-science
 tig
 tmux
 tokei
+traceroute
 trayer
 tree-sitter
 ttf-cascadia-code
 ttf-dejavu
-ttf-fira-code
 ttf-joypixels
 ttf-linux-libertine
 ttf-ubuntu-font-family
@@ -232,6 +233,7 @@ wget
 wkhtmltopdf
 wmctrl
 words
+wqy-microhei
 x11-ssh-askpass
 xautolock
 xcape

@@ -27,6 +27,8 @@ configuration {
   red-alt: #E06C7515;
   yellow: #E5C07B;
   yellow-alt: #E5C07B15;
+  cyan: #56B6C2;
+  cyan-alt: #56B6C215;
 
   background-color: @bg;
   text-color: @fg;
@@ -41,7 +43,7 @@ window {
 }
 
 mainbox {
-  children: [inputbar, listview];
+  children: [inputbar, message, listview];
 }
 
 inputbar {
@@ -61,6 +63,21 @@ entry {
   background-color: @blue-alt;
   padding: 10px;
   text-color: @blue;
+}
+
+message {
+  children: [textbox];
+  background-color: @cyan-alt;
+  border: 0 0 0 2px;
+  border-color: @yellow;
+  border-radius: 6px;
+  margin: 0 0 6px 0;
+  padding: 0 0 0 6px;
+}
+
+textbox {
+  text-color: @cyan;
+  padding: 10px 0 10px 5px;
 }
 
 listview {
