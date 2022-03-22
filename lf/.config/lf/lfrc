@@ -127,8 +127,17 @@ map S $$SHELL
 map o $mimeopen $f
 map r $mimeopen --ask $f
 map bg $set-bg $f
+map c unselect
 
 map A rename
 map a push A<a-b><a-b><a-f> # before extention
+
+map gt cd /tmp
+map gD cd ~/Downloads
+map gc cd ~/.config
+map gl cd ~/.local
+map gn cd ~/Nutstore\ Files/Nutstore
+map gd cd ~/dotfiles
+map gr cd /
 
 map <enter> $nvim $f

@@ -4,7 +4,7 @@ super + shift + Return
   alacritty --title filemanager -e ~/.config/lf/lfrun
 super + d
   dmenu_run
-  # rofi -show run -matching fuzzy
+  # rofi -show run
 super + w
   rofi -show window -show-icons
 super + shift + d
@@ -24,7 +24,7 @@ super + g
 super + t
   zeal
 super + shift + p
- i3lock -e -f -c 005577
+ slock
 super + m
   goldendict
 ctrl + shift + a
