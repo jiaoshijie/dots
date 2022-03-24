@@ -18,6 +18,7 @@
     frame_width = 3
     # Border color
     frame_color = "#aaaaaa"
+    offset = 5x30
 
     # Define a color for the separator.
     # possible values are:
@@ -67,6 +68,7 @@
     class = Dunst
     startup_notification = false
     force_xinerama = false
+    corner_radius = 15
 
     mouse_left_click = close_current
     mouse_middle_click = do_action, close_current
