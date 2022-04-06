@@ -1,0 +1,12 @@
+#! /usr/bin/env sh
+
+if [ $# -eq 0 ]; then
+  if env | grep -q ^http_proxy=
+  then
+    unset http_proxy https_proxy
+  else
+    export http_proxy=http://127.0.0.1:10809 https_proxy=http://127.0.0.1:10809
+  fi
+else
+  export http_proxy=http://127.0.0.1:$1 https_proxy=http://127.0.0.1:$1
+fi

@@ -3,4 +3,5 @@ neovim-remote
 python-lsp-server
 trash-cli
 ueberzug
+virtualenv
 youtube-dl

@@ -33,7 +33,7 @@ unclutter &
 
 flameshot &
 copyq &
-nutstore &
+~/.nutstore/dist/bin/nutstore-pydaemon.py &
 goldendict &
 fcitx5 &
 

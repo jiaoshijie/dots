@@ -24,6 +24,7 @@ bluez-utils
 bmon
 bottom
 brave-bin
+breeze-gtk
 bumblebee
 calibre
 capitaine-cursors
@@ -39,6 +40,7 @@ cpdf
 cscope
 ctags
 curlie
+cutefish-icons
 deno
 docker
 docx2txt
@@ -77,7 +79,6 @@ geoip
 git
 git-delta
 git-lfs
-github-cli
 global
 glow
 gnome-keyring
@@ -86,7 +87,6 @@ goldendict-qt5-git
 gopls
 grub
 gvfs
-gvim
 hdparm
 hexedit
 hexyl
@@ -138,7 +138,6 @@ nomacs
 noto-fonts-emoji
 npm
 nuspell
-nutstore
 nvidia
 odt2txt
 onefetch
@@ -162,6 +161,7 @@ procs
 pulseaudio-alsa
 pulseaudio-bluetooth
 pulsemixer
+pyenv
 python-pip
 python-pipx
 python-pynvim
@@ -186,6 +186,7 @@ smartmontools
 smem
 ssfconv
 stow
+stylua
 sudo
 sxhkd
 sxiv
