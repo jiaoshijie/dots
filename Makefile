@@ -19,6 +19,7 @@ my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/copyq_clear_history ~/.local/bin/cch
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rmnvidiamod ~/.local/bin/rmnvidiamod
 	$(V)ln -sf $(HOME)/dotfiles/my_script/pickfull ~/.local/bin/pickfull
+	$(V)ln -sf $(HOME)/dotfiles/clash/.config/clash/updateSub_setUi ~/.local/bin/updateclash
 	$(V)echo "执行成功"
 
 zsh:

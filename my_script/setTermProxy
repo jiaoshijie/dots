@@ -4,9 +4,22 @@ if [ $# -eq 0 ]; then
   if env | grep -q ^http_proxy=
   then
     unset http_proxy https_proxy
+    echo "unset http_proxy and https_proxy"
   else
     export http_proxy=http://127.0.0.1:10809 https_proxy=http://127.0.0.1:10809
+    echo 'http_proxy='$http_proxy
+    echo 'https_proxy='$https_proxy
   fi
 else
-  export http_proxy=http://127.0.0.1:$1 https_proxy=http://127.0.0.1:$1
+  if [[ $1 =~ ^[0-9]+$ ]]; then
+    if [[ $1 -gt 0 && $1 -lt 65535 ]]; then
+      export http_proxy=http://127.0.0.1:$1 https_proxy=http://127.0.0.1:$1
+      echo 'http_proxy='$http_proxy
+      echo 'https_proxy='$https_proxy
+    else
+      echo "The input number must greater then 0 and less then 65535"
+    fi
+  else
+    echo "The input must be number!!!"
+  fi
 fi
