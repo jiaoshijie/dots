@@ -1,0 +1,37 @@
+#!/usr/bin/env python3
+
+import json
+import os
+import sys
+
+
+def main(sp, tp):
+    if not os.path.exists(sp):
+        return
+
+    with open(sp, "r") as fp:
+        colors = json.load(fp)
+
+    with open(tp, "w") as fp:
+        fm = '{}: "{}"\n'
+        fp.write("colors:\n  primary:\n")
+        for i in colors["special"]:
+            if "cursor" not in i:
+                fp.write(' ' * 4 + fm.format(i, colors["special"][i]))
+        yml_c = ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white']
+        fp.write("  normal:\n")
+        for i in range(0, 16):
+            if i == 8:
+                fp.write("  bright:\n")
+            fp.write(' ' * 4 + fm.format(yml_c[i % 8], colors["colors"]["color" + str(i)]))
+
+    with open(os.path.expanduser("~/.config/alacritty/alacritty.yml", "r")) as fp:
+        # NOTICE: do nothing, just for updating the opened alacritty terminal
+        pass
+
+
+
+if __name__ == "__main__":
+    source_path = os.path.expanduser("~/.cache/wal/colors.json")
+    target_path = os.path.expanduser("~/.cache/wal/alacritty.yml")
+    main(source_path, target_path)

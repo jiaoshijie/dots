@@ -106,6 +106,7 @@ kvantum
 lf
 lib32-gcc-libs
 lib32-glibc
+libconfig
 libressl
 libsvm
 libtorrent
@@ -149,17 +150,17 @@ pamixer
 pandoc
 paru
 patch
-pavucontrol
 pcmanfm
 perf
 perl-file-mimeinfo
 perl-image-exiftool
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
 pkgconf
 plocate
 prettier
 procs
-pulseaudio-alsa
-pulseaudio-bluetooth
 pulsemixer
 pyenv
 python-pip
@@ -178,6 +179,7 @@ rofi-calc
 rsync
 ruby
 rust
+rust-analyzer
 sbcl
 sc
 sd
@@ -231,6 +233,7 @@ virtualbox
 webcamoid
 webkit2gtk
 wget
+wireplumber
 wkhtmltopdf
 wmctrl
 words

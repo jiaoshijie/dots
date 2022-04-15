@@ -101,6 +101,7 @@ alias \
   gpipupdate="pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple/ --upgrade" \
   gpipoutofdate="pip3 list -i https://pypi.tuna.tsinghua.edu.cn/simple/ --outdated" \
   pyctags="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./" \
+
 alias \
   gnpm="sudo npm --registry https://registry.npm.taobao.org install -g" \
   gnpmlist="npm list -g" \
