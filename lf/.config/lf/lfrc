@@ -89,7 +89,7 @@ cmd copy_name_nonSuffix ${{
 }}
 
 cmd changefilename ${{
-  lf_tmp_file=$(mktemp /tmp/lf_nvim_changefilename.XXXXXXXXXX)
+  lf_tmp_file=$(mktemp /tmp/lf_vim_changefilename.XXXXXXXXXX)
   rm -rf $lf_tmp_file
   $EDITOR $lf_tmp_file -s ~/.config/lf/lf.vim
 
@@ -140,4 +140,4 @@ map gn cd ~/Nutstore\ Files/Nutstore
 map gd cd ~/dotfiles
 map gr cd /
 
-map <enter> $nvim $f
+map <enter> $$EDITOR $f

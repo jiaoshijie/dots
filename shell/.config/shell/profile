@@ -18,7 +18,7 @@ export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 # for 'qt theme`
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-export EDITOR='nvim'
+export EDITOR='vim'
 export TERMINAL="alacritty"
 export BROWSER="brave"
 export READER="zathura"

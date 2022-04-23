@@ -13,7 +13,6 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# export MANPAGER="nvim -c 'set ft=man' -"
 
 #路径别名 进入相应的路径时只要 cd ~xxx
 hash -d NUT="$HOME/Nutstore Files/Nutstore/MARKDOWN_NOTE"

@@ -41,6 +41,7 @@ cscope
 ctags
 curlie
 cutefish-icons
+dash
 deno
 docker
 docx2txt
@@ -83,7 +84,7 @@ global
 glow
 gnome-keyring
 go
-goldendict-qt5-git
+goldendict-git
 gopls
 grub
 gvfs
@@ -136,6 +137,7 @@ networkmanager
 newsboat
 ninja
 nomacs
+noto-fonts-cjk
 noto-fonts-emoji
 npm
 nuspell
@@ -162,6 +164,7 @@ plocate
 prettier
 procs
 pulsemixer
+pv
 pyenv
 python-pip
 python-pipx
@@ -300,6 +303,7 @@ xorg-xwininfo
 xorg-xwud
 xournalpp
 xsel
+xsv
 xwallpaper
 yay
 zathura-djvu
