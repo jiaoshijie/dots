@@ -1,5 +1,4 @@
 acorn
-corepack
 neovim
 node-gyp
 nopt
