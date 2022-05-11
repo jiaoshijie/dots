@@ -1,9 +1,5 @@
-acorn
-neovim
+corepack
 node-gyp
 nopt
 npm
 semver
-typescript-language-server
-typescript
-vscode-langservers-extracted

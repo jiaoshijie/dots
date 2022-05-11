@@ -14,7 +14,6 @@ bandwhich
 banner
 base
 bash-completion
-bash-language-server
 bat
 bbswitch
 bc
@@ -136,6 +135,7 @@ nerd-fonts-source-code-pro
 networkmanager
 newsboat
 ninja
+nodejs
 nomacs
 noto-fonts-cjk
 noto-fonts-emoji
@@ -200,7 +200,6 @@ tcl
 tealdeer
 terminus-font
 texinfo
-texlab
 texlive-bibtexextra
 texlive-core
 texlive-fontsextra
