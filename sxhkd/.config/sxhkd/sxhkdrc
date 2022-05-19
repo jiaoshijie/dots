@@ -27,6 +27,8 @@ super + shift + p
  slock
 super + m
   goldendict
+super + shift + m
+  ~/Downloads/AppRun/eudic.AppImage
 ctrl + shift + a
   flameshot gui
   # maimpick

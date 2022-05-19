@@ -21,7 +21,7 @@ window:
     instance: Alacritty
     general: Alacritty
 
-  opacity: 1.0
+  opacity: 0.7
 
 font:
   # Normal (roman) font face

@@ -82,6 +82,7 @@ git-lfs
 global
 glow
 gnome-keyring
+gnu-netcat
 go
 goldendict-git
 gopls
