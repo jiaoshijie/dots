@@ -6,7 +6,7 @@ configuration {
   sidebar-mode: true;
   show-icons: true;
   terminal: "alacritty";
-  drun-match-fields: "name,generic,comment";
+  drun-match-fields: "name,generic,exec,comment,categories,keywords";
   matching: "regex";
   modi: "window,run,drun,calc";
   display-drun: "App";

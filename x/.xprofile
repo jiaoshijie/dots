@@ -24,6 +24,7 @@ dunst &
 # mpd &  # for music
 
 unclutter &
+activate-linux &
 
 # mate-power-manager &  # for battery
 # nm-applet &  # for network
