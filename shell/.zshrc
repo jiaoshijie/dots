@@ -30,9 +30,6 @@ hash -d PKG="/var/cache/pacman/pkg"
 # COM-alias
 [ -f ~/.config/shell/aliasrc ] && source ~/.config/shell/aliasrc
 
-# SSH-alias
-[ -f $HOME/.ssh/ssh_connection ] && source $HOME/.ssh/ssh_connection
-
 # zsh-complete
 [ -f ~/.config/shell/complete.zsh ] && source ~/.config/shell/complete.zsh
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh

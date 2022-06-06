@@ -76,13 +76,13 @@ gcolor2
 gdb
 gdb-dashboard
 geoip
+gimp
 git
 git-delta
 git-lfs
 global
 glow
 gnome-keyring
-gnu-netcat
 go
 goldendict-git
 gopls
@@ -145,6 +145,7 @@ nuspell
 nvidia
 odt2txt
 onefetch
+openbsd-netcat
 opengl-man-pages
 os-prober
 p7zip
@@ -215,6 +216,7 @@ texlive-pstricks
 texlive-publishers
 texlive-science
 tig
+tk
 tmux
 tokei
 traceroute
@@ -311,6 +313,6 @@ zathura-pdf-mupdf
 zathura-ps
 zeal-git
 zip
-zotero
+zotero-bin
 zoxide
 zsh

@@ -158,3 +158,6 @@ alias sw="devour"
 
 alias gbtoken="head ~/Nutstore\ Files/Nutstore/github/token -n 1 | awk -F '\n' '{printf \$1}' | xsel -ib"
 alias gbclear="xsel -cb; copyq remove ROWS=1"
+
+# docker run
+[ -f $HOME/Downloads/docker_use/dockerrun ] && source $HOME/Downloads/docker_use/dockerrun
