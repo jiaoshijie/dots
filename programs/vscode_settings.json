@@ -5,15 +5,14 @@
     // font
     "editor.fontFamily": "'Cascadia Code', 'SauceCodePro Nerd Font', 'Consolas'",
     "editor.fontLigatures": true,
-    "editor.fontSize": 16,
+    "editor.fontSize": 18,
     // tab
     "editor.detectIndentation": true,
     "editor.comments.insertSpace": true,
     "editor.tabSize": 2,
     // 设置工具栏
     "window.menuBarVisibility": "toggle",
-    "workbench.startupEditor": "none", // 主题
-    "files.autoSave": "onFocusChange",
+    "workbench.startupEditor": "none",
     // 是否自动格式化当保存时
     "editor.formatOnSave": false,
     "workbench.sideBar.location": "left",
@@ -51,4 +50,5 @@
         "<C-a>": true,
         "<C-f>": false
     },
+    "files.autoSave": "afterDelay",
 }

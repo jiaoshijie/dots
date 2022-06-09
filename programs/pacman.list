@@ -103,6 +103,7 @@ inxi
 iptables
 jq
 jsoncpp
+kitty
 kvantum
 lf
 lib32-gcc-libs
@@ -142,6 +143,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 nuspell
+nutstore
 nvidia
 odt2txt
 onefetch
@@ -308,7 +310,6 @@ xournalpp
 xsel
 xsv
 xwallpaper
-yay
 zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
