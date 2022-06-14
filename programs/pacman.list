@@ -194,6 +194,7 @@ shellcheck
 smartmontools
 smem
 ssfconv
+sshfs
 stow
 stylua
 sudo

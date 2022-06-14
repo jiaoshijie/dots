@@ -120,6 +120,9 @@ alias \
 alias \
   Sweather="curl wttr.in" \
   nv="nvim" \
+  vi="vim" \
+  emacs="vim" \
+  em="vim"
 
 # navigation
 alias ..='cd ..'
