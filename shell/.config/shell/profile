@@ -20,7 +20,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 
 export EDITOR='vim'
 export TERMINAL="alacritty"
-export BROWSER="brave"
+export BROWSER="firefox"
 export READER="zathura"
 
 # export LESS=-R

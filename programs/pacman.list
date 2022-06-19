@@ -22,7 +22,6 @@ bluez
 bluez-utils
 bmon
 bottom
-brave-bin
 breeze-gtk
 bumblebee
 calibre
@@ -67,6 +66,7 @@ fd
 ffmpegthumbnailer
 figlet
 filezilla
+firefox
 flameshot
 flex
 fortune-mod
@@ -165,11 +165,11 @@ pipewire-jack
 pipewire-pulse
 pkgconf
 plocate
-prettier
 procs
 pulsemixer
 pv
 pyenv
+pyright
 python-pip
 python-pipx
 python-pynvim
@@ -193,10 +193,10 @@ sd
 shellcheck
 smartmontools
 smem
+speech-dispatcher
 ssfconv
 sshfs
 stow
-stylua
 sudo
 sxhkd
 sxiv
