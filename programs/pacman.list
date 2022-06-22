@@ -97,7 +97,6 @@ hugo
 hunspell-en_us
 hyperfine
 imagemagick
-imv
 intel-ucode
 inxi
 iptables
@@ -138,8 +137,6 @@ networkmanager
 newsboat
 ninja
 nodejs
-nomacs
-noto-fonts-cjk
 noto-fonts-emoji
 npm
 nuspell
@@ -314,7 +311,6 @@ xwallpaper
 zathura-djvu
 zathura-pdf-mupdf
 zathura-ps
-zeal-git
 zip
 zotero-bin
 zoxide
