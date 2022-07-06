@@ -19,3 +19,4 @@ export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O 
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 
 eval "$(zoxide init bash --cmd j)"
+. "$HOME/.cargo/env"

@@ -153,6 +153,7 @@ pamixer
 pandoc
 paru
 patch
+pavucontrol
 pcmanfm
 perf
 perl-file-mimeinfo
@@ -182,12 +183,9 @@ rofi
 rofi-calc
 rsync
 ruby
-rust
-rust-analyzer
 sbcl
 sc
 sd
-shellcheck
 smartmontools
 smem
 speech-dispatcher

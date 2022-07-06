@@ -6,6 +6,10 @@
 
 vol="$(pamixer --get-volume)"
 
+while [ "$?" -ne "0" ]; do
+  vol="$(pamixer --get-volume)"
+done
+
 if [ "$vol" -gt "70" ]; then
   icon="🔊"
 elif [ "$vol" -lt "30" ]; then
