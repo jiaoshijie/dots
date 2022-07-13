@@ -97,6 +97,7 @@ hugo
 hunspell-en_us
 hyperfine
 imagemagick
+indent
 intel-ucode
 inxi
 iptables
@@ -222,6 +223,7 @@ trayer
 tree-sitter
 ttf-cascadia-code
 ttf-dejavu
+ttf-hack
 ttf-joypixels
 ttf-linux-libertine
 ttf-ubuntu-font-family
@@ -233,7 +235,6 @@ v2ray
 v2raya
 valgrind
 virtualbox
-vscodium
 webcamoid
 webkit2gtk
 wget

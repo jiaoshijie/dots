@@ -26,19 +26,19 @@ window:
 font:
   # Normal (roman) font face
   normal:
-    family: Cascadia Mono
+    family: Hack
     style: Regular
 
   bold:
-    family: Cascadia Mono
+    family: Hack
     style: Bold
 
   italic:
-    family: Cascadia Mono
+    family: Hack
     style: Italic
 
   bold_italic:
-    family: Cascadia Mono
+    family: Hack
     style: Bold Italic
 
   size: 13.0
