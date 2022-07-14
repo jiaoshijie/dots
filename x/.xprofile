@@ -10,10 +10,6 @@
 # picom &
 xcompmgr &
 
-pipewire &
-pipewire-pulse &
-wireplumber &
-
 # xwallpaper --zoom $HOME/.config/red_wallpaper &
 # feh --bg-fill $HOME/.config/red_wallpaper &
 set-bg $HOME/.config/red_wallpaper &
