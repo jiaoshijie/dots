@@ -12,7 +12,6 @@ HISTFILE=~/.cache/bash_history
 # setxkbmap -option ctrl:swapcaps
 
 [ -f $SHALIASCONFIG ] && source $SHALIASCONFIG
-[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --preview '(highlight -O ansi {} || cat {}) 2> /dev/null | head -500'"

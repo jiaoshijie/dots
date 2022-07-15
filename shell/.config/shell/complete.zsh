@@ -3,7 +3,7 @@ setopt auto_list
 setopt auto_menu
 # setopt completealiases
 
-autoload -U compinit
+autoload -Uz compinit
 compinit
 zstyle ':completion:*' rehash true
 # _comp_options+=(globdots) # Include hidden files

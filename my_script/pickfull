@@ -1,4 +1,6 @@
 #!/usr/bin/sh
 
+ifinstalled "maim" || exit
+
 time_name="$(date '+%y%m%d-%H%M-%S')"
 maim "${HOME}/Downloads/Screenshot/pic-full-${time_name}.png" && notify-send -u low "截取屏幕成功" "saved in ~/Downloads/Screenshot/pic-full-${time_name}.png"

@@ -14,10 +14,6 @@ bindkey '\C-x\C-e' edit-command-line
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-#路径别名 进入相应的路径时只要 cd ~xxx
-hash -d NUT="$HOME/Nutstore Files/Nutstore/MARKDOWN_NOTE"
-hash -d PKG="/var/cache/pacman/pkg"
-
 # git
 [ -f ~/.config/shell/git.zsh ] && source ~/.config/shell/git.zsh
 
@@ -32,7 +28,6 @@ hash -d PKG="/var/cache/pacman/pkg"
 
 # zsh-complete
 [ -f ~/.config/shell/complete.zsh ] && source ~/.config/shell/complete.zsh
-[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 # FZF
 # git clone --depth 1 https://github.com/junegunn/fzf.git
@@ -44,9 +39,8 @@ export FZF_DEFAULT_OPTS="--height 60% --border"
 export FZF_DEFAULT_COMMAND="fd --exclude={.git,.idea,.sass-cache,node_modules,build} --type f"
 
 # Plugins
-[ -f ~/.config/shell/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.config/shell/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -f ~/.config/shell/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source ~/.config/shell/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(zoxide init zsh --cmd j)"
-# eval "fortune | cowsay | lolcat -t"
 eval "~/dotfiles/my_script/fcl"

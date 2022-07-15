@@ -12,6 +12,7 @@ xcompmgr &
 
 # xwallpaper --zoom $HOME/.config/red_wallpaper &
 # feh --bg-fill $HOME/.config/red_wallpaper &
+# hstroot --bg-fill $HOME/.config/red_wallpaper &
 set-bg $HOME/.config/red_wallpaper &
 # set-bg &
 
@@ -25,9 +26,6 @@ unclutter &
 activate-linux &
 
 # mate-power-manager &  # for battery
-# nm-applet &  # for network
-# volumeicon &  # for alsa-utils(don't use it)
-# pasystray &  # for PulseAudio
 # blueman-applet &  # for bluetooth
 
 flameshot &

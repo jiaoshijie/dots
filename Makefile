@@ -6,11 +6,9 @@ help:
 my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/maimpick ~/.local/bin/maimpick
 	$(V)ln -sf $(HOME)/dotfiles/my_script/ext ~/.local/bin/ext
-	$(V)ln -sf $(HOME)/dotfiles/my_script/linkhandler ~/.local/bin/linkhandler
 	$(V)ln -sf $(HOME)/dotfiles/my_script/texclear ~/.local/bin/texclear
 	$(V)ln -sf $(HOME)/dotfiles/my_script/ifinstalled ~/.local/bin/ifinstalled
 	$(V)ln -sf $(HOME)/dotfiles/my_script/lmc ~/.local/bin/lmc
-	$(V)ln -sf $(HOME)/dotfiles/my_script/dmenuunicode ~/.local/bin/dmenuunicode
 	$(V)ln -sf $(HOME)/dotfiles/my_script/lf-select ~/.local/bin/lf-select
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rotdir ~/.local/bin/rotdir
 	$(V)ln -sf $(HOME)/dotfiles/my_script/set-bg ~/.local/bin/set-bg
@@ -29,9 +27,5 @@ bash:
 	$(V)echo "source $(HOME)/dotfiles/shell/.config/shell/profile" > ~/.bash_profile
 
 programs:
-	$(V)pacman -Qqen > ./programs/pacman.list
 	$(V)pacman -Qqem > ./programs/aur.list
 	$(V)pipx list | grep --extended-regexp '^\W+package' | awk -F ' ' '{print $$2}' > ./programs/python.list
-
-vscode:
-	$(V)rsync ~/.config/VSCodium/User/settings.json ./programs/vscode_settings.json

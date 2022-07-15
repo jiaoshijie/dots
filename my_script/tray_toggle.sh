@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+ifinstalled "trayer" || exit
+
 # sudo pacman -S trayer
 result=$(ps ax | grep "[t]rayer")
 if [ "$result" == "" ]; then

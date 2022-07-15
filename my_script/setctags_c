@@ -5,6 +5,8 @@ if [ $# -le 0 ]; then
   exit
 fi
 
+ifinstalled "ctags" || exit
+
 gcc -M "$@" | sed -e 's/[\\ ]/\n/g' | \
   sed -e '/^$/d' -e '/\.o:[ \t]*$/d' | \
   ctags -R -L - --c-kinds=+p --fields=+S --extras=+q

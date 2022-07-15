@@ -6,12 +6,14 @@ NUM="${2:-5}"
 PULSE=true
 
 if [ "$PULSE" ]; then
+  ifinstalled "pulsemixer" || exit
 	toggle() { pulsemixer --toggle-mute ;}
 	mute() { pulsemixer --mute ;}
 	up() { pulsemixer --change-volume +"$NUM" ;}
 	down() { pulsemixer --change-volume -"$NUM" ;}
 	control() { pulsemixer ;}
 else
+  ifinstalled "amixer" || exit
 	toggle() { amixer sset Master toggle ;}
 	mute() { amixer sset Master mute ;}
 	up() { amixer sset Master "$NUM"%+ ;}
