@@ -1,12 +1,16 @@
 #! /usr/bin/env sh
 
+prefix=http://127.0.0.1
+default_port=20171
+default_proxy=${prefix}:${default_port}
+
 if [ $# -eq 0 ]; then
   if env | grep -q ^http_proxy=
   then
-    unset http_proxy https_proxy
+    unset http_proxy https_proxy all_proxy
     echo "unset 'http_proxy', 'https_proxy' and 'all_proxy'"
   else
-    export http_proxy=http://127.0.0.1:7890 https_proxy=http://127.0.0.1:7890 all_proxy=http://127.0.0.1:7890
+    export http_proxy=${default_proxy} https_proxy=${default_proxy} all_proxy=${default_proxy}
     echo 'http_proxy='$http_proxy
     echo 'https_proxy='$https_proxy
     echo 'all_proxy='$all_proxy
@@ -14,7 +18,7 @@ if [ $# -eq 0 ]; then
 else
   if [[ $1 =~ ^[0-9]+$ ]]; then
     if [[ $1 -gt 0 && $1 -lt 65535 ]]; then
-      export http_proxy=http://127.0.0.1:$1 https_proxy=http://127.0.0.1:$1 all_proxy=http://127.0.0.1:$1
+      export http_proxy=${prefix}:$1 https_proxy=${prefix}:$1 all_proxy=${prefix}:$1
       echo 'http_proxy='$http_proxy
       echo 'https_proxy='$https_proxy
       echo 'all_proxy='$all_proxy

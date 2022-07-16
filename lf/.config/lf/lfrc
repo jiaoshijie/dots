@@ -19,7 +19,7 @@ set filesep "\n"
 # cmds/functions
 cmd open ${{
   case $(file --mime-type $f -b) in
-    image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    image/vnd.djvu|application/pdf) setsid -f zathura $fx >/dev/null 2>&1 ;;
     text/*) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
     image/svg+xml) display -- $f ;;
@@ -128,7 +128,6 @@ map gt cd /tmp
 map gD cd ~/Downloads
 map gc cd ~/.config
 map gl cd ~/.local
-map gn cd ~/Nutstore\ Files/Nutstore
 map gd cd ~/dotfiles
 map gr cd /
 

@@ -6,7 +6,7 @@ alias \
   cp='cp -iv' \
   mv='mv -iv' \
   s="neofetch | lolcat -t" \
-  S="mpv ~/Nutstore\ Files/Nutstore/others/alarm.oga" \
+  S="mpv ~/Downloads/GDrive/others/alarm.oga" \
   cg="curl -v google.com" \
   hexedit="hexedit --color" \
   open="xdg-open" \
@@ -24,6 +24,8 @@ alias \
   l='exa -lhga --color=always --group-directories-first' \
   tree='exa --color=always --tree' \
   ldf="duf --only local" \
+  gpc="gpaste-client" \
+  gdrive="rclone sync ~/Downloads/GDrive GDrive:GDrive"
 
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
@@ -66,18 +68,16 @@ alias \
   tA="tmux new -s Arch || tmux a -d -t Arch" \
   tj="tmux new -s jsj || tmux a -d -t jsj"
 
-alias pyctags="ctags -R --fields=+l --languages=python --python-kinds=-iv -f ./tags ./"
-
 alias \
-  stodo="glow ~/Nutstore\ Files/Nutstore/todo.md" \
-  etodo="$EDITOR ~/Nutstore\ Files/Nutstore/todo.md" \
+  stodo="glow ~/Downloads/GDrive/todo.md" \
+  etodo="$EDITOR ~/Downloads/GDrive/todo.md" \
 
 # misc alias
 alias \
   Sweather="curl wttr.in" \
-  nv="nvim" \
+  cht="curl cht.sh" \
   vi="vim" \
-  emacs="nvim"
+  nv="nvim"
 
 alias unlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq) 2> /dev/null'  # remove orphaned packages
@@ -103,10 +103,9 @@ alias alacritty1="sed -i -e 's/\(^\W*opacity:\) 0.7/\1 1.0/' ~/.config/alacritty
 
 alias sw="devour"
 
-alias gbtoken="head ~/Nutstore\ Files/Nutstore/github/token -n 1 | awk -F '\n' '{printf \$1}' | xsel -ib"
-alias gbclear="xsel -cb; copyq remove ROWS=1"
+alias gbtoken="head ~/Downloads/Resources/.github/token -n 1 | awk -F '\n' '{printf \$1}' | xsel -ib"
+alias gbclear='xsel -cb; gpc delete $(gpc | head -n 1 | cut -d ":" -f1)'
 
-alias cht="curl cht.sh"
 
 # docker run
 [ -f $HOME/Downloads/docker_use/dockerrun ] && source $HOME/Downloads/docker_use/dockerrun

@@ -14,10 +14,11 @@ my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/set-bg ~/.local/bin/set-bg
 	$(V)ln -sf $(HOME)/dotfiles/my_script/setctags_c ~/.local/bin/setctags_c
 	$(V)ln -sf $(HOME)/dotfiles/my_script/remaps ~/.local/bin/remaps
-	$(V)ln -sf $(HOME)/dotfiles/my_script/copyq_clear_history ~/.local/bin/cch
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rmnvidiamod ~/.local/bin/rmnvidiamod
 	$(V)ln -sf $(HOME)/dotfiles/my_script/pickfull ~/.local/bin/pickfull
-	$(V)ln -sf $(HOME)/dotfiles/clash/.config/clash/updateSub_setUi ~/.local/bin/updateclash
+	$(V)ln -sf $(HOME)/dotfiles/my_script/rmlr ~/.local/bin/rmlr
+	$(V)ln -sf $(HOME)/dotfiles/my_script/rofiemoji ~/.local/bin/rofiemoji
+	$(V)ln -sf $(HOME)/dotfiles/my_script/updateSub_setUi ~/.local/bin/updateclash
 	$(V)echo "执行成功"
 
 zsh:

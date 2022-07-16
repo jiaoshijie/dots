@@ -29,8 +29,6 @@ activate-linux &
 # blueman-applet &  # for bluetooth
 
 flameshot &
-copyq &
-nutstore &
 goldendict &
 fcitx5 &
 
