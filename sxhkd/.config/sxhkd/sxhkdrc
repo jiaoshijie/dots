@@ -1,7 +1,7 @@
 super + Return
   $TERMINAL
 super + shift + Return
-  alacritty --title filemanager -e ~/.config/lf/lfrun
+  pcmanfm
 super + d
   dmenu_run
 super + w
@@ -16,8 +16,6 @@ super + c
   $BROWSER
 super + z
   gcolor2
-super + g
-  pcmanfm
 super + shift + p
  slock
 super + m
