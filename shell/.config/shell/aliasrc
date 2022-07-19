@@ -5,6 +5,7 @@ alias \
   grep='grep --color=auto' \
   cp='cp -iv' \
   mv='mv -iv' \
+  diff='diff --color -u' \
   s="neofetch | lolcat -t" \
   S="mpv ~/Downloads/GDrive/others/alarm.oga" \
   cg="curl -v google.com" \

@@ -10,9 +10,7 @@
 # picom &
 xcompmgr &
 
-# xwallpaper --zoom $HOME/.config/red_wallpaper &
 # feh --bg-fill $HOME/.config/red_wallpaper &
-# hstroot --bg-fill $HOME/.config/red_wallpaper &
 set-bg $HOME/.config/red_wallpaper &
 # set-bg &
 
@@ -20,12 +18,10 @@ sxhkd &
 
 dunst &
 
-# mpd &  # for music
-
 unclutter &
 activate-linux &
 
-# mate-power-manager &  # for battery
+cbatticon &
 # blueman-applet &  # for bluetooth
 
 flameshot &

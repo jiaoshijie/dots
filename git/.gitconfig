@@ -7,24 +7,25 @@
   safecrlf = true
   excludesfile = ~/.config/gitignore_global
   pager = delta
-; [includeIf "gitdir:~/work/"]
-;   path = ~/work/.gitconfig
 [interactive]
   diffFileter = delta --color-only
+[add.interactive]
+  useBuiltin = false
 [commit]
   template = ~/.config/gitmessage
-[alias]
-  ; ignored = !git ls-files -v | grep "^[[:lower:]]"
-[merge]
-  ; tool = vimdiff
-  conflictstyle = diff3
 [diff]
+  tool = vimdiff
+  submodule = log
+  algorithm = histogram
+  indentHeuristic = true
   colorMoved = default
-[mergetool "vimdiff"]
-  cmd = vimdiff -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [init]
   defaultBranch = main
 [help]
   autocorrect = 1
 [delta]
   navigate = true
+  light = false
+[merge]
+  tool = vimdiff
+  conflictStyle=diff3

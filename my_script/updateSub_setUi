@@ -15,7 +15,7 @@ else
   clash -t -f ${ClashConf}/config_new.yaml > /dev/null 2>&1
   if [ $? -ne 0 ]; then
     rm ${ClashConf}/config_new.yaml
-    echo "The new config file has an error, then do nothing."
+    echo $'\e[91m'ERROR: The new config file has an error, then do nothing.$'\e[0m'
     exit
   fi
   mv -f ${ClashConf}/config_new.yaml ${ClashConf}/config.yaml

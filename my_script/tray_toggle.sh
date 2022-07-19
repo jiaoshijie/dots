@@ -1,11 +1,20 @@
 #!/usr/bin/bash
 
-ifinstalled "trayer" || exit
+# sudo pacman -S trayer or stalonetray
 
-# sudo pacman -S trayer
-result=$(ps ax | grep "[t]rayer")
+# tray_prog="trayer"
+# tray_option="--edge top --padding 10 --align center --distance 540 --transparent true --tint 0x00000000 --iconspacing 7 --heighttype request --widthtype request"
+# grep_prog="[t]rayer"
+
+tray_prog="stalonetray"
+tray_option="-t -i 50 --geometry 1x1+20+35 --no-shrink --slot-size 10"
+grep_prog="[s]talonetray"
+
+ifinstalled $tray_prog || exit
+
+result=$(ps ax | grep $grep_prog)
 if [ "$result" == "" ]; then
-  eval "trayer --edge top --padding 10 --align center --distance 540 --transparent true --tint 0x00000000 --iconspacing 7 --heighttype request --widthtype request &"
+  eval $tray_prog $tray_option &
 else
-  eval "killall trayer"
+  eval "killall $tray_prog"
 fi
