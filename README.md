@@ -19,7 +19,3 @@ stow */ # Everything (the '/' ignores the README)
 ```bash
 stow shell # Just my shell config
 ```
-
-## Programs
-
-An updated list of all the programs I use can be found in the `programs` directory

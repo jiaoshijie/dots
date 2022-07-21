@@ -24,27 +24,4 @@
 
     "security.workspace.trust.untrustedFiles": "open",
     "editor.inlineSuggest.enabled": true,
-
-    "vim.easymotion": false,
-    "vim.incsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.useCtrlKeys": true,
-    "vim.hlsearch": true,
-    "vim.leader": "<space>",
-    "vim.insertModeKeyBindings": [
-    {
-        "before": ["<C-j>"],
-        "after": ["<Esc>"]
-    }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-    {
-        "before": ["<leader>", "<cr>"],
-        "commands": [":nohl"]
-    },
-    ],
-    "vim.handleKeys": {
-        "<C-a>": true,
-        "<C-f>": false
-    },
 }

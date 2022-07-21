@@ -7,7 +7,6 @@
 
 # xautolock -time 30 -locker slock &
 
-# picom &
 xcompmgr &
 
 # feh --bg-fill $HOME/.config/red_wallpaper &

@@ -13,6 +13,7 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="sh -c 'col -bx | nvim -R -c \"set ft=man\" -'"
 
 # git
 [ -f ~/.config/shell/git.zsh ] && source ~/.config/shell/git.zsh
