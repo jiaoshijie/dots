@@ -45,34 +45,8 @@ cmd delete ${{
   [ $ans = "y" ] && rm -rf -- $fx
 }}
 
-cmd fzf_jump ${{
-  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
-  if [ -f "$res" ]; then
-    cmd="select"
-  elif [ -d "$res" ]; then
-    cmd="cd"
-  fi
-  lf -remote "send $id $cmd \"$res\""
-}}
-
-# Trash cli bindings
 cmd trash ${{
-  files=$(printf "$fx" | tr '\n' ';')
-  while [ "$files" ]; do
-    # extract the substring from start of string up to delimiter.
-    # this is the first "element" of the string.
-    file=${files%%;*}
-
-    gio trash "$(basename "$file")"
-    # if there's only one element left, set `files` to an empty string.
-    # this causes us to exit this `while` loop.
-    # else, we delete the first "element" of the string from files, and move onto the next.
-    if [ "$files" = "$file" ]; then
-      files=''
-    else
-      files="${files#*;}"
-    fi
-  done
+  gio trash $fx
 }}
 
 cmd copy_path ${{
@@ -123,9 +97,10 @@ map y. copy_name_nonSuffix
 map pp paste
 map <c-r> reload
 map s shell
-map S $$SHELL
+map w $$SHELL
 map bg $set-bg $f
-map c unselect
+map u unselect
+map c clear
 
 map A rename
 map a push A<a-b><a-b><a-f> # before extention

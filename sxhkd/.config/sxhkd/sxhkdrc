@@ -20,6 +20,10 @@ super + shift + p
  slock
 super + m
   goldendict
+super + u
+  passuser
+super + p
+  passmenu
 ctrl + shift + a
   flameshot gui
 Print

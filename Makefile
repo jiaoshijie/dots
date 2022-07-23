@@ -19,6 +19,7 @@ my-script:
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rmlr ~/.local/bin/rmlr
 	$(V)ln -sf $(HOME)/dotfiles/my_script/rofiemoji ~/.local/bin/rofiemoji
 	$(V)ln -sf $(HOME)/dotfiles/my_script/updateSub_setUi ~/.local/bin/updateclash
+	$(V)ln -sf $(HOME)/dotfiles/my_script/passuser ~/.local/bin/passuser
 	$(V)echo "执行成功"
 
 zsh:

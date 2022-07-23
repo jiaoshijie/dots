@@ -35,8 +35,9 @@ function update_alacritty() {
 }
 
 function random_img() {
-  img_dirs=("02_rose" "03_wallpapers" "04_others")
-  img_dir=$HOME/Downloads/wallpaper/${img_dirs[$RANDOM % 3]}
+  # img_dirs=("02_rose" "03_wallpapers" "04_others")
+  # img_dir=$HOME/Downloads/wallpaper/${img_dirs[$RANDOM % 3]}
+  img_dir=$HOME/Downloads/wallpaper/02_wallpapers
   global_img=$img_dir/`ls $img_dir | shuf | tail -n 1`
 }
 

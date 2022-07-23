@@ -1,0 +1,2 @@
+:read !echo $fx
+ggdd
