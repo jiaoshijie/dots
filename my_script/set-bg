@@ -1,14 +1,13 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 ifinstalled "xwallpaper" || exit
 is_update_alacritty=false  # if you don't wanna update the alacritty terminal theme, change it to `false`.
 
 # function
 function change_background() {
-  if [ -e $1 ] && [ -f $1 ]; then
-    [ "$(basename $1)" == "red_wallpaper" ] || ln -sf $1 $HOME/.config/red_wallpaper
-    xwallpaper --zoom $HOME/.config/red_wallpaper > /dev/null 2>&1
-    if [ $? -eq 0 ]; then
+  if [ -e "$1" ] && [ -f "$1" ]; then
+    [ "$(basename $1)" == "red_wallpaper" ] || ln -sf "$1" "$HOME"/.config/red_wallpaper
+    if xwallpaper --zoom "$HOME"/.config/red_wallpaper > /dev/null 2>&1; then
       update_alacritty
     else
       echo "The file must be a img file."
@@ -21,7 +20,7 @@ function change_background() {
 function regularly_change_background() {
   Index=(1 1 1 1 1 1 2 2 3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16)
   while true; do
-    change_background $HOME/Downloads/wallpaper/01_Mojave/mojave_dynamic_${Index[$(date '+%_H')]}.jpeg
+    change_background "$HOME/Downloads/wallpaper/01_Mojave/mojave_dynamic_${Index[$(date '+%_H')]}.jpeg"
     let wa=60-"$(date '+%_M')"
     sleep $wa"m"
   done
@@ -30,15 +29,13 @@ function regularly_change_background() {
 function update_alacritty() {
   if $is_update_alacritty; then
     rm -rf /home/red/.cache/wal/schemes/
-    wal -nqste -i $HOME/.config/red_wallpaper -o /home/red/dotfiles/my_script/convWal2Alacritty --saturate 1.0
+    wal -nqste -i "$HOME"/.config/red_wallpaper -o /home/red/dotfiles/my_script/convWal2Alacritty --saturate 1.0
   fi
 }
 
 function random_img() {
-  # img_dirs=("02_rose" "03_wallpapers" "04_others")
-  # img_dir=$HOME/Downloads/wallpaper/${img_dirs[$RANDOM % 3]}
   img_dir=$HOME/Downloads/wallpaper/02_wallpapers
-  global_img=$img_dir/`ls $img_dir | shuf | tail -n 1`
+  global_img="$img_dir"/$(ls "$img_dir" | shuf | tail -n 1)
 }
 
 # running
@@ -46,9 +43,9 @@ if [ "$#" -gt 0 ]; then
   if [ "$1" == "1" ]; then
     regularly_change_background
   else
-    change_background $1
+    change_background "$1"
   fi
 else
   random_img
-  change_background $global_img
+  change_background "$global_img"
 fi

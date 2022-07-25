@@ -7,6 +7,6 @@ chosen=$(gio trash --list | cut -f2 | nl -s ' > ' | dmenu -i -l 30 | cut -d '>' 
 
 if [[ -n "$chosen" ]]; then
   recover=$(gio trash --list | sed -n "${chosen}p" | cut -f1)
-  gio trash --restore $recover
-  echo recover file $'\e[36m'$recover$'\e[0m'
+  gio trash --restore "$recover"
+  echo recover file $'\e[36m'"$recover"$'\e[0m'
 fi

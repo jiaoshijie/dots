@@ -1,4 +1,4 @@
-#! /usr/bin/env sh
+#! /usr/bin/env bash
 
 ClashConf=$HOME/.config/clash/
 
@@ -10,15 +10,16 @@ url="https://raw.fastgit.org/yu-steven/openit/main/Clash.yaml"
 if [ ! -d "${ClashConf}/clash-dashboard" ]; then
   echo run $'\e[36m'git clone -b gh-pages https://github.com/Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard$'\e[0m' to install the clash web ui
 else
-  wget -q $url -O ${ClashConf}/config_new.yaml
-  sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $HOME/.config/clash/clash-dashboard@g" ${ClashConf}/config_new.yaml
-  clash -t -f ${ClashConf}/config_new.yaml > /dev/null 2>&1
-  if [ $? -ne 0 ]; then
-    rm ${ClashConf}/config_new.yaml
-    echo $'\e[91m'ERROR: The new config file has an error, then do nothing.$'\e[0m'
+  wget -q $url -O "${ClashConf}/config_new.yaml"
+  sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $HOME/.config/clash/clash-dashboard@g" "${ClashConf}/config_new.yaml"
+
+  if ! clash -t -f "${ClashConf}/config_new.yaml" > /dev/null 2>&1; then
+    rm "${ClashConf}/config_new.yaml"
+    echo $'\e[91m'"ERROR: The new config file has an error, then do nothing."$'\e[0m'
     exit
   fi
-  mv -f ${ClashConf}/config_new.yaml ${ClashConf}/config.yaml
+
+  mv -f "${ClashConf}/config_new.yaml" "${ClashConf}/config.yaml"
   systemctl --user restart clash.service
   systemctl --user status clash.service
 fi

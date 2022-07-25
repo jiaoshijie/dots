@@ -12,9 +12,9 @@ grep_prog="[s]talonetray"
 
 ifinstalled $tray_prog || exit
 
-result=$(ps ax | grep $grep_prog)
-if [ "$result" == "" ]; then
-  eval $tray_prog $tray_option &
+result=$(pgrep ^"$grep_prog"$)
+if [[ "$result" == "" ]]; then
+  eval "$tray_prog" "$tray_option" &
 else
-  eval "killall $tray_prog"
+  eval "kill $result"
 fi

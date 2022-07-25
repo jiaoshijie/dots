@@ -10,7 +10,7 @@
 xcompmgr &
 
 # feh --bg-fill $HOME/.config/red_wallpaper &
-set-bg $HOME/.config/red_wallpaper &
+set-bg "$HOME/.config/red_wallpaper" &
 # set-bg &
 
 sxhkd &

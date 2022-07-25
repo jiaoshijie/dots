@@ -46,7 +46,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n<i>来源:%a</i>\n描述:%b\n"
+    format = "<b>%s</b>\n\nApp: %a\n\n%b\n"
 
     alignment = left
     show_age_threshold = 60

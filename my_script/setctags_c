@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $# -le 0 ]; then
-  echo "必需传入源文件"
+  echo "must input a source file"
   exit
 fi
 
