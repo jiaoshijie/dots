@@ -33,7 +33,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 FD_OPTIONS="--follow --exclude .git --exclude node_modules"
-export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline --preview-window='right:hidden' --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat --style=numbers --color=always --line-range :500 {} 2> /dev/null' --bind='F2:toggle-preview,f3:execute(bat --style=numbers {}),ctrl-y:execute-silent(echo {+} | xsel -ib)'"
+export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline --preview-window='right:hidden' --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || bat --style=numbers --color=always --line-range :500 {} 2> /dev/null' --bind='F2:toggle-preview'"
 export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd --type f --type l $FD_OPTIONS"
 export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
 export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"

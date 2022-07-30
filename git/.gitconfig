@@ -11,8 +11,6 @@
   diffFileter = delta --color-only
 [add.interactive]
   useBuiltin = false
-[commit]
-  template = ~/.config/gitmessage
 [diff]
   tool = vimdiff
   submodule = log
