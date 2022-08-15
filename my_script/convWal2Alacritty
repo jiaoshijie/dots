@@ -2,7 +2,6 @@
 
 import json
 import os
-import sys
 
 
 def main(sp, tp):
@@ -25,7 +24,7 @@ def main(sp, tp):
                 fp.write("  bright:\n")
             fp.write(' ' * 4 + fm.format(yml_c[i % 8], colors["colors"]["color" + str(i)]))
 
-    with open(os.path.expanduser("~/.config/alacritty/alacritty.yml", "r")) as fp:
+    with open(os.path.expanduser("~/.config/alacritty/alacritty.yml"), "r") as fp:
         # NOTICE: do nothing, just for updating the opened alacritty terminal
         pass
 
