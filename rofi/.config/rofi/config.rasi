@@ -5,7 +5,7 @@ configuration {
   font: "Source Code Pro 18";
   sidebar-mode: true;
   show-icons: true;
-  terminal: "alacritty";
+  terminal: "st";
   drun-match-fields: "name,generic,exec,comment,categories,keywords";
   matching: "regex";
   modi: "window,run,drun,calc";

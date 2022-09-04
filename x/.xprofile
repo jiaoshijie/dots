@@ -8,6 +8,7 @@
 # xautolock -time 30 -locker slock &
 
 xcompmgr &
+LANG=zh_CN.UTF-8 activate-linux &
 
 # set-bg "$HOME/.config/red_wallpaper" &
 set-bg &
@@ -17,7 +18,6 @@ sxhkd &
 dunst &
 
 unclutter &
-activate-linux &
 
 cbatticon &
 # blueman-applet &  # for bluetooth
@@ -25,6 +25,7 @@ cbatticon &
 flameshot &
 goldendict &
 fcitx5 &
+gpaste-client start &
 
 remaps &
 
