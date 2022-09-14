@@ -6,7 +6,7 @@ alias \
   cp='cp -iv' \
   mv='mv -iv' \
   diff='diff --color -u' \
-  s="neofetch | lolcat -t" \
+  s="neofetch" \
   S="mpv ~/Downloads/GDrive/others/alarm.oga" \
   cg="curl -v google.com" \
   hexedit="hexedit --color" \
@@ -26,7 +26,9 @@ alias \
   tree='exa --color=always --tree' \
   ldf="duf --only local" \
   gpc="gpaste-client" \
-  gdrive="rclone sync ~/Downloads/GDrive GDrive:GDrive"
+  gdrive="rclone sync ~/Downloads/GDrive GDrive:GDrive" \
+  a8="aria2c -x 8" \
+  pc="env | grep --color=never proxy"
 
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'

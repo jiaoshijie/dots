@@ -43,4 +43,4 @@ export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(zoxide init zsh --cmd j)"
-eval "~/dotfiles/my_script/fcl"
+# eval "~/dotfiles/my_script/fcl"
