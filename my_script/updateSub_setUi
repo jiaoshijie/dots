@@ -2,10 +2,14 @@
 
 ClashConf=$HOME/.config/clash/
 
-# url="https://raw.fastgit.org/yu-steven/openit/main/Clash.yaml"
+if [ $# -eq 0 ]; then
+  url="https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"
+else
+  url=$1
+fi
 
+# url="https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"
 # url="https://raw.githubusercontent.com/daycat/freeray/main/output.yaml"
-url="https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"
 # url="https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/clash/config.yaml"
 
 if [ ! -d "${ClashConf}/clash-dashboard" ]; then

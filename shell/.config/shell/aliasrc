@@ -7,6 +7,7 @@ alias \
   mv='mv -iv' \
   diff='diff --color -u' \
   s="neofetch" \
+  d="date" \
   S="mpv ~/Downloads/GDrive/others/alarm.oga" \
   cg="curl -v google.com" \
   hexedit="hexedit --color" \
@@ -99,8 +100,8 @@ alias \
   btlc="bluetoothctl connect" \
   btldc="bluetoothctl disconnect"
 
-alias alacritty0="sed -i -e 's/\(^\W*opacity:\) 1.0/\1 0.7/' ~/.config/alacritty/alacritty.yml"
-alias alacritty1="sed -i -e 's/\(^\W*opacity:\) 0.7/\1 1.0/' ~/.config/alacritty/alacritty.yml"
+alias alacritty0="sed -i -e 's/\(^\W*opacity:\) 1.0/\1 0.95/' ~/.config/alacritty/alacritty.yml"
+alias alacritty1="sed -i -e 's/\(^\W*opacity:\) 0.95/\1 1.0/' ~/.config/alacritty/alacritty.yml"
 
 alias sw="devour"
 
