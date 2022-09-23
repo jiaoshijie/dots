@@ -43,9 +43,7 @@ alias \
 
 # proxy alias
 alias \
-  SetProxy="source ~/dotfiles/my_script/setTermProxy" \
-  # wgu="sudo wg-quick up wg0" \
-  # wgd="sudo wg-quick down wg0"
+  SetProxy="source ~/dotfiles/my_script/setTermProxy"
 
 # video alias
 alias \
@@ -109,4 +107,4 @@ alias gbclear='xsel -cb; gpc delete $(gpc | head -n 1 | cut -d ":" -f1)'
 
 
 # docker run
-[ -f $HOME/Downloads/docker_use/dockerrun ] && source $HOME/Downloads/docker_use/dockerrun
+[ -f "$HOME/Downloads/sh_alias/alias" ] && source "$HOME/Downloads/sh_alias/alias"

@@ -23,7 +23,6 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export EDITOR='vim'
 export TERMINAL="st"
 export BROWSER="firefox"
-export READER="zathura"
 
 # This is the list for lf icons:
 export LF_ICONS="di=📁:\
