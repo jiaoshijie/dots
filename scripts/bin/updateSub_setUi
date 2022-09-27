@@ -13,14 +13,14 @@ fi
 # url="https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/clash/config.yaml"
 
 if [ ! -d "${ClashConf}/clash-dashboard" ]; then
-  echo run $'\e[36m'git clone -b gh-pages https://github.com/Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard$'\e[0m' to install the clash web ui
+  printf "run \e[36mgit clone -b gh-pages https://github.com/Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard\e[0m to install the clash web ui.\n"
 else
   wget -q $url -O "${ClashConf}/config_new.yaml"
   sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $HOME/.config/clash/clash-dashboard@g" "${ClashConf}/config_new.yaml"
 
   if ! clash -t -f "${ClashConf}/config_new.yaml" > /dev/null 2>&1; then
     rm "${ClashConf}/config_new.yaml"
-    echo $'\e[91m'"ERROR: The new config file has an error, then do nothing."$'\e[0m'
+    printf "\e[31mERROR: The new config file has an error, then do nothing.\e[0m\n"
     exit
   fi
 

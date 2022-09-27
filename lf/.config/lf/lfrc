@@ -4,9 +4,8 @@ set shell bash
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-set period 1
-set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-# set hidden true
+set period 5
+set hiddenfiles ".*:*.log"
 set ignorecase true
 set drawbox true
 set ratios 1:2:3
@@ -18,9 +17,7 @@ set filesep "\n"
 # cmds/functions
 cmd open ${{
   case $(file --mime-type "$(readlink -f $f)" -b) in
-    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
     text/*|application/json|inode/x-empty) $EDITOR $fx;;
-    image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
     image/svg+xml) display -- $f ;;
     image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" |
       setsid -f sxiv -aio 2>/dev/null | while read -r file; do
@@ -31,17 +28,8 @@ cmd open ${{
       ;;
     audio/*) mpv --audio-display=no $f ;;
     video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-    application/pdf|application/vnd*|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    application/pdf) setsid -f $BROWSER $fx >/dev/null 2>&1 ;;
   esac
-}}
-
-cmd delete ${{
-  clear; tput cup $(($(tput lines)/3)); tput bold
-  set -f
-  printf "%s\n\t" "$fx"
-  printf "delete?[y/N]"
-  read ans
-  [ $ans = "y" ] && rm -rf -- $fx
 }}
 
 cmd trash ${{
@@ -49,7 +37,7 @@ cmd trash ${{
 }}
 
 cmd copy_path ${{
-  echo "$f" | awk -F '\n' '{printf $1}' | xsel -ib
+  echo -n "$f" | xsel -ib
 }}
 
 cmd copy_name ${{
@@ -63,7 +51,9 @@ cmd copy_name_nonSuffix ${{
 cmd changefilename ${{
   lf_tmp_file=$(mktemp /tmp/lf_vim_changefilename.XXXXXXXXXX)
   rm -rf $lf_tmp_file
-  $EDITOR $lf_tmp_file -s ~/.config/lf/lf.vim
+  $EDITOR $lf_tmp_file -c 'execute ".!printenv fx"'
+
+  [ -f "$lf_tmp_file" ] || exit
 
   lf_file_number=$(cat $lf_tmp_file 2> /dev/null | wc -l)
   lf_tmp_file_con=($(cat $lf_tmp_file))
@@ -82,21 +72,15 @@ map d
 map y
 map p
 
-# Bindings
-map <c-f> $lf -remote "send $id select '$(fzf)'"
-
 map dd cut
 map dD trash
-map DD delete
 map yy copy
 map yp copy_path
 map yn copy_name
-map Y $printf "%s" "$fx" | xclip -selection clipboard
 map y. copy_name_nonSuffix
 map pp paste
 map <c-r> reload
 map s shell
-map w $$SHELL
 map bg $set-bg $f
 map u unselect
 map c clear
@@ -110,7 +94,5 @@ map gc cd ~/.config
 map gl cd ~/.local
 map gd cd ~/dotfiles
 map gr cd /
-
-map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 map <enter> $$EDITOR $f
