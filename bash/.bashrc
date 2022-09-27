@@ -9,6 +9,7 @@ function set_bash_prompt() {
   PINK="\[\e[1;35m\]"
   CYAN="\[\e[1;36m\]"
 
+  BRANCH=''
   if git branch > /dev/null 2>&1; then
     # Note that for new repo without commit, git rev-parse --abbrev-ref HEAD will error out.
     if git rev-parse --abbrev-ref HEAD > /dev/null 2>&1; then
@@ -16,8 +17,6 @@ function set_bash_prompt() {
     else
       BRANCH="${COLOR_NONE}()"
     fi
-  else
-    BRANCH=''
   fi
 
   PS1=""
@@ -79,5 +78,8 @@ alias nlist="nmcli device wifi list"
 alias nconn="nmcli device wifi connect"
 alias SetProxy="source ~/dots/scripts/setTermProxy"
 alias pc="env | grep --color=never proxy"
+
+alias gs="git status"
+alias gd="git diff"
 
 eval "$(zoxide init bash --cmd j)"
