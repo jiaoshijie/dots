@@ -34,16 +34,8 @@ function set_bash_prompt() {
 
 export PROMPT_COMMAND=set_bash_prompt
 
-export LESS_TERMCAP_mb="[35m" # magenta
-export LESS_TERMCAP_md="[33m" # yellow
-export LESS_TERMCAP_me="" # "0m"
-export LESS_TERMCAP_se="" # "0m"
-export LESS_TERMCAP_so="" # "0m"
-export LESS_TERMCAP_ue="" # "0m"
-export LESS_TERMCAP_us="[4m"  # underline
-
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# export MANPAGER="sh -c 'col -bx | nvim -R -c \"set ft=man\" -'"
+export MANPAGER="sh -c 'col -bx | nvim -R -c \"set ft=man\" -'"
 
 HISTFILE=~/.cache/bash_history
 HISTTIMEFORMAT="%y-%m-%d %H:%M:%S "
