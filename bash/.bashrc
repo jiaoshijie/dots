@@ -20,6 +20,7 @@ function set_bash_prompt() {
   fi
 
   PS1=""
+  PS1+="${VIRTUAL_ENV_PROMPT}"
   PS1+="${RED}["
   PS1+="${YELLOW}\u"  # username
   PS1+="${GREEN}@"
