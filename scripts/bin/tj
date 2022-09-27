@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+ifinstalled "tmux" | exit
+
+if [ $# -eq 0 ]; then
+  tmux new -s jsj || tmux a -d -t jsj
+else
+  tmux new -s "$1" || tmux a -d -t "$1"
+fi

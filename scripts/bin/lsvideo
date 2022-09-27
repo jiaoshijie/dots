@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+lspci | grep -E 'VGA|3D'

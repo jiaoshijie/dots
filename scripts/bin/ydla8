@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+ifinstalled "youtube-dl" || exit
+
+youtube-dl --add-metadata -i -f bestvideo+bestaudio --external-downloader aria2c --external-downloader-args '-x 8' "$@"

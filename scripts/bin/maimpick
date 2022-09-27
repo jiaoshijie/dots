@@ -5,8 +5,7 @@ ifinstalled "maim" || exit
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
 imagepath=~/Downloads/Screenshot
 name_time="$(date '+%y%m%d-%H%M-%S')"
-case "$(printf "DingImage\\na selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 7 -i -p "Screenshot which area?")" in
-  "DingImage") maim -s "${imagepath}/pic-DingImage-${name_time}.png" && sxiv -b -N "DingImage" "${imagepath}/pic-DingImage-${name_time}.png" ;; #"$(ls -1 --color=never ${imagepath}/pic-DingImage-* | tail -n 1)" ;;
+case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 7 -i -p "Screenshot which area?")" in
   "a selected area") maim -s "${imagepath}/pic-selected-${name_time}.png" && notify-send -u low "截取区域成功" "saved in ${imagepath}/pic-selected-${name_time}.png" ;;
   "current window") maim -i "$(xdotool getactivewindow)" "${imagepath}/pic-window-${name_time}.png" && notify-send -u low "截取窗口成功" "saved in ${imagepath}/pic-window-${name_time}.png" ;;
   "full screen") maim "${imagepath}/pic-full-${name_time}.png" && notify-send -u low "截取屏幕成功" "saved in ${imagepath}/pic-full-${name_time}.png" ;;

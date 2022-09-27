@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+"$EDITOR" ~/Downloads/GDrive/todo.md
