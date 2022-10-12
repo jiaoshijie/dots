@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -xe
+
+rm -rf "$HOME/.bash_profile"
+rm -rf "$HOME/.profile"
+rm -rf "$HOME/.bashrc"

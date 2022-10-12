@@ -1,7 +1,7 @@
-tags
 *.out
 *.orig
 *.rej
 *.o
 .root
 *.log
+__pycache__/

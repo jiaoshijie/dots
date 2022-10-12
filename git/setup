@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -xe
+
+path=$(cd $(dirname "$0") && pwd)
+
+ln -sf "$path/.gitconfig" "$HOME/.gitconfig"

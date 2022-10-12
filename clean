@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -xe
+
+test -n "$1" || exit
+
+cd "$(dirname "$0")"
+cd "$1" && ./clean

@@ -5,7 +5,7 @@
   editor=vim
   autocrlf = input
   safecrlf = true
-  excludesfile = ~/.config/gitignore_global
+  excludesfile = ~/dots/git/gitignore_global
   pager = delta
 [interactive]
   diffFileter = delta --color-only

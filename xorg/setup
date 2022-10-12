@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -xe
+
+path=$(dirname "$0")
+src=$(find "$path" -type f -name "*.conf" | dmenu -i -l 30)
+
+test -z $src && exit
+
+sudo cp $src /etc/X11/xorg.conf.d/"$(basename "$src")"

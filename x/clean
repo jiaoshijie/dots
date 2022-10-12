@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -xe
+
+rm -rf "$HOME/.xinitrc"
+rm -rf "$HOME/.xprofile"
+rm -rf "$HOME/.Xresources"

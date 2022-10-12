@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+ifinstalled "gpaste-client" | exit
+ifinstalled "xsel" | exit
+
+xsel -cb; gpaste-client empty

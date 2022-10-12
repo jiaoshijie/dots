@@ -2,25 +2,21 @@
 
 ClashConf=$HOME/.config/clash/
 
-if [ $# -eq 0 ]; then
-  url="https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"
-else
-  url=$1
-fi
+url=${1:-"https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"}
 
-# url="https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"
-# url="https://raw.githubusercontent.com/daycat/freeray/main/output.yaml"
-# url="https://raw.githubusercontent.com/learnhard-cn/free_proxy_ss/main/clash/config.yaml"
+red=$'\e[31m'
+cyan=$'\e[36m'
+x=$'\e[0m'
 
 if [ ! -d "${ClashConf}/clash-dashboard" ]; then
-  printf "run \e[36mgit clone -b gh-pages https://github.com/Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard\e[0m to install the clash web ui.\n"
+  printf "run %sgit clone -b gh-pages https://github.com/Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard%s to install the clash web ui.\n" "$cyan" "$x"
 else
-  wget -q $url -O "${ClashConf}/config_new.yaml"
+  wget -q "$url" -O "${ClashConf}/config_new.yaml"
   sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $HOME/.config/clash/clash-dashboard@g" "${ClashConf}/config_new.yaml"
 
   if ! clash -t -f "${ClashConf}/config_new.yaml" > /dev/null 2>&1; then
     rm "${ClashConf}/config_new.yaml"
-    printf "\e[31mERROR: The new config file has an error, then do nothing.\e[0m\n"
+    printf "%sERROR: The new config file has an error, then do nothing.%s\n" "$red" "$x"
     exit
   fi
 

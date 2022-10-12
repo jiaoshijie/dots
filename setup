@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd "$(dirname "$0")"
+
+if [[ -z "$1" ]]; then
+  for i in bash alacritty dunst fonts git lf mpv neofetch rofi sc-im sxhkd tmux x; do
+    cd "$i" && ./setup
+    cd -
+  done
+else
+  cd "$1" && ./setup
+fi

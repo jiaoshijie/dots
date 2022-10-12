@@ -1,21 +1,9 @@
 # My ArchLinux config
 
-## Installing
+## hints
 
-You will need `git` and GNU `stow`
+- `exec bash -l` reload bash
 
-Clone into your `$HOME` directory or `~`
+## ref
 
-```bash
-git clone https://github.com/jiaoshijie/dotfiles.git ~
-```
-
-Run `stow` to symlink everything or just select what you want
-
-```bash
-stow */ # Everything (the '/' ignores the README)
-```
-
-```bash
-stow shell # Just my shell config
-```
+- [absolute-path-script-bash](https://linuxhint.com/absolute-path-script-bash/)

@@ -51,4 +51,3 @@ fi
 [ -f ~/.xprofile ] && . ~/.xprofile
 
 exec dwm
-# exec /home/red/Downloads/wm/sswm/sswm

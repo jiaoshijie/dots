@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -xe
+
+src=$(find /etc/X11/xorg.conf.d -type f -name "*.conf" | dmenu -i -l 30)
+
+test -z $src && exit
+sudo rm $src
