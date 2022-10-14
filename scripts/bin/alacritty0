@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-sed -i -e 's/\(^\W*opacity:\) 1.0/\1 0.95/' "$HOME/.config/alacritty/alacritty.yml"

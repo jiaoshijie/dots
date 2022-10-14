@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# alacritty transparent
+path="$HOME/.config/alacritty/alacritty.yml"
+sub=$1
+
+if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
+  if grep -Eq '(^\s*opacity:)\s+1' "$path"; then
+    sub="0.95"
+  else
+    sub="1.0"
+  fi
+fi
+
+sed -i -e "$(printf "s/\\(^\\s*opacity:\\).*/\\\\1 %s/" "$sub")" "$path"

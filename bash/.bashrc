@@ -109,13 +109,13 @@ export PROMPT_COMMAND=__ps1
 
 SetProxy() {
   local prefix=http://127.0.0.1
-  if env | grep -q -E "^(http|https|all)_proxy"; then
-    unset {http,https,all}_proxy
-    echo "Unset all proxy"
-  else
+  if echo "$1" | grep -Pq "^\d+$" || ! env | grep -Eq "^(http|https|all)_proxy"; then
     # 7890 20171
     export {http,https,all}_proxy="${prefix}:${1:-7890}"
     env | grep -E --color=always "^(http|https|all)_proxy"
+  else
+    unset {http,https,all}_proxy
+    echo "Unset all proxy"
   fi
 } && export SetProxy
 
