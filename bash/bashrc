@@ -148,6 +148,7 @@ fi
 alias ldf='duf --only local'
 alias clear='printf "\e[H\e[2J"'
 alias c='printf "\e[H\e[2J"'
+_have bat && alias bat='bat --plain'
 
 alias hexedit='hexedit --color'
 alias vi=vim

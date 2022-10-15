@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+"""
+Description: Auto remove packages and its dependents.
+Usage: ./autorm <package name>
+"""
+
+import sys
+import os
+
+
+REQUIRES = -2
+REQUIRED_BY = -1
+remove_modules = []
+cache = {}  # The cache of requires and required_by info of a package
+
+
+# Getting requires and required-by info of a package
+def getPackageInfo(name):
+    if name in cache:
+        return
+    value = []
+    with os.popen('pip show ' + name) as output:
+        dependents = output.readlines()
+        if not len(dependents):
+            sys.stderr.write(
+                f"\033[91mThe name `{name}' is not a valid package name.\033[0m\n")
+            exit(0)
+        value.append(dependents[REQUIRES].split(':')
+                     [-1].replace(' ', '').strip().split(','))
+        value.append(dependents[REQUIRED_BY].split(':')
+                     [-1].replace(' ', '').strip().split(','))
+    cache[name] = value
+
+
+# The recursive removing package function
+def removePackages(name, required_by=''):
+    getPackageInfo(name)
+    if required_by in cache[name][REQUIRED_BY]:
+        is_removed = False
+        if len(cache[name][REQUIRED_BY]) == 1:
+            directlyRemove(name)
+            is_removed = True
+        else:
+            flag = True
+            for i in cache[name][REQUIRED_BY]:
+                if i != required_by and i not in cache:
+                    flag = False
+                    break
+            if flag:
+                directlyRemove(name)
+                is_removed = True
+        if is_removed and cache[name][REQUIRES][0] != '':
+            for i in cache[name][REQUIRES]:
+                removePackages(i, name)
+
+
+# Directly add package name to removing list.
+def directlyRemove(name):
+    if name not in remove_modules:
+        remove_modules.append(name)
+
+
+# Truly remove package from system
+def finalRemove():
+    if len(remove_modules):
+        sys.stdout.write(
+            f"There are \033[96;1m{len(remove_modules)}\033[0;0m packages will be removed.\n")
+        sys.stdout.write('\n\033[96m{' + ' '.join(remove_modules) +
+                         '}\033[0m, these packages will be removed.\n')
+        confirm = input('\nDo you really want to remove these packages[y/N]: ')
+        if confirm == 'Y' or confirm == 'y':
+            modules = ' '.join(remove_modules)
+            os.system('pip uninstall -y ' + modules)
+    else:
+        sys.stderr.write(
+            "\033[91mYou want to removed package required by other package, so it can't be removed.\033[0m\n")
+
+
+# the main function
+def main(argv):
+    if len(argv) < 2:
+        sys.stderr.write(
+            '\033[91;1mERROR\033[0;0m: Must input at least one package name.\n')
+        exit(0)
+    for i in range(1, len(argv)):
+        removePackages(argv[i])
+    finalRemove()
+
+
+if __name__ == '__main__':
+    main(sys.argv)

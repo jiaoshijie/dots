@@ -2,4 +2,5 @@
 ifinstalled "gpaste-client" | exit
 ifinstalled "xsel" | exit
 
-xsel -cb; gpaste-client delete $(gpaste-client | head -n 1 | cut -d ":" -f1)
+gpaste-client delete $(gpaste-client | head -n 1 | cut -d ":" -f1)
+xsel -cb

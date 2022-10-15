@@ -4,4 +4,4 @@ set -xe
 
 path=$(cd $(dirname "$0") && pwd)
 
-ln -sf "$path/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$path/tmux.conf" "$HOME/.tmux.conf"

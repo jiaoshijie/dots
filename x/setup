@@ -4,6 +4,6 @@ set -xe
 
 path=$(cd $(dirname "$0") && pwd)
 
-ln -sf "$path/.xinitrc" "/home/jsj/.xinitrc"
-ln -sf "$path/.xprofile" "/home/jsj/.xprofile"
-ln -sf "$path/.Xresources" "/home/jsj/.Xresources"
+ln -sf "$path/xinitrc" "/home/jsj/.xinitrc"
+ln -sf "$path/xprofile" "/home/jsj/.xprofile"
+ln -sf "$path/Xresources" "/home/jsj/.Xresources"

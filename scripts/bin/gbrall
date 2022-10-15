@@ -2,4 +2,5 @@
 ifinstalled "gpaste-client" | exit
 ifinstalled "xsel" | exit
 
-xsel -cb; gpaste-client empty
+gpaste-client empty
+xsel -cb
