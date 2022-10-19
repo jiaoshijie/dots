@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# https://github.com/sdushantha/dotfiles/blob/master/rofi/.config/rofi/themes/askpass.rasi
+rofi -dmenu -password -i -no-fixed-num-lines -p "Password:"

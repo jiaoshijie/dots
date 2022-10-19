@@ -17,14 +17,15 @@ export INPUT_METHOD=fcitx
 export SDL_IM_MODULE=fcitx
 
 # time zone
-export LC_TIME="zh_CN.UTF-8"
+export LC_TIME='zh_CN.UTF-8'
 
 # qt theme
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-export EDITOR='vim'
-export TERMINAL="st"
-export BROWSER="firefox"
+export EDITOR=vim
+export TERMINAL=st
+export BROWSER=firefox
+export SUDO_ASKPASS="$HOME/dots/scripts/rofi_askpass"
 
 # fo 'go`
 export GOPATH="$HOME/.local/share/go"
@@ -63,7 +64,7 @@ shopt -s extglob
 
 # history
 HISTFILE=~/.cache/bash_history
-HISTTIMEFORMAT="%y-%m-%d %H:%M:%S "
+HISTTIMEFORMAT='%y-%m-%d %H:%M:%S '
 HISTCONTROL=ignoreboth
 HISTSIZE=5000
 HISTFILESIZE=10000
@@ -73,7 +74,7 @@ shopt -s histappend
 stty stop undef
 
 __ps1() {
-  COLOR_NONE="\[\e[0m\]"
+  RESET="\[\e[0m\]"
   GREY="\[\e[1;90m\]"
   RED="\[\e[1;31m\]"
   GREEN="\[\e[1;32m\]"
@@ -86,14 +87,20 @@ __ps1() {
   if git branch > /dev/null 2>&1; then
     # Note that for new repo without commit, git rev-parse --abbrev-ref HEAD will error out.
     if git rev-parse --abbrev-ref HEAD > /dev/null 2>&1; then
-      BRANCH="${COLOR_NONE}(${GREEN}$(git rev-parse --abbrev-ref HEAD)${COLOR_NONE})"
+      BRANCH="${RESET}(${GREEN}$(git rev-parse --abbrev-ref HEAD)${RESET})"
     else
-      BRANCH="${COLOR_NONE}()"
+      BRANCH="${RESET}()"
     fi
   fi
 
+  if command -v deactivate > /dev/null 2>&1; then
+    VIRTUAL_ENV_PROMPT="${CYAN}${VIRTUAL_ENV_PROMPT% }${RESET}"
+  else
+    VIRTUAL_ENV_PROMPT=''
+  fi
+
   PS1=""
-  PS1+="${CYAN}${VIRTUAL_ENV_PROMPT% }"
+  PS1+="${VIRTUAL_ENV_PROMPT}"
   PS1+="${RED}["
   PS1+="${YELLOW}\u"  # username
   PS1+="${GREY}@"
@@ -101,8 +108,8 @@ __ps1() {
   PS1+="${MAGENTA}\w"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
-  # PS1+="${COLOR_NONE} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${COLOR_NONE})\n"  # for server(display time)
-  PS1+="${COLOR_NONE}$ "
+  # PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
+  PS1+="${RESET}$ "
 }
 
 export PROMPT_COMMAND=__ps1
