@@ -90,10 +90,14 @@ __ps1() {
     else
       BRANCH="${RESET}()"
     fi
+  else
+    BRANCH=""
   fi
 
   if command -v deactivate > /dev/null 2>&1 && [[ -n "${VIRTUAL_ENV_PROMPT}" ]]; then
     VENV_PROMPT="${CYAN}${VIRTUAL_ENV_PROMPT% }${RESET}"
+  else
+    VENV_PROMPT=""
   fi
 
   PS1=""
