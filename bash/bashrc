@@ -83,7 +83,6 @@ __ps1() {
   MAGENTA="\[\e[1;35m\]"
   CYAN="\[\e[36m\]"
 
-  BRANCH=''
   if git branch > /dev/null 2>&1; then
     # Note that for new repo without commit, git rev-parse --abbrev-ref HEAD will error out.
     if git rev-parse --abbrev-ref HEAD > /dev/null 2>&1; then
@@ -93,14 +92,12 @@ __ps1() {
     fi
   fi
 
-  if command -v deactivate > /dev/null 2>&1; then
-    VIRTUAL_ENV_PROMPT="${CYAN}${VIRTUAL_ENV_PROMPT% }${RESET}"
-  else
-    VIRTUAL_ENV_PROMPT=''
+  if command -v deactivate > /dev/null 2>&1 && [[ -n "${VIRTUAL_ENV_PROMPT}" ]]; then
+    VENV_PROMPT="${CYAN}${VIRTUAL_ENV_PROMPT% }${RESET}"
   fi
 
   PS1=""
-  PS1+="${VIRTUAL_ENV_PROMPT}"
+  PS1+="${VENV_PROMPT}"
   PS1+="${RED}["
   PS1+="${YELLOW}\u"  # username
   PS1+="${GREY}@"
