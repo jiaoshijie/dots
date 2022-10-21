@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Using vimdiff tool to compare the differences between the current file and the previous commit file.
+
+RED=$'\033[31m'
+CYAN=$'\033[36m'
+X=$'\033[0m'
+
+test -z "$1" && { printf "gitdiff %s[file_path]%s [git_commit_id] [view diff tool(e.g. vimdiff(default), nvim -d)]\n" "$RED" "$X" && exit 1; }
+
+test -r "$1" || { printf "%s%s%s is not exist or have no read access.\n" "$CYAN" "$1" "$X" && exit 1; }
+
+COMMIT_ID=${2:-"HEAD^"}
+VIEWTOOL=${3:-vimdiff}
+
+$VIEWTOOL "$1" <(git show "$COMMIT_ID":"$1")
