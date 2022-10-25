@@ -8,7 +8,7 @@
 # xautolock -time 30 -locker slock &
 
 xcompmgr &
-LANG=zh_CN.UTF-8 activate-linux &
+# LANG=zh_CN.UTF-8 activate-linux &
 
 # set-bg "$HOME/.config/red_wallpaper" &
 set-bg &

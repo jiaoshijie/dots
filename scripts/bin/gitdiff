@@ -10,7 +10,7 @@ test -z "$1" && { printf "gitdiff %s[file_path]%s [git_commit_id] [view diff too
 
 test -r "$1" || { printf "%s%s%s is not exist or have no read access.\n" "$CYAN" "$1" "$X" && exit 1; }
 
-COMMIT_ID=${2:-"HEAD^"}
-VIEWTOOL=${3:-vimdiff}
+COMMIT_ID=${2:-"HEAD"}
+VIEWTOOL=${3:-"vimdiff"}
 
 $VIEWTOOL "$1" <(git show "$COMMIT_ID":"$1")
