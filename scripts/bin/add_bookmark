@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import json
+
+RED='\033[31m'
+CYAN='\033[36m'
+X='\033[0m'
+
+FILEPATH='~/Downloads/GDrive/others/bookmarks.json'
+
+def parse() -> tuple:
+    if len(sys.argv) < 3:
+        print(f"Usage: {CYAN}{os.path.basename(sys.argv[0])} {RED}key value{X}", file=sys.stderr)
+        exit(1)
+    return (sys.argv[1], sys.argv[2])
+
+def main():
+    key, value = parse()
+
+    with open(os.path.expanduser(FILEPATH), "r+") as f:
+        j_info = json.load(f)
+        if key in j_info:
+            print(f"{RED}Error:{X} The key {CYAN}{key}{X} is already in the {CYAN}{os.path.basename(FILEPATH)}{X}", file=sys.stderr)
+        else:
+            j_info[key] = value
+            f.seek(0)
+            json.dump(j_info, f)
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+ifinstalled "jq" || exit
+ifinstalled "dmenu" || exit
+
+BookMarkPath="$HOME/Downloads/GDrive/others/bookmarks.json"
+
+key=$(jq 'keys[]' < "$BookMarkPath" | dmenu -i -l 50)
+
+jq -r ".[$key]" < "$BookMarkPath" | xsel -ib

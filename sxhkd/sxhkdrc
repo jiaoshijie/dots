@@ -12,8 +12,12 @@ super + i
   rofi -show calc -no-show-match -no-sort
 super + shift + i
   rofi -modi 'emoji:rofiemoji' -show emoji
+super + b
+  bookmarks
 super + c
   $BROWSER
+super + shift + c
+  chromium
 super + z
   gcolor2
 super + shift + p
@@ -28,6 +32,8 @@ ctrl + shift + a
   flameshot gui
 Print
   pickfull
+shift + Print
+  maimpick
 alt + space
   gpaste-client ui
 
@@ -38,13 +44,3 @@ XF86AudioRaiseVolume
   lmc up
 XF86AudioLowerVolume
   lmc down
-XF86AudioPlay
-  mpc toggle
-XF86AudioPrev
-  mpc prev
-XF86AudioNext
-  mpc next
-XF86AudioStop
-  mpc stop
-shift + Print
-  maimpick
