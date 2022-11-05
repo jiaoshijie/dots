@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+key=$(bookmark ls | dmenu -i -l 30)
+
+[ -z "$key" ] && { echo "Does not del anything!!!" && exit 0; }
+
+bookmark "del" "$key"

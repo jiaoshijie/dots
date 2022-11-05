@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+[ -z "$1" ] && { printf "Usage: ch_bookmark \033[31mvalue\033[0m\n" && exit 1; }
+
+key=$(bookmark ls | dmenu -i -l 30)
+
+[ -z "$key" ] && { echo "Does not change anything!!!" && exit 0; }
+
+bookmark "ch" "$key" "$1"
