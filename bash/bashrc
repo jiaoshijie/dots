@@ -108,10 +108,9 @@ __ps1() {
   PS1+="${BLUE}\h "   # hostname
   PS1+="${MAGENTA}\w"    # working directory
   PS1+="${RED}]"
+  PS1+="${BRANCH}"
   if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
     PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
-  else
-    PS1+="${BRANCH}"
   fi
   PS1+="${RESET}$ "
 }
