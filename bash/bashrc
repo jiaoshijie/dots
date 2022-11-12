@@ -108,8 +108,11 @@ __ps1() {
   PS1+="${BLUE}\h "   # hostname
   PS1+="${MAGENTA}\w"    # working directory
   PS1+="${RED}]"
-  PS1+="${BRANCH}"
-  # PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
+  if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+    PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
+  else
+    PS1+="${BRANCH}"
+  fi
   PS1+="${RESET}$ "
 }
 
@@ -127,8 +130,16 @@ SetProxy() {
   fi
 } && export SetProxy
 
+# colored man output
+export LESS_TERMCAP_mb=$'\e[1;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\e[1;38;5;74m'  # begin bold
+export LESS_TERMCAP_me=$'\e[0m'           # end mode
+export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\e[38;5;232;48;5;226m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+export LESS_TERMCAP_us=$'\e[4;38;5;146m' # begin underline
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-export MANPAGER="sh -c 'col -bx | nvim -R -c \"set ft=man\" -'"
+# export MANPAGER="sh -c 'col -bx | nvim -R -c \"set ft=man\" -'"
 
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline"
 for file in /usr/share/fzf/{*,*/*}.bash; do
