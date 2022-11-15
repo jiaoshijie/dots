@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -xe
+
+path=$(cd $(dirname "$0") && pwd)
+
+mkdir -p "$HOME/.config/goldendict"
+ln -sf "$path/config" "$HOME/.config/goldendict/config"
