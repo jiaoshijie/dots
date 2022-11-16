@@ -180,7 +180,6 @@ alias a8='aria2c -x 8'
 
 alias gs='git status'
 alias gd='git diff'
-alias gitssh='eval `ssh-agent` && ssh-add ~/.ssh/git_repo'
 
 # completion
 # shellcheck source=/dev/null
