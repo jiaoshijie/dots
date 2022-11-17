@@ -9,7 +9,7 @@ cyan=$'\e[36m'
 x=$'\e[0m'
 
 if [ ! -d "${ClashConf}/clash-dashboard" ]; then
-  printf "run %sgit clone -b gh-pages https://github.com/Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard%s to install the clash web ui.\n" "$cyan" "$x"
+  printf "run %sgit clone -b gh-pages git@github.com:Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard%s to install the clash web ui.\n" "$cyan" "$x"
 else
   wget -q "$url" -O "${ClashConf}/config_new.yaml"
   sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $HOME/.config/clash/clash-dashboard@g" "${ClashConf}/config_new.yaml"

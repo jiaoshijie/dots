@@ -100,7 +100,7 @@ __ps1() {
     VENV_PROMPT=""
   fi
 
-  PS1=""
+  PS1="${RESET}"
   PS1+="${VENV_PROMPT}"
   PS1+="${RED}["
   PS1+="${YELLOW}\u"  # username
@@ -109,7 +109,7 @@ __ps1() {
   PS1+="${MAGENTA}\w"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
-  if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+  if [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
     PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
   fi
   PS1+="${RESET}$ "
