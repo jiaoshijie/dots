@@ -5,10 +5,9 @@ set -e
 cd "$(dirname "$0")"
 
 if [[ -z "$1" ]]; then
-  for i in bash alacritty dunst fonts git lf mpv neofetch rofi sc-im sxhkd tmux x; do
-    cd "$i" && ./setup
-    cd -
+  for i in bash alacritty dunst fonts git lf mpv neofetch rofi sc-im sxhkd tmux x goldendict; do
+    (cd "$i" && ./setup)
   done
 else
-  cd "$1" && ./setup
+  (cd "$1" && ./setup)
 fi
