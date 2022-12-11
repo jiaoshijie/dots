@@ -3,7 +3,7 @@
 ClashConf=$HOME/.config/clash/
 UiFileDownload='git clone -b gh-pages git@github.com:Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard'
 
-url=${1:-"https://raw.githubusercontent.com/yu-steven/openit/main/Clash.yaml"}
+url=${1:-"https://bulink.me/sub/psjet/cl"}
 name=${2:-"nodes_config"}
 ext=".yaml"
 
