@@ -9,7 +9,6 @@ set hiddenfiles ".*:*.log"
 set ignorecase true
 set drawbox true
 set ratios 1:2:3
-set cleaner ~/dots/lf/cleaner
 set previewer ~/dots/lf/preview
 set preview true
 set filesep "\n"
