@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+APPRUN_DIR=$HOME/Downloads/AppRun
+
+if [[ "$1" == "-l" ]]; then
+  ls -1 "$APPRUN_DIR"
+  exit
+fi
+
+if [[ "$TERM" == "st-256color" ]]; then
+  SW="devour"
+else
+  SW="setsid -f"
+fi
+
+COMMAND=$(printf "%s %s/%s.AppImage" "$SW" "$APPRUN_DIR" "${1:-ting_en}")
+exec $COMMAND > /dev/null 2>&1
