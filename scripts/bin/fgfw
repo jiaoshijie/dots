@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 ClashConf=$HOME/.config/clash/
-UiFileDownload='git clone -b gh-pages git@github.com:Dreamacro/clash-dashboard.git ~/.config/clash/clash-dashboard'
+UiFileDownload="git clone -b gh-pages git@github.com:Dreamacro/clash-dashboard.git $ClashConf/clash-dashboard"
 
 url=${1:-"https://bulink.me/sub/psjet/cl"}
 name=${2:-"nodes_config"}
@@ -14,12 +14,15 @@ cyan=$'\e[36m'
 x=$'\e[0m'
 
 if [ ! -d "${ClashConf}/clash-dashboard" ]; then
-  printf "run %s%s%s to install the clash web ui.\n" "$cyan" "$UiFileDownload" "$x"
-else
+  printf "running %s%s%s installing the clash web ui.\n" "$cyan" "$UiFileDownload" "$x"
+  $UiFileDownload || { printf "%sinstall clash web ui failed%s" "$red" "$x" && exit 1; }
+fi
+
+if [[ "$1" != "r" ]]; then
   wget -q "$url" -O "$temp_filepath"
 
   if ! grep -q '^external-ui:' "$temp_filepath"; then
-    sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $HOME/.config/clash/clash-dashboard@g" "$temp_filepath"
+    sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $ClashConf/clash-dashboard@g" "$temp_filepath"
   fi
 
   if ! clash -t -f "$temp_filepath" > /dev/null 2>&1; then
@@ -29,7 +32,8 @@ else
   fi
 
   mv -f "$temp_filepath" "${ClashConf}/${name}${ext}"
-  ln -sf "${ClashConf}/${name}${ext}" "${ClashConf}/config.yaml"
-  systemctl --user restart clash.service
-  systemctl --user status clash.service
 fi
+
+ln -sf "${ClashConf}/${name}${ext}" "${ClashConf}/config.yaml"
+systemctl --user restart clash.service
+systemctl --user status clash.service

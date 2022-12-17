@@ -9,6 +9,12 @@ _have() { type "$1" &>/dev/null; }
 # shellcheck source=/dev/null
 _source_if() { [[ -f "$1" && -r "$1" ]] && source "$1"; }
 
+# https://wiki.archlinux.org/title/XDG_Base_Directory
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # fcitx5
 export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
@@ -53,8 +59,8 @@ pathprepend () {
   esac
 }
 
-pathprepend "$HOME/.local/bin"
 pathprepend "$HOME/.cargo/bin"
+pathprepend "$HOME/.local/bin"
 pathprepend "$HOME/dots/scripts/bin"
 
 # bash shell options
@@ -118,9 +124,8 @@ __ps1() {
 export PROMPT_COMMAND=__ps1
 
 SetProxy() {
-  local prefix=http://127.0.0.1
+  local prefix='http://127.0.0.1'
   if echo "$1" | grep -Pq "^\d+$" || ! env | grep -Eq "^(http|https|all)_proxy"; then
-    # 7890 20171
     export {http,https,all}_proxy="${prefix}:${1:-7890}"
     env | grep -E --color=always "^(http|https|all)_proxy"
   else
@@ -179,7 +184,8 @@ alias pc='env | grep -E "^(http|https|all)_proxy"'
 alias a8='aria2c -x 8'
 
 alias gs='git status'
-alias gd='git diff'
+
+alias '?'='ddg'
 
 # completion
 # shellcheck source=/dev/null

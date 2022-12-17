@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -xe
+
+rm -rf "$HOME/.config/lynx/lynx.cfg"
+rm -rf "$HOME/.config/lynx/lynx.lss"
+rmdir --ignore-fail-on-non-empty "$HOME/.config/lynx"
