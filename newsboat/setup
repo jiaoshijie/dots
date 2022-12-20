@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -xe
+
+path=$(cd $(dirname "$0") && pwd)
+
+mkdir -p "$HOME/.config/newsboat"
+ln -sf "$path/config" "$HOME/.config/newsboat/config"
+ln -sf "$path/urls" "$HOME/.config/newsboat/urls"

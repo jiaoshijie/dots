@@ -3,7 +3,7 @@
 APPRUN_DIR=$HOME/Downloads/AppRun
 
 if [[ "$1" == "-l" ]]; then
-  ls -1 "$APPRUN_DIR"
+  find "$APPRUN_DIR/" -type f -exec basename {} .AppImage \;
   exit
 fi
 
