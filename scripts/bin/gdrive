@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 ifinstalled "rclone" || exit
 
+export {http,https,all}_proxy="http://127.0.0.1:7890"
 rclone sync -i ~/Downloads/GDrive GDrive:GDrive
