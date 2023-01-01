@@ -19,7 +19,8 @@ case "$(file --dereference --brief --mime-type -- "$1")" in
   text/troff) man ./ "$1" | col -b ;;
   text/* | */xml | application/json) batorcat "$1" --terminal-width "$(($4-2))" ;;
   application/zip) atool --list -- "$1" ;;
-  image/* | audio/* | application/octet-stream | video/*) mediainfo "$1" || exit 1 ;;
+  image/*) chafa "$1" -s "$2"x"$3" ;;
+  audio/* | video/*) mediainfo "$1" ;;
   application/pgp-encrypted) gpg -d -- "$1" ;;
 esac
 exit 1

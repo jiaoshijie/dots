@@ -50,4 +50,13 @@ fi
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-exec dwm
+if [[ -f /usr/bin/prime-offload ]]; then
+    /usr/bin/prime-offload
+fi
+
+# exec dwm
+dwm
+
+# if [[ -f /usr/bin/prime-switch ]]; then
+#     sudo /usr/bin/prime-switch
+# fi
