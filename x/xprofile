@@ -27,6 +27,6 @@ goldendict &
 gpaste-client start &
 fcitx5 &
 
-remaps &
+# remaps &
 
 dwmblocks &
