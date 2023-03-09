@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ "$(fcitx5-remote -q)" == "c" ]]; then
+  fcitx5-remote -g e
+else
+  fcitx5-remote -g c
+fi

@@ -36,7 +36,7 @@ recount() {
 }
 
 recovery() {
-  recovery_dir=$(ls -1 "$backup_dir/backup" | tac | dmenu -l 30)
+  recovery_dir=$(ls -1 "$backup_dir/backup" | sort -nr | dmenu -l 30)
   test -n "$recovery_dir" || return
   rm -rf "$backup_dir/temp/"
   cp -r "$eldenring_dir/" "$backup_dir/temp/"
@@ -48,7 +48,7 @@ recover_temp() {
 }
 
 delete() {
-  number=$(ls -1 "$backup_dir/backup" | dmenu -l 30)
+  number=$(ls -1 "$backup_dir/backup" | sort -n | dmenu -l 30)
   test -n "$number" || return
   while [[ "$number" -ge 0 ]]; do
     rm -rf "$backup_dir/backup/$number"
