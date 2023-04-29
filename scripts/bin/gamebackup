@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+
+source_dir=""
+backup_dir="$HOME/Downloads/Resources/games_backup/"
+
+main() {
+  [[ "$#" -ne 2 ]] && { help; exit 0; }
+  case "$1" in
+    ER | eldenring) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/1245620/pfx/drive_c/users/steamuser/AppData/Roaming/EldenRing"; backup_dir="$backup_dir/eldenring/" ;;
+    HK | hollowknight) source_dir="$HOME/.config/unity3d/Team Cherry/Hollow Knight"; backup_dir="$backup_dir/hollowknight/" ;;
+    BOTW | breathofthewild) source_dir="$HOME/Downloads/cemu/mlc01/usr/save/00050000/101c9300"; backup_dir="$backup_dir/breathofthewild/" ;;
+  esac
+
+  [[ -d "$source_dir" ]] || { echo -e "\033[36m$source_dir\033[0m doesn't exist."; exit 1; }
+
+  case "$2" in
+    init) init ;;
+    b | backup) backup ;;
+    r | recovery) recovery ;;
+    recount) recount ;;
+    number) cat "$backup_dir/number" ;;
+    recover_temp) recover_temp ;;
+    delete) delete ;;
+  esac
+}
+
+help() {
+  echo -e "Usage:"
+  echo -e "\033[36m${0##*/}\033[0m \033[31mgame_name operation\033[0m\n";
+  echo -e "\033[33mSupported games:\033[0m"
+  echo -e "\tER | eldenring"
+  echo -e "\tHK | hollowknight"
+  echo -e "\tBOTW | breathofthewild"
+  echo -e "\033[33mSupported operations:\033[0m"
+  echo -e "\tinit"
+  echo -e "\tb|backup"
+  echo -e "\tr|recovery"
+  echo -e "\trecount"
+  echo -e "\tnumber"
+  echo -e "\trecover_temp"
+  echo -e "\tdelete"
+}
+
+init() {
+  [[ -d "$backup_dir" ]] && { echo -e "\033[36m$backup_dir\033[0m is already exist."; exit 0; }
+  mkdir -p "$backup_dir/backup/"
+  recount
+}
+
+backup() {
+  [[ -f "$backup_dir/number" ]] || { echo -e "Must use \033[31minit\033[0m operation first for backup"; exit 1; }
+  number=$(cat "$backup_dir/number")
+  cp -r "$source_dir/" "$backup_dir/backup/$number/"
+  number=$(("$number" + 1))
+  echo "$number" > "$backup_dir/number"
+}
+
+recount() {
+  [[ -d "$backup_dir" ]] || { echo -e "\033[36m$backup_dir\033[0m doesn't exist."; exit 1; }
+  echo "0" > "$backup_dir/number"
+}
+
+recovery() {
+  [[ -d "$backup_dir/backup" ]] || { echo -e "\033[31m$backup_dir/backup\033[0m doesn't exist."; exit 1; }
+  recovery_dir=$(ls -1 "$backup_dir/backup" | sort -nr | dmenu -l 30)
+  [[ -d "$recovery_dir" ]] || { echo -e "\033[31mrecovery\033[0m operation has been canceled."; exit 1; }
+  rm -rf "$backup_dir/temp/"
+  cp -r "$source_dir/" "$backup_dir/temp/"
+  cp -r "$backup_dir/backup/$recovery_dir"/* "$source_dir/"
+}
+
+recover_temp() {
+  [[ -d "$backup_dir/temp" ]] || { echo -e "\033[31m$backup_dir/temp\033[0m doesn't exist."; exit 1; }
+  cp -r "$backup_dir/temp"/* "$source_dir/"
+}
+
+delete() {
+  [[ -d "$backup_dir/backup" ]] || { echo -e "\033[31m$backup_dir/backup\033[0m doesn't exist."; exit 1; }
+  number=$(ls -1 "$backup_dir/backup" | sort -n | dmenu -l 30)
+  [[ -n "$number" ]] || { echo -e "\033[31mdelete\033[0m operation has been canceled."; exit 1; }
+  while [[ "$number" -ge 0 ]]; do
+    rm -rf "$backup_dir/backup/$number"
+    number=$(("$number" - 1))
+  done
+}
+
+main "$@"
