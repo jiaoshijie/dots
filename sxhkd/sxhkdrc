@@ -9,7 +9,7 @@ super + w
 super + shift + d
   rofi -show drun -show-icons
 super + i
-  rofi -show calc -no-show-match -no-sort
+  rofi -show calc -modi calc -no-show-match -no-sort
 super + shift + i
   rofi -modi 'emoji:rofiemoji' -show emoji
 super + b
