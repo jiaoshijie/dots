@@ -9,6 +9,7 @@ main() {
     ER | eldenring) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/1245620/pfx/drive_c/users/steamuser/AppData/Roaming/EldenRing"; backup_dir="$backup_dir/eldenring/" ;;
     HK | hollowknight) source_dir="$HOME/.config/unity3d/Team Cherry/Hollow Knight"; backup_dir="$backup_dir/hollowknight/" ;;
     BOTW | breathofthewild) source_dir="$HOME/Downloads/cemu/mlc01/usr/save/00050000/101c9300"; backup_dir="$backup_dir/breathofthewild/" ;;
+    *) help; exit 1 ;;
   esac
 
   [[ -d "$source_dir" ]] || { echo -e "\033[36m$source_dir\033[0m doesn't exist."; exit 1; }
@@ -21,6 +22,7 @@ main() {
     number) cat "$backup_dir/number" ;;
     recover_temp) recover_temp ;;
     delete) delete ;;
+    *) help; exit 1 ;;
   esac
 }
 

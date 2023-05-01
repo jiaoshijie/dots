@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+GAMES="eldenring hollowknight breathofthewild"
+OPERATIONS="init backup recovery recount number recover_temp delete"
+
+# https://stackoverflow.com/questions/68548295/bash-autocompletion-with-multiple-argument-values-per-argument
+_gamebackup_completion() {
+  cur=${COMP_WORDS[COMP_CWORD]}
+  if [[ $COMP_CWORD -eq 1 ]]; then
+    mapfile -t COMPREPLY < <(compgen -W "$GAMES" -- "$cur")
+  elif [[ $COMP_CWORD -eq 2 ]]; then
+    mapfile -t COMPREPLY < <(compgen -W "$OPERATIONS" -- "$cur")
+  fi
+}
+
+complete -F _gamebackup_completion gamebackup
