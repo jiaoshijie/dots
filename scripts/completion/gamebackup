@@ -4,6 +4,7 @@ GAMES="eldenring hollowknight breathofthewild"
 OPERATIONS="init backup recovery recount number recover_temp delete"
 
 # https://stackoverflow.com/questions/68548295/bash-autocompletion-with-multiple-argument-values-per-argument
+# https://www.computerhope.com/unix/bash/mapfile.htm
 _gamebackup_completion() {
   cur=${COMP_WORDS[COMP_CWORD]}
   if [[ $COMP_CWORD -eq 1 ]]; then
