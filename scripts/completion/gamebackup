@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-GAMES="eldenring hollowknight breathofthewild"
+GAMES="eldenring hollowknight breathofthewild oriandtheblindforestde oriandthewillofthewisps terraria thewitcher3"
 OPERATIONS="init backup recovery recount number recover_temp delete"
 
 # https://stackoverflow.com/questions/68548295/bash-autocompletion-with-multiple-argument-values-per-argument
