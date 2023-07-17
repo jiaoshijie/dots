@@ -3,7 +3,7 @@
 source_dir=""
 backup_dir="$HOME/Downloads/Resources/games_backup/"
 
-games=("eldenring" "hollowknight" "breathofthewild" "oriandtheblindforestde" "oriandthewillofthewisps" "terraria" "thewitcher3")
+games=("eldenring" "hollowknight" "breathofthewild" "oriandtheblindforestde" "oriandthewillofthewisps" "terraria" "thewitcher3", "celeste", "cuphead", "volcanoprincess")
 operations=("init" "backup" "recovery" "recount" "number" "recover_temp" "delete")
 
 main() {
@@ -17,6 +17,9 @@ main() {
     terraria) source_dir="$HOME/.local/share/Terraria"; backup_dir="$backup_dir/terraria" ;;
     # terraria) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/105600/pfx/drive_c/users/steamuser/Documents/My Games/Terraria"; backup_dir="$backup_dir/terraria" ;;
     thewitcher3) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/292030/pfx/drive_c/users/steamuser/Documents/The Witcher 3"; backup_dir="$backup_dir/thewitcher3" ;;
+    celeste) source_dir="$HOME/.local/share/Celeste"; backup_dir="$backup_dir/celeste" ;;
+    cuphead) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/268910/pfx/drive_c/users/steamuser/AppData/Roaming/Cuphead"; backup_dir="$backup_dir/cuphead" ;;
+    VP | volcanoprincess) source_dir="/home/jsj/Downloads/SteamLibrary/steamapps/compatdata/1669980/pfx/drive_c/users/steamuser/AppData/LocalLow/EggHatcher/VolcanoPrincess"; backup_dir="$backup_dir/volcanoprincess" ;;
     *) help; exit 1 ;;
   esac
 
