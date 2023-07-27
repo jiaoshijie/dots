@@ -23,7 +23,8 @@ cbatticon &
 # blueman-applet &  # for bluetooth
 
 flameshot &
-goldendict &
+# goldendict &
+open_dict &
 gpaste-client start &
 fcitx5 &
 
