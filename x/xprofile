@@ -14,17 +14,12 @@ xcompmgr &
 set-bg &
 
 sxhkd &
-
 dunst &
-
 unclutter &
-
-cbatticon &
-# blueman-applet &  # for bluetooth
-
-flameshot &
+cbatticon &  # battery
 gpaste-client start &
 fcitx5 &
+# blueman-applet &  # for bluetooth
 
 # remaps &
 
