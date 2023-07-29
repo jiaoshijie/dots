@@ -2,8 +2,10 @@
 
 # install `glib2` `gvfs`
 ifinstalled "gio" | exit
+ifinstalled "fzf" | exit
 
-chosen=$(gio trash --list | cut -f2 | nl -s ' > ' | dmenu -i -l 30 | cut -d '>' -f1)
+# chosen=$(gio trash --list | cut -f2 | nl -s ' > ' | dmenu -i -l 30 | cut -d '>' -f1)
+chosen=$(gio trash --list | cut -f2 | nl -s ' > ' | fzf | cut -d '>' -f1)
 
 if [[ -n "$chosen" ]]; then
   recover=$(gio trash --list | sed -n "${chosen}p" | cut -f1)
