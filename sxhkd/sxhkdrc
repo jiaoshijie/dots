@@ -37,10 +37,17 @@ shift + Print
 alt + space
   gpaste-client ui
 
-# Function keys
-XF86AudioMute
-  lmc toggle
-XF86AudioRaiseVolume
-  lmc up
+# media control
 XF86AudioLowerVolume
   lmc down
+XF86AudioRaiseVolume
+  lmc up
+XF86AudioMute
+  lmc toggle
+
+super + F1
+  lmc down
+super + F2
+  lmc up
+super + F3
+  lmc toggle
