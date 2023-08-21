@@ -6,3 +6,4 @@ path=$(cd $(dirname "$0") && pwd)
 
 pacman -Qqem > "$path/aur.list"
 pipx list | grep --extended-regexp '^\W+package' | cut -d ' ' -f5 > "$path/python.list"
+rsync -av "$HOME/.config/Code/User/settings.json" "$path/vscode-settings.json"
