@@ -108,6 +108,7 @@ __ps1() {
   fi
 
   PS1="${RESET}"
+  PS1+="${RUST_TFM}"
   PS1+="${VENV_PROMPT}"
   PS1+="${RED}["
   PS1+="${YELLOW}\u"  # username
