@@ -191,6 +191,7 @@ alias a8='aria2c -x 8'
 alias gs='git status'
 
 alias '?'='ddg'
+alias fm=tfm
 
 # completion
 # shellcheck source=/dev/null
