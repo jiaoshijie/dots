@@ -34,11 +34,14 @@ export TERMINAL=st
 export BROWSER=firefox
 export SUDO_ASKPASS="$HOME/dots/scripts/rofi_askpass"
 
-# fo 'go`
+# for 'go`
 export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
+
+# bilibili cookie.txt path
+export BILIBILI_COOKIE="$XDG_CACHE_HOME/bilibili_cookie.txt"
 
 pathappend () {
   test -d "$1" || return
