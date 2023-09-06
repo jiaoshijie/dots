@@ -72,6 +72,9 @@ shopt -s globstar
 shopt -s dotglob
 shopt -s extglob
 
+stty werase undef
+bind '\C-w:unix-filename-rubout'  # delete word, but don't delete `/`.
+
 # history
 HISTFILE=~/.cache/bash_history
 HISTTIMEFORMAT='%y-%m-%d %H:%M:%S '
