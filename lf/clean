@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-set -xe
-
-rm -rf "$HOME/.config/lf/lfrc"
-rmdir --ignore-fail-on-non-empty "$HOME/.config/lf"

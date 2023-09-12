@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -xe
-
-path=$(cd $(dirname "$0") && pwd)
-
-mkdir -p "$HOME/.config/lf"
-ln -sf "$path/lfrc" "$HOME/.config/lf/lfrc"
