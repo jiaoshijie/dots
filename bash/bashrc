@@ -150,7 +150,6 @@ export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
 export LESS_TERMCAP_so=$'\e[38;5;232;48;5;226m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\e[0m'           # end underline
 export LESS_TERMCAP_us=$'\e[4;38;5;146m' # begin underline
-# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANPAGER="nvim -u NORC +Man!"
 
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline"
