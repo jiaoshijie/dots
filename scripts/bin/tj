@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 ifinstalled "tmux" | exit
 
+TMUX_RUN="tmux"
+if [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+  # https://unix.stackexchange.com/questions/171503/tmux-session-killed-when-disconnecting-from-ssh
+  TMUX_RUN="systemd-run --scope --user tmux"
+fi
+
 if [[ -z "$1" ]]; then
-  tmux new -s jsj || tmux a -d -t jsj
+  $TMUX_RUN new -s jsj || $TMUX_RUN a -d -t jsj
 else
-  tmux new -s "$1" || tmux a -d -t "$1"
+  $TMUX_RUN new -s "$1" || $TMUX_RUN a -d -t "$1"
 fi
