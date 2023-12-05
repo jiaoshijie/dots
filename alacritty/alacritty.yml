@@ -4,7 +4,7 @@
 # NOTICE: Control+Shift+U: open links
 
 env:
-  TERM: xterm-256color
+  TERM: alacritty
 
 window:
   dimensions:
