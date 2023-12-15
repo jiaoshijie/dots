@@ -13,5 +13,5 @@ else
   SW="setsid -f"
 fi
 
-COMMAND=$(printf "%s %s/%s.AppImage" "$SW" "$APPRUN_DIR" "${1:-ting_en}")
+COMMAND=$(printf "%s %s/%s.AppImage" "$SW" "$APPRUN_DIR" "${1:-eudic}")
 exec $COMMAND > /dev/null 2>&1
