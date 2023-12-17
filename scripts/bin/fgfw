@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
-ClashConf=$HOME/.config/clash/
-UiFileDownload="git clone -b gh-pages git@github.com:Dreamacro/clash-dashboard.git $ClashConf/clash-dashboard"
+ClashConf=$HOME/.config/mihomo/
+UiFileDownload="git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git $ClashConf/dashboard"
 
 url=${1:-"https://bulink.me/sub/psjet/cl"}
 name=${2:-"nodes_config"}
@@ -13,19 +13,19 @@ red=$'\e[31m'
 cyan=$'\e[36m'
 x=$'\e[0m'
 
-if [ ! -d "${ClashConf}/clash-dashboard" ]; then
-  printf "running %s%s%s installing the clash web ui.\n" "$cyan" "$UiFileDownload" "$x"
-  $UiFileDownload || { printf "%sinstall clash web ui failed%s" "$red" "$x" && exit 1; }
+if [ ! -d "${ClashConf}/dashboard" ]; then
+  printf "running %s%s%s installing the dashboard.\n" "$cyan" "$UiFileDownload" "$x"
+  $UiFileDownload || { printf "%sinstall dashboard failed%s" "$red" "$x" && exit 1; }
 fi
 
 if [[ "$1" != "r" ]]; then
   wget -q "$url" -O "$temp_filepath"
 
   if ! grep -q '^external-ui:' "$temp_filepath"; then
-    sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $ClashConf/clash-dashboard@g" "$temp_filepath"
+    sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $ClashConf/dashboard@g" "$temp_filepath"
   fi
 
-  if ! clash -t -f "$temp_filepath" > /dev/null 2>&1; then
+  if ! clash-meta -t -f "$temp_filepath" > /dev/null 2>&1; then
     rm "$temp_filepath"
     printf "%sERROR: The new config file has an error, then do nothing.%s\n" "$red" "$x"
     exit
@@ -35,5 +35,5 @@ if [[ "$1" != "r" ]]; then
 fi
 
 ln -sf "${ClashConf}/${name}${ext}" "${ClashConf}/config.yaml"
-systemctl --user restart clash.service
-systemctl --user status clash.service
+systemctl --user restart clash-meta.service
+systemctl --user status clash-meta.service

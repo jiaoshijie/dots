@@ -59,6 +59,7 @@
     "vim.handleKeys": {
       "<C-f>": false,
       "<C-b>": false,
+      "<C-p>": false,
     },
     // ------------------ vscode vim settings end --------------------
     "java.editor.reloadChangedSources": "auto"
