@@ -1,0 +1,74 @@
+live_config_reload = true
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#565656"
+blue = "#49a4f8"
+cyan = "#99faf2"
+green = "#c0e17d"
+magenta = "#a47de9"
+red = "#ec5357"
+white = "#ffffff"
+yellow = "#f9da6a"
+
+[colors.cursor]
+cursor = "#5588FF"
+text = "#000000"
+
+[colors.normal]
+black = "#2e2e2e"
+blue = "#47a0f3"
+cyan = "#64dbed"
+green = "#abe047"
+magenta = "#7b5cb0"
+red = "#eb4129"
+white = "#e5e9f0"
+yellow = "#f6c744"
+
+[colors.primary]
+background = "#1d2021"
+foreground = "#fffbf6"
+
+[colors.vi_mode_cursor]
+text = "#44475a"
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 13.0
+
+[font.bold]
+family = "Hack"
+style = "Bold"
+
+[font.bold_italic]
+family = "Hack"
+style = "Bold Italic"
+
+[font.italic]
+family = "Hack"
+style = "Italic"
+
+[font.normal]
+family = "Hack"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+dynamic_padding = true
+dynamic_title = true
+opacity = 1.0
+title = "Alacritty"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 120
+lines = 41

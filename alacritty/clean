@@ -2,5 +2,5 @@
 
 set -xe
 
-rm -rf "$HOME/.config/alacritty/alacritty.yml"
+rm -rf "$HOME/.config/alacritty/alacritty.toml"
 rmdir --ignore-fail-on-non-empty "$HOME/.config/alacritty"

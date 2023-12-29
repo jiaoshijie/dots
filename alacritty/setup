@@ -5,4 +5,4 @@ set -xe
 path=$(cd $(dirname "$0") && pwd)
 
 mkdir -p "$HOME/.config/alacritty"
-ln -sf "$path/alacritty.yml" "$HOME/.config/alacritty/alacritty.yml"
+ln -sf "$path/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
