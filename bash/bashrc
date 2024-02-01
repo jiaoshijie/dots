@@ -182,7 +182,8 @@ _have bat && alias bat='bat --plain'
 
 alias hexedit='hexedit --color'
 alias vi=vim
-alias nv=nvim
+alias nv=nvim # nvim stable
+alias nvn="$HOME"/.local/nvim/bin/nvim # nvim nightly
 alias sw=devour
 alias btl=bluetoothctl
 alias nlist='nmcli device wifi list'
