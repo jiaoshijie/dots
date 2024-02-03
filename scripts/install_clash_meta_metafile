@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+GeoIP_metadb="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb"
+GeoIP_dat="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+GeoSite_dat="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+
+TARGET_DIR="$HOME/.config/mihomo/"
+
+main() {
+  if [[ -z "$1" ]]; then
+    echo "Usage:"
+    echo -e "\t$0 \e[36mgeoip_metadb\e[0m"
+    echo -e "\t$0 \e[36mgeoip_dat\e[0m"
+    echo -e "\t$0 \e[36mgeosite_dat\e[0m"
+    echo -e "\t$0 \e[36mall\e[0m"
+    echo -e "\t$0 \e[36mclear_all\e[0m"
+  else
+    eval "$1"
+  fi
+}
+
+all() {
+  geoip_metadb
+  geoip_dat
+  geosite_dat
+}
+
+geoip_metadb() {
+  FILE_P="$TARGET_DIR""GeoIP.metadb"
+  wget --continue "$GeoIP_metadb" -O "$FILE_P"
+}
+
+geoip_dat() {
+  FILE_P="$TARGET_DIR""GeoIP.dat"
+  wget --continue "$GeoIP_dat" -O "$FILE_P"
+}
+
+geosite_dat() {
+  FILE_P="$TARGET_DIR""GeoSite.dat"
+  wget --continue "$GeoSite_dat" -O "$FILE_P"
+}
+
+clear_all() {
+  FILE_P1="$TARGET_DIR""GeoIP.metadb"
+  FILE_P2="$TARGET_DIR""GeoIP.dat"
+  FILE_P3="$TARGET_DIR""GeoSite.dat"
+  rm -rf "$FILE_P1" "$FILE_P2" "$FILE_P3"
+}
+
+main "$@"
