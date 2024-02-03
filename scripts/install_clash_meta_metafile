@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# https://zhuanlan.zhihu.com/p/678860499
+
+# https://sites.ipaddress.com/github.com/
+# https://sites.ipaddress.com/github.global.ssl.fastly.net/
+# https://sites.ipaddress.com/assets-cdn.github.com/
+
 GeoIP_metadb="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb"
 GeoIP_dat="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
 GeoSite_dat="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
