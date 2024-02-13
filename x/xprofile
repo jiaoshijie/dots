@@ -21,6 +21,6 @@ gpaste-client start &
 fcitx5 &
 # blueman-applet &  # for bluetooth
 
-# remaps &
+remaps &
 
 dwmblocks &

@@ -29,7 +29,12 @@ export LC_TIME='zh_CN.UTF-8'
 # qt theme
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-export EDITOR=vim
+if command -v nvim &> /dev/null; then
+  export EDITOR=nvim
+else
+  export EDITOR=vim
+fi
+
 export TERMINAL=st
 export BROWSER=firefox
 export SUDO_ASKPASS="$HOME/dots/scripts/rofi_askpass"
@@ -39,9 +44,6 @@ export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export CGO_ENABLED=0
-
-# bilibili cookie.txt path
-export BILIBILI_COOKIE="$XDG_CACHE_HOME/bilibili_cookie.txt"
 
 pathappend () {
   test -d "$1" || return
@@ -107,7 +109,7 @@ __ps1() {
     BRANCH=""
   fi
 
-  if command -v deactivate > /dev/null 2>&1 && [[ -n "${VIRTUAL_ENV_PROMPT}" ]]; then
+  if command -v deactivate &> /dev/null && [[ -n "${VIRTUAL_ENV_PROMPT}" ]]; then
     VENV_PROMPT="${CYAN}${VIRTUAL_ENV_PROMPT% }${RESET}"
   else
     VENV_PROMPT=""
@@ -162,9 +164,10 @@ alias grep='grep --color=auto'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias diff='diff --color -u'
-alias rm='gio trash'
-alias rml='gio trash --list'
-alias rme='gio trash --empty'
+alias rm="echo -e '\e[36m\e[1mNOTE\e[0m: Are you sure you want to use \e[31mrm\e[0m, think carefully?'"
+alias trash='gio trash'
+alias trash-list='gio trash --list'
+alias trash-empty='gio trash --empty'
 if _have exa; then
   alias ll='exa -lhg --group-directories-first'
   alias ls='exa --group-directories-first'
@@ -183,7 +186,7 @@ _have bat && alias bat='bat --plain'
 alias hexedit='hexedit --color'
 alias vi=vim
 alias nv=nvim # nvim stable
-alias nvn="$HOME"/.local/nvim/bin/nvim # nvim nightly
+alias nvn="$HOME"/.local/nvim-nightly/bin/nvim # nvim nightly
 alias sw=devour
 alias btl=bluetoothctl
 alias nlist='nmcli device wifi list'

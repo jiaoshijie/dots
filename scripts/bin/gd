@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Using vimdiff tool to compare the differences between the current file and the previous commit file.
+# Using `[n]vim -d` comparing the differences between two different commit file.
 
 RED=$'\033[31m'
 CYAN=$'\033[36m'
@@ -8,10 +8,15 @@ X=$'\033[0m'
 
 test -z "$1" && { git diff && exit 0; }
 
-[[ "$1" == "-h" ]] && { printf "gd %sfile_path%s [git_commit_id]\n" "$RED" "$X" && exit 0; }
+[[ "$1" == "-h" || "$1" == "--help" || "$1" == "help" ]] && { printf "gd %sfile_path%s [git_commit_id_1] [git_commit_id_2]\n" "$RED" "$X" && exit 0; }
 
 test -r "$1" || { printf "%s%s%s is not exist or have no read access.\n" "$CYAN" "$1" "$X" && exit 1; }
 
-COMMIT_ID=${2:-"HEAD"}
-
-vimdiff "$1" <(git show "$COMMIT_ID":"$1")
+if [[ -z "$3" ]]; then
+  COMMIT_ID=${2:-"HEAD"}
+  $EDITOR -d "$1" <(git show "$COMMIT_ID":"$1")
+else
+  COMMIT_ID_1=$2
+  COMMIT_ID_2=$3
+  $EDITOR -d <(git show "$COMMIT_ID_1":"$1") <(git show "$COMMIT_ID_2":"$1")
+fi

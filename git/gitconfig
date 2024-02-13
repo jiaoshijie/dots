@@ -2,7 +2,7 @@
   email = jiao1751959040@gmail.com
   name = jiaoshijie
 [core]
-  editor=vim
+  editor=nvim
   autocrlf = input
   safecrlf = true
   excludesfile = ~/dots/git/gitignore_global
@@ -12,7 +12,7 @@
 [add.interactive]
   useBuiltin = false
 [diff]
-  tool = vimdiff
+  tool = nvim -d
   submodule = log
   algorithm = histogram
   indentHeuristic = true
@@ -25,5 +25,5 @@
   navigate = true
   light = false
 [merge]
-  tool = vimdiff
+  tool = nvim -d
   conflictStyle=diff3
