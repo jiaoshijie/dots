@@ -198,6 +198,7 @@ alias gs='git status'
 
 alias '?'='ddg'
 alias fm=tfm
+alias NOTE="code $HOME/Downloads/GDrive/NOTE/"
 
 # completion
 # shellcheck source=/dev/null

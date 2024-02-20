@@ -41,15 +41,15 @@ TERM = "alacritty"
 size = 13.0
 
 [font.bold]
-family = "Hack"
+family = "Monaspace Xenon Var"
 style = "Bold"
 
 [font.bold_italic]
-family = "Hack"
+family = "Monaspace Radon Var"
 style = "Bold Italic"
 
 [font.italic]
-family = "Hack"
+family = "Monaspace Radon Var"
 style = "Italic"
 
 [font.normal]
@@ -62,7 +62,7 @@ hide_when_typing = true
 [window]
 dynamic_padding = true
 dynamic_title = true
-opacity = 1.0
+opacity = 0.95
 title = "Alacritty"
 
 [window.class]

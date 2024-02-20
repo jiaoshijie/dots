@@ -7,4 +7,6 @@ BookMarkPath="$HOME/Downloads/GDrive/others/bookmarks.json"
 
 key=$(jq 'keys[]' < "$BookMarkPath" | dmenu -i -l 30)
 
+test -z "$key" && exit
+
 jq -r ".[$key]" < "$BookMarkPath" | xsel -ib
