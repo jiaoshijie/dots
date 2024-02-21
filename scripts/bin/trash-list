@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# NOTE: simple version
+# echo -e "$(gio trash --list | sed -e 's/%25/\\x/g' -e 's/%5C/\//g' -e 's/%/\\x/g')"
+
+# NOTE: awesome version
+
+gio trash --list |\
+while read -r line; do
+  IFS=$'\t' read -r trash_file origin_file <<< "$line"
+  trash_file=$(basename $(echo "$trash_file" | sed -e 's/%25/\\x/g' -e 's/%5C/\//g' -e 's/%/\\x/g'))
+  output=$(printf "%s | %s" "$trash_file" "$origin_file")
+  echo -e $output
+done | column --table -o '|' -s '|'

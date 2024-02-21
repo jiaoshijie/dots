@@ -1,14 +1,33 @@
 #!/usr/bin/env bash
 
+set -e
+
 # install `glib2` `gvfs`
 ifinstalled "gio" | exit
 ifinstalled "fzf" | exit
 
-# chosen=$(gio trash --list | cut -f2 | nl -s ' > ' | dmenu -i -l 30 | cut -d '>' -f1)
-chosen=$(gio trash --list | cut -f2 | nl -s ' > ' | fzf | cut -d '>' -f1)
+chosen=$(trash-list | nl -s ' > ' | fzf)
 
 if [[ -n "$chosen" ]]; then
-  recover=$(gio trash --list | sed -n "${chosen}p" | cut -f1)
-  gio trash --restore "$recover"
-  printf "recover file \e[36m%s\e[0m\n" "$recover"
+  number=$(echo "$chosen" | cut -d '>' -f1)
+  # NOTE: `xargs` is to remove leading and trailing whitespaces of a variable, it's a cheat.
+  # human_readable_path=$(echo "$chosen" | cut -d '|' -f2 | xargs)
+
+  human_readable_path=$(echo "$chosen" | cut -d '|' -f2)
+
+  # NOTE: There must use `gio trash --list`
+  recover=$(gio trash --list | sed -n "${number}p")
+  gio trash --restore "$(echo "$recover" | cut -f1)"
+  recover_path=$(echo "$recover" | cut -f2)
+
+  human_readable_path=${human_readable_path# } # remove leading whitespace
+  human_readable_path=${human_readable_path% } # remove trailing whitespace
+  recover_path=${recover_path# }
+  recover_path=${recover_path% }
+
+  if [[ "$recover_path" != "$human_readable_path" ]]; then
+    mv "$recover_path" "$human_readable_path"
+  fi
+
+  printf "File \e[36m%s\e[0m Recovered\n" "$human_readable_path"
 fi

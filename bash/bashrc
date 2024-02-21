@@ -145,14 +145,16 @@ SetProxy() {
 } && export SetProxy
 
 # colored man output
-export LESS_TERMCAP_mb=$'\e[1;31m'       # begin blinking
-export LESS_TERMCAP_md=$'\e[1;38;5;74m'  # begin bold
-export LESS_TERMCAP_me=$'\e[0m'           # end mode
-export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
-export LESS_TERMCAP_so=$'\e[38;5;232;48;5;226m'    # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\e[0m'           # end underline
-export LESS_TERMCAP_us=$'\e[4;38;5;146m' # begin underline
-export MANPAGER="nvim -u NORC +Man!"
+# export LESS_TERMCAP_mb=$'\e[1;31m'              # begin blinking
+# export LESS_TERMCAP_md=$'\e[1;38;5;74m'         # begin bold
+# export LESS_TERMCAP_me=$'\e[0m'                 # end mode
+# export LESS_TERMCAP_se=$'\e[0m'                 # end standout-mode
+# export LESS_TERMCAP_so=$'\e[38;5;232;48;5;226m' # begin standout-mode - info box
+# export LESS_TERMCAP_ue=$'\e[0m'                 # end underline
+# export LESS_TERMCAP_us=$'\e[4;38;5;146m'        # begin underline
+
+# export MANPAGER="nvim -u NORC +Man!"
+export MANPAGER="nvim +Man!"
 
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline"
 for file in /usr/share/fzf/{*,*/*}.bash; do
@@ -166,7 +168,6 @@ alias mv='mv -iv'
 alias diff='diff --color -u'
 alias rm="echo -e '\e[36m\e[1mNOTE\e[0m: Are you sure you want to use \e[31mrm\e[0m, think carefully?'"
 alias trash='gio trash'
-alias trash-list='gio trash --list'
 alias trash-empty='gio trash --empty'
 if _have exa; then
   alias ll='exa -lhg --group-directories-first'
@@ -177,6 +178,7 @@ else
   alias ls='ls --color=auto --group-directories-first'
   alias ll='ls -lh --color=auto --group-directories-first'
   alias l='ls -lhA --color=auto --group-directories-first'
+  alias tree='gio tree'
 fi
 alias ldf='duf --only local'
 alias clear='printf "\e[H\e[2J"'
