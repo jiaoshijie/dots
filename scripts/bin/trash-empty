@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+trashed_files=$(trash-list | cut -d '|' -f2)
+
+[[ -z "$trashed_files" ]] && { echo "No file need to delete." && exit 0;}
+
+echo "------------------------------------------------------------------------"
+echo "$trashed_files"
+echo "------------------------------------------------------------------------"
+
+printf "\033[33m\033[1mWARN\033[0m: Do you really want to permanently delete all the above files.[y/N]"
+read decision
+
+[[ "$decision" == "y" || "$decision" == "Y" ]] && gio trash --empty && echo "Operation succeed." || echo "Operation denied."

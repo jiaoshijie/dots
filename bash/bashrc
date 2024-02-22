@@ -166,9 +166,8 @@ alias grep='grep --color=auto'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias diff='diff --color -u'
-alias rm="echo -e '\e[36m\e[1mNOTE\e[0m: Are you sure you want to use \e[31mrm\e[0m, think carefully?'"
+alias rm="echo -e '\e[33m\e[1mWARN\e[0m: Are you sure you want to use \e[31mrm\e[0m, think carefully?'"
 alias trash='gio trash'
-alias trash-empty='gio trash --empty'
 if _have exa; then
   alias ll='exa -lhg --group-directories-first'
   alias ls='exa --group-directories-first'
@@ -186,8 +185,7 @@ alias c='printf "\e[H\e[2J"'
 _have bat && alias bat='bat --plain'
 
 alias hexedit='hexedit --color'
-alias vi=vim
-alias nv=nvim # nvim stable
+alias vi="$EDITOR"
 alias nvn="$HOME"/.local/nvim-nightly/bin/nvim # nvim nightly
 alias sw=devour
 alias btl=bluetoothctl
@@ -195,6 +193,7 @@ alias nlist='nmcli device wifi list'
 alias nconn='nmcli device wifi connect'
 alias pc='env | grep -E "^(http|https|all)_proxy"'
 alias a8='aria2c -x 8'
+alias ydl='yt-dlp --add-metadata -i -f bestvideo+bestaudio'
 
 alias gs='git status'
 

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-ifinstalled "yt-dlp" || exit
-
-yt-dlp --add-metadata -i -f bestvideo+bestaudio --external-downloader aria2c --external-downloader-args '-x 8' "$*"
