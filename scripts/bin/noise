@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 ifinstalled "mpv" || exit
 
-mpv "$HOME/Downloads/GDrive/others/alarm.oga"
+while true; do
+  mpv "$HOME/Downloads/GDrive/others/alarm.oga" > /dev/null || exit
+done
