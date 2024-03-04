@@ -6,6 +6,7 @@ case $- in
 esac
 
 _have() { type "$1" &>/dev/null; }
+# _have() { command -v "$1" &>/dev/null; }
 # shellcheck source=/dev/null
 _source_if() { [[ -f "$1" && -r "$1" ]] && source "$1"; }
 
@@ -29,7 +30,7 @@ export LC_TIME='zh_CN.UTF-8'
 # qt theme
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-if command -v nvim &> /dev/null; then
+if _have nvim; then
   export EDITOR=nvim
 else
   export EDITOR=vim
@@ -209,4 +210,4 @@ alias NOTE="code $HOME/Downloads/GDrive/NOTE/"
 _have docker && _source_if "$HOME/.local/share/docker/completion.bash"
 _source_if "$HOME/dots/scripts/completion/gamebackup"
 
-eval "$(zoxide init bash --cmd j)"
+_have zoxide && eval "$(zoxide init bash --cmd j)"
