@@ -3,9 +3,10 @@ ifinstalled "tmux" | exit
 
 TMUX_RUN="tmux"
 SESSION_NAME="jsj"
+
 if [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
   # https://unix.stackexchange.com/questions/171503/tmux-session-killed-when-disconnecting-from-ssh
-  TMUX_RUN="systemd-run --scope --user tmux"
+  # TMUX_RUN="systemd-run --scope --user tmux"  # NOTE: Fix this problem in systemd config file, so doesn't need this line to be executed
   SESSION_NAME="ssh_jsj"
 fi
 
