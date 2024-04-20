@@ -195,6 +195,7 @@ alias nconn='nmcli device wifi connect'
 alias pc='env | grep -E "^(http|https|all)_proxy"'
 alias a8='aria2c -x 8'
 alias ydl='yt-dlp --add-metadata -i -f bestvideo+bestaudio'
+alias ydlaudio='yt-dlp -f bestaudio -x --audio-format mp3 --audio-quality 0'
 
 alias gs='git status'
 
