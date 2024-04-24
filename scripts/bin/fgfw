@@ -5,6 +5,8 @@ UiFileDownload="git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git $C
 
 url=${1:-"https://bulink.me/sub/psjet/cl"}
 name=${2:-"nodes_config"}
+is_auto_run=${3:-"yes"}
+external_ui_ip=${4:-"127.0.0.1:9090"}
 ext=".yaml"
 
 temp_filepath="$ClashConf/${name}_new${ext}"
@@ -13,7 +15,7 @@ red=$'\e[31m'
 cyan=$'\e[36m'
 x=$'\e[0m'
 
-if [ ! -d "${ClashConf}/dashboard" ]; then
+if [[ ! -d "${ClashConf}/dashboard" ]]; then
   printf "running %s%s%s installing the dashboard.\n" "$cyan" "$UiFileDownload" "$x"
   $UiFileDownload || { printf "%sinstall dashboard failed%s" "$red" "$x" && exit 1; }
 fi
@@ -22,7 +24,7 @@ if [[ "$1" != "r" ]]; then
   wget -q "$url" -O "$temp_filepath"
 
   if ! grep -q '^external-ui:' "$temp_filepath"; then
-    sed -i -e "s@\(^external-controller:.*\)@\1\nexternal-ui: $ClashConf/dashboard@g" "$temp_filepath"
+    sed -i -e "s@\(^external-controller:\).*@\1 $external_ui_ip\nexternal-ui: $ClashConf/dashboard@g" "$temp_filepath"
   fi
 
   if ! clash-meta -t -f "$temp_filepath" > /dev/null 2>&1; then
@@ -35,5 +37,10 @@ if [[ "$1" != "r" ]]; then
 fi
 
 ln -sf "${ClashConf}/${name}${ext}" "${ClashConf}/config.yaml"
-systemctl --user restart clash-meta.service
-systemctl --user status clash-meta.service
+
+if [[ "$is_auto_run" == "yes" ]]; then
+  systemctl --user restart clash-meta.service
+  systemctl --user status clash-meta.service
+else
+  echo "Proxy file update succeeded!!!"
+fi
