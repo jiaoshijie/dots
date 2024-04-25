@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# https://github.com/MetaCubeX/mihomo/releases
+# https://phoenixnap.com/kb/git-list-tags
+
 set -e
 
 RESET="\e[0m"
