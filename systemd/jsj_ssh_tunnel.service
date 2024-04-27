@@ -1,0 +1,30 @@
+[Unit]
+Description=ssh tunnel
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=0
+StartLimitBurst=
+
+[Service]
+# NOTE: you MUST start ssh *without!* the -f (forking) switch,
+# so that systemd can monitor it and detect when the tunnel goes down
+Type=simple
+# forward *local* port 22 to port 80 on the remote host
+# https://stackoverflow.com/questions/34620776/exit-an-ssh-tunnel-without-closing-it
+ExecStart=ssh -NT -R 80:127.0.0.1:22 soil
+# see: https://www.freedesktop.org/software/systemd/man/systemd.service.html#TimeoutStartSec=
+TimeoutStartSec=10
+TimeoutStopSec=10
+Restart=always
+RestartSec=10
+
+# TODO: set the user name here; root will be used if unset
+# make sure the user has the correct ssh key or otherwise
+# explicitly pass the key with `ssh -i /path/to/key/id_rsa
+User=jsj
+
+# TODO: for debugging only; remove once you get the service working
+# StandardOutput=console
+
+[Install]
+WantedBy=multi-user.target

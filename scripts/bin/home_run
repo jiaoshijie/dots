@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+sudo systemctl restart jsj_ssh_tunnel.service
+sudo systemctl status jsj_ssh_tunnel.service
