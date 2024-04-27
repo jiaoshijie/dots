@@ -1,0 +1,11 @@
+[Unit]
+Description=A simple Python Pydantic model for Honkai: Star Rail parsed data from the Mihomo API.
+After=network.target
+
+[Service]
+Type=exec
+Restart=on-abort
+ExecStart=/home/jsj/.local/bin/clash-meta
+
+[Install]
+WantedBy=default.target
