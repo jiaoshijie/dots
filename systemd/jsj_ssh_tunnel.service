@@ -2,8 +2,8 @@
 Description=ssh tunnel
 Wants=network-online.target
 After=network-online.target
-StartLimitIntervalSec=0
-StartLimitBurst=
+StartLimitIntervalSec=5
+StartLimitBurst=100
 
 [Service]
 # NOTE: you MUST start ssh *without!* the -f (forking) switch,
@@ -11,7 +11,7 @@ StartLimitBurst=
 Type=simple
 # forward *local* port 22 to port 80 on the remote host
 # https://stackoverflow.com/questions/34620776/exit-an-ssh-tunnel-without-closing-it
-ExecStart=ssh -NT -R 80:127.0.0.1:22 soil
+ExecStart=ssh -N -R 80:127.0.0.1:22 soil
 # see: https://www.freedesktop.org/software/systemd/man/systemd.service.html#TimeoutStartSec=
 TimeoutStartSec=10
 TimeoutStopSec=10
