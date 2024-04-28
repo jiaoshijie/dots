@@ -15,6 +15,8 @@ TARGET_DIR=~/.local/bin
 TARGET_PATH=$TARGET_DIR/clash-meta.gz
 TEMP_PATH=/tmp/jsj_download_clash-meta_tempfile_bash_version
 
+GITHUB_MIRROR="https://hub.gitmirror.com/"
+
 if [[ "$1" == "restart" ]]; then
   rm -rf "$TARGET_PATH" "$TEMP_PATH"
 fi
@@ -23,7 +25,7 @@ if [[ ! -f "$TEMP_PATH" ]]; then
   echo -e "${CYAN}Fetching the tags for remote repository...${RESET}"
   CLASH_VERSION=$(git ls-remote --tags git@github.com:MetaCubeX/mihomo.git | cut -d'/' -f3 | grep -x '^v[0-9.]*[0-9]$' | sort -V | tail -n 1)
 
-  DOWNLOAD_URL="https://github.com/MetaCubeX/mihomo/releases/download/$CLASH_VERSION/mihomo-linux-386-$CLASH_VERSION.gz"
+  DOWNLOAD_URL="${GITHUB_MIRROR}https://github.com/MetaCubeX/mihomo/releases/download/$CLASH_VERSION/mihomo-linux-386-$CLASH_VERSION.gz"
 
   mkdir -p "$TARGET_DIR"
   DOWNLOAD_COMMAND="wget --quiet --show-progress --continue $DOWNLOAD_URL -O $TARGET_PATH"

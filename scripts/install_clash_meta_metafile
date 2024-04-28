@@ -6,9 +6,11 @@
 # https://sites.ipaddress.com/github.global.ssl.fastly.net/
 # https://sites.ipaddress.com/assets-cdn.github.com/
 
-GeoIP_metadb="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb"
-GeoIP_dat="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
-GeoSite_dat="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
+GITHUB_MIRROR="https://hub.gitmirror.com/"
+
+GeoIP_metadb="${GITHUB_MIRROR}https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.metadb"
+GeoIP_dat="${GITHUB_MIRROR}https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geoip.dat"
+GeoSite_dat="${GITHUB_MIRROR}https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/geosite.dat"
 
 TARGET_DIR="$HOME/.config/mihomo/"
 
