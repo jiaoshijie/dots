@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-set -xe
-
-path=$(cd $(dirname "$0") && pwd)
-
-mkdir -p "$HOME/.config/neofetch"
-ln -sf "$path/config.conf" "$HOME/.config/neofetch/config.conf"
