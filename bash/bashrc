@@ -204,6 +204,10 @@ alias fm=tfm
 alias NOTE="code $HOME/Downloads/GDrive/NOTE/"
 alias ff=fastfetch
 
+# https://superuser.com/questions/758843/difference-between-global-server-session-and-window-options
+alias tmux-autorename="tmux setw -u automatic-rename"  # `-u` will set the option back to global value
+# alias tmux-autorename="tmux setw automatic-rename on"
+
 # completion
 # shellcheck source=/dev/null
 # _have pandoc && . <(pandoc --bash-completion)
