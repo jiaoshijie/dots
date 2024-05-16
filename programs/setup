@@ -4,6 +4,7 @@ set -xe
 
 path=$(cd $(dirname "$0") && pwd)
 
-pacman -Qqem > "$path/aur.list"
+comm -12 <(pacman -Qeq | sort) <(pacman -Sql chaotic-aur | sort) > "$path/chaotic-aur.list"
 pipx list | grep --extended-regexp '^\W+package' | cut -d ' ' -f5 > "$path/python.list"
 rsync -av "$HOME/.config/Code/User/settings.json" "$path/vscode-settings.json"
+pacman -Qqem > "$path/aur.list"

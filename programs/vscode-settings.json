@@ -62,5 +62,6 @@
       "<C-p>": false,
     },
     // ------------------ vscode vim settings end --------------------
-    "java.editor.reloadChangedSources": "auto"
+    "java.editor.reloadChangedSources": "auto",
+    "editor.unicodeHighlight.nonBasicASCII": false
 }
