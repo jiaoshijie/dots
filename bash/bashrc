@@ -89,6 +89,12 @@ shopt -s histappend
 # disable control-s accidental terminal stops
 stty stop undef
 
+__is_in_ssh() {
+  pstree -ps $$ | grep --quiet 'sshd(\w*)' && return 0
+  [[ -n $TMUX ]] && pstree -ps $(tmux display-message -p "#{client_pid}") | grep --quiet 'sshd(\w*)' && return 0
+  return 1
+}
+
 __ps1() {
   RESET="\[\e[0m\]"
   GREY="\[\e[1;90m\]"
@@ -126,7 +132,7 @@ __ps1() {
   PS1+="${MAGENTA}\w"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
-  if [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_TTY" ]]; then
+  if __is_in_ssh; then
     PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
   fi
   PS1+="${RESET}$ "
