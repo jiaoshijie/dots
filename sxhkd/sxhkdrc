@@ -22,13 +22,13 @@ super + z
   gcolor3
 super + shift + p
  slock
-alt + m
+super + m
   open_dict
 super + u
   passuser
 super + p
   passmenu
-ctrl + shift + a
+super + shift + s
   flameshot gui
 Print
   pickfull
