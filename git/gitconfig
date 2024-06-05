@@ -1,29 +1,58 @@
+# `man git-config`
+
 [user]
   email = jiao1751959040@gmail.com
   name = jiaoshijie
-[core]
-  editor=nvim
-  autocrlf = input
-  safecrlf = true
-  excludesfile = ~/dots/git/gitignore_global
-  pager = delta
-[interactive]
-  diffFileter = delta --color-only
-[add.interactive]
-  useBuiltin = false
-[diff]
-  tool = nvim -d
-  submodule = log
-  algorithm = histogram
-  indentHeuristic = true
-  colorMoved = default
+
 [init]
   defaultBranch = main
+
+[core]
+  editor = nvim  # using nvim for commit
+  autocrlf = input  # `intput`: do not perform converting CRLF to LF; `true`: ...
+  safecrlf = true   # A file with mixed line endings would be reported by the core.safecrlf mechanism.
+  eol = lf          # end of line using LF not CRLF
+  excludesFile = ~/dots/git/ignore
+  pager = delta --diff-so-fancy  # use `delta` to perform `git diff`
+
+[interactive]
+  diffFileter = delta --color-only  # for interactive command such as `git add --patch` shows a colorized diff
+
+[diff]
+  tool = nvimdiff  # Will overrides the merge.tool config, using `nvim` as a diff tool
+  algorithm = default  # TODO: maybe change it later
+  colorMoved = default
+
+  # https://stackoverflow.com/questions/37620729/in-the-context-of-git-and-diff-what-is-a-hunk
+  indentHeuristic = true  # make diff message more readable
+
+  # https://www.jvt.me/posts/2018/05/04/git-submodule-diff-formats/
+  # `short`: only show uuid(old)..uuid(new)
+  # `log`: except uuid also show the title(summary) of each commit between uuid(old) and uuid(new)
+  # `diff`: show diff details like external repository(main repository, not submodule)
+  submodule = log
+
 [help]
-  autocorrect = 1
+  autoCorrect = 0  # only show the suggested command, don't run
+
+[merge]
+  conflictStyle=diff3  # `merge`: doesn't have the original text(two regions); `diff3`: has the extra original text(three regions)
+
+[alias]
+  d = diff
+  s = status
+  ss = status --short
+  c = commit
+  cv = commit --verbose
+  ca = commit --amend
+  ai = add --patch # interactive add hunks
+  ds = diff --staged # review all of the staged changes before committing
+  l = log
+  lo = log --oneline
+  lg = log --graph
+  lgo = log --graph --oneline
+  co = checkout
+
+# --- NOTE: external program configuration ---
 [delta]
   navigate = true
-  light = false
-[merge]
-  tool = nvim -d
-  conflictStyle=diff3
