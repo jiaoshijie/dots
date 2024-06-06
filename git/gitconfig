@@ -40,13 +40,13 @@
 
 [alias]
   d = diff
+  ds = diff --staged # review all of the staged changes before committing
   s = status
   ss = status --short
   c = commit
   cv = commit --verbose
   ca = commit --amend
   ai = add --patch # interactive add hunks
-  ds = diff --staged # review all of the staged changes before committing
   l = log
   lo = log --oneline
   lg = log --graph
