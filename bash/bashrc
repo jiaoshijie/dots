@@ -70,6 +70,26 @@ pathprepend "$HOME/.cargo/bin"
 pathprepend "$HOME/.local/bin"
 pathprepend "$HOME/dots/scripts/bin"
 
+ldpathappend () {
+  test -d "$1" || return
+  case ":$LD_LIBRARY_PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$1"
+  esac
+}
+
+ldpathprepend () {
+  test -d "$1" || return
+  case ":$LD_LIBRARY_PATH:" in
+    *:"$1":*)
+      ;;
+    *)
+      LD_LIBRARY_PATH="$1${LD_LIBRARY_PATH:+":$LD_LIBRARY_PATH"}"
+  esac
+}
+
 # bash shell options
 shopt -s globstar
 shopt -s dotglob
