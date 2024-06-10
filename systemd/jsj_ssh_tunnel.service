@@ -11,7 +11,7 @@ StartLimitBurst=100
 Type=simple
 # forward *local* port 22 to port 80 on the remote host
 # https://stackoverflow.com/questions/34620776/exit-an-ssh-tunnel-without-closing-it
-ExecStart=ssh -N -R 80:127.0.0.1:22 soil
+ExecStart=ssh -N -R 80:127.0.0.1:22 rnode1
 # see: https://www.freedesktop.org/software/systemd/man/systemd.service.html#TimeoutStartSec=
 TimeoutStartSec=10
 TimeoutStopSec=10
