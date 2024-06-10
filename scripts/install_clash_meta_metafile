@@ -2,12 +2,6 @@
 
 set -e
 
-# https://zhuanlan.zhihu.com/p/678860499
-
-# https://sites.ipaddress.com/github.com/
-# https://sites.ipaddress.com/github.global.ssl.fastly.net/
-# https://sites.ipaddress.com/assets-cdn.github.com/
-
 RESET="\e[0m"
 RED="\e[1;31m"
 GREEN="\e[1;32m"

@@ -3,6 +3,10 @@
 # https://github.com/MetaCubeX/mihomo/releases
 # https://phoenixnap.com/kb/git-list-tags
 
+# github 下载加速
+# https://www.jsdelivr.com
+# https://www.7ed.net/gitmirror/hub.html
+
 set -e
 
 RESET="\e[0m"
