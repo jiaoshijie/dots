@@ -1,4 +1,5 @@
-# default config file: https://github.com/MetaCubeX/mihomo/blob/Alpha/docs/config.yaml
+# Default config file: https://github.com/MetaCubeX/mihomo/blob/Alpha/docs/config.yaml
+# Well-documented config example: https://github.com/txyyh/ClashFiles/blob/master/Clash/config.yaml
 
 mixed-port: 7890 # HTTP(S) 和 SOCKS 代理混合端口
 udp: false
@@ -13,7 +14,9 @@ external-ui: /home/jsj/.config/mihomo/dashboard
 unified-delay: true # TODO: don't know what this mean
 secret: ''
 
-# TODO: don't know what this mean
+# Clash for Windows
+# Proxies module latency test settings
+# TODO: Maybe don't need these cfw-* settings
 cfw-latency-timeout: 8000
 cfw-latency-url: 'http://YouTube.com/generate_204'
 
@@ -53,7 +56,7 @@ proxy-groups:
       - 🚀 节点选择
       - 🎯 全球直连
       - node1
-  - name: Ⓜ️ 微软服务
+  - name:  微软服务
     type: select
     proxies:
       - 🎯 全球直连
@@ -1870,82 +1873,82 @@ rules:
 # Microsoft Services
 # optimized from https://gist.github.com/TTTPOB/ce93fb3b04ba2f21880b09427442d831
 # source: https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges
-  - DOMAIN-KEYWORD,1drv,Ⓜ️ 微软服务
-  - DOMAIN-KEYWORD,microsoft,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,aadrm.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,acompli.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,acompli.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,aka.ms,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,akadns.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,aspnetcdn.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,assets-yammer.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,azure.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,azure.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,azureedge.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,azurerms.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,bing.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,cloudapp.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,cloudappsecurity.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,edgesuite.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,gfx.ms,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,hotmail.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,live.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,live.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,lync.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msappproxy.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msauth.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msauthimages.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msecnd.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msedge.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msft.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msftauth.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msftauthimages.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msftidentity.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msidentity.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msn.cn,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msn.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msocdn.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,msocsp.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,mstea.ms,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,o365weve.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,oaspapps.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,office.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,office.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,office365.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,officeppe.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,omniroot.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,onedrive.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,onenote.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,onenote.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,onestore.ms,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,outlook.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,outlookmobile.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,phonefactor.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,public-trust.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,sfbassets.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,sfx.ms,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,sharepoint.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,sharepointonline.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,skype.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,skypeassets.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,skypeforbusiness.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,staffhub.ms,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,svc.ms,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,sway-cdn.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,sway-extensions.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,sway.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,trafficmanager.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,uservoice.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,virtualearth.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,visualstudio.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,windows-ppe.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,windows.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,windows.net,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,windowsazure.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,windowsupdate.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,wunderlist.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,yammer.com,Ⓜ️ 微软服务
-  - DOMAIN-SUFFIX,yammerusercontent.com,Ⓜ️ 微软服务
+  - DOMAIN-KEYWORD,1drv, 微软服务
+  - DOMAIN-KEYWORD,microsoft, 微软服务
+  - DOMAIN-SUFFIX,aadrm.com, 微软服务
+  - DOMAIN-SUFFIX,acompli.com, 微软服务
+  - DOMAIN-SUFFIX,acompli.net, 微软服务
+  - DOMAIN-SUFFIX,aka.ms, 微软服务
+  - DOMAIN-SUFFIX,akadns.net, 微软服务
+  - DOMAIN-SUFFIX,aspnetcdn.com, 微软服务
+  - DOMAIN-SUFFIX,assets-yammer.com, 微软服务
+  - DOMAIN-SUFFIX,azure.com, 微软服务
+  - DOMAIN-SUFFIX,azure.net, 微软服务
+  - DOMAIN-SUFFIX,azureedge.net, 微软服务
+  - DOMAIN-SUFFIX,azurerms.com, 微软服务
+  - DOMAIN-SUFFIX,bing.com, 微软服务
+  - DOMAIN-SUFFIX,cloudapp.net, 微软服务
+  - DOMAIN-SUFFIX,cloudappsecurity.com, 微软服务
+  - DOMAIN-SUFFIX,edgesuite.net, 微软服务
+  - DOMAIN-SUFFIX,gfx.ms, 微软服务
+  - DOMAIN-SUFFIX,hotmail.com, 微软服务
+  - DOMAIN-SUFFIX,live.com, 微软服务
+  - DOMAIN-SUFFIX,live.net, 微软服务
+  - DOMAIN-SUFFIX,lync.com, 微软服务
+  - DOMAIN-SUFFIX,msappproxy.net, 微软服务
+  - DOMAIN-SUFFIX,msauth.net, 微软服务
+  - DOMAIN-SUFFIX,msauthimages.net, 微软服务
+  - DOMAIN-SUFFIX,msecnd.net, 微软服务
+  - DOMAIN-SUFFIX,msedge.net, 微软服务
+  - DOMAIN-SUFFIX,msft.net, 微软服务
+  - DOMAIN-SUFFIX,msftauth.net, 微软服务
+  - DOMAIN-SUFFIX,msftauthimages.net, 微软服务
+  - DOMAIN-SUFFIX,msftidentity.com, 微软服务
+  - DOMAIN-SUFFIX,msidentity.com, 微软服务
+  - DOMAIN-SUFFIX,msn.cn, 微软服务
+  - DOMAIN-SUFFIX,msn.com, 微软服务
+  - DOMAIN-SUFFIX,msocdn.com, 微软服务
+  - DOMAIN-SUFFIX,msocsp.com, 微软服务
+  - DOMAIN-SUFFIX,mstea.ms, 微软服务
+  - DOMAIN-SUFFIX,o365weve.com, 微软服务
+  - DOMAIN-SUFFIX,oaspapps.com, 微软服务
+  - DOMAIN-SUFFIX,office.com, 微软服务
+  - DOMAIN-SUFFIX,office.net, 微软服务
+  - DOMAIN-SUFFIX,office365.com, 微软服务
+  - DOMAIN-SUFFIX,officeppe.net, 微软服务
+  - DOMAIN-SUFFIX,omniroot.com, 微软服务
+  - DOMAIN-SUFFIX,onedrive.com, 微软服务
+  - DOMAIN-SUFFIX,onenote.com, 微软服务
+  - DOMAIN-SUFFIX,onenote.net, 微软服务
+  - DOMAIN-SUFFIX,onestore.ms, 微软服务
+  - DOMAIN-SUFFIX,outlook.com, 微软服务
+  - DOMAIN-SUFFIX,outlookmobile.com, 微软服务
+  - DOMAIN-SUFFIX,phonefactor.net, 微软服务
+  - DOMAIN-SUFFIX,public-trust.com, 微软服务
+  - DOMAIN-SUFFIX,sfbassets.com, 微软服务
+  - DOMAIN-SUFFIX,sfx.ms, 微软服务
+  - DOMAIN-SUFFIX,sharepoint.com, 微软服务
+  - DOMAIN-SUFFIX,sharepointonline.com, 微软服务
+  - DOMAIN-SUFFIX,skype.com, 微软服务
+  - DOMAIN-SUFFIX,skypeassets.com, 微软服务
+  - DOMAIN-SUFFIX,skypeforbusiness.com, 微软服务
+  - DOMAIN-SUFFIX,staffhub.ms, 微软服务
+  - DOMAIN-SUFFIX,svc.ms, 微软服务
+  - DOMAIN-SUFFIX,sway-cdn.com, 微软服务
+  - DOMAIN-SUFFIX,sway-extensions.com, 微软服务
+  - DOMAIN-SUFFIX,sway.com, 微软服务
+  - DOMAIN-SUFFIX,trafficmanager.net, 微软服务
+  - DOMAIN-SUFFIX,uservoice.com, 微软服务
+  - DOMAIN-SUFFIX,virtualearth.net, 微软服务
+  - DOMAIN-SUFFIX,visualstudio.com, 微软服务
+  - DOMAIN-SUFFIX,windows-ppe.net, 微软服务
+  - DOMAIN-SUFFIX,windows.com, 微软服务
+  - DOMAIN-SUFFIX,windows.net, 微软服务
+  - DOMAIN-SUFFIX,windowsazure.com, 微软服务
+  - DOMAIN-SUFFIX,windowsupdate.com, 微软服务
+  - DOMAIN-SUFFIX,wunderlist.com, 微软服务
+  - DOMAIN-SUFFIX,yammer.com, 微软服务
+  - DOMAIN-SUFFIX,yammerusercontent.com, 微软服务
 # Apple
 # 一般国内Apple肯定正常,不需要开代理
   - DOMAIN,apple.comscoreresearch.com,🍎 苹果服务
