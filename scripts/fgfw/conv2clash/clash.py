@@ -1,37 +1,6 @@
-#!/usr/bin/env python3
+import os
 
-# TODO(jiaoshijie): Need to learn the config format each proxy protocol
-
-import io
-import base64
-import json
-
-def main():
-    vmess2clash()
-
-def vmess2clash():
-    url = "vmess://ewogICJ2IjogIjIiLAogICJwcyI6ICJ2bWVzcyt3c3xLY1B6LmxvdmVAeHJheS5jb20iLAogICJhZGQiOiAiNDUuNzYuMTY4Ljk0IiwKICAicG9ydCI6IDQzODYzLAogICJpZCI6ICI1ZDA1NGFkYy00ZTc3LTRiYmEtOTYwMi00OTM4ZGQ5N2E5OTIiLAogICJhaWQiOiAwLAogICJuZXQiOiAid3MiLAogICJ0eXBlIjogIm5vbmUiLAogICJob3N0IjogIiIsCiAgInBhdGgiOiAiLzVkMDU0YWRjIiwKICAidGxzIjogIm5vbmUiCn0=".strip()
-    if url[:8] != "vmess://":
-        raise ValueError(f"{url[:8]} != 'vmess://'")
-    vmess_dict = json.loads(base64.b64decode(url[8:]).decode('utf-8'))
-    clash_dict = {
-            "name": vmess_dict['ps'],
-            "type": "vmess",
-            "server": vmess_dict['add'],
-            "port": vmess_dict['port'],
-            "cipher": 
-            "uuid":
-            "alterID":
-            "tls":
-            "skip-cert-verify":
-            "network":
-            "ws-opts": {
-                "path": 
-            }
-    }
-
-payload = {
-"basic_settings": """
+const_header_payload = """
 mixed-port: 7890 # HTTP(S) 和 SOCKS 代理混合端口
 udp: false
 ipv6: true
@@ -39,29 +8,21 @@ allow-lan: false # 不允许局域网连接
 bind-address: '*'
 mode: rule
 log-level: info
-""",
 
-"external_settings": """
 external-controller: 0.0.0.0:9090
 external-ui: /home/jsj/.config/mihomo/dashboard
 unified-delay: true # TODO: don't know what this mean
 secret: ''
-""",
 
-"cfw": """
 # Clash for Windows
 # Proxies module latency test settings
 # TODO: Maybe don't need these cfw-* settings
 cfw-latency-timeout: 8000
 cfw-latency-url: 'http://YouTube.com/generate_204'
-""",
 
-"hosts": """
 hosts:
-    baidu.com: google.com  # Seems didn't work
-""",
+  baidu.com: google.com  # Seems didn't work
 
-"dns": """
 dns:
   enable: true
   listen: '127.0.0.1:1053'
@@ -72,31 +33,34 @@ dns:
   use-hosts: true # 查询 hosts
   fake-ip-filter: ['*.lan', '*.localdomain', '*.example', '*.invalid', '*.localhost', '*.test', '*.local', '*.home.arpa', 'time.*.com', 'time.*.gov', 'time.*.edu.cn', 'time.*.apple.com', 'time1.*.com', 'time2.*.com', 'time3.*.com', 'time4.*.com', 'time5.*.com', 'time6.*.com', 'time7.*.com', 'ntp.*.com', 'ntp1.*.com', 'ntp2.*.com', 'ntp3.*.com', 'ntp4.*.com', 'ntp5.*.com', 'ntp6.*.com', 'ntp7.*.com', '*.time.edu.cn', '*.ntp.org.cn', +.pool.ntp.org, time1.cloud.tencent.com, music.163.com, '*.music.163.com', '*.126.net', musicapi.taihe.com, music.taihe.com, songsearch.kugou.com, trackercdn.kugou.com, '*.kuwo.cn', api-jooxtt.sanook.com, api.joox.com, joox.com, y.qq.com, '*.y.qq.com', streamoc.music.tc.qq.com, mobileoc.music.tc.qq.com, isure.stream.qqmusic.qq.com, dl.stream.qqmusic.qq.com, aqqmusic.tc.qq.com, amobile.music.tc.qq.com, '*.xiami.com', '*.music.migu.cn', music.migu.cn, +.msftconnecttest.com, +.msftncsi.com, msftconnecttest.com, msftncsi.com, localhost.ptlogin2.qq.com, localhost.sec.qq.com, +.srv.nintendo.net, +.stun.playstation.net, 'xbox.*.microsoft.com', xnotify.xboxlive.com, +.ipv6.microsoft.com, +.battlenet.com.cn, +.wotgame.cn, +.wggames.cn, +.wowsgame.cn, +.wargaming.net, proxy.golang.org, 'stun.*.*', 'stun.*.*.*', '+.stun.*.*', '+.stun.*.*.*', '+.stun.*.*.*.*', heartbeat.belkin.com, '*.linksys.com', '*.linksyssmartwifi.com', '*.router.asus.com', mesu.apple.com, swscan.apple.com, swquery.apple.com, swdownload.apple.com, swcdn.apple.com, swdist.apple.com, lens.l.google.com, stun.l.google.com, '*.square-enix.com', '*.finalfantasyxiv.com', '*.ffxiv.com', '*.ff14.sdo.com', ff.dorado.sdo.com, '*.mcdn.bilivideo.cn', +.media.dssott.com, +.pvp.net]
   nameserver: ['tls://223.5.5.5:853', 'tls://223.6.6.6:853', 'https://doh.pub/dns-query', 'https://dns.alidns.com/dns-query']
-""",
+"""
 
-"proxies": """
-proxies:
-""",
+proxies_prefix = "proxies:\n"  # TODO:
+proxy_groups_prefix = "proxy-groups:\n"  # TODO:
 
-"proxy-groups": """
-proxy-groups:
-""",
-}
-
-# TODO: rule section
+pg_prepend = ["节点选择"]
+pg_append = ["国外媒体", "电报信息", "微软服务", "苹果服务", "漏网之鱼"]
 
 proxy_groups = [
-        # TODO: 自动选择
-        {"name": "🚀 节点选择", "type": "select", "proxies": ["node1", "DIRECT"]},
-        {"name": "🌍 国外媒体", "type": "select", "proxies": ["🚀 节点选择", "🎯 全球直连", "node1"]},
-        {"name": "📲 电报信息", "type": "select", "proxies": ["🚀 节点选择", "🎯 全球直连", "node1"]},
-        {"name": " 微软服务", "type": "select", "proxies": ["🎯 全球直连", "🚀 节点选择", "node1"]},
-        {"name": "🍎 苹果服务", "type": "select", "proxies": ["🎯 全球直连", "🚀 节点选择", "node1"]},
-        {"name": "🎯 全球直连", "type": "select", "proxies": ["DIRECT", "🚀 节点选择"]},
-        {"name": "🛑 全球拦截", "type": "select", "proxies": ["REJECT", "DIRECT"]},
-        {"name": "🍃 应用净化", "type": "select", "proxies": ["REJECT", "DIRECT"]},
-        {"name": "🐟 漏网之鱼", "type": "select", "proxies": ["🚀 节点选择", "🎯 全球直连", "node1"]},
+    # TODO: 自动选择
+    {"name": "节点选择", "type": "select", "proxies": ["node1", "DIRECT"]},
+    {"name": "国外媒体", "type": "select", "proxies": ["节点选择", "全球直连", "node1"]},
+    {"name": "电报信息", "type": "select", "proxies": ["节点选择", "全球直连", "node1"]},
+    {"name": "微软服务", "type": "select", "proxies": ["全球直连", "节点选择", "node1"]},
+    {"name": "苹果服务", "type": "select", "proxies": ["全球直连", "节点选择", "node1"]},
+    {"name": "全球直连", "type": "select", "proxies": ["DIRECT", "节点选择"]},
+    {"name": "全球拦截", "type": "select", "proxies": ["REJECT", "DIRECT"]},
+    {"name": "应用净化", "type": "select", "proxies": ["REJECT", "DIRECT"]},
+    {"name": "漏网之鱼", "type": "select", "proxies": ["节点选择", "全球直连", "node1"]},
 ]
 
+def rules(wfile):
+    rules_file_p = os.path.expanduser("~/dots/scripts/fgfw/conv2clash/clash-rules.yaml")
+    with open(rules_file_p, mode = 'r') as rf:
+        lines = rf.readlines()
+        wfile.writelines(lines)
+
+def gen_clash_conf(opath):
+
 if __name__ == "__main__":
-    main()
+    pass

@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import argparse
+import vmess
+import clash
+
+def main():
+    parser = argparse.ArgumentParser(
+            prog="conv",
+            description="Convert config file to clash config file"
+            )
+    parser.add_argument("-l", "--link", action='store')
+    parser.add_argument("-f", "--file", action='store')
+    args = parser.parse_args()
+    if args.file != None:
+        print("TODO: extract file has not been implented yet!!!")
+        return
+    else:
+        if args.link == None:
+            print("./conv -l link://base64")
+            return
+        name, node = vmess.vmess2clash(args.link)
+
+
+
+if __name__ == "__main__":
+    main()
