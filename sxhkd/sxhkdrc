@@ -34,7 +34,7 @@ Print
   pickfull
 shift + Print
   maimpick
-alt + space
+super + v
   gpaste-client ui
 
 # media control
