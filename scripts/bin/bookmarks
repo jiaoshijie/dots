@@ -5,8 +5,16 @@ ifinstalled "dmenu" || exit
 
 BookMarkPath="$HOME/Downloads/GDrive/others/bookmarks.json"
 
-key=$(jq 'keys[]' < "$BookMarkPath" | dmenu -i -l 30)
+MENU_CMD="dmenu -i -l 30"
+OUTPUT_CMD="xsel -ib"
+
+if [[ -z "$DISPLAY" ]]; then
+  MENU_CMD=fzf
+  OUTPUT_CMD="cat"
+fi
+
+key=$(jq 'keys[]' < "$BookMarkPath" | $MENU_CMD)
 
 test -z "$key" && exit
 
-jq -r ".[$key]" < "$BookMarkPath" | xsel -ib
+jq -r ".[$key]" < "$BookMarkPath" | $OUTPUT_CMD
