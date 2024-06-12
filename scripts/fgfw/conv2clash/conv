@@ -3,6 +3,7 @@
 import argparse
 import vmess
 import clash
+import os
 
 def main():
     parser = argparse.ArgumentParser(
@@ -11,6 +12,7 @@ def main():
             )
     parser.add_argument("-l", "--link", action='store')
     parser.add_argument("-f", "--file", action='store')
+    parser.add_argument("-o", "--output", action='store')
     args = parser.parse_args()
     if args.file != None:
         print("TODO: extract file has not been implented yet!!!")
@@ -20,7 +22,12 @@ def main():
             print("./conv -l link://base64")
             return
         name, node = vmess.vmess2clash(args.link)
+        if name != None and node != None:
+            clash.append_node(name, node)
 
+    opath = os.path.expanduser("~/config.yaml" if args.output == None else args.output)
+
+    clash.gen_clash_conf(opath)
 
 
 if __name__ == "__main__":

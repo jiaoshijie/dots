@@ -41,7 +41,7 @@ def vmess2clash(url):
     # dict_keys(['v', 'ps', 'add', 'port', 'id', 'aid', 'net', 'type', 'host', 'path', 'tls'])
     # TODO: unhandled `type` `host`
 
-    if vmess_dict["v"] != 2:
+    if str(vmess_dict["v"].strip()) != "2":
         print(f"The vmess://base64 version is {vmess_dict['v']}, which is not supported!!!", file=sys.stderr)
         print(f"The vmess is `{url}`", file=sys.stderr)
         return None, None
@@ -73,7 +73,7 @@ def vmess2clash(url):
         print(f"The vmess is `{url}`", file=sys.stderr)
         return None, None
 
-    return clash_dict["name"], json.dumps(clash_dict)
+    return clash_dict["name"], json.dumps(clash_dict, ensure_ascii=False)
 
 
 if __name__ == "__main__":

@@ -1,4 +1,6 @@
 import os
+import sys
+import json
 
 const_header_payload = """
 mixed-port: 7890 # HTTP(S) 和 SOCKS 代理混合端口
@@ -36,31 +38,67 @@ dns:
 """
 
 proxies_prefix = "proxies:\n"  # TODO:
+proxies = []
+
+# action: 0 -> prepend 1 -> append
+pg_action = {
+        "节点选择": {"index": 0, "action": 0},
+        "国外媒体": {"index": 1, "action": 1},
+        "电报信息": {"index": 2, "action": 1},
+        "微软服务": {"index": 3, "action": 1},
+        "苹果服务": {"index": 4, "action": 1},
+        "漏网之鱼": {"index": 8, "action": 1},
+        }
 proxy_groups_prefix = "proxy-groups:\n"  # TODO:
-
-pg_prepend = ["节点选择"]
-pg_append = ["国外媒体", "电报信息", "微软服务", "苹果服务", "漏网之鱼"]
-
 proxy_groups = [
     # TODO: 自动选择
-    {"name": "节点选择", "type": "select", "proxies": ["node1", "DIRECT"]},
-    {"name": "国外媒体", "type": "select", "proxies": ["节点选择", "全球直连", "node1"]},
-    {"name": "电报信息", "type": "select", "proxies": ["节点选择", "全球直连", "node1"]},
-    {"name": "微软服务", "type": "select", "proxies": ["全球直连", "节点选择", "node1"]},
-    {"name": "苹果服务", "type": "select", "proxies": ["全球直连", "节点选择", "node1"]},
-    {"name": "全球直连", "type": "select", "proxies": ["DIRECT", "节点选择"]},
-    {"name": "全球拦截", "type": "select", "proxies": ["REJECT", "DIRECT"]},
-    {"name": "应用净化", "type": "select", "proxies": ["REJECT", "DIRECT"]},
-    {"name": "漏网之鱼", "type": "select", "proxies": ["节点选择", "全球直连", "node1"]},
+    {"name": "节点选择", "type": "select", "proxies": ["DIRECT"]}, # 0
+    {"name": "国外媒体", "type": "select", "proxies": ["节点选择", "全球直连"]}, # 1
+    {"name": "电报信息", "type": "select", "proxies": ["节点选择", "全球直连"]}, # 2
+    {"name": "微软服务", "type": "select", "proxies": ["全球直连", "节点选择"]}, # 3
+    {"name": "苹果服务", "type": "select", "proxies": ["全球直连", "节点选择"]}, # 4
+    {"name": "全球直连", "type": "select", "proxies": ["DIRECT", "节点选择"]}, # 5
+    {"name": "全球拦截", "type": "select", "proxies": ["REJECT", "DIRECT"]}, # 6
+    {"name": "应用净化", "type": "select", "proxies": ["REJECT", "DIRECT"]}, # 7
+    {"name": "漏网之鱼", "type": "select", "proxies": ["节点选择", "全球直连"]}, # 8
 ]
 
-def rules(wfile):
+def write_rules(wfile):
     rules_file_p = os.path.expanduser("~/dots/scripts/fgfw/conv2clash/clash-rules.yaml")
     with open(rules_file_p, mode = 'r') as rf:
         lines = rf.readlines()
         wfile.writelines(lines)
 
 def gen_clash_conf(opath):
+    with open(opath, mode="w") as ofile:
+        ofile.write(const_header_payload)
+        ofile.write(proxies_prefix)
+        for node in proxies:
+            ofile.write("  - " + node + "\n")
+
+        ofile.write("\n")
+        ofile.write(proxy_groups_prefix)
+        for node in proxy_groups:
+            ofile.write("  - " + json.dumps(node, ensure_ascii=False) + "\n")
+
+        ofile.write("\n")
+        write_rules(ofile)
+
+
+
+def append_node(name, node):
+    for node_name in pg_action.keys():
+        action = pg_action[node_name]["action"]
+        index = pg_action[node_name]["index"]
+        if action == 0:
+            proxy_groups[index]["proxies"].insert(0, name)
+        elif action == 1:
+            proxy_groups[index]["proxies"].append(name)
+        else:
+            print(f"not supported action number: {action}", file=sys.stderr)
+            return
+    proxies.append(node)
+
 
 if __name__ == "__main__":
     pass
