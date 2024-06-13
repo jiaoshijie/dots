@@ -15,6 +15,10 @@ fi
 
 if [[ "$1" == "r" ]]; then
   selected=$(find "$ClashConf" -type f \( -name '*.yml' -or -name '*.yaml' \) | fzf)
+  if [[ -z "$selected" ]]; then
+    echo "INFO: No file selected, then do nothing!!!"
+    exit 1;
+  fi
   ln -sf "$selected" "${ClashConf}/config.yaml"
   is_auto_run="yes"
 elif [[ "$1" == "m" ]]; then
