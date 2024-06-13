@@ -7,39 +7,62 @@ red=$'\e[31m'
 cyan=$'\e[36m'
 x=$'\e[0m'
 
+main() {
+  install_external_ui
 
-if [[ ! -d "${ClashConf}/dashboard" ]]; then
-  printf "running %s%s%s installing the dashboard.\n" "$cyan" "$UiFileDownload" "$x"
-  $UiFileDownload || { printf "%sinstall dashboard failed%s" "$red" "$x" && exit 1; }
-fi
+  case "$1" in
+    h) help ;;
+    l) check_config ;;
+    r) reload ;;
+    m) move_config "$2" "$3" ;;
+    *) download_config "$1" "$2" "$3" ;;
+  esac
+}
 
-if [[ "$1" == "r" ]]; then
+
+install_external_ui() {
+  if [[ ! -d "${ClashConf}/dashboard" ]]; then
+    printf "running %s%s%s installing the dashboard.\n" "$cyan" "$UiFileDownload" "$x"
+    $UiFileDownload || { printf "%sinstall dashboard failed%s" "$red" "$x" && exit 1; }
+  fi
+}
+
+help() {
+  echo -e "Usage:"
+  echo -e "\t"$(basename $0) "h"
+  echo -e "\t"$(basename $0) "l"
+  echo -e "\t"$(basename $0) "r"
+  echo -e "\t"$(basename $0) "m {src} {dst}"
+  echo -e "\t"$(basename $0) "{url} {ofilename:nodes_config} {external_ui_ip:127.0.0.1:9090}"
+}
+
+check_config() {
+  ls --color=always -l "${ClashConf}/config.yaml"
+}
+
+reload() {
   selected=$(find "$ClashConf" -type f \( -name '*.yml' -or -name '*.yaml' \) | fzf)
   if [[ -z "$selected" ]]; then
     echo "INFO: No file selected, then do nothing!!!"
     exit 1;
   fi
   ln -sf "$selected" "${ClashConf}/config.yaml"
-  is_auto_run="yes"
-elif [[ "$1" == "m" ]]; then
-  if [[ -z "$2" ]] || [[ -z "$3" ]]; then
+  check_config # NOTE: local
+  restart # NOTE: local
+}
+
+move_config() {
+  if [[ -z "$1" ]] || [[ -z "$2" ]]; then
     echo $(basename $0) "m ${red}src dst${x}"
     exit 1;
   fi
-  mv "$2" "${ClashConf}$3"
-  exit 0;
-elif [[ "$1" == "h" ]]; then
-  echo -e "Usage:"
-  echo -e "\t"$(basename $0) "r"
-  echo -e "\t"$(basename $0) "m {src} {dst}"
-  echo -e "\t"$(basename $0) "h"
-  echo -e "\t"$(basename $0) "{url} {ofilename} {is_auto_run:[yes|no]} {external_ui_ip}"
-  exit 0;
-else
+  mv "$1" "${ClashConf}$2"
+}
+
+download_config() {
   url=${1:-"https://bulink.me/sub/psjet/cl"}
   name=${2:-"nodes_config"}
-  is_auto_run=${3:-"yes"}
-  external_ui_ip=${4:-"127.0.0.1:9090"}
+  external_ui_ip=${3:-"127.0.0.1:9090"}
   ext=".yaml"
 
   temp_filepath="$ClashConf/${name}_new${ext}"
@@ -58,12 +81,19 @@ else
 
   mv -f "$temp_filepath" "${ClashConf}/${name}${ext}"
   ln -sf "${ClashConf}/${name}${ext}" "${ClashConf}/config.yaml"
-fi
 
+  restart # NOTE: local
+}
 
-if [[ "$is_auto_run" == "yes" ]]; then
-  systemctl --user restart clash-meta.service
-  systemctl --user status clash-meta.service
-else
-  echo "Proxy file update succeeded!!!"
-fi
+restart() {
+  if systemctl --user list-unit-files clash-meta.service > /dev/null; then
+    systemctl --user restart clash-meta.service
+    systemctl --user status clash-meta.service
+  else
+    echo "Proxy file update succeeded!!!"
+  fi
+}
+
+# `$*`: make all parameters to one argument
+# `$@`: seperate all parameters as it is what it is
+main "$@"
