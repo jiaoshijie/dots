@@ -1,0 +1,65 @@
+{
+  "editor.fontSize": 17,
+  "editor.minimap.enabled": false,
+  "window.menuBarVisibility": "toggle",
+  "editor.fontFamily": "'Cascadia Code','JetBrains Mono','Hack','Source Code Pro','Consolas'",
+  "editor.fontLigatures": false,
+  "extensions.ignoreRecommendations": true,
+  "workbench.startupEditor": "none",
+  "editor.unicodeHighlight.nonBasicASCII": false,
+
+  // --------------- vscode vim settings ----------------
+  "vim.easymotion": false,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["<C-j>"],
+      "after": ["<C-[>"]
+    },
+  ],
+  // https://code.visualstudio.com/docs/getstarted/keybindings
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-l>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "c", "c"],
+      "commands": ["editor.action.commentLine"]
+    },
+    {
+      "before": ["<C-]>"],
+      "commands": ["editor.action.revealDefinition"]
+    },
+    {
+      "before": ["g", "r", "r"],
+      "commands": ["editor.action.goToReferences"]
+    },
+    {
+      "before": ["g", "r", "n"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prevInFiles"]
+    },
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-f>": false,
+    "<C-b>": false,
+    "<C-p>": false,
+  },
+  // ------------------ vscode vim settings end --------------------
+}
