@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
 ifinstalled "jq" || exit
-ifinstalled "dmenu" || exit
+
 
 BookMarkPath="$HOME/Downloads/GDrive/others/bookmarks.json"
 
-MENU_CMD="dmenu -i -l 30"
-OUTPUT_CMD="xsel -ib"
-
 if [[ -z "$DISPLAY" ]]; then
+  ifinstalled "fzf" || exit
   MENU_CMD=fzf
   OUTPUT_CMD="cat"
+else
+  ifinstalled "dmenu" || exit
+  MENU_CMD="dmenu -i -l 30"
+  OUTPUT_CMD="xsel -ib"
 fi
 
 key=$(jq 'keys[]' < "$BookMarkPath" | $MENU_CMD)
