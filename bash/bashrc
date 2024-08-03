@@ -149,7 +149,7 @@ __ps1() {
   PS1+="${YELLOW}\u"  # username
   PS1+="${GREY}@"
   PS1+="${BLUE}\h "   # hostname
-  PS1+="${MAGENTA}\w"    # working directory
+  PS1+="${MAGENTA}\W"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
   if __is_in_ssh; then
