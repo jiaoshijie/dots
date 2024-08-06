@@ -19,6 +19,14 @@ TARGET_DIR=~/.local/bin
 TARGET_PATH=$TARGET_DIR/clash-meta.gz
 TEMP_PATH=/tmp/jsj_download_clash-meta_tempfile_bash_version
 
+# GITHUB_HEADER="https://github.com/"
+GITHUB_HEADER="git@github.com:"
+
+# ARCH="386"   # NOTE: 32bit
+# ARCH="amd64" # NOTE: 64bit but need v3 support which I don't support.
+ARCH="amd64-compatible" # NOTE: 64bit can be used in intel cpu
+# ARCH="arm64"  # NOTE: aarch64 arm64
+
 GITHUB_MIRROR="https://hub.gitmirror.com/"
 
 if [[ "$1" == "restart" ]]; then
@@ -27,9 +35,9 @@ fi
 
 if [[ ! -f "$TEMP_PATH" ]]; then
   echo -e "${CYAN}Fetching the tags for remote repository...${RESET}"
-  CLASH_VERSION=$(git ls-remote --tags git@github.com:MetaCubeX/mihomo.git | cut -d'/' -f3 | grep -x '^v[0-9.]*[0-9]$' | sort -V | tail -n 1)
+  CLASH_VERSION=$(git ls-remote --tags "${GITHUB_HEADER}"MetaCubeX/mihomo.git | cut -d'/' -f3 | grep -x '^v[0-9.]*[0-9]$' | sort -V | tail -n 1)
 
-  DOWNLOAD_URL="${GITHUB_MIRROR}https://github.com/MetaCubeX/mihomo/releases/download/$CLASH_VERSION/mihomo-linux-386-$CLASH_VERSION.gz"
+  DOWNLOAD_URL="${GITHUB_MIRROR}https://github.com/MetaCubeX/mihomo/releases/download/$CLASH_VERSION/mihomo-linux-$ARCH-$CLASH_VERSION.gz"
 
   mkdir -p "$TARGET_DIR"
   DOWNLOAD_COMMAND="wget --quiet --show-progress --continue $DOWNLOAD_URL -O $TARGET_PATH"

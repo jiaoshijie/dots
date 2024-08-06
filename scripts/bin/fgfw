@@ -1,7 +1,10 @@
 #! /usr/bin/env bash
 
+# GITHUB_HEADER="https://github.com/"
+GITHUB_HEADER="git@github.com:"
+
 ClashConf=$HOME/.config/mihomo/
-UiFileDownload="git clone -b gh-pages git@github.com:MetaCubeX/metacubexd.git $ClashConf/dashboard"
+UiFileDownload="git clone -b gh-pages "${GITHUB_HEADER}"MetaCubeX/metacubexd.git $ClashConf/dashboard"
 
 red=$'\e[31m'
 cyan=$'\e[36m'
