@@ -239,4 +239,7 @@ alias tmux-autorename="tmux setw -u automatic-rename"  # `-u` will set the optio
 _have docker && _source_if "$HOME/.local/share/docker/completion.bash"
 _source_if "$HOME/dots/scripts/completion/gamebackup"
 
+# NOTE: this file is for the content that don't want to sync
+_source_if "$HOME/.user_custom_bashrc"
+
 _have zoxide && eval "$(zoxide init bash --cmd j)"
