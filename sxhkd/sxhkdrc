@@ -36,6 +36,8 @@ shift + Print
   maimpick
 super + v
   gpaste-client ui
+super + g
+  fs
 
 # media control
 XF86AudioLowerVolume
