@@ -3,6 +3,7 @@
 import argparse
 import vmess
 import clash
+import vless
 import os
 
 def main():
@@ -19,9 +20,13 @@ def main():
         return
     else:
         if args.link == None:
-            print("./conv -l link://base64")
+            print("./conv -l link://...")
             return
-        name, node = vmess.vmess2clash(args.link)
+        if args.link[:8] == "vmess://":
+            name, node = vmess.vmess2clash(args.link)
+        elif args.link[:8] == "vless://":
+            name, node = vless.vless2clash(args.link)
+
         if name != None and node != None:
             clash.append_node(name, node)
 
