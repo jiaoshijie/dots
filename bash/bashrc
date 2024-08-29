@@ -30,10 +30,24 @@ export LC_TIME='zh_CN.UTF-8'
 # qt theme
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+# NOTE: set default `EDITOR` and `MANPAGER`
 if _have nvim; then
   export EDITOR=nvim
+
+  # If has nvim installed, using nvim as MAN PAGE VIEWER
+  # export MANPAGER="nvim -u NORC +Man!"
+  export MANPAGER="nvim +Man!"
 else
   export EDITOR=vim
+
+  # LESS MAN PAGE COLORS
+  export LESS_TERMCAP_mb=$'\e[1;31m'              # begin blinking
+  export LESS_TERMCAP_md=$'\e[1;38;5;74m'         # begin bold
+  export LESS_TERMCAP_me=$'\e[0m'                 # end mode
+  export LESS_TERMCAP_se=$'\e[0m'                 # end standout-mode
+  export LESS_TERMCAP_so=$'\e[38;5;232;48;5;226m' # begin standout-mode - info box
+  export LESS_TERMCAP_ue=$'\e[0m'                 # end underline
+  export LESS_TERMCAP_us=$'\e[4;38;5;146m'        # begin underline
 fi
 
 export TERMINAL=st
@@ -171,18 +185,6 @@ SetProxy() {
     echo "Unset all proxy"
   fi
 } && export SetProxy
-
-# colored man output
-# export LESS_TERMCAP_mb=$'\e[1;31m'              # begin blinking
-# export LESS_TERMCAP_md=$'\e[1;38;5;74m'         # begin bold
-# export LESS_TERMCAP_me=$'\e[0m'                 # end mode
-# export LESS_TERMCAP_se=$'\e[0m'                 # end standout-mode
-# export LESS_TERMCAP_so=$'\e[38;5;232;48;5;226m' # begin standout-mode - info box
-# export LESS_TERMCAP_ue=$'\e[0m'                 # end underline
-# export LESS_TERMCAP_us=$'\e[4;38;5;146m'        # begin underline
-
-# export MANPAGER="nvim -u NORC +Man!"
-export MANPAGER="nvim +Man!"
 
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline"
 for file in /usr/share/fzf/{*,*/*}.bash; do
