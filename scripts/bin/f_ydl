@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+set -e
+
+export {http,https,all}_proxy="http://127.0.0.1:7890"
+
+# FORMAT SELECTION: https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#format-selection
+# format1+format2+format3 will combine the three format to one video  -- should always use this one
+# format1,format2,format3 will download three video of each format
+URL=""
+OP=""
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -v)
+      OP="v"
+      shift
+      ;;
+    -a)
+      OP="a"
+      shift
+      ;;
+    -s)
+      OP="s"  # subtitle
+      shift
+      ;;
+    *)
+      URL="$1"
+      shift
+      ;;
+  esac
+done
+
+test -n "$URL" || { echo "no url to download!!!"; exit -1; };
+
+case "$OP" in
+  v)
+    yt-dlp -q --progress --add-metadata -i -f - "$URL"
+    ;;
+  a)
+    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL"
+    ;;
+  s)
+    yt-dlp -q --progress --list-subs "$URL" | grep '^en' ; echo $?
+    # NOTE: download the english subtitle
+    echo "yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs --skip-download '$URL' --sub-langs ''"
+    ;;
+  *)
+    echo "Not supported operation!!!"
+    exit -1;
+    ;;
+esac
