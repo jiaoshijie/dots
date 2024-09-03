@@ -187,7 +187,7 @@ SetProxy() {
 } && export SetProxy
 
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline"
-for file in /usr/share/fzf/{*,*/*}.bash; do
+for file in $(find $(find /usr/share/ -type d -name 'fzf') -type f -name '*.bash'); do
   _source_if $file
 done
 
@@ -216,8 +216,6 @@ _have bat && alias bat='bat --plain'
 
 alias hexedit='hexedit --color'
 alias vi="$EDITOR"
-alias nvn="$HOME"/.local/nvim-nightly/bin/nvim # nvim nightly
-alias sw=devour
 alias btl=bluetoothctl
 alias nlist='nmcli device wifi list'
 alias nconn='nmcli device wifi connect'
@@ -227,6 +225,13 @@ alias a8='aria2c -x 8'
 alias '?'='ddg'
 alias fm=tfm
 alias ff=fastfetch
+
+# NOTE: nightly nvim version
+export NEOVIM_NIGHTLY_PATH="$HOME/.local/nvim-nightly"
+alias nvn="$NEOVIM_NIGHTLY_PATH/bin/nvim"
+
+# NOTE: dwm st terminal related
+alias sw=devour
 
 # https://superuser.com/questions/758843/difference-between-global-server-session-and-window-options
 alias tmux-autorename="tmux setw -u automatic-rename"  # `-u` will set the option back to global value
