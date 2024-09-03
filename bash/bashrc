@@ -187,7 +187,7 @@ SetProxy() {
 } && export SetProxy
 
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline"
-for file in $(find $(find /usr/share/ -type d -name 'fzf') -type f -name '*.bash'); do
+for file in $(find $(find /usr/share/ -type d -name 'fzf' 2> /dev/null) -type f -name '*.bash' 2> /dev/null); do
   _source_if $file
 done
 
