@@ -8,18 +8,22 @@
   defaultBranch = main
 
 [core]
-  editor = nvim  # using nvim for commit
+  # editor = nvim  # NOTE: using environment variable instead
+  # pager = delta --diff-so-fancy  # NOTE: using environment variable instead
+
   autocrlf = input  # `intput`: do not perform converting CRLF to LF; `true`: ...
   safecrlf = true   # A file with mixed line endings would be reported by the core.safecrlf mechanism.
   eol = lf          # end of line using LF not CRLF
   excludesFile = ~/dots/git/ignore
-  pager = delta --diff-so-fancy  # use `delta` to perform `git diff`
 
 [interactive]
   diffFileter = delta --color-only  # for interactive command such as `git add --patch` shows a colorized diff
 
 [diff]
-  tool = nvimdiff  # Will overrides the merge.tool config, using `nvim` as a diff tool
+  # https://git-scm.com/docs/git-mergetool
+  # Will overrides the merge.tool config, using `nvim` as a diff tool
+  # tool = nvimdiff  # NOTE: using environment variable instead
+
   algorithm = default  # TODO: maybe change it later
   colorMoved = default
 

@@ -31,14 +31,19 @@ export LC_TIME='zh_CN.UTF-8'
 export QT_QPA_PLATFORMTHEME=qt5ct
 
 # NOTE: set default `EDITOR` and `MANPAGER`
+# https://unix.stackexchange.com/questions/4859/visual-vs-editor-what-s-the-difference
 if _have nvim; then
-  export EDITOR=nvim
+  export VISUAL=nvim
+
+  # https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables
+  export GIT_EXTERNAL_DIFF=nvimdiff
 
   # If has nvim installed, using nvim as MAN PAGE VIEWER
   # export MANPAGER="nvim -u NORC +Man!"
   export MANPAGER="nvim +Man!"
 else
-  export EDITOR=vim
+  export VISUAL=vim
+  export GIT_EXTERNAL_DIFF=vimdiff
 
   # LESS MAN PAGE COLORS
   export LESS_TERMCAP_mb=$'\e[1;31m'              # begin blinking
@@ -49,6 +54,12 @@ else
   export LESS_TERMCAP_ue=$'\e[0m'                 # end underline
   export LESS_TERMCAP_us=$'\e[4;38;5;146m'        # begin underline
 fi
+export EDITOR="$VISUAL"
+
+# NOTE: for git
+# https://git-scm.com/docs/git-var#_variables
+export GIT_EDITOR="$VISUAL"
+_have delta && export GIT_PAGER="delta --diff-so-fancy" # NOTE: use `delta` to perform `git diff`
 
 export TERMINAL=st
 export BROWSER=firefox
