@@ -130,15 +130,11 @@ shopt -s histappend
 # disable control-s accidental terminal stops
 stty stop undef
 
-__is_in_ssh() {
-  # pstree -ps $$ | grep --quiet 'sshd(\w*)' && return 0
-  # [[ -n $TMUX ]] && pstree -ps $(tmux display-message -p "#{client_pid}") | grep --quiet 'sshd(\w*)' && return 0
-  # return 1
-
-  # Use this to check if is in a ssh connection or not, and `JSJ_TMUX_SSH_ENABLED` is set in `tj` script file
-  # NOTE: this way if not using `tj`, then it will unable to correctly check in a ssh connection or not
-  test -n "$JSJ_TMUX_SSH_ENABLED"
-}
+# __is_in_ssh() {
+#   pstree -ps $$ | grep --quiet 'sshd(\w*)' && return 0
+#   [[ -n $TMUX ]] && pstree -ps $(tmux display-message -p "#{client_pid}") | grep --quiet 'sshd(\w*)' && return 0
+#   return 1
+# }
 
 __ps1() {
   RESET="\[\e[0m\]"
@@ -177,9 +173,9 @@ __ps1() {
   PS1+="${MAGENTA}\W"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
-  if __is_in_ssh; then
-    PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
-  fi
+  # if __is_in_ssh; then
+  #   PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
+  # fi
   PS1+="${RESET}$ "
 }
 
