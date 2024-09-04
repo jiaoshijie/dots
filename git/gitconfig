@@ -21,9 +21,8 @@
 
 [diff]
   # https://git-scm.com/docs/git-mergetool
-  # Will overrides the merge.tool config, using `nvim` as a diff tool
-  # tool = nvimdiff  # NOTE: using environment variable instead
-
+  # NOTE: https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables  --  this doesn't work anymore
+  tool = nvimdiff  # NOTE: Will overrides the merge.tool config, using `nvim` as a diff tool
   algorithm = default  # TODO: maybe change it later
   colorMoved = default
 
