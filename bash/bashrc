@@ -244,13 +244,18 @@ alias sw=devour
 alias tmux-autorename="tmux setw -u automatic-rename"  # `-u` will set the option back to global value
 # alias tmux-autorename="tmux setw automatic-rename on"
 
-# completion
-# shellcheck source=/dev/null
-# _have pandoc && . <(pandoc --bash-completion)
+if ! shopt -oq posix; then
+  # NOTE: basic bash completion
+  _source_if $(find /usr/share -type f -name 'bash_completion')
 
-# https://gist.github.com/toschneck/2df90c66e0f8d4c6567d69a36bfc5bcd
-_have docker && _source_if "$HOME/.local/share/docker/completion.bash"
-_source_if "$HOME/dots/scripts/completion/gamebackup"
+  # completion
+  # shellcheck source=/dev/null
+  # _have pandoc && . <(pandoc --bash-completion)
+
+  # https://gist.github.com/toschneck/2df90c66e0f8d4c6567d69a36bfc5bcd
+  _have docker && _source_if "$HOME/.local/share/docker/completion.bash"
+  _source_if "$HOME/dots/scripts/completion/gamebackup"
+fi
 
 # NOTE: this file is for the content that don't want to sync
 _source_if "$HOME/.user_custom_bashrc"
