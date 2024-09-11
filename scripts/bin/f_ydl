@@ -9,6 +9,7 @@ export {http,https,all}_proxy="http://127.0.0.1:7890"
 # format1,format2,format3 will download three video of each format
 URL=""
 OP=""
+OUTPUT_NAME=""
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -24,6 +25,10 @@ while [[ $# -gt 0 ]]; do
       OP="s"  # subtitle
       shift
       ;;
+    -o)
+      OUTPUT_NAME="-o '$2'"
+      shift 2
+      ;;
     *)
       URL="$1"
       shift
@@ -35,15 +40,15 @@ test -n "$URL" || { echo "no url to download!!!"; exit -1; };
 
 case "$OP" in
   v)
-    yt-dlp -q --progress --add-metadata -i -f - "$URL"
+    yt-dlp -q --progress --add-metadata -i -f - "$URL" "$OUTPUT_NAME"
     ;;
   a)
-    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL"
+    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL" "$OUTPUT_NAME"
     ;;
   s)
     yt-dlp -q --progress --list-subs "$URL" | grep '^en' ; echo $?
     # NOTE: download the english subtitle
-    echo "yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs --skip-download '$URL' --sub-langs ''"
+    echo "yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs --skip-download '$URL' "$OUTPUT_NAME" --sub-langs ''"
     ;;
   *)
     echo "Not supported operation!!!"
