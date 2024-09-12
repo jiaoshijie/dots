@@ -9,7 +9,7 @@ export {http,https,all}_proxy="http://127.0.0.1:7890"
 # format1,format2,format3 will download three video of each format
 URL=""
 OP=""
-OUTPUT_NAME=""
+OUTPUT_NAME=
 
 while [[ $# -gt 0 ]]; do
   case $1 in
