@@ -8,15 +8,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 # merge in defaults and keymaps
 
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
 
 if [ -f $sysmodmap ]; then
@@ -24,15 +16,7 @@ if [ -f $sysmodmap ]; then
 fi
 
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
 
 if [ -f "$usermodmap" ]; then
@@ -50,13 +34,9 @@ fi
 
 [ -f ~/.xprofile ] && . ~/.xprofile
 
+# TODO: i already forget why i put these code here, maybe someday should figure it out.
 if [[ -f /usr/bin/prime-offload ]]; then
     /usr/bin/prime-offload
 fi
 
-# exec dwm
-dwm
-
-# if [[ -f /usr/bin/prime-switch ]]; then
-#     sudo /usr/bin/prime-switch
-# fi
+exec dwm

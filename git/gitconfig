@@ -13,12 +13,6 @@
   eol = lf          # end of line using LF not CRLF
   excludesFile = ~/dots/git/ignore
 
-  # editor = nvim  # NOTE: using environment variable instead
-  # pager = delta --diff-so-fancy  # NOTE: using environment variable instead
-
-[interactive]      # for interactive command such as `git add --patch` shows a colorized diff
-  diffFilter = delta --color-only # TODO: this is not used often, so if some machines do not install `delta`, just coming to this file and commenting this line is ok, i think
-
 [diff]
   algorithm = default  # TODO: maybe change it later
   colorMoved = default
@@ -53,7 +47,3 @@
   lg = log --graph
   lgo = log --graph --oneline
   co = checkout
-
-# --- NOTE: external program configuration ---
-[delta]
-  navigate = true

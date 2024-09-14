@@ -70,7 +70,6 @@ export EDITOR="$VISUAL"
 # NOTE: for git
 # https://git-scm.com/docs/git-var#_variables
 export GIT_EDITOR="$VISUAL"
-_have delta && export GIT_PAGER="delta --diff-so-fancy" # NOTE: use `delta` to perform `git diff`
 
 export TERMINAL=st
 export BROWSER=firefox
