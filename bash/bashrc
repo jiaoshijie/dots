@@ -7,7 +7,6 @@ esac
 
 _have() { type "$1" &>/dev/null; }
 # _have() { command -v "$1" &>/dev/null; }
-# shellcheck source=/dev/null
 _source_if() { [[ -f "$1" && -r "$1" ]] && source "$1"; }
 
 # https://wiki.archlinux.org/title/XDG_Base_Directory
@@ -146,12 +145,6 @@ shopt -s histappend
 # disable control-s accidental terminal stops
 stty stop undef
 
-# __is_in_ssh() {
-#   pstree -ps $$ | grep --quiet 'sshd(\w*)' && return 0
-#   [[ -n $TMUX ]] && pstree -ps $(tmux display-message -p "#{client_pid}") | grep --quiet 'sshd(\w*)' && return 0
-#   return 1
-# }
-
 __ps1() {
   RESET="\[\e[0m\]"
   GREY="\[\e[1;90m\]"
@@ -189,9 +182,7 @@ __ps1() {
   PS1+="${MAGENTA}\W"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
-  # if __is_in_ssh; then
-  #   PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # for server(display time)
-  # fi
+  # PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # Time
   PS1+="${RESET}$ "
 }
 
@@ -210,9 +201,11 @@ SetProxy() {
 } && export SetProxy
 
 export FZF_DEFAULT_OPTS="--no-mouse --height 50% --reverse --multi --info=inline"
-for file in $(find $(find /usr/share/ -type d -name 'fzf' 2> /dev/null) -type f -name '*.bash' 2> /dev/null); do
-  _source_if $file
-done
+# ArchLinux
+_source_if '/usr/share/fzf/completion.bash'
+_source_if '/usr/share/fzf/key-bindings.bash'
+# Ubuntu
+_source_if '/usr/share/doc/fzf/examples/key-bindings.bash'
 
 # https://linuxhandbook.com/run-alias-as-sudo/
 alias sudo='sudo -E ' # NOTE: The space(' ') at the end of the source command is necessary.
@@ -262,15 +255,14 @@ alias tmux-autorename="tmux setw -u automatic-rename"  # `-u` will set the optio
 # alias tmux-autorename="tmux setw automatic-rename on"
 
 if ! shopt -oq posix; then
-  # NOTE: basic bash completion
-  _source_if $(find /usr/share -type f -name 'bash_completion')
+  # ArchLinux Ubuntu
+  _source_if '/usr/share/bash-completion/bash_completion'
 
-  # completion
-  # shellcheck source=/dev/null
   # _have pandoc && . <(pandoc --bash-completion)
 
   # https://gist.github.com/toschneck/2df90c66e0f8d4c6567d69a36bfc5bcd
   _have docker && _source_if "$HOME/.local/share/docker/completion.bash"
+
   _source_if "$HOME/dots/scripts/completion/gamebackup"
 fi
 

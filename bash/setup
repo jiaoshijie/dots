@@ -7,3 +7,4 @@ path=$(cd $(dirname "$0") && pwd)
 ln -sf "$path/bash_profile" "$HOME/.bash_profile"
 ln -sf "$path/bash_profile" "$HOME/.profile"
 ln -sf "$path/bashrc" "$HOME/.bashrc"
+touch "$HOME/.user_custom_bashrc"
