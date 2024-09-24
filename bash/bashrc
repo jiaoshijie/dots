@@ -228,11 +228,9 @@ fi
 alias ldf='duf --only local'
 alias clear='printf "\e[H\e[2J"'
 alias c='printf "\e[H\e[2J"'
-_have bat && alias bat='bat --plain'
 
 alias hexedit='hexedit --color'
 alias vi="$EDITOR"
-alias btl=bluetoothctl
 alias nlist='nmcli device wifi list'
 alias nconn='nmcli device wifi connect'
 alias pc='env | grep -E "^(http|https|all)_proxy"'
@@ -254,15 +252,12 @@ alias tmux-autorename="tmux setw -u automatic-rename"  # `-u` will set the optio
 # alias tmux-autorename="tmux setw automatic-rename on"
 
 if ! shopt -oq posix; then
-  # ArchLinux Ubuntu
+  # ArchLinux,Ubuntu
   _source_if '/usr/share/bash-completion/bash_completion'
 
   # _have pandoc && . <(pandoc --bash-completion)
 
-  # https://gist.github.com/toschneck/2df90c66e0f8d4c6567d69a36bfc5bcd
-  _have docker && _source_if "$HOME/.local/share/docker/completion.bash"
-
-  _source_if "$HOME/dots/scripts/completion/gamebackup"
+  # _source_if "$HOME/dots/scripts/completion/gamebackup"
 fi
 
 # NOTE: this file is for the content that don't want to sync
