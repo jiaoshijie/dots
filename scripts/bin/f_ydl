@@ -14,19 +14,19 @@ OUTPUT_NAME=
 while [[ $# -gt 0 ]]; do
   case $1 in
     -v)
-      OP="v"
+      OP="video"
       shift
       ;;
     -a)
-      OP="a"
+      OP="audio"
       shift
       ;;
     -s)
-      OP="s"  # subtitle
+      OP="subtitle"  # subtitle
       shift
       ;;
     -o)
-      OUTPUT_NAME="-o $2"
+      OUTPUT_NAME="-o '$2'"
       shift 2
       ;;
     *)
@@ -38,17 +38,19 @@ done
 
 test -n "$URL" || { echo "no url to download!!!"; exit -1; };
 
+test -z "$OP" && OP=$(echo -e "video\naudio\nsubtitle" | fzf)
+
 case "$OP" in
-  v)
-    yt-dlp -q --progress --add-metadata -i -f - "$URL" "$OUTPUT_NAME"
+  video)
+    yt-dlp -q --progress --add-metadata -i -f - "$URL" $OUTPUT_NAME
     ;;
-  a)
-    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL" "$OUTPUT_NAME"
+  audio)
+    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL" $OUTPUT_NAME
     ;;
-  s)
+  subtitle)
     yt-dlp -q --progress --list-subs "$URL" | grep '^en' ; echo $?
     # NOTE: download the english subtitle
-    echo "yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs --skip-download '$URL' "$OUTPUT_NAME" --sub-langs ''"
+    echo "yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs --skip-download '$URL' $OUTPUT_NAME --sub-langs ''"
     ;;
   *)
     echo "Not supported operation!!!"
