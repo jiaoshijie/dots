@@ -1,8 +1,4 @@
-# My ArchLinux config
-
-## hints
-
-- `exec bash -l` reload bash
+# My Linux config
 
 ## ref
 

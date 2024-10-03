@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -xe
+
+rm -rf "$HOME/.vimrc"
+rm -rf "$HOME/.vim/statusline.vim"
+rm -rf "$HOME/.vim/colors"
+rmdir --ignore-fail-on-non-empty "$HOME/.vim"

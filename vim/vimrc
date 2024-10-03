@@ -1,0 +1,299 @@
+" Recommanded Plugins:
+"   vim-fugitive: https://github.com/tpope/vim-fugitive.git
+"   vim-surround: https://github.com/tpope/vim-surround.git
+"   vim-repeat: https://github.com/tpope/vim-repeat.git
+"   tabular: https://github.com/godlygeek/tabular.git
+
+set nocompatible  " no vi compatible
+
+set modelines=0
+set nomodeline
+
+let mapleader=' '
+let maplocalleader=','
+
+inoremap <C-j> <C-[>
+noremap <C-j> <C-[>
+" do nothing(normal visual select operator-wait)
+noremap s <Nop>
+noremap S <Nop>
+nnoremap <Space> <Nop>
+nnoremap <leader><leader> <C-^>
+nnoremap <silent> <C-l> :nohl<cr><C-l>
+nnoremap <leader>/ /\<\><left><left>
+nnoremap <silent> Q q:
+nnoremap Y y$
+nnoremap <silent> <leader>ps :setlocal spell! spelllang=en_us<CR>
+tnoremap <Esc> <c-\><c-n>
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+command! SudoWrite execute 'write !sudo tee % >/dev/null' <bar> edit!
+
+" https://www.statox.fr/posts/2020/07/vim_flash_yanked_text/
+" https://github.com/markonm/hlyank.vim
+function! JSJ_HLyankedtext()
+  if v:event.operator isnot 'y'
+    return
+  endif
+  if v:event.visual == v:true
+    let l:pattern = '\v%\V'
+  else
+    let l:pos = [line("'["), col("'["), line("']"), col("']")]
+    if l:pos[0] == l:pos[2]
+      let l:pattern = printf('\v%%%dl%%%dc\_.{%d}', l:pos[0], l:pos[1], strchars(v:event.regcontents[0]))
+    else
+      let l:pattern = printf('\v%%%dl%%%dc\_.{-}%%%dl%%%dc.=', l:pos[0], l:pos[1], l:pos[2], l:pos[3])
+    endif
+  endif
+  let l:winid = win_getid()
+  let l:id = matchadd('IncSearch', l:pattern, 11)
+  call timer_start(300, {-> matchdelete(l:id, l:winid)})
+endfunction
+
+augroup JSJ_misc_autogroup
+  autocmd!
+  " recover_last_cursor_positon
+  autocmd BufReadPost * if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+  autocmd TextYankPost * call JSJ_HLyankedtext()
+  " autocmd FileType netrw setlocal bufhidden=delete
+augroup END
+
+filetype plugin indent on
+syntax on
+
+" Disable all other language support for plugins
+let g:loaded_python_provider=0
+let g:loaded_perl_provider=0
+let g:loaded_node_provider=0
+let g:loaded_ruby_provider=0
+let g:loaded_python3_provider=0
+
+" NOTE: netrw
+let g:netrw_banner       = 0  " disable annoying banner
+let g:netrw_browse_split = 0  " open in prior window
+let g:netrw_altv         = 1  " open splits to the right
+let g:netrw_alto         = 0
+let g:netrw_liststyle    = 0  " tree view
+let g:netrw_winsize      = 25
+let g:netrw_preview      = 1
+let g:netrw_localrmdir   = 'rm -r'
+let g:netrw_localcopycmd = 'cp -r'
+let g:netrw_keepdir      = 1
+let g:netrw_hide         = 1
+let g:netrw_list_hide    = '\(^\|\s\s\)\zs\.\S\+'
+
+" useful functions
+function! s:warn(message)
+  echohl WarningMsg
+  echom a:message
+  echohl NONE
+  return 0
+endfunction
+
+function! s:error(message)
+  echohl ErrorMsg
+  echom a:message
+  echohl NONE
+  return 0
+endfunction
+
+" misc
+set mouse=nvi
+set bs=indent,eol,start  " control the behavior of <BS> <CTRL-H> <CTRL-W> <CTRL-U>
+set nowrap
+set diffopt=vertical,filler,context:3,foldcolumn:1,internal,algorithm:histogram,indent-heuristic
+set clipboard=
+set nrformats= " For <C-a> and <C-x>
+set hidden     " allow to switch buffer even the current buffer is unsaved
+set confirm    " friendly quit for when quitting the buffer is not saved
+set showcmd    " show the normal mode key sequence in cmd
+set timeout    " TODO
+set ttimeout
+set ttimeoutlen=50  " if not set <ESC> will wait timeoutlen time
+set path+=**  " expand the search dir for `gf` `:find` etc
+set lazyredraw  " when execute macros, only draw the window when the macro has been finished
+set fo-=t
+set fo-=c
+set shortmess-=S
+set shortmess+=c
+set cursorline
+set colorcolumn=79
+set scrolloff=6
+set laststatus=2
+set splitright
+set splitbelow
+
+" NOTE: indent
+set autoindent
+set smartindent
+set shiftwidth=4  " set the indent width
+set tabstop=4     " A single <tab> character '\t' should take how many normal character length
+set expandtab     " When press <tab> instert space instead
+set softtabstop=4 " When expandtab is on, how many space a tab should represent
+set smarttab      " When on, a <tab> press in the begin of the line is base on `shiftwidth`, not `tabstop` or `softtabstop`
+set shiftround    " for `<<` and `>>` in normal mode
+
+" NOTE: search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+" NOTE: completion
+set completeopt=menuone,noselect
+" For more details ":h ins-completion", ":h 'complete'"
+set dictionary=/usr/share/dict/words
+set complete=.,w,b
+set pumheight=15
+set wildmenu  " for cmd mode completion
+if v:version >= 900   " if support using the popup window for cmd completion
+  set wildoptions=pum
+endif
+set wildignore+=*.o
+set wildignore+=*.a
+set wildignore+=*.so
+
+" NOTE: quicklist
+set switchbuf=uselast
+
+" NOTE: only use undofile
+set nobackup
+set noswapfile
+silent! call mkdir(expand('/tmp/jsj_vim_u/undodir'), 'p', 0700)
+set undodir=/tmp/jsj_vim_u/undodir//
+set undofile
+
+" NOTE: ui
+set list
+set listchars=trail:·,tab:»\ ,extends:…,precedes:…
+set t_8f=[38;2;%lu;%lu;%lum        " set foreground color
+set t_8b=[48;2;%lu;%lu;%lum        " set background color
+set termguicolors
+let &t_SI.="\e[5 q" "SI(start insert)
+let &t_SR.="\e[4 q" "SR(start replace)
+let &t_EI.="\e[1 q" "EI(end insert/replace)
+
+let s:jsj_change_theme_alpha = 0
+let s:jsj_normalbg = "NONE"
+
+function! s:keep_theme_alpha()
+  let s:jsj_normalbg = synIDattr(hlID('Normal'), "bg", "gui")
+  if s:jsj_change_theme_alpha == 1 && !has('gui_running')
+    highlight Normal guibg=NONE ctermbg=NONE
+  endif
+endfunction
+
+function! JSJ_changethemealpha()
+  if has('gui_running')
+    call s:warn("Gvim is not supported")
+    return
+  endif
+  if s:jsj_change_theme_alpha == 0
+    let s:jsj_change_theme_alpha = 1
+    let s:jsj_normalbg = synIDattr(hlID('Normal'), "bg", "gui")
+    highlight Normal guibg=NONE ctermbg=NONE
+  else
+    let s:jsj_change_theme_alpha = 0
+    execute "highlight Normal guibg=" s:jsj_normalbg
+  endif
+  hi! link SignColumn LineNr
+endfunction
+
+augroup JSJ_colorscheme_autogroup
+  autocmd!
+  autocmd ColorScheme * runtime! statusline.vim
+  autocmd ColorScheme * call s:keep_theme_alpha()
+augroup END
+
+colorscheme gruvbox
+set background=dark
+nnoremap <silent> <leader>tt :call JSJ_changethemealpha()<CR>
+
+
+" NOTE: fzf (Fuzzy Finder)
+if isdirectory('/usr/share/vim/vimfiles')  " arch linux
+  set rtp+=/usr/share/vim/vimfiles
+endif
+if isdirectory('/usr/share/doc/fzf/examples/')  " ubuntu linux
+  set rtp+=/usr/share/doc/fzf/examples/
+endif
+
+function! s:get_git_root()
+  let l:root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+  return v:shell_error ? '' : l:root
+endfunction
+
+function! JSJ_gitfiles(args)
+  if exists('g:loaded_fzf')
+    let l:root = s:get_git_root()
+    if empty(l:root)
+        return s:error('Not in git repo!!!')
+    else
+        let l:source = 'git ls-files --others --exclude-standard --cached' . a:args . ' | uniq'
+        let l:prompt = '"GitFiles> "'
+    endif
+
+    return fzf#run(fzf#wrap('gfiles', {
+    \ 'source':  l:source,
+    \ 'dir':     l:root,
+    \ 'options': '-m --prompt ' . l:prompt
+    \}, 0))
+  else
+    return s:error("`fzf` is not installed!!!")
+  endif
+endfunction
+nnoremap <silent> <C-p> :call JSJ_gitfiles('')<cr>
+
+function! JSJ_clearSE()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//ge
+    %s/\(\n\)\+\%$//ge
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <leader>fc :call JSJ_clearSE()<cr>
+
+function! JSJ_togglelist(listname, perfix)
+  if empty(filter(getwininfo(), 'v:val.' . a:listname))
+    try
+      execute a:perfix . 'open'
+    catch /E776/
+      return utils#error("Location List is Empty.")
+    endtry
+  else
+    execute a:perfix . 'close'
+  endif
+endfunction
+nnoremap <silent> <leader>qq :call JSJ_togglelist('quickfix', 'c')<cr>
+nnoremap <silent> <leader>ql :call JSJ_togglelist('loclist', 'l')<cr>
+
+
+" https://www.oasys.net/posts/writing-a-vim-syntax-plugin/
+function! JSJ_checkHLgroup()
+  let l:synid = synID(line('.'), col('.'), 1)
+  let l:synname = [ synIDattr(l:synid, 'name') ]
+  while 1
+    let l:synid = synIDtrans(l:synid)
+    let l:temp = synIDattr(l:synid, 'name')
+    if synname[-1] ==# l:temp
+      break
+    endif
+    let l:synname = add(l:synname, l:temp)
+  endwhile
+  echo l:synname
+endfunction
+command! -nargs=0 CheckHLGroupUnderCursor call JSJ_checkHLgroup()
+
+" copy register 0 content to system clipboard for X11 if doesn't have clipboard support
+function! JSJ_write2clipboard()
+  if executable('xsel')
+    let l:command = "xsel -ib"
+  elseif executable('xclip')
+    let l:command = "xclip"
+  else
+    call s:error("no X11 clipboard program(xsel or xclip) available!!!")
+    return
+  endif
+  call system(l:command, @0)
+endfunction
+command! -nargs=0 Write2clipboard call JSJ_write2clipboard()
