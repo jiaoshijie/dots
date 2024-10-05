@@ -3,7 +3,7 @@ ifinstalled "maim" || exit
 # This is bound to Shift+PrintScreen by default, requires maim. It lets you
 # choose the kind of screenshot to take, including copying the image or even
 # highlighting an area to copy. scrotcucks on suicidewatch right now.
-imagepath=~/Downloads/Screenshot
+imagepath=~/Screenshot
 name_time="$(date '+%y%m%d-%H%M-%S')"
 case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | dmenu -l 7 -i -p "Screenshot which area?")" in
   "a selected area") maim -s "${imagepath}/pic-selected-${name_time}.png" && notify-send -u low "截取区域成功" "saved in ${imagepath}/pic-selected-${name_time}.png" ;;

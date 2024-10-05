@@ -3,7 +3,7 @@
 ifinstalled "jq" || exit
 
 
-BookMarkPath="$HOME/Downloads/GDrive/others/bookmarks.json"
+BookMarkPath="$HOME/GDrive/others/bookmarks.json"
 
 if [[ -z "$DISPLAY" ]]; then
   ifinstalled "fzf" || exit

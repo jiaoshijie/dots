@@ -1,8 +1,8 @@
 <config>
  <paths>
-  <path recursive="0">/home/jsj/Downloads/Resources/english_dict/00_Webster_pronunciation</path>
-  <path recursive="0">/home/jsj/Downloads/Resources/english_dict/01_Longman_5th</path>
-  <path recursive="0">/home/jsj/Downloads/Resources/english_dict/02_Chinese_English</path>
+  <path recursive="0">/home/jsj/Resources/english_dict/00_Webster_pronunciation</path>
+  <path recursive="0">/home/jsj/Resources/english_dict/01_Longman_5th</path>
+  <path recursive="0">/home/jsj/Resources/english_dict/02_Chinese_English</path>
  </paths>
  <sounddirs/>
  <dictionaryOrder id="0" name="">

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 ifinstalled "glow" | exit
 
-glow -p ~/Downloads/GDrive/todo.md
+glow -p ~/GDrive/todo.md

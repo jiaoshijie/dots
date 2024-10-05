@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-APPRUN_DIR=$HOME/Downloads/AppRun
+APPRUN_DIR=$HOME/AppRun
 
 if [[ "$1" == "-l" ]]; then
   find "$APPRUN_DIR/" -type f -exec basename {} .AppImage \;

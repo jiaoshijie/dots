@@ -21,7 +21,7 @@ change_background() {
 regularly_change_background() {
   Index=(1 1 1 1 1 1 2 2 3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16)
   while true; do
-    change_background "$HOME/Downloads/wallpaper/01_Mojave/mojave_dynamic_${Index[$(date '+%_H')]}.jpeg"
+    change_background "$HOME/wallpaper/01_Mojave/mojave_dynamic_${Index[$(date '+%_H')]}.jpeg"
     (( wa=60-$(date '+%_M') ))
     sleep $wa"m"
   done
@@ -43,7 +43,7 @@ main() {
     fi
   else
     # random choose a image sets as wallpaper
-    img_dir=$HOME/Downloads/wallpaper/02_wallpapers
+    img_dir=$HOME/wallpaper/02_wallpapers
     # https://unix.stackexchange.com/questions/15308/how-to-use-find-command-to-search-for-multiple-extensions#15309
     img=$(find "$img_dir" -type f \( -name '*.jpg' -o -name '*.png' \) | shuf | tail -n 1)
     change_background "$img"

@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+pipewire &
+
 # Fix Gnome Apps Slow Start due to failing services
 # Add this when you include "flatpak" in your system
 # dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
@@ -8,7 +10,6 @@
 # xautolock -time 30 -locker slock &
 
 xcompmgr &
-# LANG=zh_CN.UTF-8 activate-linux &
 
 set-bg "$HOME/.config/red_wallpaper" &
 # set-bg &
@@ -19,6 +20,7 @@ unclutter &
 cbatticon &  # battery
 gpaste-client start &
 fcitx5 &
+
 # blueman-applet &  # for bluetooth
 
 remaps &

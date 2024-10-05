@@ -14,6 +14,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_RUNTIME_DIR="/tmp/user_$(id -u)_XDG_RUNTIME_DIR"
+[ -d "$XDG_RUNTIME_DIR" ] || mkdir -m 0700 "$XDG_RUNTIME_DIR"
 
 # fcitx5
 export XMODIFIERS=@im=fcitx
@@ -45,14 +47,18 @@ fi
 # qt theme
 export QT_QPA_PLATFORMTHEME=qt5ct
 
+# NEOVIM PATH
+export JSJ_NEOVIM_PATH="$HOME/.local/nvim"
+export JSJ_NEOVIM_BIN="$HOME/.local/nvim/bin/nvim"
+
 # NOTE: set default `EDITOR` and `MANPAGER`
 # https://unix.stackexchange.com/questions/4859/visual-vs-editor-what-s-the-difference
-if _have nvim; then
-  export VISUAL=nvim
+if _have "$JSJ_NEOVIM_BIN"; then
+  export VISUAL="$JSJ_NEOVIM_BIN"
 
   # If has nvim installed, using nvim as MAN PAGE VIEWER
   # export MANPAGER="nvim -u NORC +Man!"
-  export MANPAGER="nvim +Man!"
+  export MANPAGER="$JSJ_NEOVIM_BIN +Man!"
 else
   export VISUAL=vim
 
@@ -241,8 +247,8 @@ alias fm=tfm
 alias ff=fastfetch
 
 # NOTE: nightly nvim version
-export NEOVIM_NIGHTLY_PATH="$HOME/.local/nvim-nightly"
-alias nvn="$NEOVIM_NIGHTLY_PATH/bin/nvim"
+export JSJ_NEOVIM_NIGHTLY_PATH="$HOME/.local/nvim-nightly"
+alias nvn="$JSJ_NEOVIM_NIGHTLY_PATH/bin/nvim"
 
 # NOTE: dwm st terminal related
 alias sw=devour

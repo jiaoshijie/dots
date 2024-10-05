@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 source_dir=""
-backup_dir="$HOME/Downloads/Resources/games_backup/"
+backup_dir="$HOME/Resources/games_backup/"
 
 games=("eldenring" "hollowknight" "breathofthewild" "oriandtheblindforestde" "oriandthewillofthewisps" "terraria" "thewitcher3", "celeste", "cuphead", "volcanoprincess")
 operations=("init" "backup" "recovery" "recount" "number" "recover_temp" "delete")
@@ -9,17 +9,17 @@ operations=("init" "backup" "recovery" "recount" "number" "recover_temp" "delete
 main() {
   [[ "$#" -ne 2 ]] && { help; exit 0; }
   case "$1" in
-    ER | eldenring) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/1245620/pfx/drive_c/users/steamuser/AppData/Roaming/EldenRing"; backup_dir="$backup_dir/eldenring/" ;;
+    ER | eldenring) source_dir="$HOME/SteamLibrary/steamapps/compatdata/1245620/pfx/drive_c/users/steamuser/AppData/Roaming/EldenRing"; backup_dir="$backup_dir/eldenring/" ;;
     HK | hollowknight) source_dir="$HOME/.config/unity3d/Team Cherry/Hollow Knight"; backup_dir="$backup_dir/hollowknight/" ;;
-    BOTW | breathofthewild) source_dir="$HOME/Downloads/cemu/mlc01/usr/save/00050000/101c9300"; backup_dir="$backup_dir/breathofthewild/" ;;
-    ORI1 | oriandtheblindforestde) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/387290/pfx/drive_c/users/steamuser/AppData/Local/Ori and the Blind Forest DE"; backup_dir="$backup_dir/oriandtheblindforestde" ;;
-    ORI2 | oriandthewillofthewisps) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/1057090/pfx/drive_c/users/steamuser/AppData/Local/Ori and the Will of The Wisps"; backup_dir="$backup_dir/oriandthewillofthewisps" ;;
+    BOTW | breathofthewild) source_dir="$HOME/cemu/mlc01/usr/save/00050000/101c9300"; backup_dir="$backup_dir/breathofthewild/" ;;
+    ORI1 | oriandtheblindforestde) source_dir="$HOME/SteamLibrary/steamapps/compatdata/387290/pfx/drive_c/users/steamuser/AppData/Local/Ori and the Blind Forest DE"; backup_dir="$backup_dir/oriandtheblindforestde" ;;
+    ORI2 | oriandthewillofthewisps) source_dir="$HOME/SteamLibrary/steamapps/compatdata/1057090/pfx/drive_c/users/steamuser/AppData/Local/Ori and the Will of The Wisps"; backup_dir="$backup_dir/oriandthewillofthewisps" ;;
     terraria) source_dir="$HOME/.local/share/Terraria"; backup_dir="$backup_dir/terraria" ;;
-    # terraria) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/105600/pfx/drive_c/users/steamuser/Documents/My Games/Terraria"; backup_dir="$backup_dir/terraria" ;;
-    thewitcher3) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/292030/pfx/drive_c/users/steamuser/Documents/The Witcher 3"; backup_dir="$backup_dir/thewitcher3" ;;
+    # terraria) source_dir="$HOME/SteamLibrary/steamapps/compatdata/105600/pfx/drive_c/users/steamuser/Documents/My Games/Terraria"; backup_dir="$backup_dir/terraria" ;;
+    thewitcher3) source_dir="$HOME/SteamLibrary/steamapps/compatdata/292030/pfx/drive_c/users/steamuser/Documents/The Witcher 3"; backup_dir="$backup_dir/thewitcher3" ;;
     celeste) source_dir="$HOME/.local/share/Celeste"; backup_dir="$backup_dir/celeste" ;;
-    cuphead) source_dir="$HOME/Downloads/SteamLibrary/steamapps/compatdata/268910/pfx/drive_c/users/steamuser/AppData/Roaming/Cuphead"; backup_dir="$backup_dir/cuphead" ;;
-    VP | volcanoprincess) source_dir="/home/jsj/Downloads/SteamLibrary/steamapps/compatdata/1669980/pfx/drive_c/users/steamuser/AppData/LocalLow/EggHatcher/VolcanoPrincess"; backup_dir="$backup_dir/volcanoprincess" ;;
+    cuphead) source_dir="$HOME/SteamLibrary/steamapps/compatdata/268910/pfx/drive_c/users/steamuser/AppData/Roaming/Cuphead"; backup_dir="$backup_dir/cuphead" ;;
+    VP | volcanoprincess) source_dir="/home/jsj/SteamLibrary/steamapps/compatdata/1669980/pfx/drive_c/users/steamuser/AppData/LocalLow/EggHatcher/VolcanoPrincess"; backup_dir="$backup_dir/volcanoprincess" ;;
     *) help; exit 1 ;;
   esac
 
