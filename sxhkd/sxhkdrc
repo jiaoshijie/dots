@@ -18,16 +18,8 @@ super + c
   $BROWSER
 super + shift + c
   chromium
-super + z
-  gcolor3
-super + shift + p
- slock
 super + m
   open_dict
-super + u
-  passuser
-super + p
-  passmenu
 super + shift + s
   flameshot gui
 Print
@@ -36,8 +28,6 @@ shift + Print
   maimpick
 super + v
   gpaste-client ui
-super + g
-  fs
 
 # media control
 XF86AudioLowerVolume
