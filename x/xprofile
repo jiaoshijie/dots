@@ -1,5 +1,22 @@
 #!/usr/bin/bash
 
+# https://mywiki.wooledge.org/DotFiles
+
+# fcitx5
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export INPUT_METHOD=fcitx
+export SDL_IM_MODULE=fcitx
+export GLFW_IM_MODULE=ibus
+
+# qt theme
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+export TERMINAL=st
+export BROWSER=firefox
+export SUDO_ASKPASS="$HOME/dots/scripts/rofi_askpass"
+
 pipewire &
 
 # Fix Gnome Apps Slow Start due to failing services
@@ -11,8 +28,8 @@ pipewire &
 
 xcompmgr &
 
-set-bg "$HOME/.config/red_wallpaper" &
-# set-bg &
+# set-bg "$HOME/.config/red_wallpaper" &
+set-bg &
 
 sxhkd &
 dunst &

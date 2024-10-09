@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 case $- in
 *i*) ;;  # interactive
 *) return ;;
@@ -8,44 +6,6 @@ esac
 _have() { type "$1" &>/dev/null; }
 # _have() { command -v "$1" &>/dev/null; }
 _source_if() { [[ -f "$1" && -r "$1" ]] && source "$1"; }
-
-# https://wiki.archlinux.org/title/XDG_Base_Directory
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_RUNTIME_DIR="/tmp/user_$(id -u)_XDG_RUNTIME_DIR"
-[ -d "$XDG_RUNTIME_DIR" ] || mkdir -m 0700 "$XDG_RUNTIME_DIR"
-
-# fcitx5
-export XMODIFIERS=@im=fcitx
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export INPUT_METHOD=fcitx
-export SDL_IM_MODULE=fcitx
-export GLFW_IM_MODULE=ibus
-
-# https://jiaoshijie.github.io/posts/archlinux_installation/#8-%E5%AE%89%E8%A3%85%E5%AD%97%E4%BD%93%E5%92%8C%E8%BE%93%E5%85%A5%E6%B3%95
-export LC_CTYPE='en_US.UTF-8'
-export LC_NUMERIC='en_US.UTF-8'
-export LC_COLLATE='en_US.UTF-8'
-export LC_MONETARY='en_US.UTF-8'
-export LC_MESSAGES='en_US.UTF-8'
-export LC_PAPER='en_US.UTF-8'
-export LC_NAME='en_US.UTF-8'
-export LC_ADDRESS='en_US.UTF-8'
-export LC_TELEPHONE='en_US.UTF-8'
-export LC_MEASUREMENT='en_US.UTF-8'
-export LC_IDENTIFICATION='en_US.UTF-8'
-# time zone
-if locale -a | grep -qiw 'zh_CN.utf-*8'; then
-  export LC_TIME='zh_CN.UTF-8'
-else
-  export LC_TIME='en_US.UTF-8'
-fi
-
-# qt theme
-export QT_QPA_PLATFORMTHEME=qt5ct
 
 # NEOVIM PATH
 export JSJ_NEOVIM_PATH="$HOME/.local/nvim"
@@ -76,10 +36,6 @@ export EDITOR="$VISUAL"
 # NOTE: for git
 # https://git-scm.com/docs/git-var#_variables
 export GIT_EDITOR="$VISUAL"
-
-export TERMINAL=st
-export BROWSER=firefox
-export SUDO_ASKPASS="$HOME/dots/scripts/rofi_askpass"
 
 # for 'go`
 export GOPATH="$HOME/.local/share/go"
@@ -250,9 +206,6 @@ alias ff=fastfetch
 export JSJ_NEOVIM_NIGHTLY_PATH="$HOME/.local/nvim-nightly"
 alias nvn="$JSJ_NEOVIM_NIGHTLY_PATH/bin/nvim"
 
-# NOTE: dwm st terminal related
-alias sw=devour
-
 # https://superuser.com/questions/758843/difference-between-global-server-session-and-window-options
 alias tmux-autorename="tmux setw -u automatic-rename"  # `-u` will set the option back to global value
 # alias tmux-autorename="tmux setw automatic-rename on"
@@ -262,8 +215,6 @@ if ! shopt -oq posix; then
   _source_if '/usr/share/bash-completion/bash_completion'
 
   # _have pandoc && . <(pandoc --bash-completion)
-
-  # _source_if "$HOME/dots/scripts/completion/gamebackup"
 fi
 
 # NOTE: this file is for the content that don't want to sync
