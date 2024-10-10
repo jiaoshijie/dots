@@ -1,27 +1,57 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
-# GITHUB_HEADER="https://github.com/"
-GITHUB_HEADER="git@github.com:"
+set -e
 
-ClashConf=$HOME/.config/mihomo/
-UiFileDownload="git clone -b gh-pages "${GITHUB_HEADER}"MetaCubeX/metacubexd.git $ClashConf/dashboard"
+ClashConf=$HOME/.config/mihomo
 
 red=$'\e[31m'
 cyan=$'\e[36m'
 x=$'\e[0m'
 
-main() {
-  install_external_ui
+GITHUB_HEADER="https://github.com/"
+URL=
+FILE_NAME=
+IP_PORT=
 
-  case "$1" in
-    h) help ;;
-    l) check_config ;;
-    r) reload ;;
-    m) move_config "$2" "$3" ;;
-    *) download_config "$1" "$2" "$3" ;;
-  esac
+main() {
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            --ssh)
+                GITHUB_HEADER="git@github.com:"
+                shift
+                ;;
+            -u|--url)
+                [ -n "$2" ] || { echo "${red}ERROR${x}: -u URL"; exit 1; }
+                URL="$2"
+                shift 2
+                ;;
+            -f)
+                [ -n "$2" ] || { echo "${red}ERROR${x}: -f FILE_NAME"; exit 1; }
+                FILE_NAME="$2"
+                shift 2
+                ;;
+            -s)
+                [ -n "$2" ] || { echo "${red}ERROR${x}: -f IP:PORT"; exit 1; }
+                IP_PORT="$2"
+                shift 2
+                ;;
+            -r)
+                reload
+                exit 0
+                ;;
+            -l)
+                check_config
+                exit 0
+                ;;
+            -h|--help|*)
+                help
+                exit 0
+                ;;
+        esac
+    done
 }
 
+UiFileDownload="git clone -b gh-pages "${GITHUB_HEADER}"MetaCubeX/metacubexd.git $ClashConf/dashboard"
 
 install_external_ui() {
   if [[ ! -d "${ClashConf}/dashboard" ]]; then
@@ -31,72 +61,70 @@ install_external_ui() {
 }
 
 help() {
-  echo -e "Usage:"
-  echo -e "\t"$(basename $0) "h"
-  echo -e "\t"$(basename $0) "l"
-  echo -e "\t"$(basename $0) "r"
-  echo -e "\t"$(basename $0) "m {src} {dst}"
-  echo -e "\t"$(basename $0) "{url} {ofilename:nodes_config} {external_ui_ip:127.0.0.1:9090}"
+cat << EOF
+Usage:
+    $(basename $0) [-h|--help] [--ssh] [-u|--url URL] [-f FILENAME] \
+[-s ip:port(external ui)] [-r] [-l]
+EOF
 }
 
 check_config() {
-  ls --color=always -l "${ClashConf}/config.yaml"
-}
-
-reload() {
-  selected=$(find "$ClashConf" -type f \( -name '*.yml' -or -name '*.yaml' \) | fzf)
-  if [[ -z "$selected" ]]; then
-    echo "INFO: No file selected, then do nothing!!!"
-    exit 1;
-  fi
-  ln -sf "$selected" "${ClashConf}/config.yaml"
-  check_config # NOTE: local
-  restart # NOTE: local
-}
-
-move_config() {
-  if [[ -z "$1" ]] || [[ -z "$2" ]]; then
-    echo $(basename $0) "m ${red}src dst${x}"
-    exit 1;
-  fi
-  mv "$1" "${ClashConf}$2"
+  ls --color=always -lh "${ClashConf}/config.yaml"
 }
 
 download_config() {
-  url=${1:-"https://bulink.me/sub/psjet/cl"}
-  name=${2:-"nodes_config"}
-  external_ui_ip=${3:-"127.0.0.1:9090"}
-  ext=".yaml"
+    [ -n "$URL" ] || { echo -e "${red}ERROR${x}: ${cyan}URL${x} is needed"; help; exit 1; }
+    [ -n "$FILE_NAME" ] || { echo -e "${red}ERROR${x}: ${cyan}FILE_NAME${x} is needed"; help; exit 1; }
+    EXTERNAL_UI_IP=${IP_PORT:-"127.0.0.1:9090"}
 
-  temp_filepath="$ClashConf/${name}_new${ext}"
+    install_external_ui
 
-  wget -q "$url" -O "$temp_filepath"
+    temp_filepath="$ClashConf/${FILE_NAME}_new.yaml"
 
-  if ! grep -q '^external-ui:' "$temp_filepath"; then
-    sed -i -e "s@\(^external-controller:\).*@\1 $external_ui_ip\nexternal-ui: $ClashConf/dashboard@g" "$temp_filepath"
-  fi
+    wget -q "$URL" -O "$temp_filepath" || { echo "${red}ERROR${x}: wget failed"; exit 1; }
 
-  if ! clash-meta -t -f "$temp_filepath" > /dev/null 2>&1; then
-    rm "$temp_filepath"
-    printf "%sERROR: The new config file has an error, then do nothing.%s\n" "$red" "$x"
-    exit
-  fi
+    if ! grep -q '^external-ui:' "$temp_filepath"; then
+        sed -i -e "s@\(^external-controller:\).*@\1 $EXTERNAL_UI_IP\nexternal-ui: $ClashConf/dashboard@g" "$temp_filepath"
+    fi
 
-  mv -f "$temp_filepath" "${ClashConf}/${name}${ext}"
-  ln -sf "${ClashConf}/${name}${ext}" "${ClashConf}/config.yaml"
+    if ! clash-meta -t -f "$temp_filepath" > /dev/null 2>&1; then
+        rm "$temp_filepath"
+        printf "%sERROR: The new config file has an error, then do nothing.%s\n" "$red" "$x"
+        exit 1
+    fi
 
-  restart # NOTE: local
+    mv -f "$temp_filepath" "${ClashConf}/${FILE_NAME}.yaml"
+    ln -sf "${ClashConf}/${FILE_NAME}.yaml" "${ClashConf}/config.yaml"
+
+    restart
+}
+
+reload() {
+    selected=$(find "$ClashConf" -type f \( -name '*.yml' -or -name '*.yaml' \) | fzf)
+    if [[ -z "$selected" ]]; then
+        echo "INFO: No file selected, then do nothing!!!"
+        exit 1;
+    fi
+    ln -sf "$selected" "${ClashConf}/config.yaml"
+    check_config # NOTE: local
+
+    restart # NOTE: local
 }
 
 restart() {
-  if systemctl --user list-unit-files clash-meta.service > /dev/null; then
-    systemctl --user restart clash-meta.service
-    systemctl --user status clash-meta.service
-  else
-    echo "Proxy file update succeeded!!!"
-  fi
+    if type systemctl &> /dev/null; then
+        if systemctl --user list-unit-files clash-meta.service > /dev/null; then
+            systemctl --user restart clash-meta.service
+            systemctl --user status clash-meta.service
+        else
+            echo "INFO: no clash-meta.service found then do nothing"
+        fi
+    else
+        echo "INFO: No systemctl found, maybe this OS isn't using systemd, for now this script doesn't support non-systemd OS, Sorry!!!"
+    fi
 }
 
 # `$*`: make all parameters to one argument
 # `$@`: seperate all parameters as it is what it is
 main "$@"
+download_config
