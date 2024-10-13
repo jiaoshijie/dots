@@ -27,7 +27,7 @@ Print
 shift + Print
   maimpick
 super + v
-  gpaste-client ui
+  CM_LAUNCHER=rofi clipmenu
 
 # media control
 XF86AudioLowerVolume

@@ -83,9 +83,12 @@ download_config() {
 
     wget -q "$URL" -O "$temp_filepath" || { echo "${red}ERROR${x}: wget failed"; exit 1; }
 
-    if ! grep -q '^external-ui:' "$temp_filepath"; then
-        sed -i -e "s@\(^external-controller:\).*@\1 $EXTERNAL_UI_IP\nexternal-ui: $ClashConf/dashboard@g" "$temp_filepath"
-    fi
+    # if ! grep -q '^external-ui:' "$temp_filepath"; then
+    #     sed -i -e "s@\(^external-controller:\).*@\1 $EXTERNAL_UI_IP\nexternal-ui: $ClashConf/dashboard@g" "$temp_filepath"
+    # fi
+
+    # NOTE: always append external-controller and external-ui
+    echo -e "external-controller: ${EXTERNAL_UI_IP}\nexternal-ui: $ClashConf/dashboard" >> "$temp_filepath"
 
     if ! clash-meta -t -f "$temp_filepath" > /dev/null 2>&1; then
         rm "$temp_filepath"

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo "Not used anymore, as I do not use Arch now, btw" && exit 0
+
 set -xe
 
 path=$(cd $(dirname "$0") && pwd)

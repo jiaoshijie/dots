@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
-ifinstalled "gpaste-client" | exit
+ifinstalled "clipmenu" | exit
 ifinstalled "xsel" | exit
 
-gpaste-client empty
+if [[ -n "$CM_DIR" ]]; then
+    rm $CM_DIR/*/{line_cache,[0-9]*} || echo "ERROR: Empty clipboard histroy failed"
+else
+    echo "ERROR: CM_DIR env variable should not be empty"
+fi
+
 xsel -cb

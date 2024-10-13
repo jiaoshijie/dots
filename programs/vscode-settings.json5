@@ -2,7 +2,7 @@
   "editor.fontSize": 17,
   "editor.minimap.enabled": false,
   "window.menuBarVisibility": "toggle",
-  "editor.fontFamily": "'Cascadia Code','JetBrains Mono','Hack','Source Code Pro','Consolas'",
+  "editor.fontFamily": "'Cascadia Code','Hack','Source Code Pro','Consolas'",
   "editor.fontLigatures": false,
   "extensions.ignoreRecommendations": true,
   "workbench.startupEditor": "none",
