@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+ifinstalled "trashy" | exit
+
+trashy empty -r "$(trashy list | fzf --multi | awk '{$1=$1}1' | cut -d ' ' -f1 | xargs)"
