@@ -175,7 +175,13 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 alias diff='diff --color -u'
 alias rm="echo -e '\e[33m\e[1mWARN\e[0m: Are you sure you want to use \e[31mrm\e[0m, think carefully?'"
-alias trash='gio trash'
+if _have trashy; then
+  alias trash='trashy put'
+  alias trash_list='trashy list'
+  alias trash_empty_all='trashy empty --all'
+  alias trash_empty="trashy list | fzf --multi | awk '{\$1=\$1}1' | cut -d ' ' -f1 | xargs trashy empty -r"
+  alias trash_restore="trashy list | fzf --multi | awk '{\$1=\$1}1' | cut -d ' ' -f1 | xargs trashy restore -r"
+fi
 if _have exa; then
   alias ll='exa -lhg --group-directories-first'
   alias ls='exa --group-directories-first'
