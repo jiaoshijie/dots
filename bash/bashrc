@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 case $- in
 *i*) ;;  # interactive
 *) return ;;
@@ -143,7 +145,7 @@ __ps1() {
   PS1+="${MAGENTA}\W"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
-  # PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # Time
+  PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # Time
   PS1+="${RESET}$ "
 }
 
