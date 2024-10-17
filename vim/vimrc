@@ -152,6 +152,7 @@ endif
 set wildignore+=*.o
 set wildignore+=*.a
 set wildignore+=*.so
+set wildignore+=tags
 
 " NOTE: quicklist
 set switchbuf=uselast
@@ -297,3 +298,5 @@ function! JSJ_write2clipboard()
   call system(l:command, @0)
 endfunction
 command! -nargs=0 Write2clipboard call JSJ_write2clipboard()
+
+silent! packadd! comment
