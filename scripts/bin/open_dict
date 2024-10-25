@@ -1,27 +1,11 @@
 #!/usr/bin/env bash
 
-USING_DICT="eudic"  # eudic goldendict
+ifinstalled AppRun || return
 
-main() {
-  case "$USING_DICT" in
-    eudic) open_eudic ;;
-    goldendict) open_goldendict ;;
-  esac
-}
+APPIMAGE_MOUNT_DIR=$(find /tmp -maxdepth 1 -type d  -name '.mount_eudic.*')
 
-open_eudic() {
-  ifinstalled AppRun || return
-  APPIMAGE_MOUNT_DIR=$(find /tmp -maxdepth 1 -type d  -name '.mount_eudic.*')
-  if [[ -z "$APPIMAGE_MOUNT_DIR" ]]; then
-    exec AppRun eudic
-  else
-    exec "$APPIMAGE_MOUNT_DIR"/AppRun > /dev/null 2>&1
-  fi
-}
-
-open_goldendict() {
-  ifinstalled goldendict || return
-  exec goldendict
-}
-
-main
+if [[ -z "$APPIMAGE_MOUNT_DIR" ]]; then
+  exec AppRun eudic
+else
+  exec "$APPIMAGE_MOUNT_DIR"/AppRun > /dev/null 2>&1
+fi
