@@ -201,6 +201,7 @@ alias hexedit='hexedit --color'
 alias vi="$EDITOR"
 alias nlist='nmcli device wifi list'
 alias nconn='nmcli device wifi connect'
+alias nscan='nmcli device wifi rescan'
 alias pc='env | grep -E "^(http|https|all)_proxy"'
 alias a8='aria2c -x 8'
 
