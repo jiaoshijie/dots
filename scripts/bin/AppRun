@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
+ifinstalled fzf || exit 1
+
 APPRUN_DIR=$HOME/AppRun
 
-if [[ "$1" == "-l" ]]; then
-  find "$APPRUN_DIR/" -type f -exec basename {} .AppImage \;
-  exit
+APP="$1"
+
+if [[ -z "$APP" ]]; then
+  APP=$(find "$APPRUN_DIR/" -type f -name '*.AppImage' -exec basename {} .AppImage \; | fzf)
 fi
 
-if [[ "$TERM" == "st-256color" ]]; then
-  SW="devour"
-else
-  SW="setsid -f"
-fi
+test -n "$APP" || exit 0
 
-COMMAND=$(printf "%s %s/%s.AppImage" "$SW" "$APPRUN_DIR" "${1:-eudic}")
-exec $COMMAND > /dev/null 2>&1
+COMMAND="setsid -f $APPRUN_DIR/${APP}.AppImage"
+$COMMAND &> /dev/null
