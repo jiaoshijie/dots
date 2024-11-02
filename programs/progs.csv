@@ -27,7 +27,7 @@ A    , imagemagick                                , `display` command required b
 A    , flameshot                                  , simple buf powerful screenshot
 A    , maim                                       , more simple screenshot
 A    , xdotool                                    , required by `lf my_script`
-A    , gcolor3                                    , pick colors tool
+A    , gcolor2/3                                  , pick colors tool
 A    , mpv                                        , video player
 A    , ffmpeg                                     , video and audio handler
 A    , words                                      , english word dictionary(/usr/share/dict) for vim complete
