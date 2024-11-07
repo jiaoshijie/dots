@@ -9,10 +9,21 @@ export {http,https,all}_proxy="http://127.0.0.1:7890"
 # format1,format2,format3 will download three video of each format
 URL=""
 OP=""
+COOKIE=""
 OUTPUT_NAME=
+PLAYLIST="--no-playlist"
+
+help() {
+  prog=$(basename $0)
+  echo "$prog URL [-v(video) | -a(audio) | -s(subtitle) | -o output_name | -c cookie_file | -p(playlist) | -h(help)]"
+  exit -1
+}
 
 while [[ $# -gt 0 ]]; do
   case $1 in
+    -h)
+      help
+      ;;
     -v)
       OP="video"
       shift
@@ -26,8 +37,16 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     -o)
-      OUTPUT_NAME="-o '$2'"
+      OUTPUT_NAME="-o $2"
       shift 2
+      ;;
+    -c)
+      COOKIE="--cookies $2"
+      shift 2
+      ;;
+    -p)
+      PLAYLIST="--yes-playlist"
+      shift
       ;;
     *)
       URL="$1"
@@ -36,21 +55,29 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-test -n "$URL" || { echo "no url to download!!!"; exit -1; };
+test -n "$URL" || help
 
 test -z "$OP" && OP=$(echo -e "video\naudio\nsubtitle" | fzf)
 
 case "$OP" in
   video)
-    yt-dlp -q --progress --add-metadata -i -f - "$URL" $OUTPUT_NAME
+    yt-dlp -q --progress --add-metadata -i -f - "$URL" $COOKIE $PLAYLIST $OUTPUT_NAME
     ;;
   audio)
-    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL" $OUTPUT_NAME
+    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL" \
+      $COOKIE $PLAYLIST $OUTPUT_NAME
     ;;
   subtitle)
-    yt-dlp -q --progress --list-subs "$URL" | grep '^en' ; echo $?
-    # NOTE: download the english subtitle
-    echo "yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs --skip-download '$URL' $OUTPUT_NAME --sub-langs ''"
+    if yt-dlp -q --progress --list-subs "$URL" $COOKIE $PLAYLIST | grep '^en'; then
+      # NOTE: download the english subtitle
+      echo -n "Subtitle to download: "; read SUBTITLE
+      if [ -n "$SUBTITLE" ]; then
+        yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs \
+          --skip-download "$URL" $COOKIE $PLAYLIST $OUTPUT_NAME --sub-langs "$SUBTITLE"
+      else
+        echo "No subtitle chosen, do nothing!!!"
+      fi
+    fi
     ;;
   *)
     echo "Not supported operation!!!"
