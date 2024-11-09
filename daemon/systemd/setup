@@ -4,6 +4,6 @@ set -e
 
 path=$(cd $(dirname "$0") && pwd)
 
-echo -e "\e[36mdots/systemd\e[0m Usage: "
+echo -e "\e[36mdots/daemon/systemd\e[0m Usage: "
 echo -e "  ln -s \e[32m${path}/clash-meta.service \e[36m~/.config/systemd/user/clash-meta.service\e[0m"
 echo -e "  ln -s \e[32m${path}/jsj_ssh_tunnel.service \e[36m/usr/lib/systemd/system/jsj_ssh_tunnel.service\e[0m"

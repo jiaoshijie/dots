@@ -1,4 +1,0 @@
-#!/bin/sh
-exec 2>&1
-[ ! -f /home/jsj/.local/bin/clash-meta ] && exit 1
-exec /home/jsj/.local/bin/clash-meta -f /home/jsj/.config/mihomo/config.yaml

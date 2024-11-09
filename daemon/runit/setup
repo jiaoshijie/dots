@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+path=$(cd $(dirname "$0") && pwd)
+echo -e "\e[36mdots/daemon/runit\e[0m Usage: "
+echo -e "  ln -s \e[32m${path}/clash-meta \e[36m/var/service/clash-meta\e[0m"

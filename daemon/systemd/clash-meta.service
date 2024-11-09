@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=exec
 Restart=on-abort
-ExecStart=/home/jsj/.local/bin/clash-meta
+ExecStart=/home/jsj/.local/bin/clash-meta -d /home/jsj/.config/mihomo/ -f /home/jsj/.config/mihomo/config.yaml
 
 [Install]
 WantedBy=default.target
