@@ -47,7 +47,7 @@ function! s:active()
   setlocal statusline+=%#Statusline_wran#%m%h%r%*  " modify,help tag,readonly
   setlocal statusline+=%#Statusline_sep#\ %=\ %*  " Separation
   setlocal statusline+=%#Statusline_type#%{&ft}\ %*  " filetype
-  setlocal statusline+=%#Statusline_enc#\ %{&fenc?&fenc:&enc}\[%{&ff}\]\ %*  " encode, fileformat
+  setlocal statusline+=%#Statusline_enc#\ %{&fenc!=''?&fenc:&enc}\[%{&ff}\]\ %*  " encode, fileformat
   setlocal statusline+=%#Statusline_mode#\ %p%%\ %v:%l/%L\ %*  " file position information
 endfunction
 
