@@ -1,17 +1,6 @@
 #!/usr/bin/env bash
 ifinstalled "tmux" | exit
 
-TMUX_RUN="tmux"
-SESSION_NAME="jsj"
+SESSION_NAME="${1:-jsj}"
 
-if pstree -ps $$ | grep --quiet 'sshd(\w*)'; then
-  # https://unix.stackexchange.com/questions/171503/tmux-session-killed-when-disconnecting-from-ssh
-  # TMUX_RUN="systemd-run --scope --user tmux"  # NOTE: Fix this problem in systemd config file, so doesn't need this line to be executed
-  SESSION_NAME="ssh_jsj"
-fi
-
-if [[ -z "$1" ]]; then
-  $TMUX_RUN new -s $SESSION_NAME || $TMUX_RUN a -d -t $SESSION_NAME
-else
-  $TMUX_RUN new -s "$1" || $TMUX_RUN a -d -t "$1"
-fi
+tmux new -s "$SESSION_NAME" || tmux a -d -t "$SESSION_NAME"
