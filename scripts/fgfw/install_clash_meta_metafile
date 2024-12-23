@@ -8,9 +8,7 @@ GREEN="\e[1;32m"
 YELLOW="\e[1;33m"
 CYAN="\e[36m"
 
-GITHUB_MIRROR="https://hub.gitmirror.com/"
-
-GR_URL="${GITHUB_MIRROR}https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/"
+GR_URL="https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/"
 
 TARGET_DIR="$HOME/.config/mihomo/"
 
