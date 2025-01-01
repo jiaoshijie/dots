@@ -122,8 +122,10 @@ restart() {
         else
             echo "INFO: no clash-meta.service found then do nothing"
         fi
+    elif type sv &> /dev/null; then
+      sudo sv restart clash-meta
     else
-        echo "INFO: No systemctl found, maybe this OS isn't using systemd, for now this script doesn't support non-systemd OS, Sorry!!!"
+        echo "INFO: No system daemon found, You need to restart clash-meta manually!!!"
     fi
 }
 
