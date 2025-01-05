@@ -45,7 +45,7 @@ main() {
     # random choose a image sets as wallpaper
     img_dir=$HOME/wallpaper/02_wallpapers
     # https://unix.stackexchange.com/questions/15308/how-to-use-find-command-to-search-for-multiple-extensions#15309
-    img=$(find "$img_dir" -type f \( -name '*.jpg' -o -name '*.png' \) | shuf | tail -n 1)
+    img=$(find "$img_dir" -type f \( -name '*.jpg' -o -name '*.png' -o -name '*jpeg' \) | shuf | tail -n 1)
     change_background "$img"
   fi
 }
