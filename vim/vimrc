@@ -23,7 +23,7 @@ nnoremap <silent> <C-l> :nohl<cr><C-l>
 nnoremap <leader>/ /\<\><left><left>
 nnoremap <silent> Q q:
 nnoremap Y y$
-nnoremap <silent> <leader>ps :setlocal spell! spelllang=en_us<CR>
+nnoremap <silent> <leader>ps <cmd>setlocal spell! spelllang=en_us<CR>
 tnoremap <Esc> <c-\><c-n>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -307,4 +307,7 @@ if filereadable("/usr/share/gtags/gtags.vim")
     so /usr/share/gtags/gtags.vim
 elseif filereadable("/usr/share/vim/addons/plugin/gtags.vim")
     so /usr/share/vim/addons/plugin/gtags.vim
+endif
+if exists("loaded_gtags")
+    nnoremap <silent> <C-g> <cmd>GtagsCursor<cr>
 endif
