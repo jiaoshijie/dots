@@ -301,3 +301,10 @@ endfunction
 command! -nargs=0 Write2clipboard call JSJ_write2clipboard()
 
 silent! packadd! comment
+
+" GNU global
+if filereadable("/usr/share/gtags/gtags.vim")
+    so /usr/share/gtags/gtags.vim
+elseif filereadable("/usr/share/vim/addons/plugin/gtags.vim")
+    so /usr/share/vim/addons/plugin/gtags.vim
+endif
