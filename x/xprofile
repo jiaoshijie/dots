@@ -3,16 +3,14 @@
 # https://mywiki.wooledge.org/DotFiles
 
 # fcitx5
-export XMODIFIERS=@im=fcitx
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
-export INPUT_METHOD=fcitx
+export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
+export INPUT_METHOD=fcitx
 
-# qt theme
-export QT_QPA_PLATFORMTHEME=qt5ct
-
+export QT_QPA_PLATFORMTHEME=qt5ct  # qt theme
 export TERMINAL=st
 export BROWSER=${BROWSER:-firefox}
 export SUDO_ASKPASS="$HOME/dots/scripts/rofi_askpass"

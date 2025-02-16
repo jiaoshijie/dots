@@ -27,6 +27,7 @@ else
   export LC_TIME='en_US.UTF-8'
 fi
 
+# clipboard manager
 export CM_DIR="$XDG_CACHE_HOME/clipmenu_cache"
 
 if [[ -n "$BASH_VERSION" ]]; then
