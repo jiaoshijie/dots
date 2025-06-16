@@ -145,8 +145,11 @@ __ps1() {
   PS1+="${MAGENTA}\W"    # working directory
   PS1+="${RED}]"
   PS1+="${BRANCH}"
-  PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})\n"  # Time
-  PS1+="${RESET}$ "
+  PS1+="${RESET} -> (${BLUE}\D{%F}${GREY}@${BLUE}\t${RESET})"  # Time
+  if env | grep -Eq "^(http|https|all)_proxy"; then
+    PS1+=" -> (${RED}P${RESET})"
+  fi
+  PS1+="\n${RESET}$ "
 }
 
 export PROMPT_COMMAND=__ps1

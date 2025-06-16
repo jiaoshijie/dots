@@ -26,8 +26,8 @@ pipewire &
 
 xcompmgr &
 
-# set-bg "$HOME/.config/red_wallpaper" &
-set-bg &
+set-bg "$HOME/.config/red_wallpaper" &
+# set-bg &
 
 sxhkd &
 dunst &
