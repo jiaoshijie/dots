@@ -53,7 +53,7 @@ endfunction
 augroup JSJ_misc_autogroup
   autocmd!
   " recover_last_cursor_positon
-  autocmd BufReadPost * if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
   autocmd TextYankPost * call JSJ_HLyankedtext()
   " autocmd FileType netrw setlocal bufhidden=delete
 augroup END

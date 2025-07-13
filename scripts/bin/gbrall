@@ -3,7 +3,7 @@ ifinstalled "clipmenu" | exit
 ifinstalled "xsel" | exit
 
 if [[ -n "$CM_DIR" ]]; then
-    rm $CM_DIR/*/{line_cache,[0-9]*} || echo "ERROR: Empty clipboard histroy failed"
+    rm -f $CM_DIR/*/{line_cache,[0-9]*} || echo "ERROR: Empty clipboard histroy failed"
 else
     echo "ERROR: CM_DIR env variable should not be empty"
 fi
