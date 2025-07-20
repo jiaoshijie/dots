@@ -36,7 +36,7 @@ cbatticon &  # battery
 clipmenud &
 fcitx5 &
 
-# blueman-applet &  # for bluetooth
+blueman-applet &  # for bluetooth package is `blueman`
 
 remaps &
 
