@@ -36,7 +36,7 @@ text = "#44475a"
 TERM = "alacritty"
 
 [font]
-size = 13.0
+size = 13
 
 [font.bold]
 family = "Monaspace Xenon Var"

@@ -1,0 +1,68 @@
+# NOTE: to see the configuration documentation
+# `ghostty +show-config --default --docs` or `man ghostty`
+
+
+# TODO: kill -SIGUSR2  require ghostty version 1.2.0
+
+# https://github.com/ghostty-org/ghostty/issues/7747
+# https://github.com/ghostty-org/ghostty/issues/2615
+# reload_config = ctrl+shift+,
+
+# Font
+font-family = Hack
+font-style  = Regular
+font-family-bold = Monaspace Xenon Var
+font-style-bold  = Bold
+font-family-italic = Monaspace Radon Var
+font-style-italic  = Italic
+font-family-bold-italic = Monaspace Radon Var
+font-style-bold-italic = Bold Italic
+
+font-size = 13
+
+# Theme
+background = #1d2021
+foreground = #fffbf6
+selection-invert-fg-bg = true
+cursor-color = #5588FF
+cursor-text = #000000
+cursor-style = block
+cursor-style-blink = false
+cursor-click-to-move = false
+background-opacity = 0.9
+# disable unfocused-split-opacity
+unfocused-split-opacity = 1
+bold-is-bright = true
+# normal
+palette = 0=#2e2e2e
+palette = 1=#eb4129
+palette = 2=#abe047
+palette = 3=#f6c744
+palette = 4=#47a0f3
+palette = 5=#7b5cb0
+palette = 6=#64dbed
+palette = 7=#e5e9f0
+# bright
+palette = 8=#565656
+palette = 9=#ec5357
+palette = 10=#c0e17d
+palette = 11=#f9da6a
+palette = 12=#49a4f8
+palette = 13=#a47de9
+palette = 14=#99faf2
+palette = 15=#ffffff
+
+
+# misc
+# title = "Ghostty"
+class = "Ghostty"
+x11-instance-name = "Ghostty"
+mouse-hide-while-typing = true
+# term = "xterm" # set TERM env
+auto-update = off
+quit-after-last-window-closed = true
+confirm-close-surface = false
+# window-decoration = auto or none
+window-decoration = auto
+window-padding-balance = true
+window-inherit-working-directory = false

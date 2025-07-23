@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -xe
+
+rm -rf "$HOME/.config/ghostty"
+rmdir --ignore-fail-on-non-empty "$HOME/.config/ghostty"

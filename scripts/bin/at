@@ -1,15 +1,32 @@
 #!/usr/bin/env bash
 
-# alacritty transparent
-path="$HOME/.config/alacritty/alacritty.toml"
 sub=$1
 
-if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
-  if grep -Eq '(^opacity =)\s*1' "$path"; then
-    sub="0.95"
-  else
-    sub="1.0"
-  fi
-fi
+if [[ "$TERM" == *"alacritty" ]]; then
+  # alacritty transparent
+  path="$HOME/.config/alacritty/alacritty.toml"
 
-sed -i -e "$(printf "s/\\(^opacity =\\).*/\\\\1 %s/" "$sub")" "$path"
+  if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
+    if grep -Eq '(^opacity =)\s*1' "$path"; then
+      sub="0.95"
+    else
+      sub="1.0"
+    fi
+  fi
+
+  sed -i -e "$(printf "s/\\(^opacity =\\).*/\\\\1 %s/" "$sub")" "$path"
+elif [[ "$TERM" == *"ghostty" ]]; then
+  # ghostty transparent
+  path="$HOME/.config/ghostty/config"
+
+  if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
+    if grep -Eq '(^background-opacity =)\s*1' "$path"; then
+      sub="0.95"
+    else
+      sub="1.0"
+    fi
+  fi
+
+  sed -i -e "$(printf "s/\\(^background-opacity =\\).*/\\\\1 %s/" "$sub")" "$path"
+  # TODO: After ghostty version 1.2.0 can use `kill -SIGUSR2` to reload the configuration
+fi
