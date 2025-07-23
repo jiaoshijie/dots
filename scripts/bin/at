@@ -5,28 +5,35 @@ sub=$1
 if [[ "$TERM" == *"alacritty" ]]; then
   # alacritty transparent
   path="$HOME/.config/alacritty/alacritty.toml"
-
-  if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
-    if grep -Eq '(^opacity =)\s*1' "$path"; then
-      sub="0.95"
-    else
-      sub="1.0"
-    fi
-  fi
-
-  sed -i -e "$(printf "s/\\(^opacity =\\).*/\\\\1 %s/" "$sub")" "$path"
+  opacity_key="opacity"
 elif [[ "$TERM" == *"ghostty" ]]; then
   # ghostty transparent
   path="$HOME/.config/ghostty/config"
+  opacity_key="background-opacity"
+  sig_ver="1.2.0"  # After ghostty version 1.2.0, We can use `kill -SIGUSR2` to reload the configuration
 
-  if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
-    if grep -Eq '(^background-opacity =)\s*1' "$path"; then
-      sub="0.95"
-    else
-      sub="1.0"
-    fi
+  cur_ver="$(ghostty --version | head -n 1 | cut -d' ' -f2)"
+  max_ver="$(echo -e "$cur_ver\n$sig_ver" | sort -V | tail -n 1)"
+  if [[ "$cur_ver" == "$max_ver" ]]; then
+    eval_string="kill -SIGUSR2 $(pidof ghostty)"
+  else
+    echo -e "\e[1;32mINFO\e[0m: ghostty version \e[36m$cur_ver\e[0m, plz manually reload the configuration file."
   fi
+fi
 
-  sed -i -e "$(printf "s/\\(^background-opacity =\\).*/\\\\1 %s/" "$sub")" "$path"
-  # TODO: After ghostty version 1.2.0 can use `kill -SIGUSR2` to reload the configuration
+if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
+  if grep -Eq \
+    "$(printf "(^%s =)\\s*1" "$opacity_key")" \
+    "$path";
+  then
+    sub="0.95"
+  else
+    sub="1.0"
+  fi
+fi
+
+sed -i -e "$(printf "s/\\(^%s =\\).*/\\\\1 %s/" "$opacity_key" "$sub")" "$path"
+
+if [[ -n "$eval_string" ]]; then  # this is noly for ghostty terminal
+  eval "$eval_string"
 fi
