@@ -55,10 +55,11 @@ palette = 15=#ffffff
 
 # misc
 # title = "Ghostty"
-class = "Ghostty"
+class = "jsj.fm.Ghostty"
 x11-instance-name = "Ghostty"
 mouse-hide-while-typing = true
-# term = "xterm" # set TERM env
+# term = "xterm-ghostty"
+term = "xterm-256color"
 auto-update = off
 quit-after-last-window-closed = true
 confirm-close-surface = false

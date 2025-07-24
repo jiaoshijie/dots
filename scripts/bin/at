@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
+ifinstalled "xdotool" || exit 1
+
+class_name=$(xprop -id $(xdotool getactivewindow) WM_CLASS | cut -d'"' -f4)
+
 sub=$1
 
-if [[ "$TERM" == *"alacritty" ]]; then
+if [[ "$class_name" == "jsj.fm.Alacritty" ]]; then
   # alacritty transparent
   path="$HOME/.config/alacritty/alacritty.toml"
   opacity_key="opacity"
-elif [[ "$TERM" == *"ghostty" ]]; then
+elif [[ "$class_name" == "jsj.fm.Ghostty" ]]; then
   # ghostty transparent
   path="$HOME/.config/ghostty/config"
   opacity_key="background-opacity"
@@ -19,6 +23,9 @@ elif [[ "$TERM" == *"ghostty" ]]; then
   else
     echo -e "\e[1;32mINFO\e[0m: ghostty version \e[36m$cur_ver\e[0m, plz manually reload the configuration file."
   fi
+else
+  echo -e "\e[1;33mWARN\e[0m: Not supported terminal simulator!!!"
+  exit 1
 fi
 
 if ! echo "$sub" | grep -Pq "^\d\.\d+$"; then
@@ -34,6 +41,6 @@ fi
 
 sed -i -e "$(printf "s/\\(^%s =\\).*/\\\\1 %s/" "$opacity_key" "$sub")" "$path"
 
-if [[ -n "$eval_string" ]]; then  # this is noly for ghostty terminal
+if [[ -n "$eval_string" ]]; then  # this is only for ghostty terminal
   eval "$eval_string"
 fi
