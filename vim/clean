@@ -3,4 +3,3 @@
 set -xe
 
 rm -rf "$HOME/.vimrc"
-rmdir --ignore-fail-on-non-empty "$HOME/.vim"

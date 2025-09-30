@@ -1,9 +1,3 @@
-" Recommanded Plugins:
-"   vim-fugitive: https://github.com/tpope/vim-fugitive.git
-"   vim-surround: https://github.com/tpope/vim-surround.git
-"   vim-repeat: https://github.com/tpope/vim-repeat.git
-"   tabular: https://github.com/godlygeek/tabular.git
-
 set nocompatible  " no vi compatible
 
 set modelines=0
@@ -23,15 +17,278 @@ nnoremap <silent> <C-l> :nohl<cr><C-l>
 nnoremap <leader>/ /\<\><left><left>
 nnoremap <silent> Q q:
 nnoremap Y y$
-nnoremap <silent> <leader>ps <cmd>setlocal spell! spelllang=en_us<CR>
-tnoremap <Esc> <c-\><c-n>
+nnoremap <silent> <leader>ps :setlocal spell! spelllang=en_us<CR>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 command! SudoWrite execute 'write !sudo tee % >/dev/null' <bar> edit!
 
-" https://www.statox.fr/posts/2020/07/vim_flash_yanked_text/
-" https://github.com/markonm/hlyank.vim
-function! JSJ_HLyankedtext()
+" Disable all other language support for plugins
+let g:loaded_python_provider=0
+let g:loaded_perl_provider=0
+let g:loaded_node_provider=0
+let g:loaded_ruby_provider=0
+let g:loaded_python3_provider=0
+" NOTE: netrw
+let g:netrw_banner       = 0  " disable annoying banner
+let g:netrw_browse_split = 0  " open in prior window
+let g:netrw_altv         = 1  " open splits to the right
+let g:netrw_alto         = 0
+let g:netrw_liststyle    = 0  " tree view
+let g:netrw_winsize      = 25
+let g:netrw_preview      = 1
+let g:netrw_localrmdir   = 'rm -r'
+let g:netrw_localcopycmd = 'cp -r'
+let g:netrw_keepdir      = 1
+let g:netrw_hide         = 1
+let g:netrw_list_hide    = '\(^\|\s\s\)\zs\.\S\+'
+
+filetype plugin indent on
+syntax on
+
+set mouse=nvi
+set bs=indent,eol,start  " control the behavior of <BS> <CTRL-H> <CTRL-W> <CTRL-U>
+set nowrap
+set clipboard=
+set nrformats= " For <C-a> and <C-x>
+set hidden     " allow to switch buffer even the current buffer is unsaved
+set confirm    " friendly quit for when quitting the buffer is not saved
+set showcmd    " show the normal mode key sequence in cmd
+set timeout
+set ttimeout
+set ttimeoutlen=50  " if not set <ESC> will wait timeoutlen time
+set path+=**  " expand the search dir for `gf` `:find` etc
+set lazyredraw  " when execute macros, only draw the window when the macro has been finished
+set fo-=t
+set fo-=c
+set shortmess-=S
+set cursorline
+set scrolloff=6
+set laststatus=2
+set splitright
+set splitbelow
+set fileencodings=ucs-bom,utf-8,cp936,default,latin1  " NOTE: cp936 is a superset of gbk
+set wildignore=*.o,*.a,*.so,tags
+set nobackup
+set noswapfile
+set wildmenu  " for cmd mode completion
+set completeopt=menuone  " For more details ":h ins-completion", ":h 'complete'"
+set dictionary=/usr/share/dict/words
+set complete=.,w,b
+set pumheight=15
+" NOTE: indent
+set autoindent
+set smartindent
+set shiftwidth=4  " set the indent width
+set tabstop=4     " A single <tab> character '\t' should take how many normal character length
+set expandtab     " When press <tab> instert space instead
+set softtabstop=4 " When expandtab is on, how many space a tab should represent
+set smarttab      " When on, a <tab> press in the begin of the line is base on `shiftwidth`, not `tabstop` or `softtabstop`
+set shiftround    " for `<<` and `>>` in normal mode
+" NOTE: search
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+
+set statusline+=%<%f\ %*%m%h%r%*\ %=\ %*%(%p%%\ %v:%l/%L%)%*
+
+augroup JSJ_recover_cursor_pos
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+augroup END
+
+function! s:error_msg(message)
+  echohl ErrorMsg
+  echom a:message
+  echohl NONE
+  return 0
+endfunction
+
+function! JSJ_clear_trailing_space_and_lines()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//ge
+    %s/\(\n\)\+\%$//ge
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <leader>fc :call JSJ_clear_trailing_space_and_lines()<cr>
+
+function! JSJ_inspect_highlight_group()
+  let l:synid = synID(line('.'), col('.'), 1)
+  let l:synname = [ synIDattr(l:synid, 'name') ]
+  while 1
+    let l:synid = synIDtrans(l:synid)
+    let l:temp = synIDattr(l:synid, 'name')
+    if synname[-1] ==# l:temp
+      break
+    endif
+    let l:synname = add(l:synname, l:temp)
+  endwhile
+  echo l:synname
+endfunction
+command! -nargs=0 Inspect call JSJ_inspect_highlight_group()
+
+" copy register 0 content to system clipboard for X11 if doesn't have clipboard support
+function! JSJ_write2clipboard()
+  if executable('xsel')
+    let l:command = "xsel -ib"
+  elseif executable('xclip')
+    let l:command = "xclip"
+  else
+    call s:error_msg("no X11 clipboard program(xsel or xclip) available!!!")
+    return
+  endif
+  call system(l:command, @0)
+endfunction
+command! -nargs=0 Cc call JSJ_write2clipboard()
+
+" ------------------------------------ 703 ------------------------------------
+if v:version < 703
+  finish
+endif
+
+set colorcolumn=79
+silent! call mkdir(expand('/tmp/jsj_vim_u/undodir'), 'p', 0700)
+set undodir=/tmp/jsj_vim_u/undodir//
+set undofile
+
+" NOTE: fzf (Fuzzy Finder)
+if isdirectory('/usr/share/vim/vimfiles')  " arch linux
+  set rtp+=/usr/share/vim/vimfiles
+endif
+if isdirectory('/usr/share/doc/fzf/examples/')  " ubuntu linux
+  set rtp+=/usr/share/doc/fzf/examples/
+endif
+
+function! s:get_git_root()
+  let l:root = split(system('git rev-parse --show-toplevel'), '\n')[0]
+  return v:shell_error ? '' : l:root
+endfunction
+
+function! JSJ_fzf_git_files()
+  if exists('g:loaded_fzf')
+    let l:root = s:get_git_root()
+    if empty(l:root)
+        return s:error_msg('Not in git repo!!!')
+    else
+        let l:source = 'git ls-files --others --exclude-standard --cached | uniq'
+        let l:prompt = '"GitFiles> "'
+    endif
+
+    return fzf#run(fzf#wrap('gfiles', {
+    \ 'source':  l:source,
+    \ 'dir':     l:root,
+    \ 'options': '-m --prompt ' . l:prompt
+    \}, 0))
+  else
+    return s:error_msg("`fzf` is not installed!!!")
+  endif
+endfunction
+nnoremap <silent> <C-p> :call JSJ_fzf_git_files()<cr>
+
+" ------------------------------------ 704 ------------------------------------
+if v:version < 704 || v:version == 704 && has("patch1799") == 0
+  finish
+endif
+
+set shortmess+=c
+set completeopt+=noselect
+set statusline=
+set noshowmode
+set list
+set listchars=trail:·,tab:»\ ,extends:…,precedes:…
+set t_8f=[38;2;%lu;%lu;%lum        " set foreground color
+set t_8b=[48;2;%lu;%lu;%lum        " set background color
+set termguicolors
+let &t_SI.="\e[5 q" "SI(start insert)
+let &t_SR.="\e[4 q" "SR(start replace)
+let &t_EI.="\e[1 q" "EI(end insert/replace)
+
+function! s:statusline_hl_group()
+  hi StatusLine cterm=NONE gui=NONE guifg=#ffffff guibg=#2c323c
+  hi StatusLineNC cterm=NONE gui=NONE guifg=#000000 guibg=#5c6370
+  hi! link StatusLineTerm StatusLine
+  hi! link StatusLineTermNC StatusLineNC
+  hi Statusline_mode cterm=bold gui=bold guifg=#282c34 guibg=#98c379
+  hi Statusline_file cterm=NONE gui=NONE guifg=#e5c07b guibg=#2c323c
+  hi Statusline_wran cterm=NONE gui=NONE guifg=#e5c07b guibg=#e06c75
+  hi Statusline_sep  cterm=NONE gui=NONE guibg=#2c323c
+  hi Statusline_type cterm=NONE gui=NONE guifg=#e5c07b guibg=#2c323c
+  hi Statusline_enc  cterm=NONE gui=NONE guifg=#d19a66 guibg=#3e4452
+endfunction
+
+function! JSJ_mode_info()
+  if (mode() =~# '\v(v|V|)')
+    exe 'hi Statusline_mode guibg=#c678dd'
+    return { 'v': 'VISUAL', 'V': 'V·Line', '': 'V·Block' }[mode()]
+  elseif (mode() =~# 'i')
+    exe 'hi Statusline_mode guibg=#61afef'
+    return "INSERT"
+  elseif (mode() =~# 'R')
+    exe 'hi Statusline_mode guibg=#e06c75'
+    return "REPLACE"
+  elseif (mode() =~# '\v(c|t)')
+    exe 'hi Statusline_mode guibg=#56B6C2'
+    return { 't': 'TERMINAL', 'c': 'COMMAND' }[mode()]
+  else
+    exe 'hi Statusline_mode guibg=#98c379'
+  endif
+  return "NORMAL"
+endfunction
+
+function! s:statusline_style(active) abort
+  setlocal statusline=
+  if a:active == 0
+    setlocal statusline+=\ %<%f\ %*  " full file path
+    setlocal statusline+=%#Statusline_wran#%m%h%r%*  " modify,help tag,readonly
+    setlocal statusline+=\ %=\ %*  " Separation
+    setlocal statusline+=%(%v:%l/%L%)\ %*  " file position information
+  else
+    setlocal statusline+=%#Statusline_mode#\ %{JSJ_mode_info()}\ %*  " mode(NORMAL,INSERT,etc)
+    setlocal statusline+=%#Statusline_file#\ %<%t\ %*  " only file name
+    setlocal statusline+=%#Statusline_wran#%m%h%r%*  " modify,help tag,readonly
+    setlocal statusline+=%#Statusline_sep#\ %=\ %*  " Separation
+    setlocal statusline+=%#Statusline_type#%{&ft}\ %*  " filetype
+    setlocal statusline+=%#Statusline_enc#\ %{&fenc!=''?&fenc:&enc}\[%{&ff}\]\ %*  " encode, fileformat
+    setlocal statusline+=%#Statusline_mode#\ %p%%\ %v:%l/%L\ %*  " file position information
+  endif
+endfunction
+
+augroup jsj_Statusline
+  autocmd!
+  autocmd ColorScheme * call s:statusline_hl_group()
+  autocmd VimEnter,BufEnter,WinEnter * :call s:statusline_style(1)
+  autocmd WinLeave * :call s:statusline_style(0)
+augroup end
+
+set background=dark
+try
+  colorscheme gruvbox
+catch /^Vim\%((\a\+)\)\=:E185/
+  colorscheme default
+  set background=dark  " set dark again
+  hi CursorLine cterm=NONE gui=NONE
+  hi Pmenu cterm=NONE gui=NONE guifg=#ebdbb2 guibg=#504945
+  hi PmenuSel cterm=bold gui=bold guifg=#504945 guibg=#83a598
+  hi! link ColorColumn CursorLine
+endtry
+
+" ------------------------------------ 801 ------------------------------------
+if v:version < 801
+    finish
+endif
+
+tnoremap <Esc> <c-\><c-n>
+
+" ------------------------------------ 802 ------------------------------------
+if v:version < 802
+    finish
+endif
+
+set diffopt=vertical,filler,context:3,foldcolumn:1,internal,algorithm:histogram,indent-heuristic
+set switchbuf=uselast
+
+function! s:highlight_yanked_text()
   if v:event.operator isnot 'y'
     return
   endif
@@ -50,338 +307,15 @@ function! JSJ_HLyankedtext()
   call timer_start(300, {-> matchdelete(l:id, l:winid)})
 endfunction
 
-augroup JSJ_misc_autogroup
+augroup JSJ_highlight_yanked_text
   autocmd!
-  " recover_last_cursor_positon
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
-  autocmd TextYankPost * call JSJ_HLyankedtext()
-  " autocmd FileType netrw setlocal bufhidden=delete
+  autocmd TextYankPost * call s:highlight_yanked_text()
 augroup END
 
-filetype plugin indent on
-syntax on
-
-" Disable all other language support for plugins
-let g:loaded_python_provider=0
-let g:loaded_perl_provider=0
-let g:loaded_node_provider=0
-let g:loaded_ruby_provider=0
-let g:loaded_python3_provider=0
-
-" NOTE: netrw
-let g:netrw_banner       = 0  " disable annoying banner
-let g:netrw_browse_split = 0  " open in prior window
-let g:netrw_altv         = 1  " open splits to the right
-let g:netrw_alto         = 0
-let g:netrw_liststyle    = 0  " tree view
-let g:netrw_winsize      = 25
-let g:netrw_preview      = 1
-let g:netrw_localrmdir   = 'rm -r'
-let g:netrw_localcopycmd = 'cp -r'
-let g:netrw_keepdir      = 1
-let g:netrw_hide         = 1
-let g:netrw_list_hide    = '\(^\|\s\s\)\zs\.\S\+'
-
-" useful functions
-function! s:warn(message)
-  echohl WarningMsg
-  echom a:message
-  echohl NONE
-  return 0
-endfunction
-
-function! s:error(message)
-  echohl ErrorMsg
-  echom a:message
-  echohl NONE
-  return 0
-endfunction
-
-" misc
-set mouse=nvi
-set bs=indent,eol,start  " control the behavior of <BS> <CTRL-H> <CTRL-W> <CTRL-U>
-set nowrap
-set diffopt=vertical,filler,context:3,foldcolumn:1,internal,algorithm:histogram,indent-heuristic
-set clipboard=
-set nrformats= " For <C-a> and <C-x>
-set hidden     " allow to switch buffer even the current buffer is unsaved
-set confirm    " friendly quit for when quitting the buffer is not saved
-set showcmd    " show the normal mode key sequence in cmd
-set timeout    " TODO
-set ttimeout
-set ttimeoutlen=50  " if not set <ESC> will wait timeoutlen time
-set path+=**  " expand the search dir for `gf` `:find` etc
-set lazyredraw  " when execute macros, only draw the window when the macro has been finished
-set fo-=t
-set fo-=c
-set shortmess-=S
-set shortmess+=c
-set cursorline
-set colorcolumn=79
-set scrolloff=6
-set laststatus=2
-set splitright
-set splitbelow
-set fileencodings=ucs-bom,utf-8,cp936,default,latin1  " NOTE: cp936 is a superset of gbk
-
-" NOTE: indent
-set autoindent
-set smartindent
-set shiftwidth=4  " set the indent width
-set tabstop=4     " A single <tab> character '\t' should take how many normal character length
-set expandtab     " When press <tab> instert space instead
-set softtabstop=4 " When expandtab is on, how many space a tab should represent
-set smarttab      " When on, a <tab> press in the begin of the line is base on `shiftwidth`, not `tabstop` or `softtabstop`
-set shiftround    " for `<<` and `>>` in normal mode
-
-" NOTE: search
-set ignorecase
-set smartcase
-set hlsearch
-set incsearch
-
-" NOTE: completion
-set completeopt=menuone,noselect
-" For more details ":h ins-completion", ":h 'complete'"
-set dictionary=/usr/share/dict/words
-set complete=.,w,b
-set pumheight=15
-set wildmenu  " for cmd mode completion
-if v:version >= 900   " if support using the popup window for cmd completion
-  set wildoptions=pum
-endif
-set wildignore+=*.o
-set wildignore+=*.a
-set wildignore+=*.so
-set wildignore+=tags
-
-" NOTE: quicklist
-set switchbuf=uselast
-
-" NOTE: only use undofile
-set nobackup
-set noswapfile
-silent! call mkdir(expand('/tmp/jsj_vim_u/undodir'), 'p', 0700)
-set undodir=/tmp/jsj_vim_u/undodir//
-set undofile
-
-" NOTE: ui
-set list
-set listchars=trail:·,tab:»\ ,extends:…,precedes:…
-set t_8f=[38;2;%lu;%lu;%lum        " set foreground color
-set t_8b=[48;2;%lu;%lu;%lum        " set background color
-set termguicolors
-let &t_SI.="\e[5 q" "SI(start insert)
-let &t_SR.="\e[4 q" "SR(start replace)
-let &t_EI.="\e[1 q" "EI(end insert/replace)
-
-let s:jsj_change_theme_alpha = 0
-let s:jsj_normalbg = "NONE"
-
-function! s:keep_theme_alpha()
-  let s:jsj_normalbg = synIDattr(hlID('Normal'), "bg", "gui")
-  if s:jsj_change_theme_alpha == 1 && !has('gui_running')
-    highlight Normal guibg=NONE ctermbg=NONE
-  endif
-endfunction
-
-function! JSJ_changethemealpha()
-  if has('gui_running')
-    call s:warn("Gvim is not supported")
-    return
-  endif
-  if s:jsj_change_theme_alpha == 0
-    let s:jsj_change_theme_alpha = 1
-    let s:jsj_normalbg = synIDattr(hlID('Normal'), "bg", "gui")
-    highlight Normal guibg=NONE ctermbg=NONE
-  else
-    let s:jsj_change_theme_alpha = 0
-    execute "highlight Normal guibg=" s:jsj_normalbg
-  endif
-  hi! link SignColumn LineNr
-endfunction
-
-function! s:statusline_colorscheme()
-  hi StatusLine cterm=NONE gui=NONE guifg=#ffffff guibg=#2c323c
-  hi StatusLineNC cterm=NONE gui=NONE guifg=#000000 guibg=#5c6370
-  hi! link StatusLineTerm StatusLine
-  hi! link StatusLineTermNC StatusLineNC
-
-  hi Statusline_mode cterm=bold gui=bold guifg=#282c34 guibg=#98c379
-  hi Statusline_file cterm=NONE gui=NONE guifg=#e5c07b guibg=#2c323c
-  hi Statusline_wran cterm=NONE gui=NONE guifg=#e5c07b guibg=#e06c75
-  hi Statusline_sep  cterm=NONE gui=NONE guibg=#2c323c
-  hi Statusline_type cterm=NONE gui=NONE guifg=#e5c07b guibg=#2c323c
-  hi Statusline_enc  cterm=NONE gui=NONE guifg=#d19a66 guibg=#3e4452
-endfunction
-
-augroup JSJ_colorscheme_autogroup
-  autocmd!
-  autocmd ColorScheme * call s:keep_theme_alpha()
-  autocmd ColorScheme * call s:statusline_colorscheme()
-augroup END
-
-try
-  colorscheme gruvbox
-catch /^Vim\%((\a\+)\)\=:E185/
-  colorscheme default
-endtry
-
-set background=dark
-nnoremap <silent> <leader>tt :call JSJ_changethemealpha()<CR>
-
-" NOTE: statusline
-set noshowmode
-
-let s:currentmode={
-  \ 'v'      : 'VISUAL',
-  \ 'V'      : 'V·Line',
-  \ "\<C-V>" : 'V·Block',
-  \ 'i'      : 'INSERT',
-  \ 'R'      : 'REPLACE',
-  \ 't'      : 'TERMINAL',
-  \ 'c'      : 'COMMAND',
-\}
-function! JSJ_changestatuslinecolor()
-  if (mode() =~# '\v(v|V|)')
-    exe 'hi Statusline_mode guibg=#c678dd'
-    return s:currentmode[mode()]
-  elseif (mode() =~# 'i')
-    exe 'hi Statusline_mode guibg=#61afef'
-    return s:currentmode[mode()]
-  elseif (mode() =~# 'R')
-    exe 'hi Statusline_mode guibg=#e06c75'
-    return s:currentmode[mode()]
-  elseif (mode() =~# '\v(c|t)')
-    exe 'hi Statusline_mode guibg=#98c379'
-    return s:currentmode[mode()]
-  else
-    exe 'hi Statusline_mode guibg=#98c379'
-  endif
-  return "NORMAL"
-endfunction
-
-function! s:statusline_theme(active) abort
-  setlocal statusline=
-  if a:active == 0
-    setlocal statusline+=\ %<%f\ %*  " full file path
-    setlocal statusline+=%#Statusline_wran#%m%h%r%*  " modify,help tag,readonly
-    setlocal statusline+=\ %=\ %*  " Separation
-    setlocal statusline+=%(%v:%l/%L%)\ %*  " file position information
-  else
-    setlocal statusline+=%#Statusline_mode#\ %{JSJ_changestatuslinecolor()}\ %*  " mode(NORMAL,INSERT,etc)
-    setlocal statusline+=%#Statusline_file#\ %<%t\ %*  " only file name
-    setlocal statusline+=%#Statusline_wran#%m%h%r%*  " modify,help tag,readonly
-    setlocal statusline+=%#Statusline_sep#\ %=\ %*  " Separation
-    setlocal statusline+=%#Statusline_type#%{&ft}\ %*  " filetype
-    setlocal statusline+=%#Statusline_enc#\ %{&fenc!=''?&fenc:&enc}\[%{&ff}\]\ %*  " encode, fileformat
-    setlocal statusline+=%#Statusline_mode#\ %p%%\ %v:%l/%L\ %*  " file position information
-  endif
-endfunction
-
-augroup jsj_Statusline
-  autocmd!
-  autocmd VimEnter,BufEnter,WinEnter * :call s:statusline_theme(1)
-  autocmd WinLeave * :call s:statusline_theme(0)
-augroup end
-
-
-" NOTE: fzf (Fuzzy Finder)
-if isdirectory('/usr/share/vim/vimfiles')  " arch linux
-  set rtp+=/usr/share/vim/vimfiles
-endif
-if isdirectory('/usr/share/doc/fzf/examples/')  " ubuntu linux
-  set rtp+=/usr/share/doc/fzf/examples/
+" ------------------------------------ 900 ------------------------------------
+if v:version < 900
+    finish
 endif
 
-function! s:get_git_root()
-  let l:root = split(system('git rev-parse --show-toplevel'), '\n')[0]
-  return v:shell_error ? '' : l:root
-endfunction
-
-function! JSJ_gitfiles(args)
-  if exists('g:loaded_fzf')
-    let l:root = s:get_git_root()
-    if empty(l:root)
-        return s:error('Not in git repo!!!')
-    else
-        let l:source = 'git ls-files --others --exclude-standard --cached' . a:args . ' | uniq'
-        let l:prompt = '"GitFiles> "'
-    endif
-
-    return fzf#run(fzf#wrap('gfiles', {
-    \ 'source':  l:source,
-    \ 'dir':     l:root,
-    \ 'options': '-m --prompt ' . l:prompt
-    \}, 0))
-  else
-    return s:error("`fzf` is not installed!!!")
-  endif
-endfunction
-nnoremap <silent> <C-p> :call JSJ_gitfiles('')<cr>
-
-function! JSJ_clearSE()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//ge
-    %s/\(\n\)\+\%$//ge
-    call cursor(l, c)
-endfunction
-nnoremap <silent> <leader>fc :call JSJ_clearSE()<cr>
-
-function! JSJ_togglelist(listname, perfix)
-  if empty(filter(getwininfo(), 'v:val.' . a:listname))
-    try
-      execute a:perfix . 'open'
-    catch /E776/
-      return utils#error("Location List is Empty.")
-    endtry
-  else
-    execute a:perfix . 'close'
-  endif
-endfunction
-nnoremap <silent> <leader>qq :call JSJ_togglelist('quickfix', 'c')<cr>
-nnoremap <silent> <leader>ql :call JSJ_togglelist('loclist', 'l')<cr>
-
-
-" https://www.oasys.net/posts/writing-a-vim-syntax-plugin/
-function! JSJ_checkHLgroup()
-  let l:synid = synID(line('.'), col('.'), 1)
-  let l:synname = [ synIDattr(l:synid, 'name') ]
-  while 1
-    let l:synid = synIDtrans(l:synid)
-    let l:temp = synIDattr(l:synid, 'name')
-    if synname[-1] ==# l:temp
-      break
-    endif
-    let l:synname = add(l:synname, l:temp)
-  endwhile
-  echo l:synname
-endfunction
-command! -nargs=0 CheckHLGroupUnderCursor call JSJ_checkHLgroup()
-
-" copy register 0 content to system clipboard for X11 if doesn't have clipboard support
-function! JSJ_write2clipboard()
-  if executable('xsel')
-    let l:command = "xsel -ib"
-  elseif executable('xclip')
-    let l:command = "xclip"
-  else
-    call s:error("no X11 clipboard program(xsel or xclip) available!!!")
-    return
-  endif
-  call system(l:command, @0)
-endfunction
-command! -nargs=0 Write2clipboard call JSJ_write2clipboard()
-
+set wildoptions=pum
 silent! packadd! comment
-
-" GNU global
-if filereadable("/usr/share/gtags/gtags.vim")
-    so /usr/share/gtags/gtags.vim
-elseif filereadable("/usr/share/vim/addons/plugin/gtags.vim")
-    so /usr/share/vim/addons/plugin/gtags.vim
-endif
-if exists("loaded_gtags")
-    nnoremap <silent> <C-g> <cmd>GtagsCursor<cr>
-endif
