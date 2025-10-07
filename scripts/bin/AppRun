@@ -2,7 +2,7 @@
 
 ifinstalled fzf || exit 1
 
-APPRUN_DIR=$HOME/AppRun
+APPRUN_DIR=$HOME/media/AppRun
 
 APP="$1"
 

@@ -18,48 +18,45 @@ A    , fzf                                        , fuzzy finder
 A    , ripgrep                                    , `grep` replacement
 A    , fd                                         , `find` replacement
 A    , firefox                                    , web browser
-A    , cliemenu                                   , demnu based clipboard management(simple but ok)
+A    , clipmenu                                   , demnu based clipboard management(simple but ok)
 A    , aria2                                      , command line download tool
 A    , mediainfo                                  , check video and audio information
 A    , xdg-utils                                  , provide `xdg-open` and required by `lf my_script`
 A    , sxiv                                       , simple image viewer
-A    , imagemagick                                , `display` command required by `lf`
+A    , imagemagick/ImageMagick                    , `display` command required by `lf`
 A    , flameshot                                  , simple buf powerful screenshot
 A    , maim                                       , more simple screenshot
 A    , xdotool                                    , required by `lf my_script`
-A    , gcolor2/3                                  , pick colors tool
+A    , gcolor2                                    , pick colors tool
 A    , mpv                                        , video player
 A    , ffmpeg                                     , video and audio handler
-A    , words                                      , english word dictionary(/usr/share/dict) for vim complete
+A    , words/words-en                             , english word dictionary(/usr/share/dict) for vim complete
 A    , x11-ssh-askpass                            , NOTICE: must installed
 A    , gnome-keyring                              , NOTICE: must installed
 A    , seahorse                                   , gui gnome-keyring manager
-A    , pacman-contrib                             , some tools such as `paclist` `pactree`
-B    , odt2txt                                    , convert odt format file to txt format
 B    , lynx                                       , terminal web browser
 B    , filezilla                                  , ftp gui client
 B    , unclutter                                  , hiding mouse cursor
 B    , cbatticon                                  , A lightweight and fast battery icon that sits in your system tray
 B    , lxappearance                               , lxde gtk+ theme switcher(independent)
 B    , breeze-gtk                                 , gtk* theme
-B    , cutefish-icons                             , cutefish os icons
-B    , capitaine-cursors                          , cursor theme
+B    , breeze-icons                               , gtk icons
+B    , https://github.com/ful1e5/Bibata_Cursor    , cursor theme
 B    , kvantum(KvSimplicityDark)                  , qt5/6 theme switcher
 B    , qt5ct(qt6ct)                               , required by `kvantum`
 B    , valgrind                                   , memory lack analyzer
-B    , calibre                                    , ebook library
-B    , https://github.com/noDRM/DeDRM_tools       , calibre plugin that remove kindle DRM
-B    , cpdf                                       , command line tool for pdf
-B    , gimp                                       , GNU Image Manipulation Program
 B    , android-file-transfer                      , Android MTP client with minimalistic UI
-B    , newsboat                                   , An RSS/Atom feed reader for text terminals
 B    , ffmpegthumbnailer                          , required by lf
-B    , pv                                         , A terminal-based tool for monitoring the progress of data through a pipeline
-B    , dictd                                      , Online dictionary client and server
+C    , pv                                         , A terminal-based tool for monitoring the progress of data through a pipeline
+C    , dictd                                      , Online dictionary client and server
 C    , pcmanfm                                    , gui file manager
 C    , testdisk                                   , Checks and undeletes partitions + PhotoRec signature based recovery tool
 C    , dos2unix                                   , Text file format converter
 C    , traceroute                                 , Tracks the route taken by packets over an IP network
 C    , webcamoid                                  , Webcamoid is a full featured webcam capture application.
+C    , cpdf                                       , command line tool for pdf
 D    , downgrade                                  , downgrading one or more packages to a version in archlinux
-D    , ventoy-bin                                 , make windows10 usb installation
+D    , pacman-contrib                             , some tools such as `paclist` `pactree`
+D    , calibre                                    , ebook library
+D    , https://github.com/noDRM/DeDRM_tools       , calibre plugin that remove kindle DRM
+D    , gimp                                       , GNU Image Manipulation Program

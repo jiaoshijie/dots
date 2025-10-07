@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
-# feh --bg-fill $HOME/.config/red_wallpaper &
 ifinstalled "xwallpaper" || exit
-is_update_alacritty=false  # if you don't wanna update the alacritty terminal theme, change it to `false`.
 
 change_background() {
   if [ -e "$1" ] && [ -f "$1" ]; then
     img_name=$(basename "$1")
-    [ "$img_name" == "red_wallpaper" ] || ln -sf "$1" "$HOME"/.config/red_wallpaper
-    if xwallpaper --zoom "$HOME"/.config/red_wallpaper > /dev/null 2>&1; then
-      update_alacritty
-    else
+    [ "$img_name" == "jsj_wallpaper_set-bg" ] || cp -f "$1" "$HOME"/.cache/jsj_wallpaper_set-bg
+    if ! xwallpaper --zoom "$HOME"/.cache/jsj_wallpaper_set-bg > /dev/null 2>&1; then
       echo "The file must be a image file."
     fi
   else
@@ -21,17 +17,10 @@ change_background() {
 regularly_change_background() {
   Index=(1 1 1 1 1 1 2 2 3 4 5 6 7 8 9 10 11 12 13 14 15 15 16 16)
   while true; do
-    change_background "$HOME/wallpaper/01_Mojave/mojave_dynamic_${Index[$(date '+%_H')]}.jpeg"
+    change_background "$HOME/media/wallpaper/01_Mojave/mojave_dynamic_${Index[$(date '+%_H')]}.jpeg"
     (( wa=60-$(date '+%_M') ))
     sleep $wa"m"
   done
-}
-
-update_alacritty() {
-  if $is_update_alacritty; then
-    rm -rf /home/red/.cache/wal/schemes/
-    wal -nqste -i "$HOME"/.config/red_wallpaper -o /home/red/dotfiles/my_script/convWal2Alacritty --saturate 1.0
-  fi
 }
 
 main() {
@@ -43,7 +32,7 @@ main() {
     fi
   else
     # random choose a image sets as wallpaper
-    img_dir=$HOME/wallpaper/02_wallpapers
+    img_dir=$HOME/media/wallpaper/02_wallpapers
     # https://unix.stackexchange.com/questions/15308/how-to-use-find-command-to-search-for-multiple-extensions#15309
     img=$(find "$img_dir" -type f \( -name '*.jpg' -o -name '*.png' -o -name '*jpeg' \) | shuf | tail -n 1)
     change_background "$img"

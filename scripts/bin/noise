@@ -2,5 +2,5 @@
 ifinstalled "mpv" || exit
 
 while true; do
-  mpv "$HOME/GDrive/others/alarm.oga" > /dev/null || exit
+  mpv "$HOME/media/GDrive/others/alarm.oga" > /dev/null || exit
 done

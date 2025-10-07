@@ -8,7 +8,7 @@ RED='\033[31m'
 CYAN='\033[36m'
 X='\033[0m'
 
-FILEPATH="~/GDrive/others/bookmarks.json"
+FILEPATH="~/media/GDrive/others/bookmarks.json"
 MAIN_USAGE=f"Usage: {CYAN}{os.path.basename(sys.argv[0])} {RED}[add|del|ch|ls] ...{X}"
 ADD_USAGE=f"Usage: {CYAN}{os.path.basename(sys.argv[0])} add {RED}key value{X}"
 DEL_USAGE=f"Usage: {CYAN}{os.path.basename(sys.argv[0])} del {RED}key{X}"

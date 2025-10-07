@@ -4,8 +4,8 @@ ifinstalled "rclone" || exit
 export {http,https,all}_proxy="http://127.0.0.1:7890"
 if [[ "$1" == "-r" ]]; then
   echo -e "\033[36mRemote\033[0m -> \033[36mLocal\033[0m"
-  rclone sync -i GDrive:/ ~/GDrive
+  rclone sync -i GDrive:/ ~/media/GDrive
 else
   echo -e "\033[36mLocal\033[0m -> \033[36mRemote\033[0m"
-  rclone sync -i ~/GDrive GDrive:/
+  rclone sync -i ~/media/GDrive GDrive:/
 fi

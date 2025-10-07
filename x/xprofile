@@ -26,7 +26,7 @@ pipewire &
 
 xcompmgr &
 
-set-bg "$HOME/.config/red_wallpaper" &
+set-bg "$HOME/.cache/jsj_wallpaper_set-bg" &
 # set-bg &
 
 sxhkd &
