@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# JSJ_DATA_MOUNT_POINT_1
+# JSJ_DATA_MOUNT_DEVICE_UUID_1
+
+R="\e[0m"
+C="\e[36m"
+
+# NOTE: write below content to /etc/fstab
+# UUID=${JSJ_DATA_MOUNT_DEVICE_UUID_1} ${JSJ_DATA_MOUNT_POINT_1} ext4 nofail,noauto 0 0
+
+if [[ -z $JSJ_DATA_MOUNT_POINT_1 || -z $JSJ_DATA_MOUNT_DEVICE_UUID_1 ]]; then
+  echo -e "${C}JSJ_DATA_MOUNT_POINT_1${R} or ${C}JSJ_DATA_MOUNT_DEVICE_UUID_1${R} is empty, do nothing"
+  exit 1
+fi
+
+if mountpoint "${JSJ_DATA_MOUNT_POINT_1}" &> /dev/null; then
+  echo -e "${C}${JSJ_DATA_MOUNT_POINT_1}${R} has already been mounted, do nothing"
+  exit 1
+fi
+
+if blkid -t UUID="${JSJ_DATA_MOUNT_DEVICE_UUID_1}" &> /dev/null; then
+  sudo mount "${JSJ_DATA_MOUNT_POINT_1}" || exit 1
+else
+  echo -e "USB device with uuid ${C}${JSJ_DATA_MOUNT_DEVICE_UUID_1}${R} not plugged, do nothing"
+  exit 1
+fi
+
+exit 0
