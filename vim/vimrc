@@ -6,12 +6,17 @@ set nomodeline
 let mapleader=' '
 let maplocalleader=','
 
-inoremap <C-j> <C-[>
 noremap <C-j> <C-[>
+inoremap <C-j> <C-[>
 " do nothing(normal visual select operator-wait)
-noremap s <Nop>
-noremap S <Nop>
+nnoremap s <Nop>
+nnoremap S <Nop>
+nnoremap C <Nop>
+" only use <C-u> and <C-d>
+nnoremap <C-f> <Nop>
+nnoremap <C-b> <Nop>
 nnoremap <Space> <Nop>
+vnoremap <Space> <Nop>
 nnoremap <leader><leader> <C-^>
 nnoremap <silent> <C-l> :nohl<cr><C-l>
 nnoremap <leader>/ /\<\><left><left>
@@ -140,8 +145,10 @@ if executable('rg')
   set grepprg=rg\ --vimgrep\ -S
   set grepformat=%f:%l:%c:%m
 else
-    set grepprg=grep\ -rIn
+  set grepprg=grep\ -rIHn
 endif
+
+runtime ftplugin/man.vim
 
 " ------------------------------------ 703 ------------------------------------
 if v:version < 703
