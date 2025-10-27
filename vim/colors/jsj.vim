@@ -66,7 +66,7 @@ hi! link LineNrBelow LineNr
 call s:h("CursorLineNr", { "fg": s:yellow, "bg": s:cursor_line_bg, "gui": "bold" })
 hi! link CursorLineFold FoldColumn
 hi! link CursorLineSign SignColumn
-call s:h("MatchParen", { "fg": s:orange, "bg": s:gray_bg, "gui": "bold" })
+call s:h("MatchParen", { "fg": s:cursor_bg, "bg": s:gray_bg, "gui": "bold" })
 hi! link MessageWindow WarningMsg
 call s:h("ModeMsg", { "fg": s:yellow })
 hi! link MoreMsg ModeMsg
