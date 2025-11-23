@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# set -xe
+
+path=$(cd $(dirname "$0") && pwd)
+
+echo "-------------------------------------------------------"
+echo "export GTAGSCONF=${path}/gtags.conf"
+echo "export GTAGSLABEL=ctags"
+echo "-------------------------------------------------------"
+echo "gtags --gtagsconf=${path}/gtags.conf --gtagslabel=ctags"
+echo "-------------------------------------------------------"
