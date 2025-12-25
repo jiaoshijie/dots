@@ -59,20 +59,22 @@ test -n "$URL" || help
 
 test -z "$OP" && OP=$(echo -e "video\naudio\nsubtitle" | fzf)
 
+FLAGS="--remote-components ejs:github -q --progress"
+
 case "$OP" in
   video)
-    yt-dlp -q --progress --add-metadata -i -f - "$URL" $COOKIE $PLAYLIST $OUTPUT_NAME
+    yt-dlp "$FLAGS" --add-metadata -i -f - "$URL" $COOKIE $PLAYLIST $OUTPUT_NAME
     ;;
   audio)
-    yt-dlp -q --progress -x --audio-format mp3 --audio-quality 0 -f ba "$URL" \
+    yt-dlp "$FLAGS" -x --audio-format mp3 --audio-quality 0 -f ba "$URL" \
       $COOKIE $PLAYLIST $OUTPUT_NAME
     ;;
   subtitle)
-    if yt-dlp -q --progress --list-subs "$URL" $COOKIE $PLAYLIST | grep '^en'; then
+    if yt-dlp "$FLAGS" --list-subs "$URL" $COOKIE $PLAYLIST | grep '^en'; then
       # NOTE: download the english subtitle
       echo -n "Subtitle to download: "; read SUBTITLE
       if [ -n "$SUBTITLE" ]; then
-        yt-dlp -q --progress --sub-format 'srt/vtt' --write-subs --write-auto-subs \
+        yt-dlp "$FLAGS" --sub-format 'srt/vtt' --write-subs --write-auto-subs \
           --skip-download "$URL" $COOKIE $PLAYLIST $OUTPUT_NAME --sub-langs "$SUBTITLE"
       else
         echo "No subtitle chosen, do nothing!!!"
