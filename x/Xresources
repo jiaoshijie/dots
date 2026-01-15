@@ -14,6 +14,8 @@ Xft.lcdfilter:                    lcddefault
 *fadeColor:                       black
 *pointerColorBackground:          #2B2C2B
 *pointerColorForeground:          #16A085
+# superuser.com/questions/1196399/how-do-i-set-the-size-of-the-x-mouse-pointer-in-the-windows-subsystem-for-linux
+Xcursor.size:                     48
 
 /* name    dark light */
 /* black     0    8   */

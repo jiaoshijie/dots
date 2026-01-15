@@ -14,6 +14,8 @@ super + shift + i
   rofi -modi 'emoji:rofiemoji' -show emoji
 super + b
   bookmarks
+super + shift + b
+  durmom
 super + c
   $BROWSER
 super + shift + c
