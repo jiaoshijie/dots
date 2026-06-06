@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+# ping -c 1 192.168.70.78 -W 0.5 -q
+TARGET=${1:-100}
+SUBNET=$2
+MYSELF=$3
+GATEWAY=$4
+
+quit_anyway() {
+  echo "Caught singal, then quit: TARGET: $TARGET"
+  exit 0
+}
+
+vn() {
+  temp=$1
+  [[ $temp =~ ^[0-9]+$ ]] && (( temp >= 1 && temp <= 254 ))
+}
+
+trap quit_anyway SIGINT SIGTERM
+
+if ! vn "$TARGET"; then
+  echo "Usage: 'target' must be in the range 1 to 254"
+  exit 1
+fi
+
+if [[ -z "$SUBNET" && -z "$MYSELF" && -z "$GATEWAY" ]]; then
+  read SUBNET GATEWAY MYSELF < <(ip route | head -n 1 | awk '{split($3,a,"."); split($9,b,"."); print a[3], a[4], b[4]}')
+fi
+
+if ! vn "$SUBNET" || ! vn "$MYSELF" || ! vn "$GATEWAY"; then
+  echo "Usage: $0 target subnet myself gateway"
+  exit 1
+fi
+
+echo -n "Start..."
+
+while ((TARGET != 255)); do
+  if ((TARGET != MYSELF)) && ((TARGET != GATEWAY)); then
+    echo -n " $TARGET"
+    if ping -W 0.5 -q -c 1 192.168.$SUBNET.$TARGET &> /dev/null; then
+      echo -e "\n192.168.$SUBNET.$TARGET"
+      exit 0
+    fi
+  fi
+
+  ((TARGET++))
+done
+
+exit 1
