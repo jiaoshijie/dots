@@ -1,0 +1,21 @@
+;; I don't know how to use emacs
+
+;; C-y for pasting content to emacs from system clipboard
+;; C-x u for undo
+
+(setq inhibit-startup-screen t)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(menu-bar-mode -1)
+(set-face-attribute 'default nil :height 200)
+
+;; stop emacs creating annoying files
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+
+;; (fido-vertical-mode 1)
+(fido-mode 1)
+(setq completion-styles '(flex))
