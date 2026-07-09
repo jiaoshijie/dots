@@ -44,3 +44,4 @@ type "dwm" &> /dev/null \
   && [ "$(tty)" = "/dev/tty1" ] \
   && ! pgrep -x Xorg >/dev/null \
   && exec startx &> /dev/null
+true  # make this file always exits with 0

@@ -149,10 +149,10 @@ __ps1() {
   if env | grep -Eq "^(http|https|all)_proxy"; then
     PS1+=" -> (${RED}P${RESET})"
   fi
+  [[ ${__last_cmd_exit_code} -ne 0 ]] && PS1+=" -> [${RED}${__last_cmd_exit_code}${RESET}]"
   PS1+="\n${RESET}$ "
 }
-
-export PROMPT_COMMAND=__ps1
+PROMPT_COMMAND='__last_cmd_exit_code=$?;__ps1;'
 
 SetProxy() {
   local ip="${2:-127.0.0.1}"
