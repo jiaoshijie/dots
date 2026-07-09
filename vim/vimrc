@@ -156,16 +156,16 @@ if v:version < 703
 endif
 
 set colorcolumn=79
-silent! call mkdir(expand('/tmp/jsj_vim_u/undodir'), 'p', 0700)
-set undodir=/tmp/jsj_vim_u/undodir//
+let &undodir = printf('/tmp/.vim-%d-undodir', trim(system('id -u'))) " NOTE: The Linux must have the `id` executable
+silent! call mkdir(&undodir, 'p', 0700)
 set undofile
 
 " NOTE: fzf (Fuzzy Finder)
 if isdirectory('/usr/share/vim/vimfiles')  " arch linux
   set rtp+=/usr/share/vim/vimfiles
 endif
-if isdirectory('/usr/share/doc/fzf/examples/')  " ubuntu linux
-  set rtp+=/usr/share/doc/fzf/examples/
+if isdirectory('/usr/share/doc/fzf/examples')  " ubuntu linux
+  set rtp+=/usr/share/doc/fzf/examples
 endif
 
 function! s:get_git_root()
