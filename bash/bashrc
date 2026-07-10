@@ -152,7 +152,7 @@ __ps1() {
   [[ ${__last_cmd_exit_code} -ne 0 ]] && PS1+=" -> [${RED}${__last_cmd_exit_code}${RESET}]"
   PS1+="\n${RESET}$ "
 }
-PROMPT_COMMAND='__last_cmd_exit_code=$?;__ps1;'
+PROMPT_COMMAND='__ps1'
 
 SetProxy() {
   local ip="${2:-127.0.0.1}"
@@ -231,3 +231,5 @@ fi
 _source_if "$HOME/.user_custom_bashrc"
 
 _have zoxide && eval "$(zoxide init bash --cmd j)"
+
+PROMPT_COMMAND='__last_cmd_exit_code=$?;'$PROMPT_COMMAND # PROMPT_COMMAND can't be empty it at least be set to __ps1
