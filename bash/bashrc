@@ -197,7 +197,6 @@ else
   alias tree='gio tree'
 fi
 alias ldf='duf --only local'
-alias clear='printf "\e[H\e[2J"'
 alias c='printf "\e[H\e[2J"'
 
 alias hexedit='hexedit --color'
