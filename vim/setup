@@ -4,5 +4,4 @@ set -xe
 
 path=$(cd $(dirname "$0") && pwd)
 
-cp -f "$path/vimrc" "$HOME/.vimrc"
-chmod 400 "$HOME/.vimrc"
+install -m 400 "$path/vimrc" "$HOME/.vimrc"
