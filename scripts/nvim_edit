@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+CYAN="\e[36m"
+RESET="\e[0m"
+
+[[ -n "$NVIM" && -f "$HOME/.config/nvim/scripts/nvim_edit_rpc" ]] || {
+  echo -e "Error: ${CYAN}NVIM${RESET} env not set or ${CYAN}nvim_edit_rpc${RESET} not found"
+  exit 1
+}
+
+[[ -x "$JSJ_NEOVIM_BIN" ]] || {
+  echo -e "Error: no neovim binary found"
+  exit 1
+}
+
+[[ -z "$1" ]] && {
+  echo -e "Error: filename is required"
+  exit 1
+}
+
+filepath=$(realpath "$1")
+
+eval "$JSJ_NEOVIM_BIN" --headless -l "$HOME/.config/nvim/scripts/nvim_edit_rpc" "$filepath"

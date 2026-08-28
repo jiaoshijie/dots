@@ -197,10 +197,13 @@ else
   alias tree='gio tree'
 fi
 alias ldf='duf --only local'
-alias c='printf "\e[H\e[2J"'
 
 alias hexedit='hexedit --color'
-alias vi="$EDITOR"
+if [[ -n "$NVIM" && -f "$HOME/.config/nvim/scripts/nvim_edit_rpc" ]]; then
+  alias vi="$HOME/dots/scripts/nvim_edit"
+else
+  alias vi="$EDITOR"
+fi
 alias nlist='nmcli device wifi list'
 alias nconn='nmcli device wifi connect'
 alias nscan='nmcli device wifi rescan'
