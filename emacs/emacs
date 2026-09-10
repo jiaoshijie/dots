@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; I don't know how to use emacs
 
 ;; C-y for pasting content to emacs from system clipboard
